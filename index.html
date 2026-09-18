@@ -5,24 +5,23 @@
 <title>Galpões e Negócios</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-.header{height:340px;background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.7)),url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') center/cover;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.header{height:360px;background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.7)),url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') center/cover;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .header h1{background:#000;color:#FFD700;padding:10px 22px;border:2px solid #FFD700;font-weight:900}
 .sub{background:rgba(0,0,0,.9);color:#fff;padding:8px 14px;border-radius:20px;border:1px solid #FFD700;font-size:11px;margin:12px;font-weight:bold}
 .tags{display:flex;gap:8px}.tags span{background:#FFD700;padding:6px 12px;border-radius:20px;font-weight:900;font-size:11px}
 .tabs{display:flex;background:#fff;position:sticky;top:0;z-index:10}
 .tab{flex:1;text-align:center;padding:14px;font-weight:900;cursor:pointer;border-bottom:3px solid transparent}
 .tab.active{border-bottom:3px solid #FFD700;background:#fffde7}
-.banner{background:#FFD700;text-align:center;padding:10px;font-weight:900;font-size:12px}
-.filtros{display:flex;gap:8px;padding:10px}.filtros select{flex:1;padding:10px;border-radius:8px;border:1px solid #ccc}
-#buscar,#anunciar{padding:15px}
-.card{border:1px solid #ddd;border-radius:10px;padding:12px;margin-bottom:12px}
+.banner{background:#FFD700;text-align:center;padding:12px;font-weight:900;font-size:13px}
+.filtros{display:flex;gap:8px;padding:10px}.filtros select{flex:1;padding:12px;border-radius:8px;border:1px solid #ccc}
+.como{background:#111;color:#fff;padding:20px;margin:15px;border-radius:10px}
+.como h2{color:#FFD700;text-align:center;margin-bottom:12px}
+.passo{background:#222;border-left:4px solid #FFD700;padding:10px;margin:8px 0;border-radius:4px;font-size:13px}
+.aviso{background:#FFD700;color:#000;padding:12px;border-radius:8px;font-weight:900;text-align:center;margin-top:12px;font-size:12px}
+.card{border:1px solid #ddd;border-radius:10px;padding:12px;margin:12px}
 .form input,.form select,.form textarea{width:100%;padding:12px;margin:6px 0;border:1px solid #ccc;border-radius:8px}
 .btn{background:#FFD700;border:none;padding:14px;width:100%;border-radius:8px;font-weight:900;cursor:pointer;margin-top:10px}
-.como{background:#111;color:#fff;padding:22px;margin:15px 0;border-radius:10px}
-.como h2{color:#FFD700;text-align:center;margin-bottom:12px;font-size:16px}
-.como.p{background:#222;border-left:4px solid #FFD700;padding:10px;margin:8px 0;border-radius:4px;font-size:13px}
-.aviso{background:#FFD700;color:#000;padding:12px;border-radius:8px;font-weight:900;text-align:center;margin-top:12px;font-size:12px}
-.hidden{display:none}
+.hidden{display:none!important}
 </style>
 </head>
 <body>
@@ -32,69 +31,48 @@
 <div class="tags"><span>🏢 APARTAMENTOS</span><span>🏠 CASAS</span><span>🏭 GALPÕES</span></div>
 </div>
 <div class="tabs">
-<div class="tab active" onclick="show('buscar',this)">🔍 BUSCAR</div>
-<div class="tab" onclick="show('anunciar',this)">📢 ANUNCIAR</div>
+<div id="tabBuscar" class="tab active" onclick="abrirBuscar()">🔍 BUSCAR</div>
+<div id="tabAnunciar" class="tab" onclick="abrirAnunciar()">📢 ANUNCIAR</div>
 </div>
 <div class="banner">⚡ 1º ANÚNCIO GRÁTIS 10 DIAS • Depois: 1 por R$49,90 | 3 por R$99,90</div>
 
-<div id="buscar">
+<div id="telaBuscar">
 <div class="filtros">
-<select id="fTipo"><option value="">Todos os tipos</option><option>Apartamento</option><option>Casa</option><option>Galpão</option></select>
-<select id="fCidade"><option value="">Todas as cidades</option><option>Santo André</option><option>São Bernardo do Campo</option><option>São Caetano do Sul</option><option>Mauá</option><option>Diadema</option><option>Ribeirão Pires</option><option>Rio Grande da Serra</option><option>São Paulo - Capital</option><option>Guarulhos</option><option>Osasco</option><option>Suzano</option></select>
+<select id="fTipo" onchange="render()"><option value="">Todos</option><option>Apartamento</option><option>Casa</option><option>Galpão</option></select>
+<select id="fCidade" onchange="render()"><option value="">Grande ABC (Todas)</option><option>Santo André</option><option>São Bernardo do Campo</option><option>São Caetano do Sul</option><option>Mauá</option><option>Diadema</option><option>Ribeirão Pires</option><option>Rio Grande da Serra</option><option>São Paulo - Capital</option><option>Guarulhos</option><option>Osasco</option><option>Suzano</option></select>
 </div>
-
 <div class="como">
 <h2>📋 COMO FUNCIONA? LEIA ANTES</h2>
-<div class="p"><b style="color:#FFD700">1. DIRETO COM O PROPRIETÁRIO:</b> Somos vitrine. Você fala direto com o dono, sem corretor.</div>
-<div class="p"><b style="color:#FFD700">2. SUA RESPONSABILIDADE:</b> Preencher ficha completa, fotos reais e valor correto.</div>
-<div class="p"><b style="color:#FFD700">3. CONTATO DIRETO:</b> Interessado clica no seu WhatsApp e fala com você.</div>
-<div class="p"><b style="color:#FFD700">4. VISITA E CONTRATO POR SUA CONTA:</b> Você agenda visita, negocia e faz contrato de locação/venda.</div>
-<div class="aviso">⚠️ NÃO SOMOS IMOBILIÁRIA. NÃO COBRAMOS COMISSÃO. NÃO ACOMPANHAMOS VISITAS E NÃO FAZEMOS CONTRATOS. TUDO É RESPONSABILIDADE DO ANUNCIANTE.</div>
+<div class="passo"><b style="color:#FFD700">1. DIRETO:</b> Vitrine. Você fala direto com o dono, sem imobiliária.</div>
+<div class="passo"><b style="color:#FFD700">2. RESPONSABILIDADE:</b> Preencher ficha, fotos reais, valor correto por sua conta.</div>
+<div class="passo"><b style="color:#FFD700">3. CONTATO:</b> Cliente clica no seu WhatsApp.</div>
+<div class="passo"><b style="color:#FFD700">4. VISITA E CONTRATO:</b> Agendar visita, negociar e fazer contrato é 100% com você.</div>
+<div class="aviso">⚠️ NÃO SOMOS IMOBILIÁRIA. NÃO COBRAMOS COMISSÃO. NÃO ACOMPANHAMOS VISITAS. NÃO FAZEMOS CONTRATOS. TUDO É RESPONSABILIDADE DO ANUNCIANTE.</div>
 </div>
-
 <div id="lista"></div>
 </div>
 
-<div id="anunciar" class="hidden">
-<h3 style="text-align:center;margin-bottom:10px">📢 Anunciar Imóvel - Proprietário Direto</h3>
-<div class="form">
+<div id="telaAnunciar" class="hidden">
+<div style="padding:15px">
+<h3 style="text-align:center">📢 Anunciar Imóvel</h3>
 <select id="tipo"><option>Apartamento</option><option>Casa</option><option>Galpão</option></select>
 <select id="cidade"><option>Santo André</option><option>São Bernardo do Campo</option><option>São Caetano do Sul</option><option>Mauá</option><option>Diadema</option><option>Ribeirão Pires</option><option>Rio Grande da Serra</option><option>São Paulo - Capital</option><option>Guarulhos</option><option>Osasco</option><option>Suzano</option></select>
-<input id="bairro" placeholder="Bairro ex: Centro">
-<input id="valor" placeholder="Valor R$ ex: 2500 ou 350000">
-<input id="area" placeholder="Área m² ex: 120">
-<input id="whats" placeholder="Seu WhatsApp com DDD ex: 11999999999">
-<textarea id="desc" placeholder="Descrição do imóvel"></textarea>
-<input id="foto" placeholder="Link da foto (ou deixa vazio)">
-<button class="btn" onclick="salvar()">PUBLICAR MEU ANÚNCIO GRÁTIS</button>
-<p style="font-size:11px;text-align:center;margin-top:10px">Ao publicar você declara que é o proprietário e assume total responsabilidade por visita, negociação e contrato.</p>
+<input id="bairro" placeholder="Bairro">
+<input id="valor" placeholder="Valor R$">
+<input id="area" placeholder="Área m²">
+<input id="whats" placeholder="WhatsApp com DDD">
+<textarea id="desc" placeholder="Descrição"></textarea>
+<button class="btn" onclick="salvar()">PUBLICAR GRÁTIS</button>
+<button class="btn" style="background:#eee" onclick="abrirBuscar()">VOLTAR</button>
 </div>
 </div>
 
 <script>
-function show(id,el){
- document.getElementById('buscar').classList.add('hidden');
- document.getElementById('anunciar').classList.add('hidden');
- document.getElementById(id).classList.remove('hidden');
- document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
- el.classList.add('active');
-}
-let imoveis = JSON.parse(localStorage.getItem('imoveis')||'[]');
-function render(){
- let l=document.getElementById('lista');
- let ft=document.getElementById('fTipo').value;
- let fc=document.getElementById('fCidade').value;
- let fil=imoveis.filter(i=>(!ft||i.tipo==ft)&&(!fc||i.cidade==fc));
- if(fil.length==0){l.innerHTML='<div style="text-align:center;padding:30px;background:#f5f5f5;border-radius:10px">Nenhum imóvel ainda. Seja o primeiro a anunciar!</div>';return}
- l.innerHTML=fil.map(i=>`<div class="card"><b>${i.tipo} - ${i.bairro} - ${i.cidade}</b><br>💰 R$ ${i.valor} | 📐 ${i.area}m²<br>${i.desc}<br><a href="https://wa.me/55${i.whats}" target="_blank" style="display:inline-block;background:#25D366;color:#fff;padding:8px 14px;border-radius:20px;text-decoration:none;margin-top:8px;font-weight:900">💬 Chamar no WhatsApp</a></div>`).join('');
-}
-function salvar(){
- let obj={tipo:tipo.value,cidade:cidade.value,bairro:bairro.value,valor:valor.value,area:area.value,whats:whats.value,desc:desc.value};
- if(!obj.bairro||!obj.valor||!obj.whats){alert('Preencha bairro, valor e WhatsApp');return}
- imoveis.unshift(obj); localStorage.setItem('imoveis',JSON.stringify(imoveis));
- alert('Anúncio publicado com sucesso!'); show('buscar',document.querySelectorAll('.tab')[0]); render();
-}
-fTipo.onchange=render; fCidade.onchange=render; render();
+function abrirBuscar(){document.getElementById('telaBuscar').classList.remove('hidden');document.getElementById('telaAnunciar').classList.add('hidden');document.getElementById('tabBuscar').classList.add('active');document.getElementById('tabAnunciar').classList.remove('active');}
+function abrirAnunciar(){document.getElementById('telaAnunciar').classList.remove('hidden');document.getElementById('telaBuscar').classList.add('hidden');document.getElementById('tabAnunciar').classList.add('active');document.getElementById('tabBuscar').classList.remove('active');}
+let imoveis=[];try{imoveis=JSON.parse(localStorage.getItem('imoveis')||'[]')}catch(e){}
+function render(){let l=document.getElementById('lista');let ft=fTipo.value;let fc=fCidade.value;let fil=imoveis.filter(i=>(!ft||i.tipo==ft)&&(!fc||i.cidade==fc));if(fil.length==0){l.innerHTML='<div style="text-align:center;padding:30px;background:#f5f5f5;margin:15px;border-radius:10px">Nenhum imóvel ainda. Seja o primeiro!</div>';return}l.innerHTML=fil.map(i=>`<div class="card"><b>${i.tipo} - ${i.bairro} - ${i.cidade}</b><br>R$ ${i.valor} | ${i.area}m²<br>${i.desc}<br><a href="https://wa.me/55${i.whats}" target="_blank" style="display:inline-block;background:#25D366;color:#fff;padding:8px 14px;border-radius:20px;text-decoration:none;margin-top:8px;font-weight:900">WhatsApp</a></div>`).join('');}
+function salvar(){let o={tipo:tipo.value,cidade:cidade.value,bairro:bairro.value,valor:valor.value,area:area.value,whats:whats.value,desc:desc.value};if(!o.bairro||!o.valor||!o.whats){alert('Preencha bairro, valor e whats');return}imoveis.unshift(o);localStorage.setItem('imoveis',JSON.stringify(imoveis));alert('Publicado!');abrirBuscar();render();}render();
 </script>
 </body>
 </html>
