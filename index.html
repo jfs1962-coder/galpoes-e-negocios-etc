@@ -3,79 +3,79 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>galpoes&negocios</title>
+<title>Galpões & Negócios - Galpões e Imóveis ABC e SP</title>
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#1E88E5">
+<meta name="theme-color" content="#FFD600">
 <style>
-body{font-family:Arial;margin:0;background:#f5f7fa}
-header{background:#1E88E5;color:#fff;padding:20px;text-align:center}
-header h1{margin:0;font-size:24px}
-.filtros{background:#fff;padding:15px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
-select,button{padding:10px 15px;border-radius:8px;border:1px solid #ddd;font-size:14px}
-button{background:#1E88E5;color:#fff;border:none;font-weight:bold}
-.card{background:#fff;margin:12px;padding:15px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
-.card h3{margin:0 0 5px;color:#1E88E5}
-.tag{display:inline-block;background:#E3F2FD;color:#1E88E5;padding:3px 8px;border-radius:20px;font-size:12px;margin-right:5px}
+*{box-sizing:border-box}body{font-family:Arial;margin:0;background:#f0f0f0}
+.header{height:200px;background:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200') center/cover;position:relative}
+.header::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.35)}
+.header-content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;text-align:center;color:#fff;width:90%}
+.logo{font-size:22px;font-weight:bold;background:rgba(0,0,0,0.8);display:inline-block;padding:8px 18px;border-radius:4px;border:2px solid #FFD600}
+.tabs{display:flex;background:#fff;border-bottom:3px solid #FFD600}
+.tab{flex:1;padding:14px;text-align:center;font-weight:bold;font-size:14px}
+.tab.active{background:#FFF9C4;border-bottom:3px solid #000;margin-bottom:-3px}
+.banner{background:#FFD600;color:#000;text-align:center;padding:12px;font-weight:bold;font-size:14px}
+.filtros{background:#fff;padding:15px;max-width:600px;margin:0 auto}
+.row{display:flex;gap:10px;margin-bottom:12px}
+select{flex:1;padding:12px;border:1px solid #ccc;border-radius:8px;font-size:14px}
+.btn-black{background:#000;color:#FFD600;border:none;width:100%;padding:14px;border-radius:8px;font-weight:bold;cursor:pointer}
+.lista{max-width:600px;margin:0 auto;padding:10px}
+.card{background:#fff;padding:15px;border-radius:10px;margin-bottom:10px;box-shadow:0 2px 6px rgba(0,0,0,0.08)}
+.tag{background:#FFF176;padding:4px 8px;border-radius:12px;font-size:11px;margin-right:5px}
 </style>
 </head>
 <body>
-<header>
-<h1>galpoes&negocios</h1>
-<p style="margin:5px 0 0;opacity:0.9">Galpões e Imóveis no ABC e SP</p>
-</header>
-
+<div class="header"><div class="header-content"><div class="logo">GALPÕES & NEGÓCIOS</div></div></div>
+<div class="tabs"><div class="tab active">🔍 BUSCAR</div><div class="tab">📢 ANUNCIAR</div></div>
+<div class="banner">📍 1º ANÚNCIO GRÁTIS 10 DIAS • Depois: 1 por R$49,90 | 3 por R$99,90</div>
 <div class="filtros">
+<div class="row">
+<select id="tipo">
+<option value="todos">Todos os Imóveis</option>
+<option value="Galpão">Galpões</option>
+<option value="Apartamento">Apartamentos</option>
+<option value="Casa">Casas</option>
+<option value="Sobrado">Sobrados</option>
+<option value="Terreno">Terrenos</option>
+<option value="Sala Comercial">Salas Comerciais</option>
+<option value="Área Comercial">Áreas Comerciais</option>
+<option value="Barracão">Barracões</option>
+</select>
 <select id="cidade">
-<option value="todas">Todas Cidades</option>
+<option value="todos">Grande ABC (Todas)</option>
 <option value="Santo André">Santo André</option>
 <option value="São Bernardo do Campo">São Bernardo do Campo</option>
 <option value="São Caetano do Sul">São Caetano do Sul</option>
 <option value="Mauá">Mauá</option>
 <option value="Diadema">Diadema</option>
 <option value="Ribeirão Pires">Ribeirão Pires</option>
-<option value="São Paulo">São Paulo</option>
+<option value="Rio Grande da Serra">Rio Grande da Serra</option>
+<option value="São Paulo">São Paulo - Capital</option>
+<option value="Guarulhos">Guarulhos</option>
+<option value="Osasco">Osasco</option>
 </select>
-
-<select id="tipo">
-<option value="todos">Todos Imóveis</option>
-<option value="Galpão">Galpões</option>
-<option value="Apartamento">Apartamentos</option>
-<option value="Casa">Casas</option>
-<option value="Terreno">Terrenos</option>
-<option value="Sala Comercial">Salas Comerciais</option>
-<option value="Sobrado">Sobrados</option>
-</select>
-<button onclick="filtrar()">Filtrar</button>
 </div>
-
-<div id="lista"></div>
-
+<button class="btn-black" onclick="filtrar()">SEJA O 1º A ANUNCIAR GRÁTIS</button>
+</div>
+<div class="lista" id="lista"></div>
 <script>
 const imoveis = [
-{cidade:"Santo André", tipo:"Galpão", titulo:"Galpão 800m² - Vila Homero", bairro:"Vila Homero Thon", valor:"R$ 12.000/mês"},
+{cidade:"Santo André", tipo:"Galpão", titulo:"Galpão 800m² - Vila Homero Thon", bairro:"Vila Homero", valor:"R$ 12.000/mês"},
 {cidade:"São Bernardo do Campo", tipo:"Galpão", titulo:"Galpão 1200m² - Alvarenga", bairro:"Alvarenga", valor:"R$ 18.000/mês"},
-{cidade:"São Caetano do Sul", tipo:"Apartamento", titulo:"Apto 3 dorms - Centro", bairro:"Centro", valor:"R$ 450.000"},
-{cidade:"Mauá", tipo:"Casa", titulo:"Casa 3 dorms - Matriz", bairro:"Matriz", valor:"R$ 380.000"},
-{cidade:"Diadema", tipo:"Sala Comercial", titulo:"Sala 45m² - Centro", bairro:"Centro", valor:"R$ 1.500/mês"},
-{cidade:"Santo André", tipo:"Terreno", titulo:"Terreno 250m² - Camilópolis", bairro:"Camilópolis", valor:"R$ 280.000"},
-{cidade:"São Paulo", tipo:"Sobrado", titulo:"Sobrado - Vila Prudente", bairro:"Vila Prudente", valor:"R$ 650.000"},
-{cidade:"São Bernardo do Campo", tipo:"Apartamento", titulo:"Apto 2 dorms - Rudge Ramos", bairro:"Rudge Ramos", valor:"R$ 320.000"}
+{cidade:"São Caetano do Sul", tipo:"Galpão", titulo:"Galpão 500m² - Centro", bairro:"Centro", valor:"R$ 9.500/mês"},
+{cidade:"Mauá", tipo:"Galpão", titulo:"Galpão 2000m² - Sertãozinho", bairro:"Sertãozinho", valor:"R$ 22.000/mês"},
+{cidade:"Diadema", tipo:"Galpão", titulo:"Galpão 650m² - Centro", bairro:"Centro", valor:"R$ 8.000/mês"},
+{cidade:"Ribeirão Pires", tipo:"Galpão", titulo:"Galpão 400m² - Centro", bairro:"Centro", valor:"R$ 5.500/mês"}
 ];
-
 function mostrar(lista){
- document.getElementById("lista").innerHTML = lista.map(i=>`
-  <div class="card">
-   <h3>${i.titulo}</h3>
-   <span class="tag">${i.cidade}</span><span class="tag">${i.tipo}</span>
-   <p style="margin:8px 0 0">📍 ${i.bairro} - <b>${i.valor}</b></p>
-  </div>
- `).join("") || "<p style='text-align:center;padding:30px'>Nenhum imóvel encontrado</p>";
+document.getElementById("lista").innerHTML = lista.map(i=>`<div class="card"><h3>${i.titulo}</h3><span class="tag">${i.cidade}</span><span class="tag">${i.tipo}</span><div style="font-weight:bold;color:#1E88E5;margin-top:6px">📍 ${i.bairro} • ${i.valor}</div></div>`).join("") || "<p style='text-align:center;padding:20px'>Nenhum imóvel. Seja o primeiro!</p>";
 }
 function filtrar(){
- const c = document.getElementById("cidade").value;
- const t = document.getElementById("tipo").value;
- const f = imoveis.filter(i => (c=="todas"||i.cidade==c) && (t=="todos"||i.tipo==t));
- mostrar(f);
+const c=document.getElementById("cidade").value;
+const t=document.getElementById("tipo").value;
+const f=imoveis.filter(i=>(c=="todos"||i.cidade==c)&&(t=="todos"||i.tipo==t));
+mostrar(f);
 }
 mostrar(imoveis);
 </script>
