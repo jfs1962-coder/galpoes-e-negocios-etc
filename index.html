@@ -1,3 +1,56 @@
-<!-- VERSAO FINAL 11 CIDADES - 18/09/2026 -->
 <!DOCTYPE html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Galpões & Negócios</title><style>*{box-sizing:border-box}body{font-family:Arial;margin:0;background:#f5f5f5}.header{height:180px;background:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200') center/cover;position:relative}.header::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.4)}.logo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;background:#000;color:#FFD600;padding:10px 20px;border:2px solid #FFD600;font-weight:bold}.tabs{display:flex;background:#fff}.tab{flex:1;padding:14px;text-align:center;font-weight:bold;border-bottom:3px solid #FFD600}.banner{background:#FFD600;padding:12px;text-align:center;font-weight:bold}.filtros{background:#fff;padding:15px;display:flex;gap:10px}select{flex:1;padding:12px;border-radius:8px;border:1px solid #ccc}</style></head><body><div class="header"><div class="logo">GALPÕES & NEGÓCIOS</div></div><div class="tabs"><div class="tab">🔍 BUSCAR</div><div class="tab">📢 ANUNCIAR</div></div><div class="banner">⚡ 1º ANÚNCIO GRÁTIS 10 DIAS • Depois: 1 por R$49,90 | 3 por R$99,90</div><div class="filtros"><select id="tipo"><option>Todos</option><option>Galpão</option><option>Apartamento</option><option>Casa</option><option>Sobrado</option><option>Terreno</option><option>Sala Comercial</option><option>Barracão</option></select><select id="cidade"><option>Grande ABC (Todas)</option><option>Santo André</option><option>São Bernardo do Campo</option><option>São Caetano do Sul</option><option>Mauá</option><option>Diadema</option><option>Ribeirão Pires</option><option>Rio Grande da Serra</option><option>São Paulo - Capital</option><option>Guarulhos</option><option>Osasco</option></select></div><p style="text-align:center;padding:20px">Nenhum imóvel ainda. Seja o primeiro!</p></body></html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galpões e Negócios</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+.header{height:360px;background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') center/cover;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+.header h1{background:#000;color:#FFD700;padding:10px 22px;border:2px solid #FFD700;font-size:22px;font-weight:900;margin-bottom:15px}
+.subtitle{background:rgba(0,0,0,0.9);color:#fff;padding:10px 18px;border-radius:30px;border:1px solid #FFD700;font-size:13px;font-weight:bold;margin-bottom:15px}
+.btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.btns span{background:#FFD700;color:#000;padding:8px 16px;border-radius:20px;font-weight:900;font-size:12px}
+.tabs{display:flex}
+.tab{flex:1;text-align:center;padding:14px;font-weight:900;border-bottom:3px solid #FFD700}
+.banner{background:#FFD700;text-align:center;padding:12px;font-weight:900;font-size:13px}
+.filters{display:flex;gap:10px;padding:12px}
+.filters select{flex:1;padding:12px;border:1px solid #ccc;border-radius:8px}
+.empty{text-align:center;padding:40px;background:#f5f5f5}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>GALPÕES E NEGÓCIOS</h1>
+  <div class="subtitle">GRANDE ABC • APARTAMENTOS • CASAS • GALPÕES • PROPRIETÁRIO DIRETO</div>
+  <div class="btns">
+    <span>🏢 APARTAMENTOS</span>
+    <span>🏠 CASAS</span>
+    <span>🏭 GALPÕES</span>
+  </div>
+</div>
+<div class="tabs">
+  <div class="tab">🔍 BUSCAR</div>
+  <div class="tab">📢 ANUNCIAR</div>
+</div>
+<div class="banner">⚡ 1º ANÚNCIO GRÁTIS 10 DIAS • Depois: 1 por R$49,90 | 3 por R$99,90</div>
+<div class="filters">
+  <select><option>Todos</option><option>Apartamentos</option><option>Casas</option><option>Galpões</option></select>
+  <select>
+    <option>Grande ABC (Todas)</option>
+    <option>Santo André</option>
+    <option>São Bernardo do Campo</option>
+    <option>São Caetano do Sul</option>
+    <option>Mauá</option>
+    <option>Diadema</option>
+    <option>Ribeirão Pires</option>
+    <option>Rio Grande da Serra</option>
+    <option>São Paulo - Capital</option>
+    <option>Guarulhos</option>
+    <option>Osasco</option>
+    <option>Todas</option>
+  </select>
+</div>
+<div class="empty">Nenhum imóvel ainda. Seja o primeiro!</div>
+</body>
+</html>
