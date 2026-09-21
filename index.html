@@ -4,84 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GALPÕES E NEGÓCIOS - Grande ABC</title>
-<link rel="manifest" href="manifest.json">
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5}
+body{margin:0;font-family:Arial;background:#f5f5f5}
 .cabecalho{background:#000;color:#FFD700;text-align:center;padding:15px}
-.cabecalho h1{margin:0;font-size:22px;letter-spacing:1px}
-.sub{font-size:11px;color:#fff;margin-top:4px}
-.abas{display:flex;background:#111;border-bottom:3px solid #FFD700}
-.abas div{flex:1;text-align:center;padding:14px;color:#fff;font-weight:bold;cursor:pointer;font-size:13px}
-.guia.ativa{background:#FFD700;color:#000}
 .bandeira{background:#FFD700;color:#000;text-align:center;padding:8px;font-weight:bold;font-size:12px}
-.banner{width:100%;line-height:0}
-.banner img{width:100%;height:auto;display:block}
-.Filtros{display:grid;gap:8px;background:#fff;padding:12px;border-radius:8px;margin:10px}
-select,input{padding:10px;border-radius:6px;border:1px solid #ddd;width:100%}
-.como{background:#111;color:#fff;padding:15px;border-radius:8px;margin:10px}
-.como h2{text-align:center;color:#FFD700;margin-top:0;font-size:15px}
-.ano{font-size:13px;line-height:1.6}
-.escondido{display:none}
+.banner img{width:100%;display:block}
+.como{background:#111;color:#fff;padding:15px;margin:10px;border-radius:8px}
+.como h2{color:#FFD700;text-align:center}
 </style>
 </head>
 <body>
-<div class="cabecalho">
-<h1>GALPÕES E NEGÓCIOS</h1>
-<div class="sub">GRANDE ABC • APARTAMENTOS • CASAS • GALPÕES</div>
+<div class="cabecalho"><h1>GALPÕES E NEGÓCIOS</h1></div>
+<div class="bandeira">⚡ 1º ANÚNCIO GRÁTIS 10 DIAS • 1 por R$49,90 | 3 por R$99,90</div>
+<div class="banner"><img src="banner.jpg" alt="Dono Anuncia, Cliente Chama Direto"></div>
+<div class="como"><h2>🔍 COMO FUNCIONA? LEIA ANTES</h2>
+<b style="color:#FFD700">1. DONO OU CORRETOR ANUNCIA:</b> Cadastra em 2 min<br><br>
+<b style="color:#FFD700">2. CLIENTE CHAMA DIRETO:</b> Sem intermediário<br><br>
+<b style="color:#FFD700">3. ZERO COMISSÃO:</b> DONO ANUNCIA, CLIENTE CHAMA DIRETO
 </div>
-
-<div class="abas">
-<div id="tabBuscar" class="guia ativa" onclick="abrirBuscar()">🏢 BUSCAR</div>
-<div id="tabAnunciar" class="guia" onclick="abrirAnunciar()">📢 ANUNCIAR</div>
-</div>
-
-<div class="bandeira">⚡ 1º ANÚNCIO GRÁTIS 10 DIAS • RENOVAÇÃO: 1 por R$49,90 | 3 por R$99,90 - PIX CNPJ</div>
-
-<div class="banner">
-<img src="banner.jpg" alt="Dono Anuncia, Cliente Chama Direto - Galpões, Casas e Apartamentos em dia">
-</div>
-
-<div id="telaBuscar">
-<div class="Filtros">
-<select id="fFinalidade"><option value="">Locação ou Venda</option><option>Locação</option><option>Venda</option></select>
-<select id="fTipo"><option value="">Todos os Imóveis</option><option>Casa</option><option>Apartamento</option><option>Galpão</option></select>
-<select id="fCidade"><option value="">Grande ABC (Todas)</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option></select>
-<input id="fBairro" placeholder="Filtrar por Bairro digitando...">
-</div>
-
-<div class="como">
-<h2>🔍 COMO FUNCIONA? LEIA ANTES</h2>
-<div class="ano">
-<b style="color:#FFD700">1. DONO OU CORRETOR ANUNCIA:</b> Você cadastra seu imóvel em 2 minutos. Vitrine aberta para proprietários e corretores.<br><br>
-<b style="color:#FFD700">2. CLIENTE CHAMA DIRETO NO SEU WHATSAPP:</b> Sem intermediário, sem atendente nosso. O interessado fala DIRETO com você.<br><br>
-<b style="color:#FFD700">3. NEGÓCIO 100% SEU - ZERO COMISSÃO:</b> O Galpões e Negócios NÃO cobra comissão e NÃO intermedia. Somos só a vitrine: DONO ANUNCIA, CLIENTE CHAMA DIRETO.
-</div>
-</div>
-</div>
-
-<div id="telaAnunciar" class="escondido">
-<div style="background:#fff;padding:15px;border-radius:8px;margin:10px">
-<h3 style="text-align:center">📢 Anunciar Imóvel</h3>
-<p style="text-align:center;font-size:12px;color:#666">Proprietário ou Corretor - Cliente chama direto no seu WhatsApp</p>
-<input placeholder="Seu WhatsApp" style="margin-bottom:8px">
-<button style="width:100%;padding:12px;background:#FFD700;font-weight:bold;border:0;border-radius:6px">CADASTRAR</button>
-</div>
-</div>
-
-<script>
-function abrirBuscar(){
-document.getElementById('telaBuscar').classList.remove('escondido');
-document.getElementById('telaAnunciar').classList.add('escondido');
-document.getElementById('tabBuscar').classList.add('ativa');
-document.getElementById('tabAnunciar').classList.remove('ativa');
-}
-function abrirAnunciar(){
-document.getElementById('telaAnunciar').classList.remove('escondido');
-document.getElementById('telaBuscar').classList.add('escondido');
-document.getElementById('tabAnunciar').classList.add('ativa');
-document.getElementById('tabBuscar').classList.remove('ativa');
-}
-</script>
 </body>
 </html>
