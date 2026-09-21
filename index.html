@@ -8,12 +8,12 @@
 .header{height:360px;background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.7)),url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') center/cover;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .header h1{background:#000;color:#FFD700;padding:10px 22px;border:2px solid #FFD700;font-weight:900}
 .sub{background:rgba(0,0,0,.9);color:#fff;padding:8px 14px;border-radius:20px;border:1px solid #FFD700;font-size:11px;margin:12px;font-weight:bold}
-.tags{display:flex;gap:8px}.tags span{background:#FFD700;padding:6px 12px;border-radius:20px;font-weight:900;font-size:11px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.tags span{background:#FFD700;padding:6px 12px;border-radius:20px;font-weight:900;font-size:11px}
 .tabs{display:flex;background:#fff;position:sticky;top:0;z-index:10}
 .tab{flex:1;text-align:center;padding:14px;font-weight:900;cursor:pointer;border-bottom:3px solid transparent}
 .tab.active{border-bottom:3px solid #FFD700;background:#fffde7}
 .banner{background:#FFD700;text-align:center;padding:12px;font-weight:900;font-size:13px}
-.filtros{display:flex;gap:8px;padding:10px}.filtros select{flex:1;padding:12px;border-radius:8px;border:1px solid #ccc}
+.filtros{display:flex;gap:8px;padding:10px;flex-wrap:wrap}.filtros select{flex:1;padding:12px;border-radius:8px;border:1px solid #ccc;min-width:120px}
 .como{background:#111;color:#fff;padding:20px;margin:15px;border-radius:10px}
 .como h2{color:#FFD700;text-align:center;margin-bottom:12px}
 .passo{background:#222;border-left:4px solid #FFD700;padding:10px;margin:8px 0;border-radius:4px;font-size:13px}
@@ -28,7 +28,7 @@
 <div class="header">
 <h1>GALPÕES E NEGÓCIOS</h1>
 <div class="sub">GRANDE ABC • APARTAMENTOS • CASAS • GALPÕES • PROPRIETÁRIO DIRETO</div>
-<div class="tags"><span>🏢 APARTAMENTOS</span><span>🏠 CASAS</span><span>🏭 GALPÕES</span></div>
+<div class="tags"><span>🏢 APARTAMENTOS</span><span>🏠 CASAS</span><span>🏭 GALPÕES</span><span>🏬 SALÃO</span><span>🏗️ TERRENO</span></div>
 </div>
 <div class="tabs">
 <div id="tabBuscar" class="tab active" onclick="abrirBuscar()">🔍 BUSCAR</div>
@@ -38,7 +38,8 @@
 
 <div id="telaBuscar">
 <div class="filtros">
-<select id="fTipo" onchange="render()"><option value="">Todos</option><option>Apartamento</option><option>Casa</option><option>Galpão</option></select>
+<select id="fFinalidade" onchange="render()"><option value="">Locação ou Venda</option><option value="Locação">Locação</option><option value="Venda">Venda</option></select>
+<select id="fTipo" onchange="render()"><option value="">Todos os Imóveis</option><option>Casa</option><option>Apartamento</option><option>Sobrado</option><option>Prédio</option><option>Galpão</option><option>Salão</option><option>Laje</option><option>Terreno</option></select>
 <select id="fCidade" onchange="render()"><option value="">Grande ABC (Todas)</option><option>Santo André</option><option>São Bernardo do Campo</option><option>São Caetano do Sul</option><option>Mauá</option><option>Diadema</option><option>Ribeirão Pires</option><option>Rio Grande da Serra</option><option>São Paulo - Capital</option><option>Guarulhos</option><option>Osasco</option><option>Suzano</option></select>
 </div>
 <div class="como">
@@ -54,8 +55,9 @@
 
 <div id="telaAnunciar" class="hidden">
 <div style="padding:15px">
-<h3 style="text-align:center">📢 Anunciar Imóvel</h3>
-<select id="tipo"><option>Apartamento</option><option>Casa</option><option>Galpão</option></select>
+<h3 style="text-align:center;margin-bottom:10px">📢 Anunciar Imóvel</h3>
+<select id="finalidade"><option value="Locação">Locação</option><option value="Venda">Venda</option></select>
+<select id="tipo"><option>Casa</option><option>Apartamento</option><option>Sobrado</option><option>Prédio</option><option>Galpão</option><option>Salão</option><option>Laje</option><option>Terreno</option></select>
 <select id="cidade"><option>Santo André</option><option>São Bernardo do Campo</option><option>São Caetano do Sul</option><option>Mauá</option><option>Diadema</option><option>Ribeirão Pires</option><option>Rio Grande da Serra</option><option>São Paulo - Capital</option><option>Guarulhos</option><option>Osasco</option><option>Suzano</option></select>
 <input id="bairro" placeholder="Bairro">
 <input id="valor" placeholder="Valor R$">
@@ -71,8 +73,8 @@
 function abrirBuscar(){document.getElementById('telaBuscar').classList.remove('hidden');document.getElementById('telaAnunciar').classList.add('hidden');document.getElementById('tabBuscar').classList.add('active');document.getElementById('tabAnunciar').classList.remove('active');}
 function abrirAnunciar(){document.getElementById('telaAnunciar').classList.remove('hidden');document.getElementById('telaBuscar').classList.add('hidden');document.getElementById('tabAnunciar').classList.add('active');document.getElementById('tabBuscar').classList.remove('active');}
 let imoveis=[];try{imoveis=JSON.parse(localStorage.getItem('imoveis')||'[]')}catch(e){}
-function render(){let l=document.getElementById('lista');let ft=fTipo.value;let fc=fCidade.value;let fil=imoveis.filter(i=>(!ft||i.tipo==ft)&&(!fc||i.cidade==fc));if(fil.length==0){l.innerHTML='<div style="text-align:center;padding:30px;background:#f5f5f5;margin:15px;border-radius:10px">Nenhum imóvel ainda. Seja o primeiro!</div>';return}l.innerHTML=fil.map(i=>`<div class="card"><b>${i.tipo} - ${i.bairro} - ${i.cidade}</b><br>R$ ${i.valor} | ${i.area}m²<br>${i.desc}<br><a href="https://wa.me/55${i.whats}" target="_blank" style="display:inline-block;background:#25D366;color:#fff;padding:8px 14px;border-radius:20px;text-decoration:none;margin-top:8px;font-weight:900">WhatsApp</a></div>`).join('');}
-function salvar(){let o={tipo:tipo.value,cidade:cidade.value,bairro:bairro.value,valor:valor.value,area:area.value,whats:whats.value,desc:desc.value};if(!o.bairro||!o.valor||!o.whats){alert('Preencha bairro, valor e whats');return}imoveis.unshift(o);localStorage.setItem('imoveis',JSON.stringify(imoveis));alert('Publicado!');abrirBuscar();render();}render();
+function render(){let l=document.getElementById('lista');let ft=fTipo.value;let fc=fCidade.value;let ff=fFinalidade.value;let fil=imoveis.filter(i=>(!ft||i.tipo==ft)&&(!fc||i.cidade==fc)&&(!ff||i.finalidade==ff));if(fil.length==0){l.innerHTML='<div style="text-align:center;padding:30px;background:#f5f5f5;margin:15px;border-radius:10px">Nenhum imóvel ainda. Seja o primeiro!</div>';return}l.innerHTML=fil.map(i=>`<div class="card"><b>${i.finalidade||'Locação/Venda'} - ${i.tipo} - ${i.bairro} - ${i.cidade}</b><br>R$ ${i.valor} | ${i.area}m²<br>${i.desc}<br><a href="https://wa.me/55${i.whats}" target="_blank" style="display:inline-block;background:#25D366;color:#fff;padding:8px 14px;border-radius:20px;text-decoration:none;margin-top:8px;font-weight:900">WhatsApp</a></div>`).join('');}
+function salvar(){let o={finalidade:finalidade.value,tipo:tipo.value,cidade:cidade.value,bairro:bairro.value,valor:valor.value,area:area.value,whats:whats.value,desc:desc.value};if(!o.bairro||!o.valor||!o.whats){alert('Preencha bairro, valor e whats');return}imoveis.unshift(o);localStorage.setItem('imoveis',JSON.stringify(imoveis));alert('Publicado!');abrirBuscar();render();}render();
 </script>
 </body>
 </html>
