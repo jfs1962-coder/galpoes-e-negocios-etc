@@ -25,116 +25,92 @@
 .form input,.form select,.form textarea{width:100%;padding:12px;margin:6px 0;border:1px solid #ccc;border-radius:8px}
 .btn{background:#FFD700;border:none;padding:14px;width:100%;border-radius:8px;font-weight:900;cursor:pointer;margin-top:10px}
 .btn-wpp{background:#25D366;color:#fff;padding:12px 18px;border-radius:25px;text-decoration:none;display:inline-block;font-weight:900;margin-top:10px;width:100%;text-align:center}
+.btn-pix{background:#111;color:#FFD700;border:1px solid #FFD700;padding:10px;width:100%;border-radius:20px;font-weight:900;margin-top:8px;cursor:pointer}
 .hidden{display:none!important}
 .badge{display:inline-block;padding:4px 8px;border-radius:12px;font-size:11px;font-weight:900;margin:4px 0}.badge-green{background:#d4edda;color:#155724}.badge-red{background:#f8d7da;color:#721c24}
-.linha-preco{display:flex;gap:8px}
 </style>
 </head>
 <body>
-<div class="header">
-<h1>GALPÕES E NEGÓCIOS</h1>
-<div class="sub">GRANDE ABC • APARTAMENTOS • CASAS • GALPÕES • PROPRIETÁRIO DIRETO</div>
-<div class="tags"><span>🏢 APARTAMENTOS</span><span>🏠 CASAS</span><span>🏭 GALPÕES</span><span>🏬 SALÃO</span><span>🏗️ TERRENO</span></div>
-</div>
-<div class="tabs">
-<div id="tabBuscar" class="tab active" onclick="abrirBuscar()">🔍 BUSCAR</div>
-<div id="tabAnunciar" class="tab" onclick="abrirAnunciar()">📢 ANUNCIAR</div>
-</div>
-<div class="banner">⚡ 1º ANÚNCIO GRÁTIS 10 DIAS • Depois: 1 por R$49,90 | 3 por R$99,90</div>
+<div class="header"><h1>GALPÕES E NEGÓCIOS</h1><div class="sub">GRANDE ABC • APARTAMENTOS • CASAS • GALPÕES • PROPRIETÁRIO DIRETO</div><div class="tags"><span>🏢 APARTAMENTOS</span><span>🏠 CASAS</span><span>🏭 GALPÕES</span><span>🏬 SALÃO</span><span>🏗️ TERRENO</span></div></div>
+<div class="tabs"><div id="tabBuscar" class="tab active" onclick="abrirBuscar()">🔍 BUSCAR</div><div id="tabAnunciar" class="tab" onclick="abrirAnunciar()">📢 ANUNCIAR</div></div>
+<div class="banner">⚡ 1º ANÚNCIO GRÁTIS 10 DIAS • RENOVAÇÃO: 1 por R$49,90 | 3 por R$99,90 - PIX CNPJ</div>
 
 <div id="telaBuscar">
 <div class="filtros">
-<select id="fFinalidade" onchange="render()"><option value="">Locação ou Venda</option><option value="Locação">Locação</option><option value="Venda">Venda</option></select>
+<select id="fFinalidade" onchange="render()"><option value="">Locação ou Venda</option><option>Locação</option><option>Venda</option></select>
 <select id="fTipo" onchange="render()"><option value="">Todos os Imóveis</option><option>Casa</option><option>Apartamento</option><option>Sobrado</option><option>Prédio</option><option>Galpão</option><option>Salão</option><option>Laje</option><option>Terreno</option></select>
 <select id="fCidade" onchange="render()"><option value="">Grande ABC (Todas)</option><option>Santo André</option><option>São Bernardo do Campo</option><option>São Caetano do Sul</option><option>Mauá</option><option>Diadema</option><option>Ribeirão Pires</option><option>Rio Grande da Serra</option><option>São Paulo - Capital</option><option>Guarulhos</option><option>Osasco</option><option>Suzano</option></select>
 <input id="fBairro" placeholder="🔎 Filtrar por Bairro digitado" oninput="render()" style="min-width:100%">
-<div class="linha-preco" style="width:100%">
-<input id="fPrecoMin" type="number" placeholder="R$ Mín ex: 0" oninput="render()">
-<input id="fPrecoMax" type="number" placeholder="R$ Máx ex: 5000" oninput="render()">
+<input id="fPrecoMin" type="number" placeholder="R$ Mín" oninput="render()"><input id="fPrecoMax" type="number" placeholder="R$ Máx" oninput="render()">
 </div>
-</div>
-<div class="como">
-<h2>📋 COMO FUNCIONA? LEIA ANTES</h2>
-<div class="passo"><b style="color:#FFD700">1. DIRETO:</b> Você fala direto com o dono, sem imobiliária.</div>
-<div class="passo"><b style="color:#FFD700">2. RESPONSABILIDADE:</b> Fotos reais e valor correto por sua conta.</div>
-<div class="passo"><b style="color:#FFD700">3. CONTATO:</b> Cliente clica no seu WhatsApp.</div>
-<div class="aviso">⚠️ NÃO SOMOS IMOBILIÁRIA. APÓS 10 DIAS O ANÚNCIO EXPIRA AUTOMATICAMENTE.</div>
-</div>
+<div class="como"><h2>📋 COMO FUNCIONA? LEIA ANTES</h2><div class="passo"><b style="color:#FFD700">1. DIRETO:</b> Você fala direto com o dono.</div><div class="passo"><b style="color:#FFD700">2. PIX CNPJ 63.329.574/0001-28:</b> Pagamento para MEI com NF.</div><div class="aviso">⚠️ NÃO SOMOS IMOBILIÁRIA. ANÚNCIO EXPIRA EM 10 DIAS E BLOQUEIA AUTOMÁTICO. RENOVE COM PIX.</div></div>
 <div id="lista"></div>
 </div>
 
-<div id="telaAnunciar" class="hidden">
-<div style="padding:15px" class="form">
-<h3 style="text-align:center;margin-bottom:10px">📢 Anunciar Imóvel</h3>
-<select id="finalidade"><option value="Locação">Locação</option><option value="Venda">Venda</option></select>
+<div id="telaAnunciar" class="hidden"><div style="padding:15px" class="form">
+<h3 style="text-align:center">📢 Anunciar Imóvel</h3>
+<select id="finalidade"><option>Locação</option><option>Venda</option></select>
 <select id="tipo"><option>Casa</option><option>Apartamento</option><option>Sobrado</option><option>Prédio</option><option>Galpão</option><option>Salão</option><option>Laje</option><option>Terreno</option></select>
 <select id="cidade"><option>Santo André</option><option>São Bernardo do Campo</option><option>São Caetano do Sul</option><option>Mauá</option><option>Diadema</option><option>Ribeirão Pires</option><option>Rio Grande da Serra</option><option>São Paulo - Capital</option><option>Guarulhos</option><option>Osasco</option><option>Suzano</option></select>
-<input id="bairro" placeholder="Bairro *">
-<input id="valor" type="number" placeholder="Valor R$ * ex: 2500">
-<input id="area" placeholder="Área m²">
-<input id="whats" placeholder="WhatsApp com DDD *">
-<textarea id="desc" placeholder="Descrição"></textarea>
-<label style="font-weight:900;font-size:13px;margin-top:8px;display:block">📸 FOTOS (máx. 3):</label>
-<input type="file" id="fotos" accept="image/*" multiple>
-<div id="preview" style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap"></div>
-<button class="btn" onclick="salvar()">PUBLICAR GRÁTIS - 10 DIAS</button>
+<input id="bairro" placeholder="Bairro *"><input id="valor" type="number" placeholder="Valor R$ * ex: 2500"><input id="area" placeholder="Área m²"><input id="whats" placeholder="WhatsApp com DDD *"><textarea id="desc" placeholder="Descrição"></textarea>
+<label style="font-weight:900;font-size:13px">📸 FOTOS (máx. 3):</label><input type="file" id="fotos" accept="image/*" multiple><div id="preview" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px"></div>
+<button class="btn" onclick="salvar()">PUBLICAR GRÁTIS - 10 DIAS</button><button class="btn" style="background:#eee" onclick="abrirBuscar()">VOLTAR</button>
+</div></div>
+
+<div id="telaPagar" class="hidden" style="padding:15px;background:#fff;margin:15px;border-radius:12px;border:2px solid #FFD700">
+<h3 style="text-align:center">💳 RENOVAR - PIX CNPJ</h3><p style="text-align:center;font-size:13px;margin:8px 0;font-weight:900">63.329.574/0001-28<br>GALPÕES E NEGÓCIOS - MEI</p>
+<select id="plano" onchange="gerarPix()"><option value="49.90">1 Anúncio - R$49,90 (30 dias)</option><option value="99.90">3 Anúncios - R$99,90 (30 dias)</option></select>
+<div id="pixCopiaCola" style="background:#f5f5f5;padding:12px;border-radius:8px;font-size:10px;word-break:break-all;margin:10px 0;border:1px dashed #000"></div>
+<img id="pixQr" style="width:100%;max-width:300px;margin:10px auto;display:block;border-radius:8px;border:1px solid #ccc">
+<button class="btn" onclick="copiarPix()">📋 COPIAR CÓDIGO PIX</button>
+<a id="btnWhatsComprovante" target="_blank" class="btn-wpp" style="background:#111;color:#FFD700">📲 ENVIAR COMPROVANTE NO WHATSAPP</a>
 <button class="btn" style="background:#eee" onclick="abrirBuscar()">VOLTAR</button>
-</div>
+<p style="font-size:11px;margin-top:10px;text-align:center">Para NF: informe seu CPF no comprovante. Emitimos NFS-e de publicidade.</p>
 </div>
 
 <script>
-function abrirBuscar(){document.getElementById('telaBuscar').classList.remove('hidden');document.getElementById('telaAnunciar').classList.add('hidden');document.getElementById('tabBuscar').classList.add('active');document.getElementById('tabAnunciar').classList.remove('active');}
-function abrirAnunciar(){document.getElementById('telaAnunciar').classList.remove('hidden');document.getElementById('telaBuscar').classList.add('hidden');document.getElementById('tabAnunciar').classList.add('active');document.getElementById('tabBuscar').classList.remove('active');}
+function abrirBuscar(){telaBuscar.classList.remove('hidden');telaAnunciar.classList.add('hidden');telaPagar.classList.add('hidden');tabBuscar.classList.add('active');tabAnunciar.classList.remove('active');}
+function abrirAnunciar(){telaAnunciar.classList.remove('hidden');telaBuscar.classList.add('hidden');telaPagar.classList.add('hidden');tabAnunciar.classList.add('active');tabBuscar.classList.remove('active');}
+function abrirPagar(){telaPagar.classList.remove('hidden');telaBuscar.classList.add('hidden');telaAnunciar.classList.add('hidden');gerarPix();}
+
 let imoveis=[];try{imoveis=JSON.parse(localStorage.getItem('imoveis')||'[]')}catch(e){}
-
-document.getElementById('fotos').addEventListener('change', function(e){
- let p=document.getElementById('preview');p.innerHTML='';
- [...e.target.files].slice(0,3).forEach(f=>{
-  let r=new FileReader();r.onload=ev=>{p.innerHTML+=`<img src="${ev.target.result}" style="width:80px;height:80px;object-fit:cover;border-radius:8px;border:1px solid #ccc">`};r.readAsDataURL(f);
- })
-});
-function diasRestantes(exp){let diff=Math.ceil((new Date(exp)-new Date())/86400000);return diff;}
+fotos.addEventListener('change',function(e){preview.innerHTML='';[...e.target.files].slice(0,3).forEach(f=>{let r=new FileReader();r.onload=ev=>{preview.innerHTML+=`<img src="${ev.target.result}" style="width:80px;height:80px;object-fit:cover;border-radius:8px">`};r.readAsDataURL(f);})});
+function diasRestantes(exp){return Math.ceil((new Date(exp)-new Date())/86400000);}
 function limparExpirados(){let agora=new Date();imoveis=imoveis.filter(i=> new Date(i.expira) > agora);localStorage.setItem('imoveis',JSON.stringify(imoveis));}
-
-function parseValor(v){return parseFloat(String(v).replace(/\D/g,''))||0;}
+function parseValor(v){return parseFloat(String(v).replace(/[^\d]/g,''))||0;}
 
 function render(){
  limparExpirados();
- let l=document.getElementById('lista');
- let ft=fTipo.value, fc=fCidade.value, ff=fFinalidade.value;
- let fb=fBairro.value.toLowerCase();
- let fMin=parseFloat(fPrecoMin.value)||0;
- let fMax=parseFloat(fPrecoMax.value)||Infinity;
-
- let fil=imoveis.filter(i=>{
-  let valorNum=parseValor(i.valor);
-  let bairroOk = !fb || (i.bairro && i.bairro.toLowerCase().includes(fb));
-  let precoOk = valorNum >= fMin && valorNum <= fMax;
-  return (!ft||i.tipo==ft)&&(!fc||i.cidade==fc)&&(!ff||i.finalidade==ff)&&bairroOk&&precoOk;
- });
-
- if(fil.length==0){l.innerHTML='<div style="text-align:center;padding:30px;background:#f5f5f5;margin:15px;border-radius:10px">Nenhum imóvel com esses filtros. Tente mudar preço ou bairro.</div>';return}
+ let l=document.getElementById('lista'); let ft=fTipo.value, fc=fCidade.value, ff=fFinalidade.value, fb=fBairro.value.toLowerCase(), fMin=parseFloat(fPrecoMin.value)||0, fMax=parseFloat(fPrecoMax.value)||Infinity;
+ let fil=imoveis.filter(i=>{let v=parseValor(i.valor);let bOk=!fb||(i.bairro&&i.bairro.toLowerCase().includes(fb));return (!ft||i.tipo==ft)&&(!fc||i.cidade==fc)&&(!ff||i.finalidade==ff)&&bOk&&v>=fMin&&v<=fMax;});
+ if(fil.length==0){l.innerHTML='<div style="text-align:center;padding:30px;background:#f5f5f5;margin:15px;border-radius:10px">Nenhum imóvel ativo com esses filtros. Filtre por preço ou bairro.</div>';return}
  l.innerHTML=fil.map(i=>{
-  let dr=diasRestantes(i.expira);
-  let fotosHtml = i.fotos && i.fotos.length ? `<div class="fotos">${i.fotos.map(f=>`<img src="${f}">`).join('')}</div>` : '';
-  let msgWpp = encodeURIComponent(`Olá, vi seu imóvel no Galpões e Negócios: ${i.tipo} em ${i.bairro} - ${i.cidade} por R$ ${i.valor}. Ainda está disponível?`);
-  return `<div class="card">${fotosHtml}<b>${i.finalidade} - ${i.tipo} - ${i.bairro} - ${i.cidade}</b><br>R$ ${i.valor} | ${i.area}m²<br><span class="badge ${dr<=2?'badge-red':'badge-green'}">⏳ Expira em ${dr} dia(s)</span><br><div style="font-size:13px;margin-top:6px">${i.desc||''}</div><a class="btn-wpp" href="https://wa.me/55${i.whats}?text=${msgWpp}" target="_blank">💬 Chamar no WhatsApp</a></div>`
+  let dr=diasRestantes(i.expira); let fotosHtml=i.fotos&&i.fotos.length?`<div class="fotos">${i.fotos.map(f=>`<img src="${f}">`).join('')}</div>`:'';
+  let msg=encodeURIComponent(`Olá, vi seu imóvel no Galpões e Negócios: ${i.tipo} em ${i.bairro} - ${i.cidade} por R$ ${i.valor}. Ainda está disponível?`);
+  return `<div class="card">${fotosHtml}<b>${i.finalidade} - ${i.tipo} - ${i.bairro} - ${i.cidade}</b><br>R$ ${i.valor} | ${i.area}m²<br><span class="badge ${dr<=2?'badge-red':'badge-green'}">⏳ Expira em ${dr} dia(s)</span><div style="font-size:13px;margin-top:6px">${i.desc||''}</div><a class="btn-wpp" href="https://wa.me/55${i.whats}?text=${msg}" target="_blank">💬 Chamar no WhatsApp</a><button class="btn-pix" onclick="abrirPagar()">💳 RENOVAR +30 DIAS - PIX CNPJ</button></div>`
  }).join('');
 }
 
 async function salvar(){
- let fInput=document.getElementById('fotos');
- let files=[...fInput.files].slice(0,3);
- let fotosBase64=[];
- if(files.length){
-  fotosBase64 = await Promise.all(files.map(f=> new Promise(res=>{
-   let r=new FileReader();r.onload=e=>res(e.target.result);r.readAsDataURL(f);
-  })));
- }
- let o={finalidade:finalidade.value,tipo:tipo.value,cidade:cidade.value,bairro:bairro.value,valor:valor.value,area:area.value,whats:whats.value.replace(/\D/g,''),desc:desc.value,fotos:fotosBase64,criado:new Date().toISOString(),expira:new Date(Date.now()+10*24*60*60*1000).toISOString()};
+ let files=[...fotos.files].slice(0,3); let fotos64=files.length?await Promise.all(files.map(f=>new Promise(r=>{let rd=new FileReader();rd.onload=e=>r(e.target.result);rd.readAsDataURL(f);}))) : [];
+ let o={finalidade:finalidade.value,tipo:tipo.value,cidade:cidade.value,bairro:bairro.value,valor:valor.value,area:area.value,whats:whats.value.replace(/\D/g,''),desc:desc.value,fotos:fotos64,criado:new Date().toISOString(),expira:new Date(Date.now()+10*24*60*60*1000).toISOString()};
  if(!o.bairro||!o.valor||!o.whats){alert('Preencha bairro, valor e whats');return}
  imoveis.unshift(o);localStorage.setItem('imoveis',JSON.stringify(imoveis));alert('Publicado! Ativo por 10 dias.');abrirBuscar();render();
 }
+
+// PIX CNPJ GERADOR
+const CHAVE_CNPJ="63329574000128"; const NOME="GALPOES E NEGOCIOS"; const CIDADE="SANTO ANDRE";
+function crc16(s){let p=0x1021,c=0xFFFF;for(let i=0;i<s.length;i++){c^=s.charCodeAt(i)<<8;for(let j=0;j<8;j++)c=(c&0x8000)?(c<<1)^p:c<<1;c&=0xFFFF}return c.toString(16).toUpperCase().padStart(4,'0');}
+function gerarPix(){
+ let valor=plano.value; let txid="GALPOES"+Date.now().toString().slice(-8);
+ let merc=`0014br.gov.bcb.pix01${String(CHAVE_CNPJ.length).padStart(2,'0')}${CHAVE_CNPJ}`;
+ let payload=`00020126${String(merc.length).padStart(2,'0')}${merc}52040000530398654${String(valor.length).padStart(2,'0')}${valor}5802BR59${String(NOME.length).padStart(2,'0')}${NOME}60${String(CIDADE.length).padStart(2,'0')}${CIDADE}62${String(("05"+String(txid.length).padStart(2,'0')+txid).length).padStart(2,'0')}05${String(txid.length).padStart(2,'0')}${txid}6304`;
+ payload+=crc16(payload);
+ pixCopiaCola.innerText=payload;
+ pixQr.src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+encodeURIComponent(payload);
+ btnWhatsComprovante.href=`https://wa.me/5511999999999?text=${encodeURIComponent(`Olá, paguei o PIX ${valor} CNPJ 63.329.574/0001-28 - TX ${txid}. Meu CPF para NF é: `)}`;
+}
+function copiarPix(){navigator.clipboard.writeText(pixCopiaCola.innerText);alert('Código PIX copiado!');}
 render();
 </script>
 </body>
