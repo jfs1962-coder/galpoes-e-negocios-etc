@@ -3,32 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GALPOES E NEGOCIOS - Grande ABC</title>
+<title>GALPÕES E NEGÓCIOS - Grande ABC</title>
 <link rel="manifest" href="manifest.json">
 <style>
-body{margin:0;font-family:Arial;background:#f5f5f5}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5}
 .cabecalho{background:#000;color:#FFD700;text-align:center;padding:15px}
-.cabecalho h1{margin:0;font-size:22px}
-.sub{font-size:11px;color:#fff}
-.abas{display:flex;background:#111}
-.abas div{flex:1;text-align:center;padding:12px;color:#fff;font-weight:bold;cursor:pointer}
+.cabecalho h1{margin:0;font-size:22px;letter-spacing:1px}
+.sub{font-size:11px;color:#fff;margin-top:4px}
+.abas{display:flex;background:#111;border-bottom:3px solid #FFD700}
+.abas div{flex:1;text-align:center;padding:14px;color:#fff;font-weight:bold;cursor:pointer;font-size:13px}
 .guia.ativa{background:#FFD700;color:#000}
 .bandeira{background:#FFD700;color:#000;text-align:center;padding:8px;font-weight:bold;font-size:12px}
-.banner img{width:100%;display:block;height:auto}
-.Filtros{display:grid;gap:8px;background:#fff;padding:10px;border-radius:8px;margin:10px}
-select,input{padding:10px;border-radius:6px;border:1px solid #ddd;width:100%;box-sizing:border-box}
+.banner{width:100%;line-height:0}
+.banner img{width:100%;height:auto;display:block}
+.Filtros{display:grid;gap:8px;background:#fff;padding:12px;border-radius:8px;margin:10px}
+select,input{padding:10px;border-radius:6px;border:1px solid #ddd;width:100%}
 .como{background:#111;color:#fff;padding:15px;border-radius:8px;margin:10px}
-.como h2{text-align:center;color:#FFD700;margin-top:0;font-size:16px}
+.como h2{text-align:center;color:#FFD700;margin-top:0;font-size:15px}
 .ano{font-size:13px;line-height:1.6}
 .escondido{display:none}
-#lista{margin-top:15px;padding:10px}
 </style>
 </head>
 <body>
-<div class="cabecalho"><h1>GALPOES E NEGOCIOS</h1><div class="sub">GRANDE ABC - APARTAMENTOS - CASAS - GALPOES</div></div>
-<div class="abas">
-<div id="tabBuscar" class="guia ativa" onclick="abrirBuscar()">BUSCAR</div>
-<div id="tabAnunciar" class="guia" onclick="abrirAnunciar()">ANUNCIAR</div>
+<div class="cabecalho">
+<h1>GALPÕES E NEGÓCIOS</h1>
+<div class="sub">GRANDE ABC • APARTAMENTOS • CASAS • GALPÕES</div>
 </div>
-<div class="bandeira">1 ANUNCIO GRATIS 10 DIAS - RENOVACAO: 1 por R$49,90 | 3 por R$99,90 - PIX CNPJ</div>
-<div class="banner"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGQAygDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN2d3h8fIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/9oADAMBAAIR
+
+<div class="abas">
+<div id="tabBuscar" class="guia ativa" onclick="abrirBuscar()">🏢 BUSCAR</div>
+<div id="tabAnunciar" class="guia" onclick="abrirAnunciar()">📢 ANUNCIAR</div>
+</div>
+
+<div class="bandeira">⚡ 1º ANÚNCIO GRÁTIS 10 DIAS • RENOVAÇÃO: 1 por R$49,90 | 3 por R$99,90 - PIX CNPJ</div>
+
+<div class="banner">
+<img src="banner.jpg" alt="Dono Anuncia, Cliente Chama Direto - Galpões, Casas e Apartamentos em dia">
+</div>
+
+<div id="telaBuscar">
+<div class="Filtros">
+<select id="fFinalidade"><option value="">Locação ou Venda</option><option>Locação</option><option>Venda</option></select>
+<select id="fTipo"><option value="">Todos os Imóveis</option><option>Casa</option><option>Apartamento</option><option>Galpão</option></select>
+<select id="fCidade"><option value="">Grande ABC (Todas)</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option></select>
+<input id="fBairro" placeholder="Filtrar por Bairro digitando...">
+</div>
+
+<div class="como">
+<h2>🔍 COMO FUNCIONA? LEIA ANTES</h2>
+<div class="ano">
+<b style="color:#FFD700">1. DONO OU CORRETOR ANUNCIA:</b> Você cadastra seu imóvel em 2 minutos. Vitrine aberta para proprietários e corretores.<br><br>
+<b style="color:#FFD700">2. CLIENTE CHAMA DIRETO NO SEU WHATSAPP:</b> Sem intermediário, sem atendente nosso. O interessado fala DIRETO com você.<br><br>
+<b style="color:#FFD700">3. NEGÓCIO 100% SEU - ZERO COMISSÃO:</b> O Galpões e Negócios NÃO cobra comissão e NÃO intermedia. Somos só a vitrine: DONO ANUNCIA, CLIENTE CHAMA DIRETO.
+</div>
+</div>
+</div>
+
+<div id="telaAnunciar" class="escondido">
+<div style="background:#fff;padding:15px;border-radius:8px;margin:10px">
+<h3 style="text-align:center">📢 Anunciar Imóvel</h3>
+<p style="text-align:center;font-size:12px;color:#666">Proprietário ou Corretor - Cliente chama direto no seu WhatsApp</p>
+<input placeholder="Seu WhatsApp" style="margin-bottom:8px">
+<button style="width:100%;padding:12px;background:#FFD700;font-weight:bold;border:0;border-radius:6px">CADASTRAR</button>
+</div>
+</div>
+
+<script>
+function abrirBuscar(){
+document.getElementById('telaBuscar').classList.remove('escondido');
+document.getElementById('telaAnunciar').classList.add('escondido');
+document.getElementById('tabBuscar').classList.add('ativa');
+document.getElementById('tabAnunciar').classList.remove('ativa');
+}
+function abrirAnunciar(){
+document.getElementById('telaAnunciar').classList.remove('escondido');
+document.getElementById('telaBuscar').classList.add('escondido');
+document.getElementById('tabAnunciar').classList.add('ativa');
+document.getElementById('tabBuscar').classList.remove('ativa');
+}
+</script>
+</body>
+</html>
