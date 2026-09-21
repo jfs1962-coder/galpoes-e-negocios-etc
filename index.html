@@ -1,74 +1,83 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Galpões e Negócios</title>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GALPÕES E NEGÓCIOS - Grande ABC</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{background:#f0f0f0;font-family:Arial}
-.top{background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%), url('header.jpg');background-size:cover;background-position:center;height:400px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding-bottom:22px;text-align:center;border-bottom:5px solid #ffcc00}
-.top h1{color:#ffcc00;font-size:28px;text-shadow:3px 3px 10px #000;font-weight:900}
-.sub{color:#fff;background:#000;padding:10px 18px;border-radius:25px;font-size:12px;font-weight:bold;margin-top:10px;border:2px solid #ffcc00}
-.tipos{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-.tipos span{background:#ffcc00;color:#000;padding:8px 16px;border-radius:20px;font-size:12px;font-weight:900;border:2px solid #000}
-.menu{display:flex;background:#fff;position:sticky;top:0;z-index:10}
-.menu div{flex:1;padding:16px;text-align:center;font-weight:bold;cursor:pointer}
-.menu div.ativo{border-bottom:3px solid #ffcc00;background:#fffde7}
-.area{padding:16px;max-width:600px;margin:0 auto;background:#fff;min-height:100vh}
-.card{border-radius:12px;margin-bottom:16px;border:1px solid #ddd;border-left:4px solid #ffcc00;overflow:hidden}
-.card img{width:100%;height:200px;object-fit:cover}
-.card-body{padding:12px}
-.btn{width:100%;padding:14px;background:#111;color:#ffcc00;border:0;border-radius:8px;font-weight:bold;margin-top:8px;cursor:pointer}
-.btn-w{width:100%;padding:14px;background:#25D366;color:#fff;border:0;border-radius:8px;font-weight:bold;margin-top:8px}
-input,select,textarea{width:100%;padding:12px;margin:5px 0 10px;border:1px solid #ccc;border-radius:8px}
-.aviso{background:#ffcc00;padding:12px;border-radius:8px;font-weight:bold;text-align:center;margin-bottom:12px}
-.plano{background:#f9f9f9;border:2px solid #ffcc00;border-radius:12px;padding:12px;margin-bottom:12px}
-.plano.destaque{background:#fffde7;border-color:#000;transform:scale(1.02)}
-.prev{display:flex;gap:8px;overflow-x:auto}.prev img{width:70px;height:70px;object-fit:cover;border-radius:8px;border:2px solid #ffcc00}
-label{font-size:12px;font-weight:bold;margin-top:8px;display:block}
-</style></head><body>
-<div class="top">
-<h1>🏭 GALPÕES E NEGÓCIOS</h1>
-<div class="sub">GRANDE ABC • APARTAMENTOS • CASAS • GALPÕES • PROPRIETÁRIO DIRETO</div>
-<div class="tipos"><span>🏢 APARTAMENTOS</span><span>🏠 CASAS</span><span>🏭 GALPÕES</span></div>
-</div>
-<div class="menu"><div id="m1" class="ativo" onclick="abrir('b')">🔍 BUSCAR</div><div id="m2" onclick="abrir('a')">📢 ANUNCIAR</div></div>
-<div class="area">
-<div id="telaBuscar">
-<div class="aviso">⚡ 1º ANÚNCIO GRÁTIS 10 DIAS • Depois: 1 por R$49,90 | 3 por R$99,90</div>
-<div style="display:flex;gap:8px"><select id="ft" onchange="listar()"><option value="">Todos</option><option>Galpão</option><option>Apartamento</option><option>Casa</option></select><select id="fc" onchange="listar()"><option value="">Grande ABC</option><option>Santo André</option><option>São Bernardo</option></select></div>
-<div id="lista" style="margin-top:15px"></div></div>
-
-<div id="telaAnunciar" style="display:none">
-<div class="aviso">🎁 SEU 1º IMÓVEL GRÁTIS POR 10 DIAS!</div>
-
-<div class="plano"><b>💰 DEPOIS DO GRÁTIS:</b><br><br>
-✅ 1 Anúncio = <b>R$49,90/mês</b><br>
-✅ 3 Anúncios = <b>R$99,90/mês</b> <span style="background:red;color:#fff;padding:2px 6px;border-radius:10px;font-size:10px">MAIS VENDIDO - ECONOMIA R$49,80</span><br><br>
-<small>Sem fidelidade • Cancela quando quiser • Pagamento via Pix</small></div>
-
-<label>Nome</label><input id="nome" placeholder="Seu nome">
-<label>Você é?</label><select id="quem"><option>Proprietário Direto</option><option>Corretor</option></select>
-<label>Tipo</label><select id="tipo"><option>Galpão</option><option>Apartamento</option><option>Casa</option><option>Sobrado</option><option>Sala Comercial</option><option>Terreno</option></select>
-<label>Cidade</label><select id="cidade"><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option><option>Santo André</option></select>
-<label>Bairro</label><input id="bairro">
-<label>Valor R$</label><input id="valor" type="number" placeholder="Ex: 5000">
-<label>WhatsApp cliente</label><input id="zap" placeholder="11999999999">
-<label>Fotos (máx 3)</label><input id="fotos" type="file" accept="image/*" multiple><div id="prev" class="prev"></div>
-<label>Detalhes</label><textarea id="det" placeholder="Metragem, vagas..."></textarea>
-<button class="btn" onclick="pub()">PUBLICAR GRÁTIS 🚀</button>
-<p id="ok" style="text-align:center;margin-top:10px;font-weight:bold"></p>
-</div>
-</div>
-<script>
-let fotosBase64=[];fotos.addEventListener('change',function(){fotosBase64=[];prev.innerHTML='';for(let f of this.files){let r=new FileReader();r.onload=e=>{fotosBase64.push(e.target.result);let im=document.createElement('img');im.src=e.target.result;prev.appendChild(im);};r.readAsDataURL(f);}});
-function abrir(q){telaBuscar.style.display=q=='b'?'block':'none';telaAnunciar.style.display=q=='a'?'block':'none';m1.className=q=='b'?'ativo':'';m2.className=q=='a'?'ativo':'';if(q=='b')listar();}
-function pub(){
-let d={nome:nome.value,quem:quem.value,tipo:tipo.value,cidade:cidade.value,bairro:bairro.value,valor:valor.value,zap:zap.value.replace(/\D/g,''),det:det.value,fotos:fotosBase64,criado:Date.now()};
-if(!d.nome||!d.bairro||!d.zap){ok.innerHTML='⚠️ Preencha nome, bairro e zap';return;}
-let l=JSON.parse(localStorage.getItem('galpoes_v3')||'[]');l.unshift(d);localStorage.setItem('galpoes_v3',JSON.stringify(l));
-ok.innerHTML='✅ Publicado! Avisando proprietário...';
-// AVISA VOCÊ NO ZAP - SEU NUMERO ATUAL
-let seuZap = "5511963983081";
-let msg = `🚨 NOVO CADASTRO - TESTE%0A%0ANome: ${d.nome}%0ATipo: ${d.tipo}%0ACidade: ${d.cidade} - ${d.bairro}%0AValor: R$${d.valor}%0AZap dele: ${d.zap}%0AQuem: ${d.quem}%0A%0ADetalhes: ${d.det}`;
-window.open(`https://wa.me/${seuZap}?text=${msg}`, '_blank');
-setTimeout(()=>abrir('b'),800);
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, Helvetica, sans-serif;}
+body{background:#f2f2f2;}
+.header{
+  background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.75) 100%), url('banner.jpg');
+  background-size: cover;
+  background-position: center 35%;
+  padding: 50px 20px 25px;
+  text-align:center;
+  border-bottom:5px solid #ffcc00;
 }
-function listar(){let l=JSON.parse(localStorage.getItem('galpoes_v3')||'[]');let t=ft.value;let c=fc.value;let h='';let fil=l.filter(i=>(!t||i.tipo==t)&&(!c||i.cidade==c));if(fil.length==0){h='<div style=text-align:center;margin-top:40px;color:#777>Nenhum imóvel ainda.<br><br><button class=btn onclick=abrir("a")>SEJA O 1º A ANUNCIAR GRÁTIS</button></div>';}else{fil.forEach(i=>{let img=i.fotos&&i.fotos[0]?`<img src="${i.fotos[0]}">`:`<div style="height:120px;background:#eee;display:flex;align-items:center;justify-content:center">Sem foto</div>`;let dias=Math.floor((Date.now()-i.criado)/86400000);let exp=dias>10?`<div style="background:#ff4444;color:#fff;padding:8px;border-radius:8px;margin-bottom:8px;text-align:center"><b>⏰ GRÁTIS EXPIROU (${dias} dias)</b><br><small>Renovar:</small><br><div style="display:flex;gap:6px;margin-top:6px"><a href="https://wa.me/5511963983081?text=Quero%20renovar%201%20por%20R$49,90%20-%20${i.bairro}" style="flex:1"><button style="width:100%;padding:8px;background:#fff;color:#000;border-radius:6px;font-weight:bold">1 por R$49,90</button></a><a href="https://wa.me/5511963983081?text=Quero%20renovar%203%20por%20R$99,90%20-%20${i.bairro}" style="flex:1"><button style="width:100%;padding:8px;background:#ffcc00;color:#000;border-radius:6px;font-weight:bold">3 por R$99,90</button></a></div></div>`: `<div style="background:#25D366;color:#fff;padding:6px;border-radius:6px;margin-bottom:8px;text-align:center;font-size:12px">✅ GRÁTIS - ${10-dias} dias restantes</div>`;h+=`<div class=card>${img}<div class=card-body>${exp}<b>${i.tipo} - ${i.cidade} - ${i.bairro}</b><br><small>R$ ${i.valor}</small><br><small>👤 ${i.nome} - ${i.quem}</small><br><a href="https://wa.me/55${i.zap}" target="_blank"><button class=btn-w>CHAMAR NO ZAP 📲</button></a></div></div>`;});}lista.innerHTML=h;}listar();
-</script></body></html>
+.header h1{
+  color:#ffcc00;
+  font-size:28px;
+  font-weight:900;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+}
+.subtitle{
+  display:inline-block;
+  margin-top:14px;
+  border:2px solid #ffcc00;
+  color:white;
+  padding:8px 18px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:bold;
+  background:rgba(0,0,0,0.55);
+}
+.buttons{margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.btn-yellow{
+  background:#ffcc00;
+  border:2px solid #000;
+  padding:9px 16px;
+  border-radius:25px;
+  font-weight:900;
+  font-size:12px;
+}
+.tabs{display:flex;background:white;border-bottom:3px solid #ffcc00;}
+.tab{flex:1;padding:16px;text-align:center;font-weight:bold;background:#fff9db;}
+.tab:nth-child(2){background:white;}
+.offer-bar{
+  background:#ffcc00;
+  margin:15px auto;
+  max-width:700px;
+  padding:12px;
+  text-align:center;
+  font-weight:900;
+  border-radius:8px;
+  font-size:14px;
+}
+.filters{display:flex;gap:10px;max-width:700px;margin:0 auto;padding:0 15px;}
+.filters select{flex:1;padding:12px;border-radius:8px;border:1px solid #ccc;}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🏭 GALPÕES E NEGÓCIOS</h1>
+  <div class="subtitle">GRANDE ABC • APARTAMENTOS • CASAS • GALPÕES • PROPRIETÁRIO DIRETO</div>
+  <div class="buttons">
+    <div class="btn-yellow">🏠 APARTAMENTOS</div>
+    <div class="btn-yellow">🏡 CASAS</div>
+    <div class="btn-yellow">🏭 GALPÕES</div>
+  </div>
+</div>
+<div class="tabs">
+  <div class="tab">🔍 BUSCAR</div>
+  <div class="tab">📢 ANUNCIAR</div>
+</div>
+<div style="padding:10px;">
+  <div class="offer-bar">⚡ 1º ANÚNCIO GRÁTIS 10 DIAS • Depois: 1 por R$49,90 | 3 por R$99,90</div>
+  <div class="filters">
+    <select><option>Todos</option><option>Galpões</option></select>
+    <select><option>Grande ABC</option></select>
+  </div>
+</div>
+</body>
+</html>
