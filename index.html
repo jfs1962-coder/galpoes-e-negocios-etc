@@ -3,58 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GALPÕES E NEGÓCIOS - Grande ABC</title>
+<title>GALPOES E NEGOCIOS - Grande ABC</title>
 <link rel="manifest" href="manifest.json">
 <style>
 body{margin:0;font-family:Arial;background:#f5f5f5}
 .cabecalho{background:#000;color:#FFD700;text-align:center;padding:15px}
-.sub{font-size:12px;color:#fff;letter-spacing:1px}
+.cabecalho h1{margin:0;font-size:22px}
+.sub{font-size:11px;color:#fff}
 .abas{display:flex;background:#111}
 .abas div{flex:1;text-align:center;padding:12px;color:#fff;font-weight:bold;cursor:pointer}
 .guia.ativa{background:#FFD700;color:#000}
-.bandeira{background:#FFD700;color:#000;text-align:center;padding:8px;font-weight:bold;font-size:13px}
-.banner-img img{width:100%;height:auto;display:block}
-#telaBuscar{padding:10px}
-.Filtros{display:grid;gap:8px;background:#fff;padding:10px;border-radius:8px}
-select,input{padding:10px;border-radius:6px;border:1px solid #ddd}
-.como{background:#111;color:#fff;padding:15px;border-radius:8px;margin-top:12px}
-.como h2{text-align:center;color:#FFD700;margin-top:0}
-.ano{font-size:14px;line-height:1.6}
+.bandeira{background:#FFD700;color:#000;text-align:center;padding:8px;font-weight:bold;font-size:12px}
+.banner img{width:100%;display:block;height:auto}
+.Filtros{display:grid;gap:8px;background:#fff;padding:10px;border-radius:8px;margin:10px}
+select,input{padding:10px;border-radius:6px;border:1px solid #ddd;width:100%;box-sizing:border-box}
+.como{background:#111;color:#fff;padding:15px;border-radius:8px;margin:10px}
+.como h2{text-align:center;color:#FFD700;margin-top:0;font-size:16px}
+.ano{font-size:13px;line-height:1.6}
 .escondido{display:none}
+#lista{margin-top:15px;padding:10px}
 </style>
 </head>
 <body>
-<div class="cabecalho"><h1>GALPÕES E NEGÓCIOS</h1><div class="sub">GRANDE ABC • APARTAMENTOS • CASAS • GALPÕES</div></div>
+<div class="cabecalho"><h1>GALPOES E NEGOCIOS</h1><div class="sub">GRANDE ABC - APARTAMENTOS - CASAS - GALPOES</div></div>
 <div class="abas">
-<div id="tabBuscar" class="guia ativa" onclick="abrirBuscar()">🏢 BUSCAR</div>
-<div id="tabAnunciar" class="guia" onclick="abrirAnunciar()">📢 ANUNCIAR</div>
+<div id="tabBuscar" class="guia ativa" onclick="abrirBuscar()">BUSCAR</div>
+<div id="tabAnunciar" class="guia" onclick="abrirAnunciar()">ANUNCIAR</div>
 </div>
-<div class="bandeira">⚡ 1º ANÚNCIO GRÁTIS 10 DIAS • 1 por R$49,90 | 3 por R$99,90 - PIX CNPJ</div>
-
-<!-- BANNER ÚNICO - JÁ COM CIDADE DE DIA + LOGO + FRASE -->
-<div class="banner-img">
-<img src="https://i.imgur.com/8QJ4d1e.jpg" alt="Cidade dia - Galpões e Negócios">
-</div>
-
-<div id="telaBuscar">
-<div class="Filtros">
-<select><option>Locação ou Venda</option></select>
-<select><option>Todos os Imóveis</option></select>
-<select><option>Grande ABC</option></select>
-<input placeholder="Bairro">
-</div>
-<div class="como"><h2>🔍 COMO FUNCIONA? LEIA ANTES</h2>
-<div class="ano">
-<b style="color:#FFD700">1. DONO OU CORRETOR ANUNCIA:</b> Cadastra em 2 min<br><br>
-<b style="color:#FFD700">2. CLIENTE CHAMA DIRETO NO SEU WHATSAPP:</b> Sem intermediário<br><br>
-<b style="color:#FFD700">3. NEGÓCIO 100% SEU - ZERO COMISSÃO:</b> DONO ANUNCIA, CLIENTE CHAMA DIRETO
-</div>
-</div>
-</div>
-<script>
-function abrirBuscar(){document.getElementById('telaBuscar').classList.remove('escondido')}
-function abrirAnunciar(){}
-function renderizar(){}
-</script>
-</body>
-</html>
+<div class="bandeira">1 ANUNCIO GRATIS 10 DIAS - RENOVACAO: 1 por R$49,90 | 3 por R$99,90 - PIX CNPJ</div>
+<div class="banner"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGQAygDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN2d3h8fIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/9oADAMBAAIR
