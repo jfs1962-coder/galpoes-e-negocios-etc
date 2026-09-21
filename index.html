@@ -4,80 +4,84 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GALPÕES E NEGÓCIOS - Grande ABC</title>
+<link rel="manifest" href="manifest.json">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, Helvetica, sans-serif;}
-body{background:#f2f2f2;}
-.header{
-  background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.75) 100%), url('banner.jpg');
-  background-size: cover;
-  background-position: center 35%;
-  padding: 50px 20px 25px;
-  text-align:center;
-  border-bottom:5px solid #ffcc00;
-}
-.header h1{
-  color:#ffcc00;
-  font-size:28px;
-  font-weight:900;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
-}
-.subtitle{
-  display:inline-block;
-  margin-top:14px;
-  border:2px solid #ffcc00;
-  color:white;
-  padding:8px 18px;
-  border-radius:30px;
-  font-size:12px;
-  font-weight:bold;
-  background:rgba(0,0,0,0.55);
-}
-.buttons{margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
-.btn-yellow{
-  background:#ffcc00;
-  border:2px solid #000;
-  padding:9px 16px;
-  border-radius:25px;
-  font-weight:900;
-  font-size:12px;
-}
-.tabs{display:flex;background:white;border-bottom:3px solid #ffcc00;}
-.tab{flex:1;padding:16px;text-align:center;font-weight:bold;background:#fff9db;}
-.tab:nth-child(2){background:white;}
-.offer-bar{
-  background:#ffcc00;
-  margin:15px auto;
-  max-width:700px;
-  padding:12px;
-  text-align:center;
-  font-weight:900;
-  border-radius:8px;
-  font-size:14px;
-}
-.filters{display:flex;gap:10px;max-width:700px;margin:0 auto;padding:0 15px;}
-.filters select{flex:1;padding:12px;border-radius:8px;border:1px solid #ccc;}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5}
+.cabecalho{background:#000;color:#FFD700;text-align:center;padding:15px}
+.cabecalho h1{margin:0;font-size:22px;letter-spacing:1px}
+.sub{font-size:11px;color:#fff;margin-top:4px}
+.abas{display:flex;background:#111;border-bottom:3px solid #FFD700}
+.abas div{flex:1;text-align:center;padding:14px;color:#fff;font-weight:bold;cursor:pointer;font-size:13px}
+.guia.ativa{background:#FFD700;color:#000}
+.bandeira{background:#FFD700;color:#000;text-align:center;padding:8px;font-weight:bold;font-size:12px}
+.banner{width:100%;line-height:0}
+.banner img{width:100%;height:auto;display:block}
+.Filtros{display:grid;gap:8px;background:#fff;padding:12px;border-radius:8px;margin:10px}
+select,input{padding:10px;border-radius:6px;border:1px solid #ddd;width:100%}
+.como{background:#111;color:#fff;padding:15px;border-radius:8px;margin:10px}
+.como h2{text-align:center;color:#FFD700;margin-top:0;font-size:15px}
+.ano{font-size:13px;line-height:1.6}
+.escondido{display:none}
 </style>
 </head>
 <body>
-<div class="header">
-  <h1>🏭 GALPÕES E NEGÓCIOS</h1>
-  <div class="subtitle">GRANDE ABC • APARTAMENTOS • CASAS • GALPÕES • PROPRIETÁRIO DIRETO</div>
-  <div class="buttons">
-    <div class="btn-yellow">🏠 APARTAMENTOS</div>
-    <div class="btn-yellow">🏡 CASAS</div>
-    <div class="btn-yellow">🏭 GALPÕES</div>
-  </div>
+<div class="cabecalho">
+<h1>GALPÕES E NEGÓCIOS</h1>
+<div class="sub">GRANDE ABC • APARTAMENTOS • CASAS • GALPÕES</div>
 </div>
-<div class="tabs">
-  <div class="tab">🔍 BUSCAR</div>
-  <div class="tab">📢 ANUNCIAR</div>
+
+<div class="abas">
+<div id="tabBuscar" class="guia ativa" onclick="abrirBuscar()">🏢 BUSCAR</div>
+<div id="tabAnunciar" class="guia" onclick="abrirAnunciar()">📢 ANUNCIAR</div>
 </div>
-<div style="padding:10px;">
-  <div class="offer-bar">⚡ 1º ANÚNCIO GRÁTIS 10 DIAS • Depois: 1 por R$49,90 | 3 por R$99,90</div>
-  <div class="filters">
-    <select><option>Todos</option><option>Galpões</option></select>
-    <select><option>Grande ABC</option></select>
-  </div>
+
+<div class="bandeira">⚡ 1º ANÚNCIO GRÁTIS 10 DIAS • RENOVAÇÃO: 1 por R$49,90 | 3 por R$99,90 - PIX CNPJ</div>
+
+<div class="banner">
+<img src="banner.jpg" alt="Dono Anuncia, Cliente Chama Direto - Galpões, Casas e Apartamentos em dia">
 </div>
+
+<div id="telaBuscar">
+<div class="Filtros">
+<select id="fFinalidade"><option value="">Locação ou Venda</option><option>Locação</option><option>Venda</option></select>
+<select id="fTipo"><option value="">Todos os Imóveis</option><option>Casa</option><option>Apartamento</option><option>Galpão</option></select>
+<select id="fCidade"><option value="">Grande ABC (Todas)</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option></select>
+<input id="fBairro" placeholder="Filtrar por Bairro digitando...">
+</div>
+
+<div class="como">
+<h2>🔍 COMO FUNCIONA? LEIA ANTES</h2>
+<div class="ano">
+<b style="color:#FFD700">1. DONO OU CORRETOR ANUNCIA:</b> Você cadastra seu imóvel em 2 minutos. Vitrine aberta para proprietários e corretores.<br><br>
+<b style="color:#FFD700">2. CLIENTE CHAMA DIRETO NO SEU WHATSAPP:</b> Sem intermediário, sem atendente nosso. O interessado fala DIRETO com você.<br><br>
+<b style="color:#FFD700">3. NEGÓCIO 100% SEU - ZERO COMISSÃO:</b> O Galpões e Negócios NÃO cobra comissão e NÃO intermedia. Somos só a vitrine: DONO ANUNCIA, CLIENTE CHAMA DIRETO.
+</div>
+</div>
+</div>
+
+<div id="telaAnunciar" class="escondido">
+<div style="background:#fff;padding:15px;border-radius:8px;margin:10px">
+<h3 style="text-align:center">📢 Anunciar Imóvel</h3>
+<p style="text-align:center;font-size:12px;color:#666">Proprietário ou Corretor - Cliente chama direto no seu WhatsApp</p>
+<input placeholder="Seu WhatsApp" style="margin-bottom:8px">
+<button style="width:100%;padding:12px;background:#FFD700;font-weight:bold;border:0;border-radius:6px">CADASTRAR</button>
+</div>
+</div>
+
+<script>
+function abrirBuscar(){
+document.getElementById('telaBuscar').classList.remove('escondido');
+document.getElementById('telaAnunciar').classList.add('escondido');
+document.getElementById('tabBuscar').classList.add('ativa');
+document.getElementById('tabAnunciar').classList.remove('ativa');
+}
+function abrirAnunciar(){
+document.getElementById('telaAnunciar').classList.remove('escondido');
+document.getElementById('telaBuscar').classList.add('escondido');
+document.getElementById('tabAnunciar').classList.add('ativa');
+document.getElementById('tabBuscar').classList.remove('ativa');
+}
+</script>
 </body>
 </html>
