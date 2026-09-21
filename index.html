@@ -13,7 +13,8 @@
 .tab{flex:1;text-align:center;padding:14px;font-weight:900;cursor:pointer;border-bottom:3px solid transparent}
 .tab.active{border-bottom:3px solid #FFD700;background:#fffde7}
 .banner{background:#FFD700;text-align:center;padding:12px;font-weight:900;font-size:13px}
-.filtros{display:flex;gap:8px;padding:10px;flex-wrap:wrap}.filtros select{flex:1;padding:12px;border-radius:8px;border:1px solid #ccc;min-width:120px}
+.filtros{display:flex;gap:8px;padding:10px;flex-wrap:wrap;background:#fffde7;border-bottom:1px solid #FFD700}
+.filtros select,.filtros input{flex:1;padding:12px;border-radius:8px;border:1px solid #ccc;min-width:120px}
 .como{background:#111;color:#fff;padding:20px;margin:15px;border-radius:10px}
 .como h2{color:#FFD700;text-align:center;margin-bottom:12px}
 .passo{background:#222;border-left:4px solid #FFD700;padding:10px;margin:8px 0;border-radius:4px;font-size:13px}
@@ -23,9 +24,10 @@
 .fotos{display:flex;gap:6px;overflow:auto}.fotos img{width:32%;height:90px}
 .form input,.form select,.form textarea{width:100%;padding:12px;margin:6px 0;border:1px solid #ccc;border-radius:8px}
 .btn{background:#FFD700;border:none;padding:14px;width:100%;border-radius:8px;font-weight:900;cursor:pointer;margin-top:10px}
-.btn-wpp{background:#25D366;color:#fff;padding:10px 16px;border-radius:20px;text-decoration:none;display:inline-block;font-weight:900;margin-top:8px}
+.btn-wpp{background:#25D366;color:#fff;padding:12px 18px;border-radius:25px;text-decoration:none;display:inline-block;font-weight:900;margin-top:10px;width:100%;text-align:center}
 .hidden{display:none!important}
 .badge{display:inline-block;padding:4px 8px;border-radius:12px;font-size:11px;font-weight:900;margin:4px 0}.badge-green{background:#d4edda;color:#155724}.badge-red{background:#f8d7da;color:#721c24}
+.linha-preco{display:flex;gap:8px}
 </style>
 </head>
 <body>
@@ -45,14 +47,18 @@
 <select id="fFinalidade" onchange="render()"><option value="">Locação ou Venda</option><option value="Locação">Locação</option><option value="Venda">Venda</option></select>
 <select id="fTipo" onchange="render()"><option value="">Todos os Imóveis</option><option>Casa</option><option>Apartamento</option><option>Sobrado</option><option>Prédio</option><option>Galpão</option><option>Salão</option><option>Laje</option><option>Terreno</option></select>
 <select id="fCidade" onchange="render()"><option value="">Grande ABC (Todas)</option><option>Santo André</option><option>São Bernardo do Campo</option><option>São Caetano do Sul</option><option>Mauá</option><option>Diadema</option><option>Ribeirão Pires</option><option>Rio Grande da Serra</option><option>São Paulo - Capital</option><option>Guarulhos</option><option>Osasco</option><option>Suzano</option></select>
+<input id="fBairro" placeholder="🔎 Filtrar por Bairro digitado" oninput="render()" style="min-width:100%">
+<div class="linha-preco" style="width:100%">
+<input id="fPrecoMin" type="number" placeholder="R$ Mín ex: 0" oninput="render()">
+<input id="fPrecoMax" type="number" placeholder="R$ Máx ex: 5000" oninput="render()">
+</div>
 </div>
 <div class="como">
 <h2>📋 COMO FUNCIONA? LEIA ANTES</h2>
 <div class="passo"><b style="color:#FFD700">1. DIRETO:</b> Você fala direto com o dono, sem imobiliária.</div>
 <div class="passo"><b style="color:#FFD700">2. RESPONSABILIDADE:</b> Fotos reais e valor correto por sua conta.</div>
 <div class="passo"><b style="color:#FFD700">3. CONTATO:</b> Cliente clica no seu WhatsApp.</div>
-<div class="passo"><b style="color:#FFD700">4. VISITA E CONTRATO:</b> Tudo 100% com você.</div>
-<div class="aviso">⚠️ NÃO SOMOS IMOBILIÁRIA. NÃO COBRAMOS COMISSÃO. APÓS 10 DIAS O ANÚNCIO EXPIRA AUTOMATICAMENTE.</div>
+<div class="aviso">⚠️ NÃO SOMOS IMOBILIÁRIA. APÓS 10 DIAS O ANÚNCIO EXPIRA AUTOMATICAMENTE.</div>
 </div>
 <div id="lista"></div>
 </div>
@@ -64,11 +70,11 @@
 <select id="tipo"><option>Casa</option><option>Apartamento</option><option>Sobrado</option><option>Prédio</option><option>Galpão</option><option>Salão</option><option>Laje</option><option>Terreno</option></select>
 <select id="cidade"><option>Santo André</option><option>São Bernardo do Campo</option><option>São Caetano do Sul</option><option>Mauá</option><option>Diadema</option><option>Ribeirão Pires</option><option>Rio Grande da Serra</option><option>São Paulo - Capital</option><option>Guarulhos</option><option>Osasco</option><option>Suzano</option></select>
 <input id="bairro" placeholder="Bairro *">
-<input id="valor" placeholder="Valor R$ *">
+<input id="valor" type="number" placeholder="Valor R$ * ex: 2500">
 <input id="area" placeholder="Área m²">
 <input id="whats" placeholder="WhatsApp com DDD *">
 <textarea id="desc" placeholder="Descrição"></textarea>
-<label style="font-weight:900;font-size:13px;margin-top:8px;display:block">📸 FOTOS (máx. 3 - 1ª é a capa):</label>
+<label style="font-weight:900;font-size:13px;margin-top:8px;display:block">📸 FOTOS (máx. 3):</label>
 <input type="file" id="fotos" accept="image/*" multiple>
 <div id="preview" style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap"></div>
 <button class="btn" onclick="salvar()">PUBLICAR GRÁTIS - 10 DIAS</button>
@@ -81,26 +87,38 @@ function abrirBuscar(){document.getElementById('telaBuscar').classList.remove('h
 function abrirAnunciar(){document.getElementById('telaAnunciar').classList.remove('hidden');document.getElementById('telaBuscar').classList.add('hidden');document.getElementById('tabAnunciar').classList.add('active');document.getElementById('tabBuscar').classList.remove('active');}
 let imoveis=[];try{imoveis=JSON.parse(localStorage.getItem('imoveis')||'[]')}catch(e){}
 
-// preview fotos
 document.getElementById('fotos').addEventListener('change', function(e){
  let p=document.getElementById('preview');p.innerHTML='';
  [...e.target.files].slice(0,3).forEach(f=>{
   let r=new FileReader();r.onload=ev=>{p.innerHTML+=`<img src="${ev.target.result}" style="width:80px;height:80px;object-fit:cover;border-radius:8px;border:1px solid #ccc">`};r.readAsDataURL(f);
  })
 });
-
-function diasRestantes(exp){let agora=new Date();let fim=new Date(exp);let diff=Math.ceil((fim-agora)/86400000);return diff;}
+function diasRestantes(exp){let diff=Math.ceil((new Date(exp)-new Date())/86400000);return diff;}
 function limparExpirados(){let agora=new Date();imoveis=imoveis.filter(i=> new Date(i.expira) > agora);localStorage.setItem('imoveis',JSON.stringify(imoveis));}
+
+function parseValor(v){return parseFloat(String(v).replace(/\D/g,''))||0;}
 
 function render(){
  limparExpirados();
- let l=document.getElementById('lista');let ft=fTipo.value;let fc=fCidade.value;let ff=fFinalidade.value;
- let fil=imoveis.filter(i=>(!ft||i.tipo==ft)&&(!fc||i.cidade==fc)&&(!ff||i.finalidade==ff));
- if(fil.length==0){l.innerHTML='<div style="text-align:center;padding:30px;background:#f5f5f5;margin:15px;border-radius:10px">Nenhum imóvel ativo. Seja o primeiro! Anúncios expiram em 10 dias.</div>';return}
+ let l=document.getElementById('lista');
+ let ft=fTipo.value, fc=fCidade.value, ff=fFinalidade.value;
+ let fb=fBairro.value.toLowerCase();
+ let fMin=parseFloat(fPrecoMin.value)||0;
+ let fMax=parseFloat(fPrecoMax.value)||Infinity;
+
+ let fil=imoveis.filter(i=>{
+  let valorNum=parseValor(i.valor);
+  let bairroOk = !fb || (i.bairro && i.bairro.toLowerCase().includes(fb));
+  let precoOk = valorNum >= fMin && valorNum <= fMax;
+  return (!ft||i.tipo==ft)&&(!fc||i.cidade==fc)&&(!ff||i.finalidade==ff)&&bairroOk&&precoOk;
+ });
+
+ if(fil.length==0){l.innerHTML='<div style="text-align:center;padding:30px;background:#f5f5f5;margin:15px;border-radius:10px">Nenhum imóvel com esses filtros. Tente mudar preço ou bairro.</div>';return}
  l.innerHTML=fil.map(i=>{
   let dr=diasRestantes(i.expira);
   let fotosHtml = i.fotos && i.fotos.length ? `<div class="fotos">${i.fotos.map(f=>`<img src="${f}">`).join('')}</div>` : '';
-  return `<div class="card">${fotosHtml}<b>${i.finalidade} - ${i.tipo} - ${i.bairro} - ${i.cidade}</b><br>R$ ${i.valor} | ${i.area}m²<br><span class="badge ${dr<=2?'badge-red':'badge-green'}">⏳ Expira em ${dr} dia(s) - ${new Date(i.expira).toLocaleDateString()}</span><br><div style="font-size:13px;margin-top:6px">${i.desc||''}</div><a class="btn-wpp" href="https://wa.me/55${i.whats}?text=Olá! Vi seu imóvel ${i.tipo} em ${i.bairro} no Galpões e Negócios" target="_blank">WhatsApp</a></div>`
+  let msgWpp = encodeURIComponent(`Olá, vi seu imóvel no Galpões e Negócios: ${i.tipo} em ${i.bairro} - ${i.cidade} por R$ ${i.valor}. Ainda está disponível?`);
+  return `<div class="card">${fotosHtml}<b>${i.finalidade} - ${i.tipo} - ${i.bairro} - ${i.cidade}</b><br>R$ ${i.valor} | ${i.area}m²<br><span class="badge ${dr<=2?'badge-red':'badge-green'}">⏳ Expira em ${dr} dia(s)</span><br><div style="font-size:13px;margin-top:6px">${i.desc||''}</div><a class="btn-wpp" href="https://wa.me/55${i.whats}?text=${msgWpp}" target="_blank">💬 Chamar no WhatsApp</a></div>`
  }).join('');
 }
 
@@ -115,10 +133,9 @@ async function salvar(){
  }
  let o={finalidade:finalidade.value,tipo:tipo.value,cidade:cidade.value,bairro:bairro.value,valor:valor.value,area:area.value,whats:whats.value.replace(/\D/g,''),desc:desc.value,fotos:fotosBase64,criado:new Date().toISOString(),expira:new Date(Date.now()+10*24*60*60*1000).toISOString()};
  if(!o.bairro||!o.valor||!o.whats){alert('Preencha bairro, valor e whats');return}
- imoveis.unshift(o);localStorage.setItem('imoveis',JSON.stringify(imoveis));alert('Publicado! Ativo por 10 dias. Depois será bloqueado automaticamente.');abrirBuscar();render();
+ imoveis.unshift(o);localStorage.setItem('imoveis',JSON.stringify(imoveis));alert('Publicado! Ativo por 10 dias.');abrirBuscar();render();
 }
 render();
-setInterval(limparExpirados, 60000);
 </script>
 </body>
 </html>
