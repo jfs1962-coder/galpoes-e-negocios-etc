@@ -22,7 +22,7 @@ body{margin:0;font-family:Arial;background:#f5f5f5}
 select,input{padding:10px;border-radius:6px;border:1px solid #ddd}
 .como{background:#111;color:#fff;padding:15px;border-radius:8px;margin-top:12px}
 .como h2{text-align:center;color:#FFD700;margin-top:0}
-.ano{font-size:14px}
+.ano{font-size:14px;line-height:1.6}
 .escondido{display:none}
 #forma{background:#fff;border-radius:8px}
 </style>
@@ -32,13 +32,12 @@ select,input{padding:10px;border-radius:6px;border:1px solid #ddd}
 <div class="cabecalho"><h1>GALPÕES E NEGÓCIOS</h1><div class="sub">GRANDE ABC • APARTAMENTOS • CASAS • GALPÕES • PROPRIEDADE</div></div>
 
 <div class="abas">
-<div id="tabBuscar" class="guia ativa" onclick="abrirBuscar()">🏢 ÔNIBUS / BUSCAR</div>
+<div id="tabBuscar" class="guia ativa" onclick="abrirBuscar()">🏢 BUSCAR</div>
 <div id="tabAnunciar" class="guia" onclick="abrirAnunciar()">📢 ANUNCIAR</div>
 </div>
 
 <div class="bandeira">⚡ 1º ANÚNCIO GRÁTIS 10 DIAS • RENOVAÇÃO: 1 por R$49,90 | 3 por R$99,90 - PIX CNPJ</div>
 
-<!-- NOVO BANNER QUE VOCÊ PEDIU -->
 <div class="banner-direto">
 <h1>DONO ANUNCIA, <span>CLIENTE CHAMA DIRETO</span></h1>
 <p>Proprietários e Corretores anunciam. Negociação SEM intermediários e SEM comissão para a plataforma.</p>
@@ -53,12 +52,11 @@ select,input{padding:10px;border-radius:6px;border:1px solid #ddd}
 <div style="display:flex;gap:8px"><input id="fPrecoMin" type="number" placeholder="R$ Mín" oninput="renderizar()" style="flex:1"><input id="fPrecoMax" type="number" placeholder="R$ Máx" oninput="renderizar()" style="flex:1"></div>
 </div>
 
-<!-- COMO FUNCIONA CORRIGIDO -->
 <div class="como"><h2>🔍 COMO FUNCIONA? LEIA ANTES</h2>
 <div class="ano">
-<b style="color:#FFD700">1. DONO OU CORRETOR ANUNCIA:</b> Você cadastra seu imóvel em 2 minutos. A plataforma é uma vitrine aberta para proprietários e corretores anunciarem direto.<br><br>
-<b style="color:#FFD700">2. CLIENTE CHAMA DIRETO NO SEU WHATSAPP:</b> Sem intermediário. Sem atendente nosso. O interessado clica e fala DIRETO com você que anunciou.<br><br>
-<b style="color:#FFD700">3. NEGÓCIO 100% SEU - ZERO COMISSÃO:</b> O Galpões e Negócios NÃO cobra comissão e NÃO intermedia. O acordo é todo seu. Somos só a vitrine que conecta: DONO ANUNCIA, CLIENTE CHAMA DIRETO.
+<b style="color:#FFD700">1. DONO OU CORRETOR ANUNCIA:</b> Você cadastra seu imóvel em 2 minutos. Vitrine aberta para proprietários e corretores.<br><br>
+<b style="color:#FFD700">2. CLIENTE CHAMA DIRETO NO SEU WHATSAPP:</b> Sem intermediário, sem atendente nosso. O interessado fala DIRETO com quem anunciou.<br><br>
+<b style="color:#FFD700">3. NEGÓCIO 100% SEU - ZERO COMISSÃO:</b> O Galpões e Negócios NÃO cobra comissão e NÃO intermedia. Somos só a vitrine: DONO ANUNCIA, CLIENTE CHAMA DIRETO.
 </div>
 </div>
 
@@ -68,7 +66,6 @@ select,input{padding:10px;border-radius:6px;border:1px solid #ddd}
 <div id="telaAnunciar" class="escondido"><div style="padding:15px" id="forma">
 <h3 style="text-align:center">📢 Anunciar Imóvel</h3>
 <p style="text-align:center;font-size:13px;color:#666">Proprietário ou Corretor, cadastre aqui. O cliente vai te chamar direto, sem comissão para a plataforma.</p>
-<!-- SEU FORMULÁRIO DE ANÚNCIO CONTINUA AQUI - NÃO APAGUEI -->
 <input placeholder="Seu WhatsApp" style="width:100%;margin-bottom:8px">
 <button style="width:100%;padding:12px;background:#FFD700;font-weight:bold;border:0;border-radius:6px">CADASTRAR</button>
 </div></div>
@@ -76,7 +73,7 @@ select,input{padding:10px;border-radius:6px;border:1px solid #ddd}
 <script>
 function abrirBuscar(){document.getElementById('telaBuscar').classList.remove('escondido');document.getElementById('telaAnunciar').classList.add('escondido');document.getElementById('tabBuscar').classList.add('ativa');document.getElementById('tabAnunciar').classList.remove('ativa')}
 function abrirAnunciar(){document.getElementById('telaAnunciar').classList.remove('escondido');document.getElementById('telaBuscar').classList.add('escondido');document.getElementById('tabAnunciar').classList.add('ativa');document.getElementById('tabBuscar').classList.remove('ativa')}
-function renderizar(){/* sua função de filtro continua igual */}
+function renderizar(){}
 </script>
 </body>
 </html>
