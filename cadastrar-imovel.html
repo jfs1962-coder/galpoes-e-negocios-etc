@@ -1,27 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><meta charset="UTF-8"><title>Cadastrar Imóvel</title>
-<style>body{font-family:Arial;max-width:600px;margin:20px auto;padding:20px}input,select,button{width:100%;padding:12px;margin:8px 0;border:1px solid #ccc;border-radius:8px}button{background:#002855;color:white;font-weight:bold;font-size:18px}</style>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastrar IMÓVEL - Só Proprietário - Galpões e Negócios</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;padding:15px}
+.box{background:#fff;max-width:600px;margin:0 auto;padding:20px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.topo{background:#000;color:#FFD700;text-align:center;padding:12px;border-radius:8px;margin:-20px -20px 20px -20px}
+.topo h2{margin:0;font-size:18px}
+input,select,textarea,button{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:8px;font-size:14px}
+button{background:#FFD700;color:#000;font-weight:bold;font-size:18px;border:0;cursor:pointer;margin-top:15px;padding:16px}
+.aviso{background:#eef5ff;padding:12px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.4;border-left:4px solid #002855}
+.selo{background:#f0fff4;padding:10px;border-radius:8px;font-size:13px;border:1px dashed #00c853;margin:8px 0}
+small{color:#666;font-size:11px}
+a{color:#002855}
+</style>
 </head>
 <body>
-<h2>Anunciar meu Imóvel</h2>
-<p>Só proprietário. Todos os tipos: Galpão, Casa, Apto, Sobrado, Prédio.</p>
-<form>
-<input placeholder="Nome completo *" required>
-<input placeholder="CPF / CNPJ *" required>
-<input placeholder="WhatsApp *" required>
-<input type="email" placeholder="E-mail para NFS-e Fortaleza *" required>
-<small>Você receberá a nota fiscal neste e-mail</small>
-<select required>
-<option>Galpão</option><option>Casa</option><option>Apartamento</option>
-<option>Sobrado</option><option>Prédio</option><option>Terreno</option>
-</select>
-<label>Comprovante opcional (IPTU/Conta) - ganha selo Verificado</label>
-<input type="file">
-<div style="background:#eef5ff;padding:12px;border-radius:8px;margin-top:10px">
-<label><input type="checkbox" required> Declaro que sou dono deste IMÓVEL e autorizo divulgar em galpoesenegocios.com.br até pedir baixa com VENDI/ALUGUEI/PAUSAR. <a href="/regras.html">Regras</a></label>
+<div class="box">
+<div class="topo">
+<h2>ANUNCIAR MEU IMÓVEL</h2>
+<div style="font-size:11px;color:#fff;margin-top:4px">SÓ PROPRIETÁRIO • VERIFICADO COM IPTU • SEM CORRETOR</div>
 </div>
-<button type="submit">CADASTRAR MEU IMÓVEL</button>
+
+<p style="font-size:13px;color:#444;text-align:center">Todos os tipos de IMÓVEL: Galpão, Casa, Apartamento, Sobrado, Prédio, Terreno. Seu WhatsApp não fica público.</p>
+
+<form onsubmit="alert('IMÓVEL cadastrado! (Aqui vamos ligar no banco de dados)'); return false;">
+<input type="text" placeholder="Nome completo do proprietário do IMÓVEL *" required>
+<input type="text" placeholder="CPF / CNPJ do proprietário do IMÓVEL *" required>
+<input type="text" placeholder="WhatsApp do dono do IMÓVEL (não fica público) *" required>
+<input type="email" placeholder="E-mail para receber NFS-e de Santo André *" required>
+<small>⚠️ Você receberá a nota fiscal eletrônica da Prefeitura de Santo André neste e-mail. O modelo de Fortaleza era só exemplo de layout.</small>
+
+<select required>
+<option value="">Tipo do IMÓVEL *</option>
+<option>Galpão</option>
+<option>Casa</option>
+<option>Apartamento</option>
+<option>Sobrado</option>
+<option>Prédio Comercial</option>
+<option>Terreno</option>
+<option>Salão / Loja</option>
+</select>
+
+<input type="text" placeholder="Bairro do IMÓVEL - ex: Vila Homero, Santo André *">
+<input type="text" placeholder="Valor do IMÓVEL - ex: R$ 4.500 locação *">
+
+<div class="selo">
+<b>🏅 Quer selo Verificado no seu IMÓVEL?</b><br>
+Anexe comprovante opcional: IPTU, conta de luz/água em seu nome. Seu IMÓVEL aparece primeiro e com selo azul.
+<input type="file" style="margin-top:8px">
+</div>
+
+<textarea rows="3" placeholder="Descrição do IMÓVEL - metragem, detalhes..."></textarea>
+
+<div class="aviso">
+<label style="display:flex;gap:8px;align-items:flex-start">
+<input type="checkbox" required style="width:18px;margin-top:2px">
+<span>Declaro que sou o <b>proprietário deste IMÓVEL</b> e que as informações são verdadeiras. Autorizo divulgar em galpoesenegocios.com.br até eu clicar em <b>VENDI / ALUGUEI / PAUSAR</b>. Li e concordo com as <a href="/regras.html">Regras - Só Dono do IMÓVEL</a> e que receberei a <b>NFS-e de Santo André</b> no e-mail informado.</span>
+</label>
+</div>
+
+<button type="submit">✅ CADASTRAR MEU IMÓVEL - SÓ DONO</button>
 </form>
+
+<div style="text-align:center;margin-top:15px;font-size:13px">
+<a href="/meus-imoveis.html">Já cadastrei - Gerenciar meus IMÓVEIS (VENDI/ALUGUEI)</a><br><br>
+<a href="/">← Voltar para busca</a>
+</div>
+</div>
 </body>
 </html>
