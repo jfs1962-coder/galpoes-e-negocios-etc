@@ -6,77 +6,74 @@
 <style>
 *{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#222}
 .topo{background:#fff;padding:12px 15px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;border-bottom:1px solid #eee}
-.topo b{font-size:15px} .topo span{font-size:9px;color:#777;display:block;margin-top:2px}
-.topo a{background:#000;color:#FFD700;padding:9px 16px;border-radius:20px;font-size:12px;text-decoration:none;font-weight:bold}
-.banner{line-height:0} .banner img{width:100%;height:auto;display:block}
-.frase{text-align:center;padding:10px 12px;font-size:11px;color:#333;background:#FFFBEB;border-bottom:1px solid #f5e6a0}
+.banner img{width:100%;display:block}
+.frase{text-align:center;padding:10px;font-size:11px;background:#FFFBEB}
 .card{border:1px solid #eee;border-radius:14px;margin:10px;overflow:hidden}
-.card img{width:100%;height:180px;object-fit:cover}
-.card-info{padding:12px} .btn-dono{display:block;text-align:center;border:1.5px solid #111;padding:12px;border-radius:10px;text-decoration:none;color:#111;font-weight:bold;margin-top:10px;font-size:13px;background:#fff;cursor:pointer}
+.card img{width:100%;height:180px;object-fit:cover} .card-info{padding:12px}
+.btn-dono{display:block;text-align:center;border:1.5px solid #111;padding:12px;border-radius:10px;text-decoration:none;color:#111;font-weight:bold;margin-top:10px;background:#fff;cursor:pointer}
 
-/* MODAL ESTILO MERCADO LIVRE */
-#modalLogin{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:999;justify-content:center;align-items:center;padding:15px}
-.modal-box{background:#fff;width:100%;max-width:900px;border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
-.modal-top{background:#FFE600;padding:12px 15px;display:flex;align-items:center}
-.modal-top img{height:28px}
-.modal-body{display:flex;flex-wrap:wrap}
-.modal-left{flex:1;min-width:260px;padding:30px 20px}
-.modal-left h2{font-size:22px;line-height:1.3;margin:0}
-.modal-right{flex:1;min-width:280px;padding:25px;border:1px solid #eee;margin:20px;border-radius:8px}
-.modal-right label{font-size:13px} .modal-right input{width:100%;padding:12px;border:1px solid #ccc;border-radius:6px;margin-top:6px;margin-bottom:14px;font-size:14px}
-.btn-continuar{width:100%;background:#3483FA;color:#fff;border:0;padding:13px;border-radius:6px;font-weight:bold;font-size:15px;cursor:pointer}
-.link-criar{display:block;text-align:center;margin-top:14px;color:#3483FA;text-decoration:none;font-size:13px}
-.div-ou{text-align:center;margin:18px 0;font-size:12px;color:#999;position:relative}
-.div-ou:before{content:"";position:absolute;top:50%;left:0;width:40%;height:1px;background:#ddd} .div-ou:after{content:"";position:absolute;top:50%;right:0;width:40%;height:1px;background:#ddd}
-.google-btn{border:1px solid #ddd;border-radius:20px;padding:8px 12px;display:flex;align-items:center;justify-content:space-between;font-size:12px;cursor:pointer}
-.check-area{font-size:11px;margin-top:12px;color:#555}
+/* MODAL ORIGINAL - SÓ DONO - NADA DE ML */
+#modalDono{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:999;justify-content:center;align-items:center;padding:12px}
+.boxDono{background:#fff;width:100%;max-width:380px;border-radius:16px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.boxTop{background:#111;color:#FFD700;padding:16px 18px;display:flex;justify-content:space-between;align-items:center}
+.boxTop b{font-size:13px;letter-spacing:.5px} .boxTop span{font-size:18px;cursor:pointer;color:#fff}
+.boxCont{padding:18px}
+.seloTop{display:flex;gap:10px;align-items:center;background:#FFF8E1;border:1px solid #FFECB3;padding:10px 12px;border-radius:10px;margin-bottom:14px}
+.seloTop i{font-size:22px}
+.seloTop p{margin:0;font-size:11px;line-height:1.4;color:#5a4a00} .seloTop p b{color:#111}
+.label{font-size:12px;font-weight:bold;margin:14px 0 6px 0;display:block}
+.input{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid #ddd;background:#f9f9f9;font-size:13px}
+.check{margin:14px 0;background:#f6f6f6;padding:10px;border-radius:10px;display:flex;gap:8px;align-items:flex-start;font-size:11px;line-height:1.4}
+.btnWhats{width:100%;background:#111;color:#FFD700;border:0;padding:14px;border-radius:12px;font-weight:bold;font-size:13px;cursor:pointer;margin-top:6px}
+.btnSec{width:100%;background:#fff;color:#111;border:1.5px solid #ddd;padding:12px;border-radius:12px;font-size:12px;cursor:pointer;margin-top:8px}
+.aviso{font-size:10px;color:#888;text-align:center;margin-top:10px;line-height:1.4}
 </style>
 </head>
 <body>
-<div class="topo"><div><b>GALPÕES E NEGÓCIOS</b><span>SÓ PROPRIETÁRIO DO IMÓVEL • VERIFICADO</span></div><a href="/cadastrar-imovel.html">+ ANUNCIAR</a></div>
+<div class="topo"><div><b>GALPÕES E NEGÓCIOS</b><span style="font-size:9px;color:#777;display:block">SÓ PROPRIETÁRIO DO IMÓVEL • VERIFICADO</span></div><a href="/cadastrar-imovel.html" style="background:#000;color:#FFD700;padding:9px 16px;border-radius:20px;font-size:12px;text-decoration:none;font-weight:bold">+ ANUNCIAR</a></div>
 <div class="banner"><img src="banner.jpg"></div>
-<div class="frase"><b>Só Dono do IMÓVEL Anuncia</b> • Fala Direto • Sem Corretor</div>
+<div class="frase"><b>Só Dono do IMÓVEL Anuncia</b> • Fala Direto • Sem Comissão</div>
 
-<div class="card">
-<img src="banner.jpg">
-<div class="card-info">
-<b>IMÓVEL: Galpão 400m² - Vila Homero</b><br><small>Santo André • Locação R$ 4.500 • Direto com Proprietário</small>
-<div onclick="abrirLogin()" class="btn-dono">💬 FALAR COM DONO DO IMÓVEL</div>
-</div>
-</div>
+<div class="card"><img src="banner.jpg"><div class="card-info"><b>IMÓVEL: Galpão 400m² - Vila Homero</b><br><small>Santo André • Locação R$ 4.500</small><div onclick="abrirDono()" class="btn-dono">💬 FALAR COM DONO DO IMÓVEL</div></div></div>
 
-<!-- MODAL IGUAL MERCADO LIVRE -->
-<div id="modalLogin">
-<div class="modal-box">
-<div class="modal-top"><b style="background:#000;color:#FFE600;padding:4px 8px;border-radius:12px;font-size:12px">🤝 galpões e negócios</b></div>
-<div class="modal-body">
-<div class="modal-left"><h2>Olá! Para fazer uma pergunta ao dono do IMÓVEL, insira seu e-mail ou telefone</h2></div>
-<div class="modal-right">
-<label>E-mail ou telefone</label>
-<input id="emailTel" placeholder="Digite seu e-mail ou telefone">
-<div class="check-area"><input type="checkbox" id="declaro"> Declaro que sou <b>CLIENTE FINAL</b> e não sou corretor/intermediário. Estou ciente que declaração falsa gera bloqueio.</div>
-<button class="btn-continuar" onclick="continuarWhats()">Continuar</button>
-<a href="#" class="link-criar" onclick="fecharLogin()">Criar conta</a>
-<div class="div-ou">ou</div>
-<div class="google-btn" onclick="continuarWhats()"><div style="display:flex;align-items:center;gap:8px"><div style="width:24px;height:24px;background:#ddd;border-radius:50%"></div><div><b>Fazer login como visitante</b><br><span style="color:#777">Acesso registrado</span></div></div><span style="color:#3483FA;font-size:16px">G</span></div>
-</div>
+<!-- MODAL ORIGINAL SEU -->
+<div id="modalDono">
+<div class="boxDono">
+<div class="boxTop"><b>🛡️ VERIFICAÇÃO SÓ DONO</b><span onclick="fecharDono()">✕</span></div>
+<div class="boxCont">
+<div class="seloTop"><i>🔒</i><p><b>Fale direto com o proprietário do IMÓVEL</b><br>Para proteger o dono, precisamos de uma identificação rápida. Seu contato fica registrado.</p></div>
+
+<label class="label">Seu WhatsApp ou e-mail</label>
+<input id="contato" class="input" placeholder="Ex: (11) 9 9999-9999 ou seu@email.com">
+
+<label class="label">Você é:</label>
+<select id="tipo" class="input">
+<option value="cliente">✅ Sou CLIENTE FINAL - quero alugar/comprar</option>
+<option value="corretor">⛔ Sou CORRETOR / intermediário</option>
+</select>
+
+<div class="check"><input type="checkbox" id="ok" checked><span>Declaro que sou cliente final e que não sou corretor. Entendo que meu acesso será registrado e que declaração falsa causa bloqueio no portal, conforme <b>Regras - Só Proprietário do IMÓVEL</b>.</span></div>
+
+<button class="btnWhats" onclick="irWhats()">LIBERAR WHATSAPP DO DONO →</button>
+<button class="btnSec" onclick="location.href='/cadastrar-imovel.html'">Sou dono, quero anunciar meu IMÓVEL</button>
+<div class="aviso">Seu número NÃO fica público no site.<br>Abre direto no WhatsApp do proprietário do IMÓVEL.</div>
 </div>
 </div>
 </div>
 
 <script>
-function abrirLogin(){document.getElementById('modalLogin').style.display='flex'}
-function fecharLogin(){document.getElementById('modalLogin').style.display='none'}
-function continuarWhats(){
-  var contato=document.getElementById('emailTel').value;
-  var declaro=document.getElementById('declaro').checked;
-  if(!contato){alert('Digite seu e-mail ou telefone para continuar (igual Mercado Livre)');return}
-  if(!declaro){alert('Você precisa declarar que é CLIENTE FINAL para falar com dono do IMÓVEL');return}
-  // SALVA REGISTRO - QUEM PEGOU CONTATO
-  localStorage.setItem('contato_cliente_'+Date.now(), contato + ' - ' + new Date().toLocaleString());
-  fecharLogin();
-  alert('✅ Acesso liberado - Direto com Proprietário\n\nSeu contato: '+contato+'\nRegistrado em: '+new Date().toLocaleString());
-  window.open("https://wa.me/5511999999999?text=Olá! Vi seu IMÓVEL Galpão 400m² Vila Homero no Galpões e Negócios. Sou cliente final ("+contato+"). Ainda disponível? - Só Proprietário", "_blank");
+function abrirDono(){document.getElementById('modalDono').style.display='flex'}
+function fecharDono(){document.getElementById('modalDono').style.display='none'}
+function irWhats(){
+ var c=document.getElementById('contato').value;
+ var t=document.getElementById('tipo').value;
+ var ok=document.getElementById('ok').checked;
+ if(!c){alert('Informe seu WhatsApp ou e-mail para liberar');return}
+ if(t==='corretor'){alert('⛔ Este portal é exclusivo SÓ PROPRIETÁRIO DO IMÓVEL.\n\nNão atendemos corretores/intermediários neste IMÓVEL.');return}
+ if(!ok){alert('Você precisa aceitar a declaração de cliente final');return}
+ localStorage.setItem('lead_'+Date.now(), c+' | '+new Date().toLocaleString()+' | cliente final');
+ fecharDono();
+ window.open("https://wa.me/5511999999999?text=Olá! Vi seu IMÓVEL Galpão 400m² - Vila Homero no Galpões e Negócios (Só Proprietário). Sou cliente final ("+c+"). Ainda está disponível?", "_blank");
 }
 </script>
 </body>
