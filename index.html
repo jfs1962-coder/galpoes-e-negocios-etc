@@ -17,74 +17,69 @@ body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5}
 .bandeira{background:#FFD700;color:#000;text-align:center;padding:8px;font-weight:bold;font-size:12px}
 .banner{width:100%;line-height:0}
 .banner img{width:100%;height:auto;display:block}
+.botoes-acao{display:flex;gap:10px;justify-content:center;padding:15px;background:#111}
+.btn-principal{padding:14px 18px;border-radius:8px;font-weight:bold;text-decoration:none;text-align:center;flex:1}
+.btn-anunciar{background:#FFD700;color:#000}
+.btn-meus{background:#fff;color:#000;border:1px solid #FFD700}
 .Filtros{display:grid;gap:8px;background:#fff;padding:12px;border-radius:8px;margin:10px}
-select,input{padding:10px;border-radius:6px;border:1px solid #ddd;width:100%}
+select,input{padding:12px;border-radius:6px;border:1px solid #ddd;width:100%}
 .como{background:#111;color:#fff;padding:15px;border-radius:8px;margin:10px}
 .como h2{text-align:center;color:#FFD700;margin-top:0;font-size:15px}
 .ano{font-size:13px;line-height:1.6}
 .escondido{display:none}
+.card-imovel{background:#fff;margin:10px;padding:12px;border-radius:8px;border-left:4px solid #FFD700}
+.selo{background:#002855;color:#fff;font-size:10px;padding:3px 6px;border-radius:4px}
 </style>
 </head>
 <body>
 <div class="cabecalho">
 <h1>GALPÕES E NEGÓCIOS</h1>
-<div class="sub">GRANDE ABC • APARTAMENTOS • CASAS • GALPÕES</div>
+<div class="sub">SÓ PROPRIETÁRIO • GRANDE ABC • IMÓVEIS VERIFICADOS</div>
 </div>
 
 <div class="abas">
-<div id="tabBuscar" class="guia ativa" onclick="abrirBuscar()">🏢 BUSCAR</div>
-<div id="tabAnunciar" class="guia" onclick="abrirAnunciar()">📢 ANUNCIAR</div>
+<div id="tabBuscar" class="guia ativa">🏢 BUSCAR IMÓVEL DIRETO COM DONO</div>
+<div id="tabAnunciar" class="guia" onclick="location.href='/cadastrar-imovel.html'">📢 ANUNCIAR MEU IMÓVEL</div>
 </div>
 
-<div class="bandeira">⚡ 1º ANÚNCIO GRÁTIS 10 DIAS • RENOVAÇÃO: 1 por R$49,90 | 3 por R$99,90 - PIX CNPJ</div>
+<div class="bandeira">⚡ SÓ DONO ANUNCIA • 1º ANÚNCIO GRÁTIS 10 DIAS • SEM CORRETOR • SEM COMISSÃO</div>
 
 <div class="banner">
-<img src="banner.jpg" alt="Dono Anuncia, Cliente Chama Direto - Galpões, Casas e Apartamentos em dia">
+<img src="banner.jpg" alt="Só Proprietário Anuncia - Cliente Fala Direto com Dono">
 </div>
-<div style="text-align:center; padding:15px; background:#002855; display:flex; gap:10px; justify-content:center;">
-  <a href="/cadastrar-imovel.html" style="background:white;color:#002855;padding:12px 18px;border-radius:8px;font-weight:bold;text-decoration:none;">+ ANUNCIAR IMÓVEL</a>
-  <a href="/meus-imoveis.html" style="background:#00c853;color:white;padding:12px 18px;border-radius:8px;font-weight:bold;text-decoration:none;">MEUS IMÓVEIS</a>
+
+<div class="botoes-acao">
+  <a href="/cadastrar-imovel.html" class="btn-principal btn-anunciar">+ ANUNCIAR MEU IMÓVEL (SÓ DONO)</a>
+  <a href="/meus-imoveis.html" class="btn-principal btn-meus">MEUS IMÓVEIS: VENDI/ALUGUEI</a>
 </div>
+
 <div id="telaBuscar">
 <div class="Filtros">
-<select id="fFinalidade"><option value="">Locação ou Venda</option><option>Locação</option><option>Venda</option></select>
-<select id="fTipo"><option value="">Todos os Imóveis</option><option>Casa</option><option>Apartamento</option><option>Galpão</option></select>
-<select id="fCidade"><option value="">Grande ABC (Todas)</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option></select>
-<input id="fBairro" placeholder="Filtrar por Bairro digitando...">
+<select><option>Locação ou Venda</option><option>Locação</option><option>Venda</option></select>
+<select><option>Todos os Tipos de IMÓVEL</option><option>Galpão</option><option>Casa</option><option>Apartamento</option><option>Sobrado</option><option>Prédio</option><option>Terreno</option></select>
+<select><option>Grande ABC (Todas)</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option></select>
+<input placeholder="Filtrar por Bairro do IMÓVEL...">
 </div>
 
 <div class="como">
-<h2>🔍 COMO FUNCIONA? LEIA ANTES</h2>
+<h2>🔍 COMO FUNCIONA? LEIA ANTES - SÓ DONO</h2>
 <div class="ano">
-<b style="color:#FFD700">1. DONO OU CORRETOR ANUNCIA:</b> Você cadastra seu imóvel em 2 minutos. Vitrine aberta para proprietários e corretores.<br><br>
-<b style="color:#FFD700">2. CLIENTE CHAMA DIRETO NO SEU WHATSAPP:</b> Sem intermediário, sem atendente nosso. O interessado fala DIRETO com você.<br><br>
-<b style="color:#FFD700">3. NEGÓCIO 100% SEU - ZERO COMISSÃO:</b> O Galpões e Negócios NÃO cobra comissão e NÃO intermedia. Somos só a vitrine: DONO ANUNCIA, CLIENTE CHAMA DIRETO.
-</div>
-</div>
-</div>
-
-<div id="telaAnunciar" class="escondido">
-<div style="background:#fff;padding:15px;border-radius:8px;margin:10px">
-<h3 style="text-align:center">📢 Anunciar Imóvel</h3>
-<p style="text-align:center;font-size:12px;color:#666">Proprietário ou Corretor - Cliente chama direto no seu WhatsApp</p>
-<input placeholder="Seu WhatsApp" style="margin-bottom:8px">
-<button style="width:100%;padding:12px;background:#FFD700;font-weight:bold;border:0;border-radius:6px">CADASTRAR</button>
+<b style="color:#FFD700">1. SÓ PROPRIETÁRIO DO IMÓVEL ANUNCIA:</b> Você declara que é dono do IMÓVEL com CPF/CNPJ. Prova opcional com IPTU/conta para ganhar selo Verificado.<br><br>
+<b style="color:#FFD700">2. CLIENTE PASSA POR FILTRO ANTI-CORRETOR:</b> Quem quer falar com você responde se é corretor. Seu WhatsApp só aparece depois do filtro.<br><br>
+<b style="color:#FFD700">3. FALAR COM DONO DO IMÓVEL - SEM COMISSÃO:</b> O interessado clica em Falar com Dono do IMÓVEL e fala DIRETO com você no WhatsApp. Nós não intermediamos.<br><br>
+<b style="color:#FFD700">4. VENDI / ALUGUEI / PAUSAR:</b> Quando negociar, você mesmo clica e o IMÓVEL sai do ar. E ainda pode denunciar corretor.
 </div>
 </div>
 
-<script>
-function abrirBuscar(){
-document.getElementById('telaBuscar').classList.remove('escondido');
-document.getElementById('telaAnunciar').classList.add('escondido');
-document.getElementById('tabBuscar').classList.add('ativa');
-document.getElementById('tabAnunciar').classList.remove('ativa');
-}
-function abrirAnunciar(){
-document.getElementById('telaAnunciar').classList.remove('escondido');
-document.getElementById('telaBuscar').classList.add('escondido');
-document.getElementById('tabAnunciar').classList.add('ativa');
-document.getElementById('tabBuscar').classList.remove('ativa');
-}
-</script>
+<div id="listaImoveis">
+<div class="card-imovel">
+<b>IMÓVEL: Galpão 400m² - Santo André - Vila Homero <span class="selo">✓ Verificado - IPTU</span></b><br>
+<small>Locação - R$ 4.500 - Direto com Proprietário</small><br>
+<a href="/cadastrar-imovel.html" style="display:block;background:#25D366;color:white;text-align:center;padding:12px;border-radius:6px;margin-top:8px;text-decoration:none;font-weight:bold">💬 FALAR COM DONO DO IMÓVEL (Filtro Anti-Corretor)</a>
+</div>
+</div>
+
+<div style="text-align:center;padding:15px"><a href="/regras.html" style="color:#666;font-size:12px">Ver Regras: Só Proprietário do IMÓVEL</a></div>
+</div>
 </body>
 </html>
