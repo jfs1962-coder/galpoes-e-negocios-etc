@@ -2,62 +2,61 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GALPÕES E NEGÓCIOS - Só Proprietário do IMÓVEL</title>
+<title>GALPÕES E NEGÓCIOS - Só Proprietário</title>
 <style>
 *{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#222}
-.topo{background:#fff;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;border-bottom:1px solid #eee}
+.topo{padding:12px 14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:#fff;z-index:10;border-bottom:1px solid #eee}
 .btn-anunciar{background:#111;color:#FFD700;padding:9px 16px;border-radius:20px;font-size:12px;text-decoration:none;font-weight:bold}
-.banner img{width:100%;height:200px;object-fit:cover;display:block;background:#111}
-.frase{text-align:center;padding:10px;font-size:11px;background:#FFFBEB;border-bottom:1px solid #f5e6a0}
-.filtros{background:#fff;padding:10px 8px;border-bottom:1px solid #eee}
+.banner{line-height:0;background:#111} .banner img{width:100%;height:180px;object-fit:cover;display:block}
+.frase{text-align:center;padding:10px;font-size:11px;background:#FFFBEB}
+.filtros{padding:10px 8px;border-bottom:1px solid #eee}
 .pilulas{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
-.pilulas select{width:100%;border-radius:20px;padding:11px 2px;border:1px solid #ddd;background:#f6f6f6;font-size:11px;font-weight:bold;text-align:center}
+.pilulas select{width:100%;padding:10px 2px;border-radius:20px;border:1px solid #ddd;background:#f6f6f6;font-size:11px;font-weight:bold;text-align:center}
 .busca-linha{display:flex;gap:6px;margin-top:8px}
 .busca-linha input{flex:1;min-width:0;padding:12px 14px;border-radius:24px;border:1.5px solid #111;font-size:12px}
-.btn-buscar{background:#111;color:#FFD700;border:0;padding:0 12px;border-radius:24px;font-weight:bold;font-size:11px;white-space:nowrap}
-.card{border:1px solid #eee;border-radius:14px;margin:8px;overflow:hidden}
-.card img{width:100%;height:180px;object-fit:cover}
-.card-info{padding:12px} .btn-dono{border:1.5px solid #111;padding:12px;border-radius:10px;text-align:center;font-weight:bold;margin-top:10px;cursor:pointer}
-#modalDono{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:999;justify-content:center;align-items:center;padding:12px}
-.boxDono{background:#fff;width:100%;max-width:380px;border-radius:16px;overflow:hidden}
-.boxTop{background:#111;color:#FFD700;padding:15px;display:flex;justify-content:space-between;font-weight:bold}
-.boxCont{padding:16px} .input{width:100%;padding:12px;border-radius:10px;border:1.5px solid #ddd;margin-top:8px}
-.btnWhats{width:100%;background:#111;color:#FFD700;border:0;padding:14px;border-radius:12px;font-weight:bold;margin-top:10px}
+.btn-buscar{background:#111;color:#FFD700;border:0;padding:0 14px;border-radius:24px;font-weight:bold;font-size:11px}
+.vazio{text-align:center;padding:40px 20px;color:#777} .vazio b{color:#111;font-size:14px;display:block;margin-bottom:8px}
 </style>
 </head>
 <body>
-<div class="topo"><div><b>GALPÕES E NEGÓCIOS</b><div style="font-size:9px;color:#777">SÓ PROPRIETÁRIO DO IMÓVEL • VERIFICADO</div></div><a class="btn-anunciar" href="/cadastrar-imovel.html">+ ANUNCIAR</a></div>
+<div class="topo"><div><b>GALPÕES E NEGÓCIOS</b><div style="font-size:9px;color:#777">SÓ PROPRIETÁRIO DO IMÓVEL</div></div><a class="btn-anunciar" href="/cadastrar-imovel.html">+ ANUNCIAR IMÓVEL</a></div>
 
-<!-- BANNER CORRETO DE GALPÃO - USA SEU ARQUIVO banner.jpg -->
-<div class="banner"><img src="banner.jpg" alt="Galpões e Negócios - Só Proprietário" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800'"></div>
-
-<div class="frase"><b>Só Dono do IMÓVEL Anuncia</b> • Fala Direto • Sem Corretor • 1º Grátis 10 Dias</div>
+<div class="banner"><img src="banner.jpg" alt="Galpões e Negócios" onerror="this.style.display='none'"></div>
+<div class="frase"><b>Só Dono do IMÓVEL Anuncia</b> • Sem Corretor • Fala Direto com Proprietário</div>
 
 <div class="filtros">
 <div class="pilulas">
 <select id="cidade"><option>📍 Cidades</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option></select>
-<select id="tipo"><option>🏠 IMÓVEIS</option><option>Galpão</option><option>Casa</option><option>Apartamento</option><option>Prédio</option><option>Terreno</option></select>
+<select id="tipo"><option>🏠 IMÓVEIS</option><option>Galpão</option><option>Casa</option><option>Ap</option><option>Prédio</option><option>Terreno</option></select>
 <select id="operacao"><option>💰 Negócio</option><option>Locação</option><option>Venda</option></select>
 </div>
 <div class="busca-linha">
 <input id="bairro" placeholder="🔍 Bairro do IMÓVEL...">
-<button class="btn-buscar" onclick="buscarImovel()">BUSCAR IMÓVEL</button>
+<button class="btn-buscar" onclick="buscar()">BUSCAR IMÓVEL</button>
 </div>
 </div>
 
-<div class="card"><img src="banner.jpg" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800'"><div class="card-info"><b>IMÓVEL: Galpão 400m² - Vila Homero</b><br><small>Santo André • Locação R$ 4.500 • Direto com Proprietário</small><div onclick="abrirDono()" class="btn-dono">💬 FALAR COM DONO DO IMÓVEL</div></div></div>
-
-<div id="modalDono"><div class="boxDono"><div class="boxTop"><span>🛡️ VERIFICAÇÃO SÓ DONO</span><span onclick="fecharDono()" style="cursor:pointer">✕</span></div><div class="boxCont"><input id="contato" class="input" placeholder="Seu WhatsApp ou e-mail"><select id="tipoUser" class="input"><option value="cliente">✅ Sou CLIENTE FINAL</option><option value="corretor">⛔ Sou CORRETOR</option></select><button class="btnWhats" onclick="irWhats()">LIBERAR WHATSAPP DO DONO →</button></div></div></div>
+<!-- AQUI NÃO TEM MAIS VILA HOMERO FIXO -->
+<div id="lista" class="vazio">
+<b>🔍 Nenhum IMÓVEL encontrado ainda</b>
+<p style="font-size:12px;line-height:1.4">Seja o primeiro a anunciar seu IMÓVEL direto com proprietário.<br>Clique em <b>+ ANUNCIAR IMÓVEL</b></p>
+</div>
 
 <script>
-function buscarImovel(){alert('Buscando: '+cidade.value+' | '+tipo.value+' | '+operacao.value+' | '+bairro.value)}
-function abrirDono(){modalDono.style.display='flex'}
-function fecharDono(){modalDono.style.display='none'}
-function irWhats(){
- if(tipoUser.value==='corretor'){alert('⛔ Só Proprietário do IMÓVEL');return}
- if(!contato.value){alert('Informe seu contato');return}
- fecharDono();
- window.open("https://wa.me/5511999999999?text=Ola! Vi seu IMÓVEL no galpoesenegocios.com.br. Sou cliente final ("+contato.value+")","_blank");
+function buscar(){
+ var b=bairro.value.trim();
+ if(!b){document.getElementById('lista').innerHTML='<div class=vazio><b>Digite um bairro</b><p>Ex: Vila Homero, Centro, Campestre</p></div>';return}
+ document.getElementById('lista').innerHTML='<div class=vazio><b>Buscando IMÓVEIS em: '+b+'</b><p>Em breve conectamos no banco de dados</p></div>';
+}
+// Mostra IMÓVEIS salvos do cadastrar-imovel.html (se tiver)
+var imoveis=JSON.parse(localStorage.getItem('meus_imoveis')||'[]');
+if(imoveis.length>0){
+ var html='';
+ imoveis.forEach(function(im){
+  html+='<div style="border:1px solid #eee;border-radius:12px;margin:8px;overflow:hidden"><img src="'+(im.foto||'banner.jpg')+'" style="width:100%;height:160px;object-fit:cover"><div style="padding:10px"><b>'+im.titulo+'</b><br><small>'+im.bairro+' • '+im.valor+'</small><div style="border:1px solid #111;padding:10px;border-radius:10px;text-align:center;margin-top:8px;font-weight:bold" onclick="alert(\'Aqui abre verificação Só Dono\')">💬 FALAR COM DONO DO IMÓVEL</div></div></div>';
+ });
+ document.getElementById('lista').innerHTML=html;
+ document.getElementById('lista').className='';
 }
 </script>
 </body>
