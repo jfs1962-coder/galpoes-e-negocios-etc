@@ -1,20 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GALPÕES E NEGÓCIOS - Só Proprietário - Grande ABC</title>
 <style>
-.hero{position:relative;background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.3)), url('banner.jpg'); background-size:cover; background-position:center; padding:35px 15px 20px 15px; text-align:center; color:#fff}
-.hero h2{color:#FFD700;margin:0;font-size:18px;letter-spacing:1px}
-.hero p{font-size:12px;margin:6px 0 15px 0}
-.cidade-fundo{background: url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?q=80&w=2070') center/cover; padding-bottom:10px}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#222}
+.topo{background:#fff;padding:12px 15px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;border-bottom:1px solid #eee}
+.topo b{font-size:15px;letter-spacing:.5px} .topo span{font-size:9px;color:#777;display:block;margin-top:2px;letter-spacing:.8px}
+.topo a{background:#000;color:#FFD700;padding:9px 16px;border-radius:20px;font-size:12px;text-decoration:none;font-weight:bold}
+.banner{line-height:0} .banner img{width:100%;height:auto;display:block}
+.frase{text-align:center;padding:10px 12px;font-size:11px;color:#333;background:#FFFBEB;border-bottom:1px solid #f5e6a0}
+.filtros-pilula{display:flex;gap:8px;overflow-x:auto;padding:12px 10px;scrollbar-width:none}
+.filtros-pilula::-webkit-scrollbar{display:none}
+.filtros-pilula select{border-radius:20px;padding:9px 14px;border:1px solid #e0e0e0;background:#f8f8f8;font-size:12px;white-space:nowrap}
+.busca-bairro{margin:0 10px 10px 10px}
+.busca-bairro input{width:100%;padding:11px 16px;border-radius:24px;border:1px solid #e0e0e0;background:#f5f5f5;font-size:13px}
+.card{border:1px solid #eee;border-radius:14px;margin:10px;overflow:hidden}
+.card img{width:100%;height:180px;object-fit:cover}
+.card-info{padding:12px}
+.card-info small{color:#666}
+.btn-dono{display:block;text-align:center;border:1.5px solid #111;padding:12px;border-radius:10px;text-decoration:none;color:#111;font-weight:bold;margin-top:10px;font-size:13px;background:#fff}
+.selo{font-size:10px;background:#e6f4ff;color:#0b57d0;padding:3px 7px;border-radius:20px;margin-left:6px}
+.como{margin:15px 10px;background:#f9f9f9;padding:12px 14px;border-radius:12px;font-size:11px;line-height:1.6;color:#555}
+.como b{color:#000}
+.rodape{text-align:center;padding:20px;font-size:11px;color:#999}
+.rodape a{color:#666;text-decoration:none}
 </style>
-
-<div class="cabecalho">
-<h1>GALPÕES E NEGÓCIOS</h1>
-<div class="sub">SÓ PROPRIETÁRIO • GRANDE ABC • IMÓVEIS VERIFICADOS</div>
+</head>
+<body>
+<div class="topo">
+<div><b>GALPÕES E NEGÓCIOS</b><span>SÓ PROPRIETÁRIO DO IMÓVEL • ABC • VERIFICADO</span></div>
+<a href="/cadastrar-imovel.html">+ ANUNCIAR</a>
 </div>
 
-<div class="hero">
-<h2>SÓ DONO ANUNCIA, CLIENTE FALA DIRETO</h2>
-<p>Sem corretor • Sem comissão • 1º anúncio grátis 10 dias</p>
-<div style="display:flex;gap:10px;justify-content:center">
-<a href="/cadastrar-imovel.html" style="background:#FFD700;color:#000;padding:12px 20px;border-radius:8px;font-weight:bold;text-decoration:none;flex:1;max-width:260px">+ ANUNCIAR MEU IMÓVEL</a>
-<a href="/meus-imoveis.html" style="background:rgba(255,255,255,.9);color:#000;padding:12px 15px;border-radius:8px;font-weight:bold;text-decoration:none">MEUS IMÓVEIS</a>
+<div class="banner"><img src="banner.jpg" alt="Residencial Alto ABC, Casa e Galpão - Grande ABC"></div>
+
+<div class="frase"><b>Só Dono do IMÓVEL Anuncia</b> • Cliente Fala Direto no WhatsApp • Sem Corretor • Sem Comissão • 1º Grátis 10 Dias</div>
+
+<div class="filtros-pilula">
+<select><option>📍 Todas do ABC</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option></select>
+<select><option>🏠 Todos os IMÓVEIS</option><option>Galpão</option><option>Casa</option><option>Apartamento</option><option>Sobrado</option><option>Prédio</option><option>Terreno</option></select>
+<select><option>💰 Locação ou Venda</option><option>Locação</option><option>Venda</option></select>
+</div>
+<div class="busca-bairro"><input placeholder="🔍 Digite o bairro do IMÓVEL..."></div>
+
+<div class="card">
+<img src="banner.jpg">
+<div class="card-info">
+<b>IMÓVEL: Galpão 400m² - Vila Homero</b><span class="selo">✓ Verificado IPTU</span><br>
+<small>Santo André • Locação R$ 4.500 • Direto com Proprietário do IMÓVEL</small>
+<a href="/cadastrar-imovel.html" class="btn-dono">💬 FALAR COM DONO DO IMÓVEL</a>
 </div>
 </div>
+
+<div class="como">
+<b>🔍 COMO FUNCIONA - SÓ DONO DO IMÓVEL:</b><br>
+<b>1. SÓ PROPRIETÁRIO:</b> Cadastro com CPF/CNPJ. Anexa IPTU e ganha selo Verificado.<br>
+<b>2. FILTRO ANTI-CORRETOR:</b> Cliente declara se é corretor antes de ver seu WhatsApp.<br>
+<b>3. FALAR COM DONO:</b> Botão "Falar com Dono do IMÓVEL" - sem número exposto.<br>
+<b>4. VENDI / ALUGUEI / PAUSAR:</b> Você mesmo tira do ar em "Meus IMÓVEIS".
+</div>
+
+<div class="rodape">
+<a href="/regras.html">Regras - Só Proprietário do IMÓVEL</a> • <a href="/meus-imoveis.html">Meus IMÓVEIS: VENDI/ALUGUEI</a><br><br>
+NFS-e emitida por Santo André • galpoesenegocios.com.br
+</div>
+</body>
+</html>
