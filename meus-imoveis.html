@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meus Imóveis</title>
+<style>
+body{font-family:Arial;max-width:700px;margin:0 auto;padding:20px;background:#f5f7fb}
+.card{background:white;padding:16px;border-radius:12px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.btn{padding:12px 14px;border-radius:8px;border:0;font-weight:bold;cursor:pointer;margin:4px}
+.vendi{background:#d32f2f;color:white}
+.aluguei{background:#ef6c00;color:white}
+.pausar{background:#555;color:white}
+.denunciar{background:#fff0f0;color:#d32f2f;border:1px solid #d32f2f}
+</style>
+</head>
+<body>
+<h2>Meus Imóveis Cadastrados</h2>
+<p>Gerencie seu anúncio aqui. Tudo com a palavra IMÓVEL (não galpão).</p>
+
+<div class="card">
+<b>Imóvel: Galpão 800m² - Fortaleza - Jangurussu</b><br>
+Status: <span style="color:green">● Ativo - Verificado ✅</span><br><br>
+<button class="btn vendi" onclick="alert('Imóvel marcado como VENDIDO e removido do ar.')">🔴 VENDI</button>
+<button class="btn aluguei" onclick="alert('Imóvel marcado como ALUGADO e removido do ar.')">🟠 ALUGUEI</button>
+<button class="btn pausar" onclick="alert('Imóvel pausado. Ninguém mais vê.')">⏸️ PAUSAR</button>
+<hr>
+<p><b>Interessado recente:</b> João - 85 9xxxx - Quer comprar</p>
+<button class="btn denunciar" onclick="alert('Obrigado! Este contato foi denunciado como corretor e bloqueado.')">🚫 Denunciar como corretor</button>
+</div>
+
+<a href="/cadastrar-imovel.html">+ Cadastrar outro IMÓVEL</a><br><br>
+<a href="/">Voltar ao site</a>
+
+<script>
+// Aqui depois ligamos com seu banco de dados
+</script>
+</body>
+</html>
