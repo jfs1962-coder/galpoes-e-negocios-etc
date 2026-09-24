@@ -50,7 +50,7 @@
 <div class="card-info">
 <b>IMÓVEL: Galpão 400m² - Vila Homero</b><span class="selo">✓ Verificado IPTU</span><br>
 <small>Santo André • Locação R$ 4.500 • Direto com Proprietário do IMÓVEL</small>
-<a href="/cadastrar-imovel.html" class="btn-dono">💬 FALAR COM DONO DO IMÓVEL</a>
+<a href="#" onclick="falarDono(); return false;" class="btn-dono">💬 FALAR COM DONO DO IMÓVEL</a>
 </div>
 </div>
 
@@ -66,5 +66,19 @@
 <a href="/regras.html">Regras - Só Proprietário do IMÓVEL</a> • <a href="/meus-imoveis.html">Meus IMÓVEIS: VENDI/ALUGUEI</a><br><br>
 NFS-e emitida por Santo André • galpoesenegocios.com.br
 </div>
+
+<script>
+function falarDono(){
+  var eCorretor = confirm("⚠️ ATENÇÃO - PORTAL SÓ PROPRIETÁRIO\n\nVocê é corretor ou intermediário?\n\nClique em CANCELAR se você é cliente final e quer falar direto com o dono do IMÓVEL.\nClique em OK se você é corretor.");
+  if(eCorretor){
+    alert("Este portal é exclusivo SÓ PROPRIETÁRIO DO IMÓVEL.\n\nNão aceitamos intermediação de corretores neste IMÓVEL. Obrigado!");
+  } else {
+    alert("✅ Liberado - Direto com Proprietário do IMÓVEL\n\nEm produção, aqui vai abrir o WhatsApp do dono.");
+    // TROCAR PELO WHATSAPP REAL DO DONO QUANDO LIGAR O BANCO
+    window.open("https://wa.me/5511999999999?text=Olá, vi seu IMÓVEL Galpão 400m² - Vila Homero - Santo André no Galpões e Negócios. Ainda está disponível? - Direto com Proprietário", "_blank");
+  }
+}
+</script>
+
 </body>
 </html>
