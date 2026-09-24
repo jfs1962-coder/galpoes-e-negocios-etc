@@ -1,85 +1,20 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GALPÕES E NEGÓCIOS - Grande ABC</title>
-<link rel="manifest" href="manifest.json">
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5}
-.cabecalho{background:#000;color:#FFD700;text-align:center;padding:15px}
-.cabecalho h1{margin:0;font-size:22px;letter-spacing:1px}
-.sub{font-size:11px;color:#fff;margin-top:4px}
-.abas{display:flex;background:#111;border-bottom:3px solid #FFD700}
-.abas div{flex:1;text-align:center;padding:14px;color:#fff;font-weight:bold;cursor:pointer;font-size:13px}
-.guia.ativa{background:#FFD700;color:#000}
-.bandeira{background:#FFD700;color:#000;text-align:center;padding:8px;font-weight:bold;font-size:12px}
-.banner{width:100%;line-height:0}
-.banner img{width:100%;height:auto;display:block}
-.botoes-acao{display:flex;gap:10px;justify-content:center;padding:15px;background:#111}
-.btn-principal{padding:14px 18px;border-radius:8px;font-weight:bold;text-decoration:none;text-align:center;flex:1}
-.btn-anunciar{background:#FFD700;color:#000}
-.btn-meus{background:#fff;color:#000;border:1px solid #FFD700}
-.Filtros{display:grid;gap:8px;background:#fff;padding:12px;border-radius:8px;margin:10px}
-select,input{padding:12px;border-radius:6px;border:1px solid #ddd;width:100%}
-.como{background:#111;color:#fff;padding:15px;border-radius:8px;margin:10px}
-.como h2{text-align:center;color:#FFD700;margin-top:0;font-size:15px}
-.ano{font-size:13px;line-height:1.6}
-.escondido{display:none}
-.card-imovel{background:#fff;margin:10px;padding:12px;border-radius:8px;border-left:4px solid #FFD700}
-.selo{background:#002855;color:#fff;font-size:10px;padding:3px 6px;border-radius:4px}
+.hero{position:relative;background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.3)), url('banner.jpg'); background-size:cover; background-position:center; padding:35px 15px 20px 15px; text-align:center; color:#fff}
+.hero h2{color:#FFD700;margin:0;font-size:18px;letter-spacing:1px}
+.hero p{font-size:12px;margin:6px 0 15px 0}
+.cidade-fundo{background: url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?q=80&w=2070') center/cover; padding-bottom:10px}
 </style>
-</head>
-<body>
+
 <div class="cabecalho">
 <h1>GALPÕES E NEGÓCIOS</h1>
 <div class="sub">SÓ PROPRIETÁRIO • GRANDE ABC • IMÓVEIS VERIFICADOS</div>
 </div>
 
-<div class="abas">
-<div id="tabBuscar" class="guia ativa">🏢 BUSCAR IMÓVEL DIRETO COM DONO</div>
-<div id="tabAnunciar" class="guia" onclick="location.href='/cadastrar-imovel.html'">📢 ANUNCIAR MEU IMÓVEL</div>
-</div>
-
-<div class="bandeira">⚡ SÓ DONO ANUNCIA • 1º ANÚNCIO GRÁTIS 10 DIAS • SEM CORRETOR • SEM COMISSÃO</div>
-
-<div class="banner">
-<img src="banner.jpg" alt="Só Proprietário Anuncia - Cliente Fala Direto com Dono">
-</div>
-
-<div class="botoes-acao">
-  <a href="/cadastrar-imovel.html" class="btn-principal btn-anunciar">+ ANUNCIAR MEU IMÓVEL (SÓ DONO)</a>
-  <a href="/meus-imoveis.html" class="btn-principal btn-meus">MEUS IMÓVEIS: VENDI/ALUGUEI</a>
-</div>
-
-<div id="telaBuscar">
-<div class="Filtros">
-<select><option>Locação ou Venda</option><option>Locação</option><option>Venda</option></select>
-<select><option>Todos os Tipos de IMÓVEL</option><option>Galpão</option><option>Casa</option><option>Apartamento</option><option>Sobrado</option><option>Prédio</option><option>Terreno</option></select>
-<select><option>Grande ABC (Todas)</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option></select>
-<input placeholder="Filtrar por Bairro do IMÓVEL...">
-</div>
-
-<div class="como">
-<h2>🔍 COMO FUNCIONA? LEIA ANTES - SÓ DONO</h2>
-<div class="ano">
-<b style="color:#FFD700">1. SÓ PROPRIETÁRIO DO IMÓVEL ANUNCIA:</b> Você declara que é dono do IMÓVEL com CPF/CNPJ. Prova opcional com IPTU/conta para ganhar selo Verificado.<br><br>
-<b style="color:#FFD700">2. CLIENTE PASSA POR FILTRO ANTI-CORRETOR:</b> Quem quer falar com você responde se é corretor. Seu WhatsApp só aparece depois do filtro.<br><br>
-<b style="color:#FFD700">3. FALAR COM DONO DO IMÓVEL - SEM COMISSÃO:</b> O interessado clica em Falar com Dono do IMÓVEL e fala DIRETO com você no WhatsApp. Nós não intermediamos.<br><br>
-<b style="color:#FFD700">4. VENDI / ALUGUEI / PAUSAR:</b> Quando negociar, você mesmo clica e o IMÓVEL sai do ar. E ainda pode denunciar corretor.
+<div class="hero">
+<h2>SÓ DONO ANUNCIA, CLIENTE FALA DIRETO</h2>
+<p>Sem corretor • Sem comissão • 1º anúncio grátis 10 dias</p>
+<div style="display:flex;gap:10px;justify-content:center">
+<a href="/cadastrar-imovel.html" style="background:#FFD700;color:#000;padding:12px 20px;border-radius:8px;font-weight:bold;text-decoration:none;flex:1;max-width:260px">+ ANUNCIAR MEU IMÓVEL</a>
+<a href="/meus-imoveis.html" style="background:rgba(255,255,255,.9);color:#000;padding:12px 15px;border-radius:8px;font-weight:bold;text-decoration:none">MEUS IMÓVEIS</a>
 </div>
 </div>
-
-<div id="listaImoveis">
-<div class="card-imovel">
-<b>IMÓVEL: Galpão 400m² - Santo André - Vila Homero <span class="selo">✓ Verificado - IPTU</span></b><br>
-<small>Locação - R$ 4.500 - Direto com Proprietário</small><br>
-<a href="/cadastrar-imovel.html" style="display:block;background:#25D366;color:white;text-align:center;padding:12px;border-radius:6px;margin-top:8px;text-decoration:none;font-weight:bold">💬 FALAR COM DONO DO IMÓVEL (Filtro Anti-Corretor)</a>
-</div>
-</div>
-
-<div style="text-align:center;padding:15px"><a href="/regras.html" style="color:#666;font-size:12px">Ver Regras: Só Proprietário do IMÓVEL</a></div>
-</div>
-</body>
-</html>
