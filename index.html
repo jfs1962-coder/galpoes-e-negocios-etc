@@ -4,33 +4,41 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>GALPÕES E NEGÓCIOS</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#fff}
-.topo{padding:12px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee;position:sticky;top:0;background:#fff;z-index:10}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#222}
+.topo{padding:10px 12px;display:flex;justify-content:space-between;align-items:center;background:#fff;position:sticky;top:0;z-index:10;border-bottom:1px solid #eee}
+.logo-area{display:flex;align-items:center;gap:9px}
+.logo-area img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #FFD700;background:#fff}
 .btn-anunciar{background:#111;color:#FFD700;padding:9px 16px;border-radius:20px;font-size:12px;text-decoration:none;font-weight:bold}
-.banner img{width:100%;height:200px;object-fit:cover;display:block}
-.frase{text-align:center;padding:9px;font-size:11px;background:#FFFBEB}
-.filtros{padding:10px 8px;border-bottom:1px solid #eee}
+.banner img{width:100%;height:210px;object-fit:cover;display:block}
+.frase{text-align:center;padding:9px;font-size:11px;background:#FFFBEB;border-bottom:1px solid #f5e6a0;font-weight:bold}
+.filtros{padding:10px 8px;background:#fff;border-bottom:1px solid #eee}
 .pilulas{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
 .pilulas select{width:100%;padding:11px 2px;border-radius:20px;border:1px solid #ddd;background:#f6f6f6;font-size:11px;font-weight:bold;text-align:center}
 .busca-linha{display:flex;gap:6px;margin-top:8px}
-.busca-linha input{flex:1;padding:12px 14px;border-radius:24px;border:1.5px solid #111;font-size:12px}
+.busca-linha input{flex:1;min-width:0;padding:12px 14px;border-radius:24px;border:1.5px solid #111;font-size:12px}
 .btn-buscar{background:#111;color:#FFD700;border:0;padding:0 14px;border-radius:24px;font-weight:bold;font-size:11px}
-.bemvindo{text-align:center;padding:35px 18px;color:#555;line-height:1.5}
-.btn-cta{background:#111;color:#FFD700;padding:14px 24px;border-radius:24px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:12px}
+.bemvindo{text-align:center;padding:36px 18px;color:#555;line-height:1.5}
+.btn-cta{background:#111;color:#FFD700;padding:14px 26px;border-radius:24px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:14px}
 </style>
 </head>
 <body>
-<div class="topo"><div><b>GALPÕES E NEGÓCIOS</b><div style="font-size:9px;color:#777">CASAS • AP • PRÉDIOS • GALPÕES</div></div><a class="btn-anunciar" href="/cadastrar-imovel.html">+ ANUNCIAR</a></div>
+<div class="topo">
+  <div class="logo-area">
+    <img src="logo.jpg" alt="Logo">
+    <div><b style="font-size:13px">GALPÕES E NEGÓCIOS</b><div style="font-size:9px;color:#777">SÓ PROPRIETÁRIO • CASAS • AP • GALPÕES</div></div>
+  </div>
+  <a class="btn-anunciar" href="/cadastrar-imovel.html">+ ANUNCIAR</a>
+</div>
 <div class="banner"><img src="banner.jpg" alt="Cidade"></div>
-<div class="frase"><b>Só Dono do IMÓVEL Anuncia</b> • Sem Corretor</div>
+<div class="frase">Só Dono do IMÓVEL Anuncia • Sem Corretor • Negócio Direto</div>
 <div class="filtros">
 <div class="pilulas">
-<select><option>📍 Cidades</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option></select>
+<select><option>📍 Cidades</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option><option>São Paulo</option></select>
 <select><option>🏠 IMÓVEIS</option><option>Galpão</option><option>Casa</option><option>Apartamento</option><option>Prédio</option><option>Terreno</option></select>
 <select><option>💰 Negócio</option><option>Locação</option><option>Venda</option></select>
 </div>
 <div class="busca-linha"><input placeholder="🔍 Bairro..."><button class="btn-buscar">BUSCAR</button></div>
 </div>
-<div class="bemvindo"><b style="color:#111">Bem-vindo</b><br>Casas, Aps, Prédios e Galpões<br>Só proprietário anuncia<br><a class="btn-cta" href="/cadastrar-imovel.html">+ ANUNCIAR GRÁTIS</a></div>
+<div class="bemvindo"><b style="color:#111;font-size:17px">Bem-vindo</b><br>Portal do ABC e SP<br><b>Casas, Aps, Prédios e Galpões</b><br>Só Proprietário Anuncia<br><a class="btn-cta" href="/cadastrar-imovel.html">+ ANUNCIAR GRÁTIS</a></div>
 </body>
 </html>
