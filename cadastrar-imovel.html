@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cadastrar IMÓVEL - Só Proprietário - Galpões e Negócios</title>
+<title>Cadastrar IMÓVEL - Só Proprietário</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;padding:15px}
@@ -14,7 +14,6 @@ input,select,textarea,button{width:100%;padding:12px;margin:8px 0;border:1px sol
 button{background:#FFD700;color:#000;font-weight:bold;font-size:18px;border:0;cursor:pointer;margin-top:15px;padding:16px}
 .aviso{background:#eef5ff;padding:12px;border-radius:8px;margin-top:10px;font-size:13px;line-height:1.4;border-left:4px solid #002855}
 .selo{background:#f0fff4;padding:10px;border-radius:8px;font-size:13px;border:1px dashed #00c853;margin:8px 0}
-small{color:#666;font-size:11px}
 a{color:#002855}
 </style>
 </head>
@@ -25,51 +24,36 @@ a{color:#002855}
 <div style="font-size:11px;color:#fff;margin-top:4px">SÓ PROPRIETÁRIO • VERIFICADO COM IPTU • SEM CORRETOR</div>
 </div>
 
-<p style="font-size:13px;color:#444;text-align:center">Todos os tipos de IMÓVEL: Galpão, Casa, Apartamento, Sobrado, Prédio, Terreno. Seu WhatsApp não fica público.</p>
-
-<form onsubmit="alert('IMÓVEL cadastrado! (Aqui vamos ligar no banco de dados)'); return false;">
+<form>
 <input type="text" placeholder="Nome completo do proprietário do IMÓVEL *" required>
-<input type="text" placeholder="CPF / CNPJ do proprietário do IMÓVEL *" required>
-<input type="text" placeholder="WhatsApp do dono do IMÓVEL (não fica público) *" required>
+<input type="text" placeholder="CPF / CNPJ do proprietário *" required>
+<input type="text" placeholder="WhatsApp do dono do IMÓVEL *" required>
 <input type="email" placeholder="E-mail para receber NFS-e de Santo André *" required>
-<small>⚠️ Você receberá a nota fiscal eletrônica da Prefeitura de Santo André neste e-mail. O modelo de Fortaleza era só exemplo de layout.</small>
 
 <select required>
 <option value="">Tipo do IMÓVEL *</option>
-<option>Galpão</option>
-<option>Casa</option>
-<option>Apartamento</option>
-<option>Sobrado</option>
-<option>Prédio Comercial</option>
-<option>Terreno</option>
-<option>Salão / Loja</option>
+<option>Galpão</option><option>Casa</option><option>Apartamento</option>
+<option>Sobrado</option><option>Prédio Comercial</option><option>Terreno</option>
 </select>
 
-<input type="text" placeholder="Bairro do IMÓVEL - ex: Vila Homero, Santo André *">
-<input type="text" placeholder="Valor do IMÓVEL - ex: R$ 4.500 locação *">
+<input type="text" placeholder="Bairro do IMÓVEL - ex: Vila Homero *">
+<input type="text" placeholder="Valor do IMÓVEL *">
 
 <div class="selo">
-<b>🏅 Quer selo Verificado no seu IMÓVEL?</b><br>
-Anexe comprovante opcional: IPTU, conta de luz/água em seu nome. Seu IMÓVEL aparece primeiro e com selo azul.
+<b>🏅 Selo Verificado no seu IMÓVEL</b><br>
+Anexe comprovante opcional: IPTU, conta em seu nome.
 <input type="file" style="margin-top:8px">
 </div>
 
-<textarea rows="3" placeholder="Descrição do IMÓVEL - metragem, detalhes..."></textarea>
+<textarea rows="3" placeholder="Descrição do IMÓVEL..."></textarea>
 
 <div class="aviso">
-<label style="display:flex;gap:8px;align-items:flex-start">
-<input type="checkbox" required style="width:18px;margin-top:2px">
-<span>Declaro que sou o <b>proprietário deste IMÓVEL</b> e que as informações são verdadeiras. Autorizo divulgar em galpoesenegocios.com.br até eu clicar em <b>VENDI / ALUGUEI / PAUSAR</b>. Li e concordo com as <a href="/regras.html">Regras - Só Dono do IMÓVEL</a> e que receberei a <b>NFS-e de Santo André</b> no e-mail informado.</span>
-</label>
+<label style="display:flex;gap:8px"><input type="checkbox" required style="width:18px"><span>Declaro que sou o proprietário deste IMÓVEL e autorizo divulgar até eu clicar em VENDI / ALUGUEI / PAUSAR. Li as <a href="/regras.html">Regras</a></span></label>
 </div>
 
 <button type="submit">✅ CADASTRAR MEU IMÓVEL - SÓ DONO</button>
 </form>
-
-<div style="text-align:center;margin-top:15px;font-size:13px">
-<a href="/meus-imoveis.html">Já cadastrei - Gerenciar meus IMÓVEIS (VENDI/ALUGUEI)</a><br><br>
-<a href="/">← Voltar para busca</a>
-</div>
+<div style="text-align:center;margin-top:15px"><a href="/">← Voltar</a></div>
 </div>
 </body>
 </html>
