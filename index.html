@@ -2,72 +2,97 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>GALPÕES E NEGÓCIOS</title>
+<title>Cadastrar Imóvel - Galpões e Negócios</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#f5f5f5}
-.topo{padding:10px 12px;display:flex;justify-content:space-between;align-items:center;background:#fff;position:sticky;top:0;z-index:10;border-bottom:1px solid #eee}
-.logo-area{display:flex;align-items:center;gap:9px}
-.logo-area img{width:44px;height:44px;border-radius:50%;border:2px solid #FFD700;object-fit:cover}
-.btn-anunciar{background:#111;color:#FFD700;padding:9px 16px;border-radius:20px;font-size:12px;text-decoration:none;font-weight:bold}
-.banner img{width:100%;height:180px;object-fit:cover;display:block}
-.frase{text-align:center;padding:10px;font-size:11px;background:#FFFBEB;border-bottom:1px solid #f5e6a0;font-weight:bold}
-.filtros{padding:10px 8px;background:#fff}
-.pilulas{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
-.pilulas select{width:100%;padding:10px 2px;border-radius:20px;border:1px solid #ddd;background:#f6f6f6;font-size:11px;font-weight:bold;text-align:center}
-.busca-linha{display:flex;gap:6px;margin-top:8px}
-.busca-linha input{flex:1;padding:12px 14px;border-radius:24px;border:1.5px solid #111;font-size:12px}
-.btn-buscar{background:#111;color:#FFD700;border:0;padding:0 14px;border-radius:24px;font-weight:bold;font-size:11px}
-#lista-imoveis{padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.card-imovel{background:#fff;border-radius:14px;overflow:hidden;border:1px solid #eee}
-.card-imovel img{width:100%;height:130px;object-fit:cover}
-.planos{background:#fff;padding:20px 12px;text-align:center;border-top:1px solid #eee;margin-top:10px}
-.pix-box{margin-top:14px;background:#FFFBEB;border:1px dashed #c9a400;padding:12px;border-radius:10px;max-width:500px;margin:14px auto 0;font-size:11px}
+body{font-family:Arial;background:#f5f5f5;margin:0;padding:10px}
+.box{background:#fff;padding:16px;border-radius:16px;max-width:520px;margin:0 auto}
+input,select,textarea{width:100%;padding:12px;margin:6px 0;border-radius:10px;border:1px solid #ddd;box-sizing:border-box}
+#preview{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:10px}
+#preview div{position:relative}
+#preview img{width:100%;height:85px;object-fit:cover;border-radius:8px}
+#preview span{position:absolute;top:2px;right:4px;background:#000;color:#fff;border-radius:50%;width:20px;height:20px;text-align:center;font-size:12px;cursor:pointer}
+.bar{height:8px;background:#eee;border-radius:10px;overflow:hidden;margin-top:8px}
+.bar div{height:100%;background:#FFD700;width:0%;transition:.3s}
 </style>
 </head>
 <body>
-<div class="topo">
-  <div class="logo-area"><img src="logo.jpg"><div><b style="font-size:13px">GALPÕES E NEGÓCIOS</b><div style="font-size:9px;color:#777">SEM COMISSÃO - SÓ PROPRIETÁRIO</div></div></div>
-  <a class="btn-anunciar" href="cadastrar-imovel.html">+ ANUNCIAR</a>
-</div>
-<div class="banner"><img src="banner.jpg"></div>
-<div class="frase">Proprietário direto com Você • Sem Intermediário • Sem Comissão • Até 15 fotos por imóvel</div>
+<div class="box">
+<h3 style="margin:0">📸 Cadastrar Imóvel - até 15 fotos</h3>
+<p style="font-size:11px;color:#666;margin:4px 0 10px">Proprietário cadastra direto no site</p>
 
-<div class="filtros">
-<div class="pilulas">
-<select><option>📍 Todas Cidades</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option><option>São Paulo</option></select>
-<select><option>🏠 Todos Imóveis</option><option>Galpão</option><option>Casa</option><option>Apartamento</option><option>Prédio Comercial</option><option>Terreno</option></select>
-<select><option>💰 Locação e Venda</option><option>Locação</option><option>Venda</option></select>
-</div>
-<div class="busca-linha"><input placeholder="🔍 Digite bairro..."><button class="btn-buscar">BUSCAR</button></div>
-</div>
+<input id="titulo" placeholder="Título: Ex Galpão 300m² Utinga Santo André">
+<select id="tipo"><option>Galpão</option><option>Casa</option><option>Apartamento</option><option>Prédio Comercial</option><option>Terreno</option></select>
+<input id="bairro" placeholder="Bairro e Cidade: Ex Utinga - Santo André">
+<input id="valor" placeholder="Valor: Ex R$ 3.500 locação">
+<textarea id="desc" placeholder="Descrição completa"></textarea>
+<input id="zap" placeholder="Seu WhatsApp para contato">
 
-<div id="lista-imoveis"></div>
+<label style="font-weight:bold;font-size:13px">Fotos (máximo 15 - primeira é a capa)</label>
+<input type="file" id="fotos" multiple accept="image/*">
+<div class="bar"><div id="progress"></div></div>
+<div id="preview"></div>
 
-<div class="planos">
-<h3 style="margin:0">Anuncie seu Imóvel</h3>
-<p style="font-size:11px;color:#777">PIX CNPJ: 63.329.574/0001-28 - Galpões e Negócios Internet Ltda - ME</p>
-<p style="font-size:11px"><b>R$49,90 = 1 anúncio | R$99,90 = 3 anúncios</b><br>10 dias grátis</p>
-<div class="pix-box">
-🔑 <b>Chave PIX CNPJ:</b> 63.329.574/0001-28<br>
-🏢 Galpões e Negócios Internet Ltda - ME<br>
-<b>Copie e cole:</b> 63329574000128
+<button id="btn" style="background:#111;color:#FFD700;padding:14px;width:100%;border:0;border-radius:24px;font-weight:bold;margin-top:14px;font-size:14px">SALVAR E IR PARA PAGAMENTO PIX</button>
+
+<div style="margin-top:14px;background:#FFFBEB;border:1px dashed #c9a400;padding:10px;border-radius:10px;font-size:11px">
+<b>💰 PIX CNPJ: 63.329.574/0001-28</b><br>
+Galpões e Negócios Internet Ltda - ME<br>
+R$ 49,90 = 1 anúncio / R$ 99,90 = 3 anúncios - 10 dias grátis
 </div>
 </div>
 
 <script>
-function carregar(){
-  const lista=JSON.parse(localStorage.getItem('imoveis_galpoes')||'[]');
-  const div=document.getElementById('lista-imoveis');
-  if(lista.length==0){
-    div.innerHTML='<div style="grid-column:1/3;background:#fff;padding:18px;border-radius:12px;text-align:center;color:#888;font-size:12px">Nenhum imóvel ainda.<br><a href="cadastrar-imovel.html" style="font-weight:bold;color:#111">Anunciar agora - 10 dias grátis</a></div>';
-    return;
+let fotosBase64=[];
+const input=document.getElementById('fotos');
+const preview=document.getElementById('preview');
+input.addEventListener('change', async (e)=>{
+  let files=[...e.target.files].slice(0,15);
+  if(files.length>15){alert('Máximo 15 fotos');return}
+  fotosBase64=[]; preview.innerHTML='';
+  let count=0;
+  for(let file of files){
+    const imgBase64 = await comprimir(file);
+    fotosBase64.push(imgBase64);
+    preview.innerHTML+=`<div><img src="${imgBase64}"><span onclick="this.parentElement.remove()">x</span></div>`;
+    count++; document.getElementById('progress').style.width=(count/files.length*100)+'%';
   }
-  div.innerHTML='';
-  lista.slice().reverse().forEach(im=>{
-    div.innerHTML+=`<div class="card-imovel"><img src="${im.fotos[0]}"><div style="padding:8px"><b style="font-size:11px">${im.titulo}</b><br><span style="font-size:10px;color:#666">${im.bairro}</span><br><b style="font-size:12px">${im.valor}</b><br><span style="font-size:9px;color:#999">${im.fotos.length} fotos</span></div></div>`;
+});
+function comprimir(file){
+  return new Promise(res=>{
+    const reader=new FileReader();
+    reader.onload=e=>{
+      const img=new Image();
+      img.onload=()=>{
+        const canvas=document.createElement('canvas');
+        const max=800; let w=img.width, h=img.height;
+        if(w>h){if(w>max){h*=max/w; w=max}}else{if(h>max){w*=max/h; h=max}}
+        canvas.width=w; canvas.height=h;
+        canvas.getContext('2d').drawImage(img,0,0,w,h);
+        res(canvas.toDataURL('image/jpeg',0.7));
+      };
+      img.src=e.target.result;
+    };
+    reader.readAsDataURL(file);
   });
 }
-carregar();
+document.getElementById('btn').addEventListener('click',()=>{
+  if(fotosBase64.length==0){alert('Coloque pelo menos 1 foto');return}
+  const imovel={
+    titulo:document.getElementById('titulo').value,
+    tipo:document.getElementById('tipo').value,
+    bairro:document.getElementById('bairro').value,
+    valor:document.getElementById('valor').value,
+    desc:document.getElementById('desc').value,
+    zap:document.getElementById('zap').value,
+    fotos:fotosBase64,
+    data:Date.now()
+  };
+  let lista=JSON.parse(localStorage.getItem('imoveis_galpoes')||'[]');
+  lista.push(imovel);
+  localStorage.setItem('imoveis_galpoes',JSON.stringify(lista));
+  alert('Imóvel salvo com '+fotosBase64.length+' fotos! Agora faça o PIX CNPJ 63.329.574/0001-28');
+  location.href='index.html#planos';
+});
 </script>
 </body>
 </html>
