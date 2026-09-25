@@ -7,31 +7,34 @@
 *{box-sizing:border-box}body{margin:0;font-family:Arial;background:#f5f5f5}
 .topo{padding:12px;display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:10}
 .logo-area{display:flex;align-items:center;gap:9px}
-.logo-area img{width:42px;height:42px;border-radius:50%;border:2px solid #FFD700;object-fit:cover}
+.logo-area img{width:44px;height:44px;border-radius:50%;border:2px solid #FFD700;object-fit:cover}
 .btn-anunciar{background:#111;color:#FFD700;padding:10px 18px;border-radius:20px;font-size:12px;font-weight:bold;border:0;cursor:pointer}
-.frase{text-align:center;padding:8px;font-size:11px;background:#FFFBEB;font-weight:bold;border-bottom:1px solid #f5e6a0}
-.filtros{padding:10px;background:#fff}
+.banner img{width:100%;height:190px;object-fit:cover;display:block}
+.frase{text-align:center;padding:9px;font-size:11px;background:#FFFBEB;font-weight:bold;border-bottom:1px solid #f5e6a0}
+.filtros{padding:10px;background:#fff;border-bottom:1px solid #eee}
 .pilulas{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
 .pilulas select{width:100%;padding:11px 4px;border-radius:20px;border:1px solid #ddd;background:#f6f6f6;font-size:11px;font-weight:bold;text-align:center}
-#lista-imoveis{padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#lista-imoveis{padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px;min-height:60px}
 .card-imovel{background:#fff;border-radius:14px;overflow:hidden;border:1px solid #eee}
 .card-imovel img{width:100%;height:130px;object-fit:cover}
 #cadastrar{display:none;max-width:520px;margin:12px auto;background:#fff;border-radius:16px;padding:16px;border:2px solid #FFD700}
-#cadastrar input,#cadastrar select,#cadastrar textarea{width:100%;padding:12px;margin:5px 0;border-radius:10px;border:1px solid #ddd}
+#cadastrar input,#cadastrar select,#cadastrar textarea{width:100%;padding:12px;margin:5px 0;border-radius:10px;border:1px solid #ddd;font-size:13px}
 #preview{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px}
 #preview img{width:100%;height:80px;object-fit:cover;border-radius:8px}
 .opcao{display:none;background:#f9f9f9;border-radius:10px;padding:10px;margin:8px 0;border:1px solid #eee}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.planos{background:#fff;padding:18px;text-align:center;border-top:1px solid #eee;margin-top:10px}
-.pix-box{margin:10px auto 0;max-width:400px;background:#FFFBEB;border:1px dashed #c9a400;padding:10px;border-radius:8px;font-size:11px;text-align:left}
+.planos{background:#fff;padding:20px;text-align:center;border-top:1px solid #eee}
+.pix-box{margin:12px auto 0;max-width:420px;background:#FFFBEB;border:1px dashed #c9a400;padding:12px;border-radius:10px;font-size:11px;text-align:left}
 </style>
 </head>
 <body>
 <div class="topo">
-<div class="logo-area"><img src="logo.jpg"><div><b>GALPÕES E NEGÓCIOS</b><div style="font-size:9px;color:#777">SEM COMISSÃO - SÓ PROPRIETÁRIO</div></div></div>
-<button class="btn-anunciar" onclick="cadastrar.style.display=cadastrar.style.display=='block'?'none':'block';window.scrollTo(0,300)">+ ANUNCIAR</button>
+<div class="logo-area"><img src="logo.jpg"><div><b style="font-size:13px">GALPÕES E NEGÓCIOS</b><div style="font-size:9px;color:#777">SEM COMISSÃO - SÓ PROPRIETÁRIO</div></div></div>
+<button class="btn-anunciar" onclick="document.getElementById('cadastrar').style.display='block';window.scrollTo(0,250)">+ ANUNCIAR</button>
 </div>
+<div class="banner"><img src="banner.jpg" onerror="this.style.display='none'"></div>
 <div class="frase">Proprietário direto • Sem comissão • Até 15 fotos</div>
+
 <div class="filtros">
 <div class="pilulas">
 <select><option>📍 Todas Cidades</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option><option>São Paulo</option></select>
@@ -41,58 +44,62 @@
 </div>
 
 <div id="cadastrar">
+<div style="display:flex;justify-content:space-between;align-items:center"><b>📸 Cadastrar Imóvel</b><button onclick="cadastrar.style.display='none'" style="border:0;background:#eee;border-radius:50%;width:28px;height:28px;font-weight:bold">X</button></div>
+
 <select id="tipo" onchange="mostrar()">
 <option value="">Tipo de imóvel?</option>
 <option value="galpao">Galpão</option>
 <option value="casa">Casa</option>
 <option value="apartamento">Apartamento</option>
-<option value="predio">Prédio</option>
+<option value="predio">Prédio Comercial</option>
 <option value="terreno">Terreno</option>
 </select>
-<select id="negocio"><option>Negócio?</option><option>Locação</option><option>Venda</option></select>
 
-<div id="op-galpao" class="opcao"><b>Galpão</b><div class="grid2"><input placeholder="Terreno m²"><input placeholder="Construção m²"><input placeholder="Fabril m²"><input placeholder="Pé direito"><select><option>Docas?</option><option>1</option><option>2</option></select><select><option>Piso?</option><option>6 ton/m²</option></select></div></div>
-<div id="op-casa" class="opcao"><b>Casa</b><div class="grid2"><input placeholder="Área m²"><select><option>Quartos?</option><option>2</option><option>3</option><option>4+</option></select><select><option>Suítes?</option><option>1</option><option>2+</option></select><select><option>Vagas?</option><option>1</option><option>2+</option></select></div></div>
-<div id="op-apartamento" class="opcao"><b>Apartamento</b><div class="grid2"><input placeholder="Área m²"><input placeholder="Andar"><select><option>Quartos?</option><option>2</option><option>3</option></select><select><option>Vagas?</option><option>1</option><option>2</option></select></div></div>
-<div id="op-predio" class="opcao"><b>Prédio</b><div class="grid2"><input placeholder="Terreno m²"><input placeholder="Construção m²"></div></div>
-<div id="op-terreno" class="opcao"><b>Terreno</b><input placeholder="Área m² total"></div>
+<select id="negocio"><option>Quer?</option><option>Alugar</option><option>Vender</option><option>Alugar e Vender</option></select>
+
+<div id="op-galpao" class="opcao"><b>🏭 Galpão</b><div class="grid2"><input placeholder="Terreno m²"><input placeholder="Construção m²"><input placeholder="Área fabril m²"><input placeholder="Pé direito"><select><option>Docas?</option><option>1 doca</option><option>2 docas</option></select><select><option>Piso?</option><option>6 ton/m²</option></select></div></div>
+<div id="op-casa" class="opcao"><b>🏠 Casa</b><div class="grid2"><input placeholder="Área m²"><select><option>Quartos?</option><option>2</option><option>3</option><option>4+</option></select><select><option>Suítes?</option><option>1</option><option>2+</option></select><select><option>Vagas?</option><option>1</option><option>2+</option></select></div></div>
+<div id="op-apartamento" class="opcao"><b>🏢 Apartamento</b><div class="grid2"><input placeholder="Área m²"><input placeholder="Andar"><select><option>Quartos?</option><option>2</option><option>3</option></select><select><option>Vagas?</option><option>1 coberta</option><option>2</option></select><select><option>Condomínio R$</option><option>R$ 500</option><option>R$ 850</option></select><select><option>IPTU R$</option><option>R$ 153</option></select></div></div>
+<div id="op-predio" class="opcao"><b>🏬 Prédio</b><div class="grid2"><input placeholder="Terreno m²"><input placeholder="Construção m²"><input placeholder="Vagas"><input placeholder="WCs"></div></div>
+<div id="op-terreno" class="opcao"><b>🌳 Terreno</b><input placeholder="Área total m²"></div>
 
 <input id="bairro" placeholder="Bairro e Cidade">
 <input id="valor" placeholder="Valor R$">
 <textarea id="desc" placeholder="Descrição"></textarea>
 <input id="zap" placeholder="WhatsApp">
+<label style="font-size:11px;font-weight:bold">Fotos (máx 15)</label>
 <input type="file" id="fotos" multiple accept="image/*">
 <div id="preview"></div>
 <button id="btn" style="background:#111;color:#FFD700;padding:14px;width:100%;border:0;border-radius:24px;font-weight:bold;margin-top:10px">SALVAR IMÓVEL</button>
+<div style="margin-top:8px;background:#FFFBEB;border:1px dashed #c9a400;padding:8px;border-radius:6px;font-size:10px">PIX CNPJ: 63.329.574/0001-28 - Galpões e Negócios Internet Ltda - ME</div>
 </div>
 
-<div id="lista-imoveis"></div>
+<div id="lista-imoveis"><div style="grid-column:1/3;background:#fff;padding:18px;border-radius:12px;text-align:center;color:#888;font-size:12px">Nenhum imóvel ainda. Clique em + ANUNCIAR</div></div>
 
 <div class="planos">
-<b>Anuncie seu Imóvel</b><br><span style="font-size:11px">R$49,90 = 1 | R$99,90 = 3 - 10 dias grátis</span>
+<b>Anuncie seu Imóvel</b><br><span style="font-size:11px">R$49,90 = 1 anúncio | R$99,90 = 3 anúncios - 10 dias grátis</span>
 <div class="pix-box">🔑 PIX CNPJ: 63.329.574/0001-28<br>Galpões e Negócios Internet Ltda - ME<br>Copie: 63329574000128</div>
 </div>
 
 <script>
-function mostrar(){document.querySelectorAll('.opcao').forEach(o=>o.style.display='none');let t=tipo.value;if(t)document.getElementById('op-'+t).style.display='block'}
+function mostrar(){document.querySelectorAll('.opcao').forEach(o=>o.style.display='none');let t=document.getElementById('tipo').value;if(t)document.getElementById('op-'+t).style.display='block'}
 let fotos=[]; 
-fotos_input=document.getElementById('fotos');
-fotos_input.addEventListener('change',async e=>{
-let files=[...e.target.files].slice(0,15);fotos=[];preview.innerHTML='';
-for(let f of files){let b=await comprimir(f);fotos.push(b);preview.innerHTML+=`<img src="${b}">`}
+document.getElementById('fotos').addEventListener('change',async e=>{
+let files=[...e.target.files].slice(0,15);fotos=[];document.getElementById('preview').innerHTML='';
+for(let f of files){let b=await comprimir(f);fotos.push(b);document.getElementById('preview').innerHTML+=`<img src="${b}">`}
 });
 function comprimir(file){return new Promise(r=>{let rd=new FileReader();rd.onload=e=>{let img=new Image();img.onload=()=>{let cv=document.createElement('canvas');let max=800;let w=img.width,h=img.height;if(w>h){if(w>max){h*=max/w;w=max}}else{if(h>max){w*=max/h;h=max}}cv.width=w;cv.height=h;cv.getContext('2d').drawImage(img,0,0,w,h);r(cv.toDataURL('image/jpeg',0.7))};img.src=e.target.result};rd.readAsDataURL(file)})}
-btn.addEventListener('click',()=>{
-if(fotos.length==0){alert('1 foto');return}
-let im={titulo:tipo.value+' - '+bairro.value,bairro:bairro.value,valor:valor.value,fotos:fotos};
-let lista=JSON.parse(localStorage.getItem('imoveis_galpoes')||'[]');lista.push(im);localStorage.setItem('imoveis_galpoes',JSON.stringify(lista));cadastrar.style.display='none';carregar()
+document.getElementById('btn').addEventListener('click',()=>{
+if(fotos.length==0){alert('Coloque 1 foto');return}
+let im={titulo:document.getElementById('tipo').value+' - '+document.getElementById('bairro').value,bairro:bairro.value,valor:valor.value,fotos:fotos};
+let lista=JSON.parse(localStorage.getItem('imoveis_galpoes')||'[]');lista.push(im);localStorage.setItem('imoveis_galpoes',JSON.stringify(lista));document.getElementById('cadastrar').style.display='none';carregar()
 });
 function carregar(){
 let lista=JSON.parse(localStorage.getItem('imoveis_galpoes')||'[]');
 let div=document.getElementById('lista-imoveis');
-if(lista.length==0){div.innerHTML='<div style="grid-column:1/3;background:#fff;padding:18px;border-radius:12px;text-align:center;color:#888;font-size:12px">Nenhum imóvel ainda.</div>';return}
+if(lista.length==0)return;
 div.innerHTML='';lista.slice().reverse().forEach(im=>{
-div.innerHTML+=`<div class="card-imovel"><img src="${im.fotos[0]}"><div style="padding:8px"><b style="font-size:11px">${im.titulo}</b><br><span style="font-size:10px">${im.bairro}</span><br><b>${im.valor}</b></div></div>`
+div.innerHTML+=`<div class="card-imovel"><img src="${im.fotos[0]}"><div style="padding:8px"><b style="font-size:11px">${im.titulo}</b><br><span style="font-size:10px;color:#666">${im.bairro}</span><br><b style="font-size:12px">${im.valor}</b></div></div>`
 });
 }
 carregar();
