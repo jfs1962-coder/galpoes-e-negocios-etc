@@ -4,14 +4,14 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>GALPÕES E NEGÓCIOS</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;color:#222}
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#f5f5f5}
 .topo{padding:10px 12px;display:flex;justify-content:space-between;align-items:center;background:#fff;position:sticky;top:0;z-index:10;border-bottom:1px solid #eee}
 .logo-area{display:flex;align-items:center;gap:9px}
-.logo-area img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #FFD700}
+.logo-area img{width:44px;height:44px;border-radius:50%;border:2px solid #FFD700;object-fit:cover}
 .btn-anunciar{background:#111;color:#FFD700;padding:9px 16px;border-radius:20px;font-size:12px;text-decoration:none;font-weight:bold}
 .banner img{width:100%;height:180px;object-fit:cover;display:block}
-.frase{text-align:center;padding:10px 6px;font-size:11px;background:#FFFBEB;border-bottom:1px solid #f5e6a0;font-weight:bold}
-.filtros{padding:10px 8px;background:#fff;border-bottom:1px solid #eee}
+.frase{text-align:center;padding:10px;font-size:11px;background:#FFFBEB;border-bottom:1px solid #f5e6a0;font-weight:bold}
+.filtros{padding:10px 8px;background:#fff}
 .pilulas{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
 .pilulas select{width:100%;padding:10px 2px;border-radius:20px;border:1px solid #ddd;background:#f6f6f6;font-size:11px;font-weight:bold;text-align:center}
 .busca-linha{display:flex;gap:6px;margin-top:8px}
@@ -20,62 +20,51 @@
 #lista-imoveis{padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .card-imovel{background:#fff;border-radius:14px;overflow:hidden;border:1px solid #eee}
 .card-imovel img{width:100%;height:130px;object-fit:cover}
-.card-info{padding:8px}
-.planos{background:#fff;padding:22px 12px;text-align:center;border-top:1px solid #eee;margin-top:10px}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:500px;margin:0 auto}
-.card{background:#fff;border:2px solid #eee;border-radius:16px;padding:14px 10px}
-.card.destaque{border-color:#FFD700;background:#FFFBEB}
-.preco{font-size:22px;font-weight:bold}
-.pix-box{margin-top:18px;background:#fff;border:1px dashed #c9a400;border-radius:12px;padding:14px;max-width:500px;margin:0 auto;text-align:left}
-.pix-chave{background:#f5f5f5;padding:10px;border-radius:8px;font-size:12px;margin:8px 0;word-break:break-all;border:1px solid #eee}
-.btn-cta{background:#111;color:#FFD700;padding:14px 26px;border-radius:24px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:10px}
+.planos{background:#fff;padding:20px 12px;text-align:center;border-top:1px solid #eee;margin-top:10px}
+.pix-box{margin-top:14px;background:#FFFBEB;border:1px dashed #c9a400;padding:12px;border-radius:10px;max-width:500px;margin:14px auto 0;font-size:11px}
 </style>
 </head>
 <body>
 <div class="topo">
-  <div class="logo-area"><img src="logo.jpg" alt="Logo"><div><b style="font-size:13px">GALPÕES E NEGÓCIOS</b><div style="font-size:9px;color:#777">SÓ PROPRIETÁRIO</div></div></div>
+  <div class="logo-area"><img src="logo.jpg"><div><b style="font-size:13px">GALPÕES E NEGÓCIOS</b><div style="font-size:9px;color:#777">SEM COMISSÃO - SÓ PROPRIETÁRIO</div></div></div>
   <a class="btn-anunciar" href="cadastrar-imovel.html">+ ANUNCIAR</a>
 </div>
-<div class="banner"><img src="banner.jpg" alt="Cidade"></div>
-<div class="frase">Proprietário direto com Você • Sem Intermediário • 15 fotos por imóvel</div>
+<div class="banner"><img src="banner.jpg"></div>
+<div class="frase">Proprietário direto com Você • Sem Intermediário • Sem Comissão • 15 fotos por imóvel</div>
+
 <div class="filtros">
 <div class="pilulas">
-<select><option>📍 Cidades</option><option>Santo André</option><option>São Bernardo</option></select>
-<select><option>🏠 IMÓVEIS</option><option>Galpão</option><option>Casa</option></select>
-<select><option>💰 Negócio</option><option>Locação</option><option>Venda</option></select>
+<select><option>📍 Todas Cidades</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option><option>São Paulo</option></select>
+<select><option>🏠 Todos Imóveis</option><option>Galpão</option><option>Casa</option><option>Apartamento</option><option>Prédio Comercial</option><option>Terreno</option></select>
+<select><option>💰 Locação e Venda</option><option>Locação</option><option>Venda</option></select>
 </div>
-<div class="busca-linha"><input placeholder="🔍 Bairro..."><button class="btn-buscar">BUSCAR</button></div>
+<div class="busca-linha"><input placeholder="🔍 Digite bairro..."><button class="btn-buscar">BUSCAR</button></div>
 </div>
 
-<!-- AQUI APARECEM OS IMÓVEIS AUTOMATICAMENTE -->
 <div id="lista-imoveis"></div>
 
-<div id="planos" class="planos">
-<h2>Anuncie seu Imóvel</h2>
-<div style="font-size:11px;color:#777;margin-bottom:12px">10 DIAS GRÁTIS • Até 15 fotos • Igual Mercado Livre</div>
-<div class="cards">
-  <div class="card"><h3>1 ANÚNCIO</h3><div class="preco">R$ 49,90<small>/30 dias</small></div><p style="font-size:10px;color:#666">✅ Até 15 fotos<br>✅ 10 dias grátis<br>✅ WhatsApp direto</p><a href="cadastrar-imovel.html" style="display:block;background:#111;color:#FFD700;padding:10px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:11px">QUERO 1 ANÚNCIO</a></div>
-  <div class="card destaque"><h3>3 ANÚNCIOS ⭐</h3><div class="preco">R$ 99,90<small>/30 dias</small></div><p style="font-size:10px;color:#666">✅ Até 15 fotos cada<br>✅ 10 dias grátis<br>✅ Destaque no topo</p><a href="cadastrar-imovel.html" style="display:block;background:#FFD700;color:#111;padding:10px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:11px">QUERO 3 - MAIS VENDIDO</a></div>
-</div>
+<div class="planos">
+<h3 style="margin:0">Anuncie seu Imóvel</h3>
+<p style="font-size:11px;color:#777">PIX CNPJ: 63.329.574/0001-28 - Galpões e Negócios Internet Ltda - ME</p>
+<p style="font-size:11px"><b>R$49,90 = 1 anúncio | R$99,90 = 3 anúncios</b><br>10 dias grátis</p>
 <div class="pix-box">
-<b style="font-size:12px;display:block;text-align:center">💰 Pagamento via PIX - Liberação Imediata</b>
-<div class="pix-chave">🔑 Chave PIX CNPJ: <b>63.329.574/0001-28</b><br>🏢 Galpões e Negócios Internet Ltda - ME<br><br><b>Copie:</b> <span style="font-size:14px;font-weight:bold">63329574000128</span></div>
-<a class="btn-cta" href="https://wa.me/5511999999999?text=Comprovante%20PIX%2063.329.574/0001-28">📲 ENVIAR COMPROVANTE</a>
+🔑 <b>Chave PIX CNPJ:</b> 63.329.574/0001-28<br>
+🏢 Galpões e Negócios Internet Ltda - ME<br>
+<b>Copie e cole:</b> 63329574000128
 </div>
 </div>
 
 <script>
-// CARREGA IMÓVEIS DO CADASTRAR-IMOVEL.HTML - ARQUIVO ÚNICO
 function carregar(){
   const lista=JSON.parse(localStorage.getItem('imoveis_galpoes')||'[]');
   const div=document.getElementById('lista-imoveis');
   if(lista.length==0){
-    div.innerHTML='<div style="grid-column:1/3;background:#fff;padding:20px;border-radius:12px;text-align:center;color:#888;font-size:12px">Nenhum imóvel ainda.<br><a href="cadastrar-imovel.html" style="color:#111;font-weight:bold">Seja o primeiro a anunciar - 10 dias grátis</a></div>';
+    div.innerHTML='<div style="grid-column:1/3;background:#fff;padding:18px;border-radius:12px;text-align:center;color:#888;font-size:12px">Nenhum imóvel ainda.<br><a href="cadastrar-imovel.html" style="font-weight:bold;color:#111">Anunciar agora - 10 dias grátis</a></div>';
     return;
   }
   div.innerHTML='';
-  lista.reverse().forEach(im=>{
-    div.innerHTML+=`<div class="card-imovel"><img src="${im.fotos[0]}"><div class="card-info"><b style="font-size:11px">${im.titulo||'Imóvel'}</b><br><span style="font-size:10px;color:#666">${im.bairro||''}</span><br><span style="font-size:12px;font-weight:bold">${im.valor||''}</span><br><span style="font-size:9px;color:#999">${im.fotos.length} fotos</span></div></div>`;
+  lista.slice().reverse().forEach(im=>{
+    div.innerHTML+=`<div class="card-imovel"><img src="${im.fotos[0]}"><div style="padding:8px"><b style="font-size:11px">${im.titulo}</b><br><span style="font-size:10px;color:#666">${im.bairro}</span><br><b style="font-size:12px">${im.valor}</b><br><span style="font-size:9px;color:#999">${im.fotos.length} fotos</span></div></div>`;
   });
 }
 carregar();
