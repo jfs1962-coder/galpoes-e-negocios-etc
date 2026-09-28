@@ -3,50 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galpões & Negócios | Em todo o Brasil</title>
+<title>Galpões & Negócios | Direto com o Proprietário em todo o Brasil</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-<script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif']},colors:{grafite:'#1F2937',laranja:'#FF7A00',claro:'#FFF7ED'}}}}</script>
+<script>tailwind.config={theme:{extend:{colors:{grafite:'#1F2937',laranja:'#FF7A00'}}}}</script>
 </head>
-<body class="bg-[#FAFAF9] font-sans">
-<header class="sticky top-0 z-50 bg-white border-b border-gray-100">
-<div class="max-w-[1400px] mx-auto px-6 py-4 flex items-center justify-between">
-<div class="flex items-center gap-3">
-<div class="w-12 h-12 bg-grafite rounded-xl flex items-center justify-center relative"><span class="text-white font-black text-2xl">G</span><div class="absolute -right-1 top-1 flex flex-col gap-[2px]"><div class="w-2 h-2 bg-laranja rounded-sm"></div><div class="w-2 h-2 bg-laranja rounded-sm"></div><div class="w-2 h-2 bg-laranja rounded-sm"></div><div class="w-2 h-2 bg-laranja rounded-sm"></div><div class="w-2 h-2 bg-laranja rounded-sm"></div></div></div>
-<div><h1 class="font-black text-grafite leading-none text-[18px]">GALPÕES<br>& NEGÓCIOS</h1><p class="text-[9px] tracking-[0.3em] text-grafite/70">EM TODO O BRASIL</p></div>
-</div>
-<nav class="hidden md:flex gap-8 text-sm font-semibold text-grafite/80"><a href="#" class="hover:text-laranja">Galpões</a><a href="#" class="hover:text-laranja">Condomínios</a><a href="#" class="hover:text-laranja">Anunciar</a><a href="#" class="bg-grafite text-white px-5 py-2.5 rounded-full">Contato</a></nav>
+<body class="bg-white font-sans" style="font-family:Inter">
+
+<div class="bg-grafite text-white text-center py-2 text-[11px] tracking-widest font-bold">✓ NEGOCIAÇÃO 100% DIRETA • SEM CORRETOR • SEM COMISSÃO DE 5% • CONTATO DIRETO NO WHATSAPP COM O PROPRIETÁRIO</div>
+
+<header class="sticky top-0 z-50 bg-white border-b">
+<div class="max-w-[1400px] mx-auto px-6 py-4 flex justify-between items-center">
+<div class="flex items-center gap-3"><div class="w-12 h-12 bg-grafite rounded-xl flex items-center justify-center"><span class="text-white font-black text-2xl">G</span></div><div><h1 class="font-black text-grafite leading-none">GALPÕES & NEGÓCIOS</h1><p class="text-[9px] tracking-[0.3em]">EM TODO O BRASIL • DIRETO COM O PROPRIETÁRIO</p></div></div>
+<div class="flex gap-3"><a href="#buscar" class="hidden md:block border border-grafite px-5 py-2.5 rounded-full font-bold text-sm">Buscar Galpão</a><a href="#cadastrar" class="bg-laranja text-white px-6 py-2.5 rounded-full font-black text-sm">+ CADASTRAR MEU GALPÃO</a></div>
 </div>
 </header>
-<section class="relative bg-gradient-to-br from-white via-[#FFF7ED] to-white">
-<div class="max-w-[1400px] mx-auto px-6 py-12 md:py-16 grid md:grid-cols-2 gap-10 items-center">
+
+<section class="max-w-[1400px] mx-auto px-6 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
 <div>
-<h2 class="text-4xl md:text-[52px] font-black text-grafite leading-[0.95]">O maior portal de<br><span class="text-laranja">galpões</span><br>do Brasil.</h2>
-<p class="mt-4 text-grafite/60 text-[15px] max-w-[420px]">Filtre por pé-direito, docas, capacidade de piso e localização real em todo o território nacional.</p>
+<div class="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 text-xs font-bold px-3 py-1 rounded-full">● 127 proprietários online agora</div>
+<h2 class="mt-4 text-[44px] md:text-[56px] font-black leading-[0.9] text-grafite">Venda ou alugue<br><span class="text-laranja">direto com o<br>proprietário.</span></h2>
+<p class="mt-5 text-grafite/70 text-[16px] leading-relaxed">Aqui o dono cadastra seu galpão e você negocia sem intermediário. Economia de até 6% na compra e 1 aluguel na locação. Igual ao modelo Proprietário Direto.</p>
+<div class="mt-8 grid grid-cols-2 gap-4">
+<div class="border-2 border-grafite rounded-2xl p-5"><p class="font-black text-grafite">SOU PROPRIETÁRIO</p><p class="text-xs text-grafite/60 mt-1">Quero anunciar meu galpão</p><a href="#cadastrar" class="mt-3 inline-block bg-grafite text-white px-5 py-2.5 rounded-full font-bold text-sm w-full text-center">CADASTRAR GALPÃO GRÁTIS →</a></div>
+<div class="border-2 border-laranja bg-orange-50 rounded-2xl p-5"><p class="font-black text-laranja">BUSCO GALPÃO</p><p class="text-xs text-grafite/60 mt-1">Quero comprar ou alugar direto</p><a href="#buscar" class="mt-3 inline-block bg-laranja text-white px-5 py-2.5 rounded-full font-bold text-sm w-full text-center">ENCONTRAR GALPÕES →</a></div>
 </div>
-<div class="relative"><img src="hero.jpg" alt="Hero Galpões e Negócios" class="rounded-[24px] shadow-2xl border border-gray-100 w-full"></div>
+</div>
+<div><img src="hero.jpg" class="rounded-[32px] shadow-2xl border w-full"><div class="mt-4 bg-white border rounded-2xl p-4 flex gap-3 shadow-lg"><div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">✓</div><div><p class="font-bold text-sm text-grafite">Chat direto com o proprietário</p><p class="text-xs text-grafite/60">Você fala com o dono no WhatsApp, sem corretor no meio</p></div></div></div>
+</section>
+
+<section class="bg-[#FAFAF9] border-y py-12">
+<div class="max-w-[1400px] mx-auto px-6 grid md:grid-cols-3 gap-8 text-center">
+<div><div class="w-12 h-12 bg-grafite text-white rounded-full flex items-center justify-center font-black mx-auto">1</div><h4 class="font-black mt-3">Proprietário cadastra</h4><p class="text-sm text-grafite/60">Fotos, pé-direito, docas, piso, localização e valor.</p></div>
+<div><div class="w-12 h-12 bg-laranja text-white rounded-full flex items-center justify-center font-black mx-auto">2</div><h4 class="font-black mt-3">Interessado encontra</h4><p class="text-sm text-grafite/60">Filtros técnicos: pé-direito, docas, piso ton/m².</p></div>
+<div><div class="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-black mx-auto">3</div><h4 class="font-black mt-3">Negociação direta</h4><p class="text-sm text-grafite/60">WhatsApp direto com o proprietário. Sem comissão.</p></div>
 </div>
 </section>
-<section class="max-w-[1400px] mx-auto px-6 -mt-6 relative z-20">
-<div class="bg-white rounded-[24px] shadow-[0_20px_80px_rgba(0,0,0,0.08)] border border-gray-100 p-6 md:p-8">
-<div class="flex items-center justify-between mb-6"><h3 class="font-black text-grafite text-lg">Filtros profissionais</h3><span class="text-xs text-grafite/50">Filtros que corretores comuns não têm</span></div>
-<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-<div><label class="text-[11px] font-bold tracking-widest text-grafite/60">ESTADO</label><select class="w-full mt-1 border border-gray-200 rounded-xl px-3 py-3 text-sm font-semibold bg-gray-50"><option>Todos</option><option>SP</option><option>MG</option><option>RJ</option><option>PR</option><option>SC</option><option>RS</option><option>BA</option><option>Todo Brasil</option></select></div>
-<div><label class="text-[11px] font-bold tracking-widest text-grafite/60">CIDADE</label><input placeholder="Ex: Guarulhos" class="w-full mt-1 border border-gray-200 rounded-xl px-3 py-3 text-sm bg-gray-50"></div>
-<div><label class="text-[11px] font-bold tracking-widest text-grafite/60">BAIRRO / REGIÃO</label><input placeholder="Ex: Cumbica" class="w-full mt-1 border border-gray-200 rounded-xl px-3 py-3 text-sm bg-gray-50"></div>
-<div><label class="text-[11px] font-bold tracking-widest text-grafite/60">ÁREA M²</label><select class="w-full mt-1 border border-gray-200 rounded-xl px-3 py-3 text-sm bg-gray-50"><option>Qualquer</option><option>500-1.000</option><option>1.000-5.000</option><option>5.000-10.000</option><option>+10.000</option></select></div>
-<div><label class="text-[11px] font-bold tracking-widest text-grafite/60">PÉ-DIREITO</label><select class="w-full mt-1 border border-laranja/30 rounded-xl px-3 py-3 text-sm bg-claro font-bold text-grafite"><option>Qualquer</option><option>6m+</option><option>8m+</option><option>10m+</option><option>12m+ AAA</option></select></div>
-<div><label class="text-[11px] font-bold tracking-widest text-grafite/60">DOCAS</label><select class="w-full mt-1 border border-laranja/30 rounded-xl px-3 py-3 text-sm bg-claro font-bold"><option>Qualquer</option><option>1+</option><option>3+</option><option>5+</option><option>10+</option></select></div>
-<div><label class="text-[11px] font-bold tracking-widest text-grafite/60">PISO TON/M²</label><select class="w-full mt-1 border border-gray-200 rounded-xl px-3 py-3 text-sm bg-gray-50"><option>Qualquer</option><option>3 ton</option><option>5 ton</option><option>6 ton+</option></select></div>
+
+<section id="buscar" class="max-w-[1400px] mx-auto px-6 py-10">
+<div class="flex gap-2 mb-6"><button class="bg-grafite text-white px-8 py-3 rounded-full font-black">QUERO ALUGAR</button><button class="border border-gray-200 px-8 py-3 rounded-full font-bold text-grafite/60">QUERO COMPRAR</button></div>
+<div class="bg-white rounded-[24px] shadow-xl border p-6 md:p-8">
+<div class="grid grid-cols-2 md:grid-cols-7 gap-4">
+<div><label class="text-[10px] font-bold tracking-widest">ESTADO</label><select class="w-full mt-1 border rounded-xl px-3 py-3 bg-gray-50 font-bold"><option>Todo Brasil</option><option>SP</option><option>MG</option><option>PR</option><option>SC</option></select></div>
+<div><label class="text-[10px] font-bold tracking-widest">CIDADE</label><input placeholder="Guarulhos" class="w-full mt-1 border rounded-xl px-3 py-3 bg-gray-50"></div>
+<div><label class="text-[10px] font-bold tracking-widest">BAIRRO</label><input placeholder="Cumbica" class="w-full mt-1 border rounded-xl px-3 py-3 bg-gray-50"></div>
+<div><label class="text-[10px] font-bold tracking-widest">ÁREA</label><select class="w-full mt-1 border rounded-xl px-3 py-3 bg-gray-50"><option>Qualquer</option><option>+1000m²</option><option>+5000m²</option></select></div>
+<div><label class="text-[10px] font-bold tracking-widest text-laranja">PÉ-DIREITO</label><select class="w-full mt-1 border border-laranja/30 rounded-xl px-3 py-3 bg-orange-50 font-bold"><option>Qualquer</option><option>10m+</option><option>12m+ AAA</option></select></div>
+<div><label class="text-[10px] font-bold tracking-widest text-laranja">DOCAS</label><select class="w-full mt-1 border border-laranja/30 rounded-xl px-3 py-3 bg-orange-50 font-bold"><option>Qualquer</option><option>5+</option><option>10+</option></select></div>
+<div><label class="text-[10px] font-bold tracking-widest">PISO</label><select class="w-full mt-1 border rounded-xl px-3 py-3 bg-gray-50"><option>Qualquer</option><option>5 ton/m²</option><option>6 ton+</option></select></div>
 </div>
-<div class="mt-6 flex gap-3"><button class="flex-1 bg-grafite text-white font-black py-4 rounded-xl hover:bg-black">BUSCAR GALPÕES →</button><button class="px-6 border border-gray-200 rounded-xl font-bold text-grafite/70">Limpar</button></div>
+<button class="mt-6 w-full bg-grafite text-white font-black py-4 rounded-xl">BUSCAR GALPÕES DIRETO COM O PROPRIETÁRIO →</button>
+</div>
+
+<div class="mt-8 grid md:grid-cols-3 gap-6">
+<div class="border rounded-2xl overflow-hidden"><div class="h-48 bg-gray-200 relative"><span class="absolute top-3 left-3 bg-green-600 text-white text-[10px] font-black px-2 py-1 rounded-full">DIRETO COM O PROPRIETÁRIO • SEM COMISSÃO</span></div><div class="p-5"><p class="text-xs font-bold text-laranja">GUARULHOS-SP • PROPRIETÁRIO: MARCOS</p><h4 class="font-black">5.200m² • 8 docas • 12m pé • 6 ton</h4><div class="mt-3 flex gap-2"><a class="flex-1 bg-green-600 text-white text-center py-2.5 rounded-full font-bold text-sm">WhatsApp Direto</a><a class="border px-4 py-2.5 rounded-full font-bold text-sm">Detalhes</a></div></div></div>
+<div class="border rounded-2xl overflow-hidden"><div class="h-48 bg-gray-200 relative"><span class="absolute top-3 left-3 bg-green-600 text-white text-[10px] font-black px-2 py-1 rounded-full">DIRETO COM O PROPRIETÁRIO • ECONOMIA R$ 48mil</span></div><div class="p-5"><p class="text-xs font-bold text-laranja">EXTREMA-MG • PROPRIETÁRIA: ANA</p><h4 class="font-black">12.000m² • 12 docas • Condomínio AAA</h4><div class="mt-3 flex gap-2"><a class="flex-1 bg-green-600 text-white text-center py-2.5 rounded-full font-bold text-sm">WhatsApp Direto</a><a class="border px-4 py-2.5 rounded-full font-bold text-sm">Detalhes</a></div></div></div>
+<div class="border rounded-2xl overflow-hidden"><div class="h-48 bg-gray-200 relative"><span class="absolute top-3 left-3 bg-laranja text-white text-[10px] font-black px-2 py-1 rounded-full">NOVO • DIRETO COM O PROPRIETÁRIO</span></div><div class="p-5"><p class="text-xs font-bold text-laranja">CAJAMAR-SP • PROPRIETÁRIO: ROBERTO</p><h4 class="font-black">3.800m² • 6 docas • Próximo Mercado Livre</h4><div class="mt-3 flex gap-2"><a class="flex-1 bg-green-600 text-white text-center py-2.5 rounded-full font-bold text-sm">WhatsApp Direto</a><a class="border px-4 py-2.5 rounded-full font-bold text-sm">Detalhes</a></div></div></div>
 </div>
 </section>
-<section class="max-w-[1400px] mx-auto px-6 py-12 grid md:grid-cols-3 gap-6">
-<div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm"><div class="h-48 bg-gray-200 relative"><span class="absolute top-3 left-3 bg-laranja text-white text-[10px] font-black px-2 py-1 rounded-full">12M PÉ-DIREITO</span></div><div class="p-5"><p class="text-xs font-bold tracking-widest text-laranja">GUARULHOS - SP</p><h4 class="font-black text-grafite mt-1">5.200m² • 8 docas • 6 ton</h4><div class="mt-4 flex justify-between"><span class="font-black">R$ 28/m²</span><span class="text-xs bg-grafite text-white px-3 py-1.5 rounded-full">Ver</span></div></div></div>
-<div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm"><div class="h-48 bg-gray-200 relative"><span class="absolute top-3 left-3 bg-grafite text-white text-[10px] font-black px-2 py-1 rounded-full">CONDOMÍNIO</span></div><div class="p-5"><p class="text-xs font-bold tracking-widest text-laranja">EXTREMA - MG</p><h4 class="font-black text-grafite mt-1">12.000m² • 12 docas • 12m</h4><div class="mt-4 flex justify-between"><span class="font-black">R$ 22/m²</span><span class="text-xs bg-grafite text-white px-3 py-1.5 rounded-full">Ver</span></div></div></div>
-<div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm"><div class="h-48 bg-gray-200 relative"><span class="absolute top-3 left-3 bg-laranja text-white text-[10px] font-black px-2 py-1 rounded-full">5 TON/M²</span></div><div class="p-5"><p class="text-xs font-bold tracking-widest text-laranja">CAJAMAR - SP</p><h4 class="font-black text-grafite mt-1">3.800m² • 6 docas • Pronto</h4><div class="mt-4 flex justify-between"><span class="font-black">R$ 30/m²</span><span class="text-xs bg-grafite text-white px-3 py-1.5 rounded-full">Ver</span></div></div></div>
+
+<section id="cadastrar" class="bg-grafite text-white py-16">
+<div class="max-w-[1400px] mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+<div><h3 class="text-4xl font-black leading-none">Proprietário,<br><span class="text-laranja">anuncie seu galpão<br>direto com o<br>proprietário.</span></h3><p class="mt-4 text-white/60">Você cria o anúncio. Os interessados falam com você no WhatsApp. Sem exclusividade, sem comissão.</p></div>
+<div class="bg-white text-grafite rounded-[24px] p-8">
+<h4 class="font-black text-xl">Cadastrar meu galpão</h4>
+<input placeholder="Seu nome" class="w-full mt-4 border rounded-xl px-4 py-3">
+<input placeholder="WhatsApp" class="w-full mt-3 border rounded-xl px-4 py-3">
+<input placeholder="Cidade / Estado do galpão" class="w-full mt-3 border rounded-xl px-4 py-3">
+<div class="grid grid-cols-2 gap-3 mt-3"><input placeholder="Área m²" class="border rounded-xl px-4 py-3"><input placeholder="Pé-direito" class="border rounded-xl px-4 py-3"></div>
+<div class="grid grid-cols-2 gap-3 mt-3"><input placeholder="Qtd Docas" class="border rounded-xl px-4 py-3"><input placeholder="Piso ton/m²" class="border rounded-xl px-4 py-3"></div>
+<select class="w-full mt-3 border rounded-xl px-4 py-3"><option>Finalidade: Aluguel</option><option>Venda</option><option>Ambos</option></select>
+<button class="w-full mt-4 bg-laranja text-white font-black py-4 rounded-xl">CRIAR ANÚNCIO GRÁTIS →</button>
+</div>
+</div>
 </section>
-<footer class="bg-grafite text-white py-12"><div class="max-w-[1400px] mx-auto px-6 flex justify-between"><div><p class="font-black">GALPÕES & NEGÓCIOS</p><p class="text-[10px] tracking-[0.3em] opacity-60">EM TODO O BRASIL</p></div><p class="text-xs opacity-50">© 2026</p></div></footer>
+
+<footer class="bg-black text-white py-8 text-center text-xs opacity-60">Galpões & Negócios • Direto com o Proprietário • Em todo o Brasil • 2026</footer>
 </body>
 </html>
