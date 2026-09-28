@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galpões & Negócios | Direto com o Proprietário</title>
+<title>Galpões & Negócios</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 <script>tailwind.config={theme:{extend:{colors:{grafite:'#1F2937',laranja:'#FF7A00'}}}}</script>
@@ -15,41 +15,38 @@
 
 <header class="sticky top-0 z-50 bg-white border-b">
 <div class="max-w-[1400px] mx-auto px-6 py-3 flex justify-between items-center">
-<!-- LOGO REAL - AGORA USANDO SEU ARQUIVO logo.jpg -->
+<!-- LOGO CORRIGIDO COM FALLBACK -->
 <a href="index.html" class="flex items-center">
-<img src="logo.jpg" alt="Galpões & Negócios" class="h-[52px] w-auto object-contain">
+<img src="./logo.jpg" alt="Galpões & Negócios" class="h-[52px] w-auto object-contain" onerror="this.src='./banner.jpg'; this.style.height='40px'">
 </a>
-<div class="flex gap-3"><a href="#buscar" class="border-2 border-grafite px-5 py-2.5 rounded-full font-bold text-sm hover:bg-grafite hover:text-white transition">Buscar Galpão</a><a href="#cadastrar" class="bg-laranja text-white px-6 py-2.5 rounded-full font-black text-sm hover:bg-orange-600 transition">+ CADASTRAR GALPÃO</a></div>
+<div class="flex gap-3"><a href="#buscar" class="border-2 border-grafite px-5 py-2.5 rounded-full font-bold text-sm">Buscar Galpão</a><a href="#cadastrar" class="bg-laranja text-white px-6 py-2.5 rounded-full font-black text-sm">+ CADASTRAR GALPÃO</a></div>
 </div>
 </header>
 
 <section class="max-w-[1400px] mx-auto px-6 py-14 grid md:grid-cols-2 gap-10 items-center">
 <div>
 <h2 class="text-[44px] md:text-[56px] font-black leading-[0.9] text-grafite">Venda ou alugue<br><span class="text-laranja">direto com o<br>proprietário.</span></h2>
-<p class="mt-5 text-grafite/70">Aqui o proprietário cadastra seu galpão e você negocia sem intermediário. Economia de até 6% na compra e 1 aluguel na locação.</p>
+<p class="mt-5 text-grafite/70">Aqui o proprietário cadastra seu galpão e você negocia sem intermediário.</p>
 <div class="mt-8 grid grid-cols-2 gap-4">
 <div class="border-2 border-grafite rounded-2xl p-5"><p class="font-black text-sm">SOU PROPRIETÁRIO</p><a href="#cadastrar" class="mt-3 inline-flex w-full justify-center bg-grafite text-white px-5 py-2.5 rounded-full font-bold text-sm">CADASTRAR GRÁTIS →</a></div>
 <div class="border-2 border-laranja bg-orange-50 rounded-2xl p-5"><p class="font-black text-sm text-laranja">BUSCO GALPÃO</p><a href="#buscar" class="mt-3 inline-flex w-full justify-center bg-laranja text-white px-5 py-2.5 rounded-full font-bold text-sm">ENCONTRAR →</a></div>
 </div>
 </div>
-<!-- HERO REAL - USANDO SEU heroi.jpg E SEM CHAT FLUTUANTE -->
-<div class="w-full h-[420px] rounded-[32px] overflow-hidden border shadow-xl">
-<img src="heroi.jpg" alt="Galpões em todo o Brasil" class="w-full h-full object-cover">
+<!-- HERO CORRIGIDO - USA banner.jpg QUE JÁ EXISTE E SEM CHAT -->
+<div class="w-full h-[420px] rounded-[32px] overflow-hidden border shadow-xl bg-gray-50">
+<img src="./banner.jpg" alt="Galpões em todo o Brasil" class="w-full h-full object-cover" onerror="this.src='./logo.jpg'">
 </div>
 </section>
 
 <section id="buscar" class="max-w-[1400px] mx-auto px-6 py-12 scroll-mt-24">
 <div class="bg-white rounded-[24px] shadow-xl border p-6">
-<div class="grid grid-cols-2 md:grid-cols-7 gap-4">
-<div><label class="text-[10px] font-bold">ESTADO</label><select class="w-full mt-1 border rounded-xl px-3 py-3 bg-gray-50 font-bold"><option>Todo Brasil</option></select></div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 <div><label class="text-[10px] font-bold">CIDADE</label><input placeholder="Guarulhos" class="w-full mt-1 border rounded-xl px-3 py-3 bg-gray-50"></div>
 <div><label class="text-[10px] font-bold">ÁREA</label><select class="w-full mt-1 border rounded-xl px-3 py-3 bg-gray-50"><option>+1000m²</option></select></div>
 <div><label class="text-[10px] font-bold text-laranja">PÉ-DIREITO</label><select class="w-full mt-1 border border-laranja/30 rounded-xl px-3 py-3 bg-orange-50 font-bold"><option>12m+ AAA</option></select></div>
 <div><label class="text-[10px] font-bold text-laranja">DOCAS</label><select class="w-full mt-1 border border-laranja/30 rounded-xl px-3 py-3 bg-orange-50 font-bold"><option>5+</option></select></div>
-<div><label class="text-[10px] font-bold">PISO</label><select class="w-full mt-1 border rounded-xl px-3 py-3 bg-gray-50"><option>6 ton/m²</option></select></div>
-<div><label class="text-[10px] font-bold">AVCB</label><select class="w-full mt-1 border rounded-xl px-3 py-3 bg-gray-50"><option>Com AVCB</option></select></div>
 </div>
-<button class="mt-6 w-full bg-grafite text-white font-black py-4 rounded-xl">BUSCAR GALPÕES DIRETO COM O PROPRIETÁRIO →</button>
+<button class="mt-6 w-full bg-grafite text-white font-black py-4 rounded-xl">BUSCAR GALPÕES →</button>
 </div>
 </section>
 
@@ -61,14 +58,13 @@
 <input placeholder="Seu nome" class="w-full mt-4 border rounded-xl px-4 py-3">
 <input placeholder="WhatsApp" class="w-full mt-3 border rounded-xl px-4 py-3">
 <button class="w-full mt-4 bg-laranja text-white font-black py-4 rounded-xl">CRIAR ANÚNCIO GRÁTIS →</button>
-<p class="text-[10px] mt-3 text-center">Ao cadastrar você concorda com nossos <a href="termos.html" class="underline font-bold text-laranja">Termos de Uso e Privacidade</a></p>
 </div>
 </div>
 </section>
 
 <footer class="bg-black text-white py-10">
-<div class="max-w-[1400px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-<div class="flex items-center gap-3"><img src="logo.jpg" class="h-10 w-auto bg-white rounded-lg p-1"><p class="text-xs opacity-60">2026 • Direto com o Proprietário</p></div>
+<div class="max-w-[1400px] mx-auto px-6 flex justify-between items-center gap-6">
+<img src="./logo.jpg" class="h-10 w-auto bg-white rounded-lg p-1" onerror="this.style.display='none'">
 <nav class="flex gap-3 text-[12px] font-bold">
 <a href="termos.html" class="bg-white text-black px-6 py-2.5 rounded-full">Termos de Uso e Privacidade</a>
 <a href="#buscar" class="bg-laranja text-white px-6 py-2.5 rounded-full">Buscar Galpão</a>
