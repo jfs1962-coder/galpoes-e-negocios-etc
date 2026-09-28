@@ -7,87 +7,31 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 <script>tailwind.config={theme:{extend:{colors:{grafite:'#1F2937',laranja:'#FF7A00'}}}}</script>
-<style>html{scroll-behavior:smooth} body{font-family:Inter, sans-serif}</style>
+<style>html{scroll-behavior:smooth} body{font-family:Inter}</style>
 </head>
 <body class="bg-white">
-
 <div class="bg-grafite text-white text-center py-2 text-[11px] tracking-widest font-bold">✓ NEGOCIAÇÃO 100% DIRETA • SEM CORRETOR • SEM COMISSÃO • CONTATO DIRETO COM O PROPRIETÁRIO</div>
-
 <header class="sticky top-0 z-50 bg-white border-b">
 <div class="max-w-[1400px] mx-auto px-6 py-4 flex justify-between items-center">
 <div class="flex items-center gap-3"><div class="w-12 h-12 bg-grafite rounded-xl flex items-center justify-center"><span class="text-white font-black text-2xl">G</span></div><div><h1 class="font-black leading-none">GALPÕES & NEGÓCIOS</h1><p class="text-[9px] tracking-[0.3em]">EM TODO O BRASIL • DIRETO COM O PROPRIETÁRIO</p></div></div>
-<div class="flex items-center gap-3">
-<a href="termos.html" class="hidden md:block text-xs font-bold text-grafite/60 hover:text-grafite px-3 py-2">Termos</a>
-<a href="#buscar" class="border-2 border-grafite px-5 py-2.5 rounded-full font-bold text-sm hover:bg-grafite hover:text-white transition">Buscar Galpão</a>
-<a href="#cadastrar" class="bg-laranja text-white px-6 py-2.5 rounded-full font-black text-sm hover:bg-orange-600 transition">+ CADASTRAR GALPÃO</a>
-</div>
+<div class="flex gap-3"><a href="#buscar" class="border-2 border-grafite px-5 py-2.5 rounded-full font-bold text-sm">Buscar Galpão</a><a href="#cadastrar" class="bg-laranja text-white px-6 py-2.5 rounded-full font-black text-sm">+ CADASTRAR GALPÃO</a></div>
 </div>
 </header>
-
-<section class="max-w-[1400px] mx-auto px-6 py-14 grid md:grid-cols-2 gap-10 items-center">
-<div>
-<h2 class="text-[44px] md:text-[56px] font-black leading-[0.9] text-grafite">Venda ou alugue<br><span class="text-laranja">direto com o<br>proprietário.</span></h2>
-<p class="mt-5 text-grafite/70">Aqui o proprietário cadastra seu galpão e você negocia sem intermediário. Economia de até 6% na compra e 1 aluguel na locação.</p>
-<div class="mt-8 grid grid-cols-2 gap-4">
-<div class="border-2 border-grafite rounded-2xl p-5"><p class="font-black">SOU PROPRIETÁRIO</p><a href="#cadastrar" class="mt-3 inline-flex justify-center bg-grafite text-white px-5 py-2.5 rounded-full font-bold text-sm w-full text-center cursor-pointer">CADASTRAR GALPÃO GRÁTIS →</a></div>
-<div class="border-2 border-laranja bg-orange-50 rounded-2xl p-5"><p class="font-black text-laranja">BUSCO GALPÃO</p><a href="#buscar" class="mt-3 inline-flex justify-center bg-laranja text-white px-5 py-2.5 rounded-full font-bold text-sm w-full text-center cursor-pointer">ENCONTRAR GALPÕES →</a></div>
-</div>
-</div>
-<div><img src="hero.jpg" class="rounded-[32px] shadow-2xl border w-full" alt="Galpão"></div>
-</section>
-
-<section id="buscar" class="max-w-[1400px] mx-auto px-6 py-12 scroll-mt-24">
-<div class="flex gap-2 mb-6"><button onclick="document.getElementById('buscar').scrollIntoView()" class="bg-grafite text-white px-8 py-3 rounded-full font-black cursor-pointer">QUERO ALUGAR</button><button class="border px-8 py-3 rounded-full font-bold cursor-pointer">QUERO COMPRAR</button></div>
-<div class="bg-white rounded-[24px] shadow-xl border p-6">
-<div class="grid grid-cols-2 md:grid-cols-7 gap-4">
-<div><label class="text-[10px] font-bold">ESTADO</label><select class="w-full mt-1 border rounded-xl px-3 py-3 bg-gray-50 font-bold"><option>Todo Brasil</option></select></div>
-<div><label class="text-[10px] font-bold">CIDADE</label><input placeholder="Guarulhos" class="w-full mt-1 border rounded-xl px-3 py-3 bg-gray-50"></div>
-<div><label class="text-[10px] font-bold">ÁREA</label><select class="w-full mt-1 border rounded-xl px-3 py-3 bg-gray-50"><option>+1000m²</option></select></div>
-<div><label class="text-[10px] font-bold text-laranja">PÉ-DIREITO</label><select class="w-full mt-1 border border-laranja/30 rounded-xl px-3 py-3 bg-orange-50"><option>12m+ AAA</option></select></div>
-<div><label class="text-[10px] font-bold text-laranja">DOCAS</label><select class="w-full mt-1 border border-laranja/30 rounded-xl px-3 py-3 bg-orange-50"><option>5+</option></select></div>
-<div><label class="text-[10px] font-bold">PISO</label><select class="w-full mt-1 border rounded-xl px-3 py-3 bg-gray-50"><option>6 ton/m²</option></select></div>
-<div><label class="text-[10px] font-bold">AVCB</label><select class="w-full mt-1 border rounded-xl px-3 py-3 bg-gray-50"><option>Com AVCB</option></select></div>
-</div>
-<button class="mt-6 w-full bg-grafite text-white font-black py-4 rounded-xl cursor-pointer hover:bg-black transition">BUSCAR GALPÕES DIRETO COM O PROPRIETÁRIO →</button>
-</div>
-</section>
-
-<section class="bg-[#FAFAF9] border-y py-16">
-<div class="max-w-[900px] mx-auto px-6">
-<h3 class="text-3xl font-black text-center">Perguntas frequentes - Galpões</h3>
-<div class="mt-10 space-y-4">
-<details class="bg-white border rounded-2xl p-6"><summary class="font-black cursor-pointer list-none flex justify-between">É legal vender ou alugar um galpão sem corretor? <span class="text-laranja">+</span></summary><p class="mt-3 text-sm text-grafite/70">Sim. A lei permite que o proprietário venda ou alugue seu próprio galpão sem intermediários.</p></details>
-<details class="bg-white border rounded-2xl p-6"><summary class="font-black cursor-pointer list-none flex justify-between">Qual é a vantagem de negociar direto? <span class="text-laranja">+</span></summary><p class="mt-3 text-sm text-grafite/70">Economia de 5% a 6% na venda e 1 aluguel na locação.</p></details>
-</div>
-</div>
-</section>
-
+<section id="buscar" class="max-w-[1400px] mx-auto px-6 py-16 scroll-mt-24"><h2 class="text-4xl font-black">Encontre galpões direto com proprietário</h2><p class="mt-2 text-gray-500">Busca por Estado, Cidade, Área, Pé-direito, Docas, Piso e AVCB</p></section>
 <section id="cadastrar" class="bg-grafite text-white py-16 scroll-mt-20">
-<div class="max-w-[1400px] mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-<div><h3 class="text-4xl font-black leading-none">Proprietário,<br><span class="text-laranja">anuncie seu galpão<br>direto.</span></h3></div>
-<div class="bg-white text-grafite rounded-[24px] p-8">
-<h4 class="font-black text-xl">Cadastrar meu galpão</h4>
-<input placeholder="Seu nome" class="w-full mt-4 border rounded-xl px-4 py-3">
-<input placeholder="WhatsApp" class="w-full mt-3 border rounded-xl px-4 py-3">
-<input placeholder="Cidade / Estado" class="w-full mt-3 border rounded-xl px-4 py-3">
-<button class="w-full mt-4 bg-laranja text-white font-black py-4 rounded-xl cursor-pointer hover:bg-orange-600 transition">CRIAR ANÚNCIO GRÁTIS →</button>
-<p class="text-[10px] mt-3 text-center">Ao cadastrar você concorda com nossos <a href="termos.html" class="underline font-bold text-laranja">Termos de Uso</a></p>
-</div>
-</div>
+<div class="max-w-[1400px] mx-auto px-6"><h3 class="text-4xl font-black">Anuncie seu galpão direto</h3><a href="termos.html" class="mt-4 inline-block text-xs underline">Ao cadastrar você concorda com os Termos</a></div>
 </section>
-
-<!-- RODAPÉ CORRIGIDO -->
+<!-- RODAPÉ CORRIGIDO - SEM 404 -->
 <footer class="bg-black text-white py-10">
 <div class="max-w-[1400px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-<div><p class="font-black tracking-widest">GALPÕES & NEGÓCIOS</p><p class="text-xs opacity-60 mt-1">Em todo o Brasil • Direto com o Proprietário • 2026</p></div>
-<nav class="flex flex-wrap gap-4 md:gap-6 text-[12px] font-bold">
-<a href="termos.html" class="bg-white text-black px-4 py-2 rounded-full hover:bg-laranja hover:text-white transition cursor-pointer">Termos de Uso</a>
-<a href="termos.html" class="bg-white/10 border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-black transition cursor-pointer">Privacidade</a>
-<a href="termos.html" class="bg-white/10 border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-black transition cursor-pointer">Conteúdo e Uso</a>
-<a href="#buscar" class="bg-laranja text-white px-4 py-2 rounded-full hover:bg-orange-600 transition cursor-pointer">Buscar Galpão</a>
+<div><p class="font-black tracking-widest">GALPÕES & NEGÓCIOS</p><p class="text-xs opacity-60 mt-1">2026 • Direto com o Proprietário</p></div>
+<nav class="flex flex-wrap gap-3 text-[12px] font-bold">
+<a href="termos.html#termos" class="bg-white text-black px-5 py-2.5 rounded-full hover:bg-laranja hover:text-white transition">Termos de Uso</a>
+<a href="termos.html#privacidade" class="bg-white/10 border border-white/30 px-5 py-2.5 rounded-full hover:bg-white hover:text-black transition">Privacidade</a>
+<a href="termos.html#conteudo" class="bg-white/10 border border-white/30 px-5 py-2.5 rounded-full hover:bg-white hover:text-black transition">Conteúdo e Uso</a>
+<a href="index.html#buscar" class="bg-laranja text-white px-5 py-2.5 rounded-full hover:bg-orange-600 transition">Buscar Galpão</a>
 </nav>
 </div>
 </footer>
-
 </body>
 </html>
