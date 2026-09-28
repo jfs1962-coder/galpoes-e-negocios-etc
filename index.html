@@ -19,8 +19,8 @@ header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid 
 .lista{max-width:1200px;margin:0 auto;padding:18px 12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
 .card-galpao{border:2px solid #111;border-radius:20px;overflow:hidden;background:#fff}
 .card-img{height:190px;background:#e5e7eb}.card-img img{width:100%;height:100%;object-fit:cover}.card-body{padding:14px}
-#modalLogin,#modalCadastro{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;align-items:center;justify-content:center;padding:12px}
-.modal-box{background:#fff;border-radius:24px;max-width:420px;width:100%;padding:22px;position:relative}
+#modalLogin,#modalCadastro,#modalEscolha{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;align-items:center;justify-content:center;padding:12px}
+.modal-box{background:#fff;border-radius:24px;max-width:420px;width:100%;padding:22px;position:relative;max-height:90vh;overflow:auto}
 .badge{font-size:10px;font-weight:900;background:#FF6A00;color:#fff;padding:4px 8px;border-radius:999px;margin-bottom:10px;display:inline-block}
 </style>
 </head>
@@ -31,7 +31,7 @@ header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid 
     <span id="userName" style="font-size:12px;font-weight:800;display:none"></span>
     <button id="btnEntrar" onclick="abrirLogin()" class="btn btn-dark">Entrar</button>
     <button id="btnSair" onclick="sair()" class="btn" style="display:none;border:1.5px solid #111">Sair</button>
-    <a href="meus-imoveis.html" class="btn btn-orange">+ CADASTRAR</a>
+    <button onclick="abrirEscolhaCadastro()" class="btn btn-orange">+ CADASTRAR</button>
   </div>
 </header>
 
@@ -46,121 +46,123 @@ header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid 
     <select class="input" id="buscaTipo"><option value="">Alugar ou Comprar?</option><option value="aluguel">Quero Alugar</option><option value="venda">Quero Comprar</option></select>
     <button class="btn btn-dark" onclick="buscarInteressado()" style="height:48px">BUSCAR</button>
   </div>
-  <div style="margin-top:8px;font-size:12px;color:#6b7280">👉 <b id="totalGalpoes">0</b> galpões disponíveis • Cadastro grátis para interessados</div>
+  <div style="margin-top:8px;font-size:12px;color:#6b7280">👉 <b id="totalGalpoes">0</b> galpões disponíveis • Cadastro grátis</div>
 </div>
 
 <div class="lista" id="lista"></div>
 
-<!-- LOGIN -->
-<div id="modalLogin"><div class="modal-box">
-  <button onclick="fecharLogin()" style="position:absolute;top:14px;right:14px;border:0;background:none;font-size:22px;cursor:pointer">✕</button>
-  <span class="badge">ACESSO INTERESSADO</span>
-  <h2 style="font-size:22px;font-weight:900">Entre para buscar galpões</h2><p style="color:#6b7280;margin:6px 0 16px;font-size:13px">Igual Mercado Livre: precisa estar logado para ver contatos</p>
-  <input class="input" id="emailLogin" placeholder="seu@email.com" style="margin-bottom:8px"><input class="input" id="senhaLogin" type="password" placeholder="Senha">
-  <button onclick="loginEmailFake()" style="width:100%;background:#2563eb;color:#fff;margin-top:12px;padding:14px;border-radius:12px;font-weight:800;border:0">Entrar</button>
-  <div style="text-align:center;margin-top:12px;font-size:13px">Novo por aqui? <span onclick="abrirCadastro()" style="color:#FF6A00;font-weight:800;cursor:pointer">Cadastre-se grátis como interessado</span></div>
+<!-- MODAL ESCOLHA -->
+<div id="modalEscolha"><div class="modal-box">
+  <button onclick="document.getElementById('modalEscolha').style.display='none'" style="position:absolute;top:14px;right:14px;border:0;background:none;font-size:22px;cursor:pointer">✕</button>
+  <h2 style="font-size:22px;font-weight:900">Como você quer entrar?</h2>
+  <p style="color:#6b7280;margin:6px 0 18px;font-size:13px">Primeiro precisamos do seu cadastro</p>
+  <button onclick="escolherTipo('dono')" style="width:100%;border:2px solid #111;border-radius:16px;padding:16px;text-align:left;background:#111;color:#fff;margin-bottom:12px;cursor:pointer">
+    <div style="font-weight:900;font-size:16px">🏭 SOU PROPRIETÁRIO</div>
+    <div style="font-size:12px;opacity:.8;margin-top:4px">Quero anunciar meu galpão</div>
+  </button>
+  <button onclick="escolherTipo('busca')" style="width:100%;border:2px solid #111;border-radius:16px;padding:16px;text-align:left;background:#fff;color:#111;cursor:pointer">
+    <div style="font-weight:900;font-size:16px">🔍 SOU INTERESSADO</div>
+    <div style="font-size:12px;color:#6b7280;margin-top:4px">Quero alugar ou comprar um galpão</div>
+  </button>
 </div></div>
 
-<!-- CADASTRO OBRIGATÓRIO - TIPO MERCADO LIVRE -->
-<div id="modalCadastro"><div class="modal-box">
-  <button onclick="fecharCadastro()" style="position:absolute;top:14px;right:14px;border:0;background:none;font-size:22px;cursor:pointer">✕</button>
-  <span class="badge">CADASTRO GRÁTIS - 10 SEGUNDOS</span>
-  <h2 style="font-size:22px;font-weight:900">Crie sua conta para continuar</h2>
-  <p style="color:#6b7280;margin:6px 0 14px;font-size:13px">Igual Mercado Livre, precisamos do seu contato para o dono te responder</p>
-  
-  <label style="font-size:10px;font-weight:900">NOME COMPLETO *</label>
-  <input class="input" id="cadNome" placeholder="Ex: João Silva" style="margin:4px 0 10px">
-  
-  <label style="font-size:10px;font-weight:900">E-MAIL *</label>
-  <input class="input" id="cadEmail" placeholder="seu@email.com" style="margin:4px 0 10px">
-  
-  <label style="font-size:10px;font-weight:900">TELEFONE / WHATSAPP *</label>
-  <input class="input" id="cadCel" placeholder="Ex: 11 99999-9999" style="margin:4px 0 10px">
-  
-  <label style="font-size:10px;font-weight:900">VOCÊ É:</label>
-  <select class="input" id="cadTipo" style="margin:4px 0 10px">
-    <option value="busca">🔍 Empresa buscando galpão para Alugar/Comprar</option>
-    <option value="dono">🏭 Proprietário com galpão para Anunciar</option>
-  </select>
+<!-- MODAL LOGIN -->
+<div id="modalLogin"><div class="modal-box">
+  <button onclick="fecharLogin()" style="position:absolute;top:14px;right:14px;border:0;background:none;font-size:22px">✕</button>
+  <h2 style="font-size:22px;font-weight:900">Entrar</h2>
+  <input class="input" id="emailLogin" placeholder="seu@email.com" style="margin:14px 0 8px"><input class="input" id="senhaLogin" type="password" placeholder="Senha">
+  <button onclick="loginEmailFake()" style="width:100%;background:#111;color:#fff;margin-top:12px;padding:14px;border-radius:12px;font-weight:800;border:0">Entrar</button>
+  <div style="text-align:center;margin-top:12px;font-size:13px">Não tem conta? <span onclick="abrirEscolhaCadastro()" style="color:#FF6A00;font-weight:800;cursor:pointer">Cadastre-se</span></div>
+</div></div>
 
-  <button onclick="finalizarCadastro()" style="width:100%;background:#FF6A00;color:#fff;margin-top:10px;padding:14px;border-radius:12px;font-weight:800;border:0">CADASTRAR E VER GALPÕES</button>
-  <div style="text-align:center;margin-top:10px;font-size:11px;color:#6b7280">Ao cadastrar você aceita ser contatado pelos proprietários</div>
+<!-- MODAL CADASTRO OBRIGATÓRIO PARA OS DOIS -->
+<div id="modalCadastro"><div class="modal-box">
+  <button onclick="fecharCadastro()" style="position:absolute;top:14px;right:14px;border:0;background:none;font-size:22px">✕</button>
+  <span class="badge" id="badgeTipo">CADASTRO GRÁTIS</span>
+  <h2 style="font-size:20px;font-weight:900" id="tituloCadastro">Crie sua conta</h2>
+  <p style="color:#6b7280;margin:6px 0 14px;font-size:13px">Nome, e-mail e telefone são obrigatórios igual Mercado Livre</p>
+  <label style="font-size:10px;font-weight:900">NOME COMPLETO *</label><input class="input" id="cadNome" placeholder="Ex: João Silva" style="margin:4px 0 10px">
+  <label style="font-size:10px;font-weight:900">E-MAIL *</label><input class="input" id="cadEmail" placeholder="seu@email.com" style="margin:4px 0 10px">
+  <label style="font-size:10px;font-weight:900">TELEFONE / WHATSAPP *</label><input class="input" id="cadCel" placeholder="11 99999-9999" style="margin:4px 0 10px">
+  <button onclick="finalizarCadastro()" style="width:100%;background:#FF6A00;color:#fff;margin-top:10px;padding:14px;border-radius:12px;font-weight:800;border:0" id="btnFinalizar">CADASTRAR E CONTINUAR</button>
 </div></div>
 
 <script>
-function abrirLogin(){document.getElementById('modalLogin').style.display='flex'}
+let tipoEscolhido='busca';
+let acaoPendente=null;
+
+function abrirEscolhaCadastro(){document.getElementById('modalEscolha').style.display='flex'}
 function fecharLogin(){document.getElementById('modalLogin').style.display='none'}
 function fecharCadastro(){document.getElementById('modalCadastro').style.display='none'}
-function abrirCadastro(){
-  document.getElementById('modalLogin').style.display='none';
+function abrirLogin(){document.getElementById('modalLogin').style.display='flex'}
+function escolherTipo(tipo){
+  tipoEscolhido=tipo;
+  document.getElementById('modalEscolha').style.display='none';
+  document.getElementById('badgeTipo').textContent = tipo==='dono' ? 'SOU PROPRIETÁRIO' : 'SOU INTERESSADO';
+  document.getElementById('tituloCadastro').textContent = tipo==='dono' ? 'Cadastre-se como Proprietário' : 'Cadastre-se como Interessado';
+  document.getElementById('btnFinalizar').textContent = tipo==='dono' ? 'CADASTRAR E ANUNCIAR MEU GALPÃO' : 'CADASTRAR E BUSCAR GALPÕES';
   document.getElementById('modalCadastro').style.display='flex';
 }
-function salvarUsuario(nome){localStorage.setItem('usuario_logado',nome);atualizarTopo();fecharLogin();fecharCadastro(); if(window.acaoPendente){window.acaoPendente(); window.acaoPendente=null;}}
-function loginEmailFake(){const e=document.getElementById('emailLogin').value;if(!e){alert('Digite e-mail');return} salvarUsuario(e);}
+function salvarUsuario(nome){
+  localStorage.setItem('usuario_logado',nome);
+  atualizarTopo(); fecharLogin(); fecharCadastro();
+  if(acaoPendente){acaoPendente(); acaoPendente=null;}
+}
+function loginEmailFake(){
+  const e=document.getElementById('emailLogin').value; if(!e){alert('Digite e-mail');return}
+  salvarUsuario(e);
+}
 function finalizarCadastro(){
   const nome=document.getElementById('cadNome').value.trim();
   const email=document.getElementById('cadEmail').value.trim();
   const cel=document.getElementById('cadCel').value.trim();
-  const tipo=document.getElementById('cadTipo').value;
-  if(!nome||!email||!cel){alert('⚠️ Preencha Nome, E-mail e Telefone (obrigatório igual Mercado Livre)');return}
+  if(!nome||!email||!cel){alert('⚠️ Preencha Nome, E-mail e Telefone (obrigatório para os dois)');return}
   localStorage.setItem('usuario_logado',nome);
   localStorage.setItem('usuario_email',email);
   localStorage.setItem('usuario_cel',cel);
-  localStorage.setItem('usuario_tipo',tipo);
+  localStorage.setItem('usuario_tipo',tipoEscolhido);
   let usuarios=JSON.parse(localStorage.getItem('usuarios')||'[]');
-  usuarios.push({nome,email,cel,tipo,data:new Date().toLocaleDateString('pt-BR')});
+  usuarios.push({nome,email,cel,tipo:tipoEscolhido,data:new Date().toLocaleDateString('pt-BR')});
   localStorage.setItem('usuarios',JSON.stringify(usuarios));
-  fecharCadastro(); atualizarTopo(); alert('✅ Cadastro feito! Bem-vindo '+nome+' - Agora você pode buscar galpões!');
-  if(window.acaoPendente){window.acaoPendente(); window.acaoPendente=null;} else { render(); }
+  fecharCadastro(); atualizarTopo();
+  if(tipoEscolhido==='dono'){
+    alert('✅ Cadastro feito como Proprietário! Agora cadastre seu galpão.');
+    window.location.href='meus-imoveis.html';
+  }else{
+    alert('✅ Cadastro feito como Interessado! Agora você pode buscar galpões.');
+    render();
+    if(acaoPendente){acaoPendente(); acaoPendente=null;}
+  }
 }
 function sair(){localStorage.removeItem('usuario_logado');atualizarTopo();render();}
-function atualizarTopo(){const u=localStorage.getItem('usuario_logado');if(u){document.getElementById('userName').textContent=u;document.getElementById('userName').style.display='block';document.getElementById('btnEntrar').style.display='none';document.getElementById('btnSair').style.display='inline-flex'}else{document.getElementById('userName').style.display='none';document.getElementById('btnEntrar').style.display='inline-flex';document.getElementById('btnSair').style.display='none'}}
+function atualizarTopo(){
+  const u=localStorage.getItem('usuario_logado');
+  if(u){document.getElementById('userName').textContent=u;document.getElementById('userName').style.display='block';document.getElementById('btnEntrar').style.display='none';document.getElementById('btnSair').style.display='inline-flex'}
+  else{document.getElementById('userName').style.display='none';document.getElementById('btnEntrar').style.display='inline-flex';document.getElementById('btnSair').style.display='none'}
+}
 atualizarTopo();
 
-function getDados(){
-  let dados=JSON.parse(localStorage.getItem('galpoes')||'[]');
-  if(dados.length===0){
-    // DEMO para não ficar 0 como na sua print
-    dados=[{titulo:'Galpão 1.200m² - Santo André - 4 Docas',cidade:'Santo André',areaUtil:'1200',peDireito:'12m',docas:'4',valor:'25000',whatsapp:'11999999999',fotos:'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d',galeria:['https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d']}];
-  }
-  return dados;
-}
+function getDados(){let d=JSON.parse(localStorage.getItem('galpoes')||'[]'); if(d.length===0){d=[{titulo:'Galpão 1.200m² - Santo André - 4 Docas',cidade:'Santo André',areaUtil:'1200',peDireito:'12m',docas:'4',valor:'25000',whatsapp:'11999999999',fotos:'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d',galeria:['https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d']}];} return d;}
 function buscarInteressado(){
   const user=localStorage.getItem('usuario_logado');
   if(!user){
-    window.acaoPendente=()=>{ executarBusca(); };
-    alert('👋 Para buscar galpões você precisa se cadastrar grátis (Nome, E-mail e Telefone) - igual Mercado Livre');
-    abrirCadastro();
+    acaoPendente=()=>{ executarBusca(); };
+    escolherTipo('busca');
     return;
   }
   executarBusca();
 }
-function executarBusca(){
-  const cidade=document.getElementById('buscaCidade').value.toLowerCase();
-  let dados=getDados();
-  if(cidade) dados=dados.filter(g=>(g.cidade||'').toLowerCase().includes(cidade));
-  renderLista(dados);
-}
+function executarBusca(){const cidade=document.getElementById('buscaCidade').value.toLowerCase(); let dados=getDados(); if(cidade) dados=dados.filter(g=>(g.cidade||'').toLowerCase().includes(cidade)); renderLista(dados);}
 function render(){renderLista(getDados())}
 function renderLista(dados){
   document.getElementById('totalGalpoes').textContent=dados.length;
   const lista=document.getElementById('lista');
-  if(dados.length===0){lista.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:50px;color:#6b7280">Nenhum galpão encontrado nessa cidade.<br><br><button onclick="render()" class="btn btn-orange">Ver todos</button></div>';return}
-  lista.innerHTML=dados.map(g=>`
-    <div class="card-galpao">
-      <div class="card-img"><img src="${(g.galeria&&g.galeria[0])||g.fotos}"></div>
-      <div class="card-body"><b>${g.titulo}</b><br><small>📍 ${g.cidade} • ${g.areaUtil}m² • ${g.docas} docas</small><br><div style="margin-top:6px;font-weight:900">R$ ${Number(g.valor||0).toLocaleString('pt-BR')}/mês</div>
-      <button onclick="falarComDono('${g.whatsapp}','${g.titulo}')" class="btn btn-orange" style="width:100%;margin-top:10px">💬 FALAR COM DONO (Precisa cadastro)</button></div>
-    </div>`).join('');
+  if(dados.length===0){lista.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:50px;color:#6b7280">Nenhum galpão encontrado.<br><br><button onclick="render()" class="btn btn-orange">Ver todos</button></div>';return}
+  lista.innerHTML=dados.map(g=>`<div class="card-galpao"><div class="card-img"><img src="${(g.galeria&&g.galeria[0])||g.fotos}"></div><div class="card-body"><b>${g.titulo}</b><br><small>📍 ${g.cidade} • ${g.areaUtil}m²</small><br><div style="margin-top:6px;font-weight:900">R$ ${Number(g.valor||0).toLocaleString('pt-BR')}/mês</div><button onclick="falarComDono('${g.whatsapp}','${g.titulo}')" class="btn btn-orange" style="width:100%;margin-top:10px">💬 FALAR COM DONO</button></div></div>`).join('');
 }
 function falarComDono(whatsapp,titulo){
   const user=localStorage.getItem('usuario_logado');
-  if(!user){
-    window.acaoPendente=()=>{ window.open('https://wa.me/55'+whatsapp.replace(/\D/g,'')+'?text=Olá, interesse no '+titulo,'_blank') };
-    alert('Para falar com o dono, faça seu cadastro grátis com Nome, E-mail e Telefone');
-    abrirCadastro();
-    return;
-  }
+  if(!user){ acaoPendente=()=>{ window.open('https://wa.me/55'+whatsapp.replace(/\D/g,'')+'?text=Olá, interesse no '+titulo,'_blank') }; escolherTipo('busca'); return;}
   window.open('https://wa.me/55'+whatsapp.replace(/\D/g,'')+'?text=Olá, sou '+user+' - Vi '+titulo+' no Galpões & Negócios','_blank');
 }
 render();
