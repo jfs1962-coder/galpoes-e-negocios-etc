@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galpões & Negócios - Galpões Logísticos em Todo o Brasil</title>
+<title>Galpões & Negócios - Galpões em Todo o Brasil</title>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-180.png">
@@ -14,13 +14,13 @@ body{font-family:Inter,system-ui,sans-serif;background:#fff;color:#111}
 header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;padding:8px 14px}
 .logo img{height:42px;width:42px;border-radius:8px}
 .nav{display:flex;gap:8px}
-.btn{border-radius:999px;padding:11px 18px;font-weight:800;font-size:14px;border:0;text-decoration:none;display:inline-flex;cursor:pointer;align-items:center;justify-content:center;white-space:nowrap}
+.btn{border-radius:999px;padding:11px 18px;font-weight:800;font-size:14px;border:0;text-decoration:none;display:inline-flex;cursor:pointer;justify-content:center;white-space:nowrap}
 .btn-dark{background:#1e232e;color:#fff}
 .btn-orange{background:#FF6A00;color:#fff}
 .hero{padding:28px 18px 18px;max-width:1200px;margin:0 auto}
 .hero h1{font-size:clamp(30px,8vw,54px);line-height:.9;font-weight:900;letter-spacing:-1px}
 .hero h1 span{color:#FF6A00;display:block}
-.hero p{margin-top:12px;color:#6b7280;max-width:560px;line-height:1.5;font-size:15px}
+.hero p{margin-top:12px;color:#6b7280;max-width:560px;line-height:1.5;font-size:16px}
 .filtros{background:#f7f7f8;border-top:1px solid #eee;border-bottom:1px solid #eee;padding:16px 14px}
 .filtros-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr 1fr auto;gap:8px;align-items:end}
 @media(max-width:1100px){.filtros-inner{grid-template-columns:1fr 1fr 1fr}}
@@ -59,24 +59,24 @@ footer{border-top:1px solid #eee;padding:20px;text-align:center;color:#9ca3af;fo
 
 <div class="hero">
   <h1>Anuncie seu <span>galpão direto para empresas.</span></h1>
-  <p>Conectamos proprietários de galpões logísticos e industriais a empresas. Filtro profissional por pé direito, docas, piso e localização logística.</p>
+  <p>Conectamos Proprietário de Galpões a empresas.</p>
 </div>
 
 <div class="filtros" id="galpoes">
   <div class="filtros-inner">
     <div><label>Cidade / Região</label><input class="input" id="f-cidade" placeholder="Ex: Barueri, Guarulhos"></div>
-    <div><label>Área mínima (m²)</label><input class="input" id="f-area" type="number" placeholder="Ex: 1500"></div>
+    <div><label>Área mínima (m²)</label><input class="input" id="f-area" type="number" placeholder="1500"></div>
     <div><label>Pé direito mínimo</label><select class="input" id="f-pe"><option value="">Qualquer</option><option value="6">6m+</option><option value="10">10m+</option><option value="12">12m+</option></select></div>
-    <div><label>Docas mínimo</label><input class="input" id="f-docas" type="number" placeholder="Ex: 3"></div>
+    <div><label>Docas mínimo</label><input class="input" id="f-docas" type="number" placeholder="3"></div>
     <div><label>Piso mínimo</label><select class="input" id="f-piso"><option value="">Qualquer</option><option value="2">2 ton+</option><option value="4">4 ton+</option><option value="6">6 ton+</option></select></div>
-    <div><label>Valor máximo</label><input class="input" id="f-valor" type="number" placeholder="Ex: 80000"></div>
+    <div><label>Valor máximo</label><input class="input" id="f-valor" type="number" placeholder="80000"></div>
     <button class="btn btn-dark" onclick="filtrar()" style="height:44px">FILTRAR</button>
   </div>
 </div>
 
 <div class="lista" id="lista"></div>
 
-<footer>Galpões & Negócios © 2026 - Portal de Galpões Logísticos - www.galpoesenegocios.com.br</footer>
+<footer>Galpões & Negócios © 2026 - www.galpoesenegocios.com.br</footer>
 
 <script>
 function getDados(){return JSON.parse(localStorage.getItem('galpoes')||'[]')}
@@ -87,14 +87,11 @@ function filtrar(){
   const docasMin=parseInt(document.getElementById('f-docas').value)||0;
   const pisoMin=parseInt(document.getElementById('f-piso').value)||0;
   const valorMax=parseInt(document.getElementById('f-valor').value)||999999999;
-  
   let dados=getDados();
   dados=dados.filter(g=>{
-    const c=(g.cidade||'').toLowerCase().includes(cidade) || (g.bairro||'').toLowerCase().includes(cidade) || (g.endereco||'').toLowerCase().includes(cidade);
-    const area=parseInt(g.areaUtil||g.area||0);
-    const pe=parseInt(g.peDireito||0);
-    const docas=parseInt(g.docas||0);
-    const piso=parseInt(g.piso||0);
+    const c=(g.cidade||'').toLowerCase().includes(cidade) || (g.bairro||'').toLowerCase().includes(cidade);
+    const area=parseInt(g.areaUtil||0); const pe=parseInt(g.peDireito||0);
+    const docas=parseInt(g.docas||0); const piso=parseInt(g.piso||0);
     const valor=parseInt(g.valor||0);
     return (cidade===''||c) && area>=areaMin && pe>=peMin && docas>=docasMin && piso>=pisoMin && (valor===0||valor<=valorMax);
   });
@@ -103,34 +100,25 @@ function filtrar(){
 function render(dados){
   const lista=document.getElementById('lista');
   if(dados.length===0){
-    lista.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px 20px;color:#6b7280"><b>Nenhum galpão encontrado com esses filtros</b><br><small>Tente reduzir pé direito ou docas, ou cadastre seu galpão</small><br><br><a href="meus-imoveis.html" class="btn btn-orange">+ CADASTRAR MEU GALPÃO</a></div>';
-    return;
+    lista.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px 20px;color:#6b7280"><b>Nenhum galpão encontrado</b><br><br><a href="meus-imoveis.html" class="btn btn-orange">+ CADASTRAR MEU GALPÃO</a></div>';return;
   }
   lista.innerHTML=dados.map(g=>`
     <div class="card-galpao">
       <div class="card-img">
         <img src="${g.fotos||'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d'}">
-        <div class="badge ${g.tipo&&g.tipo.includes('Condomínio')?'badge-orange':''}">${g.tipo||'Galpão'} • ${g.finalidade||'Locação'}</div>
+        <div class="badge ${g.tipo&&g.tipo.includes('Condomínio')?'badge-orange':''}">${g.tipo||'Galpão'}</div>
       </div>
       <div class="card-body">
-        <h3>${g.titulo||'Galpão Logístico'}</h3>
-        <div class="local">📍 ${g.cidade||''} ${g.bairro?' - '+g.bairro:''} ${g.acesso?' • '+g.acesso:''}</div>
+        <h3>${g.titulo||'Galpão'}</h3>
+        <div class="local">📍 ${g.cidade||''} ${g.bairro?' - '+g.bairro:''}</div>
         <div class="specs">
-          <div class="spec"><small>Área Útil</small><b>${g.areaUtil||g.area||'-'} m²</b></div>
+          <div class="spec"><small>Área</small><b>${g.areaUtil||'-'} m²</b></div>
           <div class="spec"><small>Pé Direito</small><b>${g.peDireito||'-'}</b></div>
-          <div class="spec"><small>Docas</small><b>${g.docas||0} ${g.niveladora? '• '+g.niveladora:''}</b></div>
+          <div class="spec"><small>Docas</small><b>${g.docas||0}</b></div>
           <div class="spec"><small>Piso</small><b>${g.piso||'-'}</b></div>
         </div>
-        <div class="tags">
-          ${g.vagasCarro?`<span class="tag">🚗 ${g.vagasCarro} vagas</span>`:''}
-          ${g.vagasCaminhao?`<span class="tag">🚚 ${g.vagasCaminhao} carretas</span>`:''}
-          ${g.energia?`<span class="tag">⚡ Trifásica</span>`:''}
-          ${g.sprinkler?`<span class="tag">💧 Sprinkler</span>`:''}
-          ${g.portaria?`<span class="tag">🛡️ 24h</span>`:''}
-        </div>
-        <div class="valor">R$ ${Number(g.valor||0).toLocaleString('pt-BR')}<small>/mês</small> ${g.condominio?`<small> + Cond. R$${g.condominio}</small>`:''}</div>
-        ${g.descricao?`<small style="color:#6b7280;display:block;margin:8px 0;line-height:1.3">${g.descricao.substring(0,120)}...</small>`:''}
-        <a href="https://wa.me/55${(g.whatsapp||'').replace(/\D/g,'')}" target="_blank" class="btn btn-orange" style="width:100%;margin-top:10px">💬 FALAR COM PROPRIETÁRIO</a>
+        <div class="valor">R$ ${Number(g.valor||0).toLocaleString('pt-BR')}<small>/mês</small></div>
+        <a href="https://wa.me/55${(g.whatsapp||'').replace(/\D/g,'')}" target="_blank" class="btn btn-orange" style="width:100%;margin-top:10px">💬 FALAR COM DONO</a>
       </div>
     </div>
   `).join('');
