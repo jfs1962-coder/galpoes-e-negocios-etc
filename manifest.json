@@ -1,20 +1,43 @@
 {
-  "name": "Galpões e Negócios",
-  "short_name": "Galpões ABC",
-  "start_url": "/",
+  "name": "Galpões & Negócios - Em Todo o Brasil",
+  "short_name": "Galpões",
+  "description": "Plataforma de anúncios diretos de galpões logísticos e industriais direto com o proprietário",
+  "start_url": "/?source=pwa",
   "display": "standalone",
-  "background_color": "#0f0f0f",
-  "theme_color": "#facc15",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#1F2937",
+  "scope": "/",
   "icons": [
     {
-      "src": "/icone-192.png",
+      "src": "/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "/icone-512.png",
+      "src": "/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Buscar Galpão",
+      "url": "/#buscar",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Cadastrar Galpão",
+      "url": "/#cadastrar",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     }
   ]
 }
