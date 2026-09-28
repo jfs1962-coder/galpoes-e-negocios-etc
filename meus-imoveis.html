@@ -7,186 +7,180 @@
 <link rel="icon" href="icon-192.png">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,system-ui,sans-serif;background:#f6f6f7;color:#111}
-header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;padding:8px 14px;z-index:20}
+body{font-family:Inter,sans-serif;background:#f6f6f7;color:#111}
+header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;display:flex;justify-content:space-between;padding:10px 14px;z-index:20;align-items:center}
 .logo img{height:42px;width:42px;border-radius:8px}
-.btn{border-radius:999px;padding:11px 18px;font-weight:800;font-size:14px;border:0;text-decoration:none;display:inline-flex;cursor:pointer;justify-content:center}
+.btn{border-radius:999px;padding:11px 18px;font-weight:800;font-size:14px;border:0;display:inline-flex;cursor:pointer;justify-content:center;text-decoration:none}
 .btn-dark{background:#1e232e;color:#fff}.btn-orange{background:#FF6A00;color:#fff}
 .wrap{max-width:900px;margin:0 auto;padding:18px 14px 40px}
-h1{font-size:26px;font-weight:900}.sub{color:#6b7280;font-size:13px;margin:6px 0 18px;line-height:1.4}
 .section{background:#fff;border:2px solid #111;border-radius:20px;padding:18px;margin-bottom:14px}
-.section-title{font-weight:900;font-size:13px;text-transform:uppercase;margin-bottom:12px;display:flex;gap:8px;align-items:center}
-.section-title span{background:#FF6A00;color:#fff;border-radius:999px;padding:2px 8px;font-size:10px}
+.section-title{font-weight:900;font-size:13px;text-transform:uppercase;margin-bottom:12px;letter-spacing:.5px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:650px){.grid{grid-template-columns:1fr}}
 .input,select,textarea{width:100%;padding:12px 14px;border:2px solid #111;border-radius:12px;font-weight:600;font-size:14px;background:#fff}
-textarea{min-height:90px;resize:vertical}
 label{font-size:11px;font-weight:800;text-transform:uppercase;margin-bottom:5px;display:block;color:#374151}
-.checks{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-@media(max-width:600px){.checks{grid-template-columns:1fr 1fr}}
-.check{border:1.5px solid #d1d5db;border-radius:12px;padding:10px 12px;font-size:13px;font-weight:600;display:flex;gap:8px;align-items:center;cursor:pointer;background:#fafafa}
-.check input{accent-color:#FF6A00}
+.foto-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}
+@media(max-width:500px){.foto-grid{grid-template-columns:repeat(3,1fr)}}
+.foto-item{position:relative}
+.foto-item img{width:100%;height:80px;object-fit:cover;border-radius:10px;border:2px solid #111}
+.foto-item button{position:absolute;top:-6px;right:-6px;background:#dc2626;color:#fff;border:0;border-radius:50%;width:22px;height:22px;font-weight:900;cursor:pointer;font-size:12px}
 </style>
 </head>
 <body>
 <header>
-  <a href="/" class="logo"><img src="icon-192.png" alt="G"></a>
-  <a href="/" class="btn btn-dark">Voltar ao site</a>
+  <a href="/" class="logo"><img src="icon-192.png"></a>
+  <div style="display:flex;gap:8px;align-items:center">
+    <span id="userTop" style="font-size:12px;font-weight:800"></span>
+    <a href="/" class="btn btn-dark">Voltar</a>
+  </div>
 </header>
 
 <div class="wrap">
-<h1>Cadastrar Galpão - Ficha Completa (22 campos)</h1>
-<p class="sub">Ficha igual aos portais Fulwood, GLP, Prologis. Quanto mais completo, mais rápido aluga.</p>
+<h1 style="font-weight:900;font-size:28px">Cadastrar meu Galpão</h1>
+<p style="color:#6b7280;font-size:14px;margin:6px 0 18px">Preencha a ficha completa. Esses campos eram da home e agora estão aqui.</p>
 
 <form id="formGalpao">
-
-<!-- 1 -->
 <div class="section">
-  <div class="section-title">1. Identificação <span>Obrigatório</span></div>
+  <div class="section-title">📍 Localização e Identificação</div>
   <div class="grid">
-    <div><label>Título do Anúncio</label><input class="input" id="titulo" placeholder="Ex: Galpão 2.264m² Condomínio Barueri 12m pé direito" required></div>
-    <div><label>Finalidade</label><select id="finalidade"><option>Locação</option><option>Venda</option><option>Locação e Venda</option></select></div>
-    <div><label>Tipo</label><select id="tipo"><option>Galpão Logístico</option><option>Galpão Industrial</option><option>Galpão em Condomínio</option><option>Galpão Isolado / Rua</option><option>Armazém</option><option>Barracão Comercial</option><option>Centro de Distribuição</option></select></div>
-    <div><label>Disponibilidade</label><select id="disponibilidade"><option>Imediata</option><option>30 dias</option><option>60 dias</option><option>Em construção</option></select></div>
+    <div style="grid-column:1/-1"><label>Título do Anúncio *</label><input class="input" id="titulo" required placeholder="Ex: Galpão 1200m² em Santo André com 4 docas"></div>
+    <div><label>Cidade *</label><input class="input" id="cidade" required placeholder="Ex: Barueri"></div>
+    <div><label>Bairro / Região</label><input class="input" id="bairro" placeholder="Ex: Tamboré"></div>
+    <div style="grid-column:1/-1"><label>Endereço (não aparece no site, só para conferência)</label><input class="input" id="endereco" placeholder="Rua, número"></div>
   </div>
 </div>
 
-<!-- 2 -->
 <div class="section">
-  <div class="section-title">2. Localização Logística <span>Mais importante</span></div>
+  <div class="section-title">📐 Características Técnicas - (esses eram os filtros da home)</div>
   <div class="grid">
-    <div><label>Cidade / Estado</label><input class="input" id="cidade" placeholder="Ex: Santo André - SP" required></div>
-    <div><label>Bairro / Distrito Industrial</label><input class="input" id="bairro" placeholder="Ex: Distrito Industrial Capuava"></div>
-    <div><label>Endereço / Rodovia</label><input class="input" id="endereco" placeholder="Ex: Av. Marginal - Km 12"></div>
-    <div><label>Acesso Logístico</label><input class="input" id="acesso" placeholder="Ex: 6km Dutra, 9,7km Rodoanel, acesso carreta"></div>
+    <div><label>Área Útil m² * (Área mín)</label><input class="input" type="number" id="areaUtil" required placeholder="1500"></div>
+    <div><label>Área Total Terreno m²</label><input class="input" type="number" id="areaTotal" placeholder="2000"></div>
+    <div><label>Pé Direito *</label>
+      <select id="peDireito" class="input">
+        <option value="">Selecione</option><option>6m</option><option>8m</option><option>10m</option><option selected>12m</option><option>13,3m</option><option>15m</option>
+      </select>
+    </div>
+    <div><label>Docas *</label><input class="input" type="number" id="docas" required placeholder="3"></div>
+    <div><label>Capacidade Piso</label>
+      <select id="piso" class="input"><option>4 ton/m²</option><option selected>6 ton/m²</option><option>8 ton/m²</option></select>
+    </div>
+    <div><label>Vagas / Pátio</label><input class="input" id="vagas" placeholder="Ex: 20 carretas"></div>
+    <div><label>Energia</label><select id="energia" class="input"><option>Trifásico</option><option>500 KVA</option><option>1000 KVA</option></select></div>
+    <div><label>Tipo</label><select id="tipo" class="input"><option>Galpão Isolado</option><option>Cond. Fechado</option><option>Galpão + Escritório</option></select></div>
   </div>
 </div>
 
-<!-- 3 -->
 <div class="section">
-  <div class="section-title">3. Áreas e Medidas (6 campos)</div>
+  <div class="section-title">💰 Valores e Contato</div>
   <div class="grid">
-    <div><label>Área Total Terreno (m²)</label><input class="input" type="number" id="areaTotal" placeholder="Ex: 5000"></div>
-    <div><label>Área Útil / Construída (m²)</label><input class="input" type="number" id="areaUtil" placeholder="Ex: 2264" required></div>
-    <div><label>Área Armazenagem (m²)</label><input class="input" type="number" id="areaArmazenagem" placeholder="Ex: 1541"></div>
-    <div><label>Mezanino / Escritório (m²)</label><input class="input" type="number" id="mezanino" placeholder="Ex: 309"></div>
-    <div><label>Marquise / Docas (m²)</label><input class="input" type="number" id="marquise" placeholder="Ex: 206"></div>
-    <div><label>Pátio / Manobra (m²)</label><input class="input" type="number" id="patio" placeholder="Ex: 900 livre"></div>
+    <div><label>Valor Aluguel R$/mês * (Valor máx)</label><input class="input" type="number" id="valor" required placeholder="45000"></div>
+    <div><label>Condomínio R$</label><input class="input" type="number" id="condominio" placeholder="0"></div>
+    <div><label>IPTU R$</label><input class="input" type="number" id="iptu" placeholder="0"></div>
+    <div><label>WhatsApp para contato *</label><input class="input" id="whatsapp" required placeholder="11999999999"></div>
   </div>
 </div>
 
-<!-- 4 -->
 <div class="section">
-  <div class="section-title">4. Especificações Técnicas (8 campos) <span>Decide a operação</span></div>
-  <div class="grid">
-    <div><label>Pé Direito Livre</label><select id="peDireito"><option>4m</option><option>6m</option><option>8m</option><option>10m</option><option selected>12m</option><option>13,30m</option><option>15m</option></select></div>
-    <div><label>Resistência Piso</label><select id="piso"><option>2 ton/m²</option><option>4 ton/m²</option><option selected>6 ton/m²</option><option>8 ton/m²</option><option>10 ton/m²</option></select></div>
-    <div><label>Qtd Docas</label><input class="input" type="number" id="docas" placeholder="Ex: 6"></div>
-    <div><label>Niveladoras</label><select id="niveladora"><option>Sim 100%</option><option>Sim 68%</option><option>Não</option><option>Não se aplica</option></select></div>
-    <div><label>Portões / Acesso Carreta</label><input class="input" id="portoes" placeholder="Ex: 1 portão 6x6m"></div>
-    <div><label>Modulação Pilares</label><input class="input" id="pilares" placeholder="Ex: 22m x 23m"></div>
-    <div><label>Vagas Carro</label><input class="input" type="number" id="vagasCarro" placeholder="Ex: 165"></div>
-    <div><label>Vagas Caminhão / Carreta</label><input class="input" type="number" id="vagasCaminhao" placeholder="Ex: 39"></div>
-  </div>
+  <div class="section-title">📸 Fotos do Galpão - Até 10 fotos (com compressão automática)</div>
+  <input type="file" id="fotosInput" accept="image/*" multiple class="input" style="padding:10px">
+  <small style="color:#6b7280;display:block;margin-top:6px">Selecione até 10 fotos. Dica: Frente, Docas, Interior, Pátio, Escritório, Banheiros. O sistema comprime sozinho.</small>
+  <div id="previewFotos" class="foto-grid"></div>
+  <div id="contadorFotos" style="font-size:12px;font-weight:800;margin-top:10px">0 / 10 fotos</div>
 </div>
 
-<!-- 5 -->
 <div class="section">
-  <div class="section-title">5. Infraestrutura e Segurança</div>
-  <div class="checks">
-    <label class="check"><input type="checkbox" id="energia"> Energia Trifásica</label>
-    <label class="check"><input type="checkbox" id="subestacao"> Subestação</label>
-    <label class="check"><input type="checkbox" id="sprinkler"> Sprinkler J4</label>
-    <label class="check"><input type="checkbox" id="avcb"> AVCB</label>
-    <label class="check"><input type="checkbox" id="portaria"> Portaria 24h</label>
-    <label class="check"><input type="checkbox" id="refeitorio"> Refeitório</label>
-    <label class="check"><input type="checkbox" id="escritorio"> Escritório</label>
-    <label class="check"><input type="checkbox" id="vestiario"> Vestiário</label>
-    <label class="check"><input type="checkbox" id="heliponto"> Heliponto</label>
-  </div>
-  <div style="margin-top:12px"><label>Detalhe Energia / Reservatório / Outros</label><input class="input" id="energiaDetalhe" placeholder="Ex: 500kVA, cabine primária, reservatório 50mil litros, auditório"></div>
+  <div class="section-title">📝 Descrição</div>
+  <textarea id="descricao" class="input" rows="4" style="resize:none" placeholder="Ex: Galpão novo, 4 docas com niveladora, escritório 200m², refeitório..."></textarea>
 </div>
 
-<!-- 6 -->
-<div class="section">
-  <div class="section-title">6. Valores</div>
-  <div class="grid">
-    <div><label>Locação R$/mês</label><input class="input" type="number" id="valor" placeholder="Ex: 72448" required></div>
-    <div><label>Venda R$ (se houver)</label><input class="input" type="number" id="valorVenda" placeholder="Ex: 15900000"></div>
-    <div><label>Condomínio R$</label><input class="input" type="number" id="condominio" placeholder="Ex: 8830"></div>
-    <div><label>IPTU R$/mês</label><input class="input" type="number" id="iptu" placeholder="Ex: 453"></div>
-  </div>
-</div>
-
-<!-- 7 -->
-<div class="section">
-  <div class="section-title">7. Fotos, Descrição e Contato</div>
-  <div class="grid">
-    <div><label>WhatsApp com DDD</label><input class="input" id="whatsapp" placeholder="11999999999" required></div>
-    <div><label>Link Fotos / Vídeo YouTube</label><input class="input" id="fotos" placeholder="Drive ou YouTube"></div>
-  </div>
-  <div style="margin-top:10px"><label>Descrição Completa / Diferenciais</label><textarea id="descricao" placeholder="Ex: Condomínio com refeitório, administração, apoio motorista, auditório, quadras, área lazer, economia compartilhada, desburocratização..."></textarea></div>
-</div>
-
-<button type="submit" class="btn btn-orange" style="width:100%;padding:16px;font-size:16px">💾 SALVAR GALPÃO COMPLETO</button>
-<button type="button" onclick="limparForm()" class="btn btn-dark" style="width:100%;margin-top:10px;background:#fff;color:#111;border:2px solid #111">Limpar formulário</button>
+<button type="submit" class="btn btn-orange" style="width:100%;padding:18px;font-size:17px;margin-top:10px">💾 SALVAR GALPÃO COM 10 FOTOS</button>
 </form>
 
 <div id="lista" style="margin-top:24px"></div>
 </div>
 
 <script>
+// Nome do topo
+document.getElementById('userTop').textContent = localStorage.getItem('usuario_logado')||'';
+
+let fotosBase64 = [];
+function comprimirImagem(file, maxWidth=800, quality=0.6){
+  return new Promise((resolve)=>{
+    const reader = new FileReader();
+    reader.onload = (e)=>{
+      const img = new Image();
+      img.onload = ()=>{
+        const canvas = document.createElement('canvas');
+        let w = img.width, h = img.height;
+        if(w > maxWidth){ h = h * (maxWidth/w); w = maxWidth; }
+        canvas.width = w; canvas.height = h;
+        canvas.getContext('2d').drawImage(img,0,0,w,h);
+        resolve(canvas.toDataURL('image/jpeg', quality));
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+document.getElementById('fotosInput').addEventListener('change', async function(e){
+  const files = Array.from(e.target.files).slice(0,10);
+  if(fotosBase64.length + files.length > 10){ alert('Máximo 10 fotos! Você já tem '+fotosBase64.length); return; }
+  for(let file of files){
+    const comp = await comprimirImagem(file);
+    fotosBase64.push(comp);
+  }
+  renderPreview();
+});
+function renderPreview(){
+  document.getElementById('previewFotos').innerHTML = fotosBase64.map((src,i)=>`
+    <div class="foto-item"><img src="${src}"><button type="button" onclick="fotosBase64.splice(${i},1);renderPreview()">X</button></div>
+  `).join('');
+  document.getElementById('contadorFotos').textContent = fotosBase64.length + ' / 10 fotos';
+}
+
 function getDados(){return JSON.parse(localStorage.getItem('galpoes')||'[]')}
 function setDados(d){localStorage.setItem('galpoes',JSON.stringify(d))}
+
 document.getElementById('formGalpao').addEventListener('submit',function(e){
   e.preventDefault();
   const g={
     titulo:document.getElementById('titulo').value,
-    finalidade:document.getElementById('finalidade').value,
-    tipo:document.getElementById('tipo').value,
     cidade:document.getElementById('cidade').value,
     bairro:document.getElementById('bairro').value,
     endereco:document.getElementById('endereco').value,
-    acesso:document.getElementById('acesso').value,
-    areaTotal:document.getElementById('areaTotal').value,
     areaUtil:document.getElementById('areaUtil').value,
-    areaArmazenagem:document.getElementById('areaArmazenagem').value,
-    mezanino:document.getElementById('mezanino').value,
-    marquise:document.getElementById('marquise').value,
-    patio:document.getElementById('patio').value,
+    areaTotal:document.getElementById('areaTotal').value,
     peDireito:document.getElementById('peDireito').value,
-    piso:document.getElementById('piso').value,
     docas:document.getElementById('docas').value,
-    niveladora:document.getElementById('niveladora').value,
-    portoes:document.getElementById('portoes').value,
-    pilares:document.getElementById('pilares').value,
-    vagasCarro:document.getElementById('vagasCarro').value,
-    vagasCaminhao:document.getElementById('vagasCaminhao').value,
-    energia:document.getElementById('energia').checked,
-    subestacao:document.getElementById('subestacao').checked,
-    sprinkler:document.getElementById('sprinkler').checked,
-    avcb:document.getElementById('avcb').checked,
-    portaria:document.getElementById('portaria').checked,
-    energiaDetalhe:document.getElementById('energiaDetalhe').value,
+    piso:document.getElementById('piso').value,
+    vagas:document.getElementById('vagas').value,
+    energia:document.getElementById('energia').value,
+    tipo:document.getElementById('tipo').value,
     valor:document.getElementById('valor').value,
-    valorVenda:document.getElementById('valorVenda').value,
     condominio:document.getElementById('condominio').value,
     iptu:document.getElementById('iptu').value,
     whatsapp:document.getElementById('whatsapp').value,
-    fotos:document.getElementById('fotos').value,
-    descricao:document.getElementById('descricao').value
+    descricao:document.getElementById('descricao').value,
+    fotos:fotosBase64[0]||'',
+    galeria:fotosBase64,
+    dono:localStorage.getItem('usuario_logado')||'Proprietário',
+    data:new Date().toLocaleDateString('pt-BR')
   };
   const dados=getDados(); dados.push(g); setDados(dados);
-  alert('✅ Galpão com 22 campos salvo! Já aparece no site principal com filtros de pé direito e docas.');
-  e.target.reset(); carregar();
+  alert('✅ Galpão salvo com '+fotosBase64.length+' fotos!');
+  fotosBase64=[]; renderPreview(); e.target.reset(); carregar();
 });
+
 function carregar(){
   const lista=document.getElementById('lista'); const dados=getDados();
-  if(dados.length===0){lista.innerHTML='';return;}
-  lista.innerHTML='<h3 style="font-weight:900;margin-bottom:10px">Cadastrados: '+dados.length+'</h3>'+dados.map((g,i)=>`<div class="section"><b>${g.titulo}</b><br><small>${g.cidade} | ${g.areaUtil}m² | Pé ${g.peDireito} | ${g.docas||0} docas | Piso ${g.piso} | R$${g.valor}</small><br><button onclick="remover(${i})" style="margin-top:10px;background:#dc2626;color:#fff;border:0;border-radius:999px;padding:8px 14px;font-weight:800">Remover</button></div>`).join('');
+  if(dados.length===0)return;
+  lista.innerHTML='<h3 style="font-weight:900;margin:10px 0">Meus Galpões Cadastrados: '+dados.length+'</h3>'+dados.map((g,i)=>`
+    <div class="section"><b>${g.titulo}</b> - ${g.cidade} - ${g.areaUtil}m² - R$ ${g.valor}<br>
+    <small>${g.galeria?g.galeria.length:0} fotos</small>
+    <div style="display:flex;gap:4px;margin-top:8px;overflow-x:auto">${(g.galeria||[]).map(s=>`<img src="${s}" style="width:50px;height:50px;object-fit:cover;border-radius:8px;border:1px solid #111">`).join('')}</div>
+    <button onclick="if(confirm('Remover este galpão?')){let d=getDados();d.splice(${i},1);setDados(d);location.reload()}" style="margin-top:8px;background:#dc2626;color:#fff;border:0;border-radius:999px;padding:6px 12px;font-weight:800">Remover</button></div>
+  `).join('');
 }
-function remover(i){if(confirm('Remover galpão?')){const d=getDados();d.splice(i,1);setDados(d);carregar();}}
-function limparForm(){if(confirm('Limpar?'))document.getElementById('formGalpao').reset()}
 carregar();
 </script>
 </body>
