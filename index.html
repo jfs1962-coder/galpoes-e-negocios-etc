@@ -7,24 +7,21 @@
 <link rel="icon" href="icon-192.png">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,sans-serif;background:#fff;color:#111}
-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee;display:flex;justify-content:space-between;padding:8px 14px;align-items:center}
-.logo img{height:42px;width:42px;border-radius:8px}
-.btn{border-radius:999px;padding:11px 18px;font-weight:800;font-size:14px;border:0;display:inline-flex;cursor:pointer;justify-content:center;text-decoration:none;white-space:nowrap}
+body{font-family:Inter,system-ui,sans-serif;background:#fff;color:#111}
+header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee;display:flex;justify-content:space-between;padding:10px 14px;align-items:center}
+.logo img{height:44px;width:44px;border-radius:8px}
+.btn{border-radius:999px;padding:12px 20px;font-weight:800;font-size:14px;border:0;display:inline-flex;cursor:pointer;justify-content:center;text-decoration:none}
 .btn-dark{background:#1e232e;color:#fff}.btn-orange{background:#FF6A00;color:#fff}
-.hero{padding:28px 18px 18px;max-width:1200px;margin:0 auto}
-.hero h1{font-size:clamp(30px,8vw,54px);line-height:.9;font-weight:900;letter-spacing:-1px}
+.hero{padding:32px 18px 28px;max-width:1200px;margin:0 auto}
+.hero h1{font-size:clamp(32px,9vw,56px);line-height:.9;font-weight:900;letter-spacing:-1.2px}
 .hero h1 span{color:#FF6A00;display:block}
-.hero p{margin-top:12px;color:#6b7280;font-size:16px}
-.filtros{background:#f7f7f8;border-top:1px solid #eee;border-bottom:1px solid #eee;padding:16px 14px}
-.filtros-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr 1fr auto;gap:8px;align-items:end}
-@media(max-width:650px){.filtros-inner{grid-template-columns:1fr 1fr}}
-.input{width:100%;padding:12px;border:2px solid #111;border-radius:12px;font-weight:600;font-size:13px;background:#fff}
+.hero p{margin-top:14px;color:#6b7280;font-size:16px;max-width:500px;line-height:1.4}
 .lista{max-width:1200px;margin:0 auto;padding:18px 12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
 .card-galpao{border:2px solid #111;border-radius:20px;overflow:hidden;background:#fff}
-.card-img{height:180px;background:#e5e7eb;position:relative}
+.card-img{height:200px;background:#e5e7eb;position:relative}
 .card-img img{width:100%;height:100%;object-fit:cover}
 .card-body{padding:14px}
+.input{width:100%;padding:12px;border:2px solid #111;border-radius:12px;font-weight:600}
 #modalLogin{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:100;align-items:center;justify-content:center;padding:16px}
 .modal-box{background:#fff;border-radius:24px;max-width:400px;width:100%;padding:24px;position:relative}
 </style>
@@ -35,106 +32,52 @@ header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid 
   <div style="display:flex;gap:8px;align-items:center">
     <span id="userName" style="font-size:12px;font-weight:800;display:none"></span>
     <button id="btnEntrar" onclick="abrirLogin()" class="btn btn-dark">Entrar</button>
-    <button id="btnSair" onclick="sair()" style="display:none;border:1.5px solid #111" class="btn">Sair</button>
+    <button id="btnSair" onclick="sair()" class="btn" style="display:none;border:1.5px solid #111">Sair</button>
     <a href="meus-imoveis.html" class="btn btn-orange">+ CADASTRAR</a>
   </div>
 </header>
 
 <div class="hero">
   <h1>Anuncie seu <span>galpão direto para empresas.</span></h1>
-  <p>Conectamos Proprietário de Galpões a empresas.</p>
-</div>
-
-<div class="filtros">
-  <div class="filtros-inner">
-    <div><label style="font-size:10px;font-weight:900">Cidade</label><input class="input" id="f-cidade" placeholder="Barueri"></div>
-    <div><label style="font-size:10px;font-weight:900">Área mín</label><input class="input" id="f-area" type="number"></div>
-    <div><label style="font-size:10px;font-weight:900">Pé direito</label><select class="input" id="f-pe"><option value="">Qualquer</option><option value="6">6m+</option><option value="12">12m+</option></select></div>
-    <div><label style="font-size:10px;font-weight:900">Docas</label><input class="input" id="f-docas" type="number"></div>
-    <div><label style="font-size:10px;font-weight:900">Valor máx</label><input class="input" id="f-valor" type="number"></div>
-    <button class="btn btn-dark" onclick="filtrar()" style="height:44px">FILTRAR</button>
-  </div>
+  <p>Conectamos Proprietário de Galpões a empresas. Sem corretagem, direto com o dono.</p>
 </div>
 
 <div class="lista" id="lista"></div>
 
-<!-- MODAL IGUAL SUA FOTO -->
+<!-- MODAL LOGIN IGUAL SUA FOTO -->
 <div id="modalLogin">
   <div class="modal-box">
-    <button onclick="fecharLogin()" style="position:absolute;top:16px;right:16px;border:0;background:none;font-size:20px;cursor:pointer">✕</button>
+    <button onclick="fecharLogin()" style="position:absolute;top:16px;right:16px;border:0;background:none;font-size:22px;cursor:pointer">✕</button>
     <h2 style="font-size:26px;font-weight:900">Bem-vindo!</h2>
     <p style="color:#6b7280;margin:6px 0 18px;font-size:14px">Entre na sua conta</p>
-    
-    <button onclick="loginGoogleFake()" style="width:100%;border:2px solid #e5e7eb;border-radius:12px;padding:14px;font-weight:800;display:flex;gap:10px;justify-content:center;background:#fff;cursor:pointer">
-      <span style="font-size:18px">G</span> Entrar com o Google
-    </button>
-    
+    <button onclick="loginGoogleFake()" style="width:100%;border:2px solid #e5e7eb;border-radius:12px;padding:14px;font-weight:800;display:flex;gap:10px;justify-content:center;background:#fff;cursor:pointer">Entrar com o Google</button>
     <button onclick="loginCelular()" style="width:100%;margin-top:12px;background:#e6f4ea;color:#137333;border:0;border-radius:12px;padding:14px;font-weight:800;cursor:pointer">📱 Entrar com celular</button>
-    
     <div style="text-align:center;color:#6b7280;margin:16px 0;font-size:14px">ou use seu e-mail</div>
-    
     <input class="input" id="emailLogin" placeholder="seu@email.com" style="margin-bottom:10px">
     <input class="input" id="senhaLogin" type="password" placeholder="••••••••">
-    
     <button onclick="loginEmailFake()" style="width:100%;background:#2563eb;color:#fff;margin-top:16px;padding:14px;border-radius:12px;font-weight:800;border:0;cursor:pointer">Entrar</button>
-    <div style="text-align:center;margin-top:12px;font-size:13px">Não tem conta? <b style="color:#2563eb;cursor:pointer" onclick="loginEmailFake()">Cadastre-se grátis</b></div>
+    <div style="text-align:center;margin-top:12px;font-size:13px">Não tem conta? <b style="color:#2563eb">Cadastre-se grátis</b></div>
   </div>
 </div>
 
 <script>
 function abrirLogin(){document.getElementById('modalLogin').style.display='flex'}
 function fecharLogin(){document.getElementById('modalLogin').style.display='none'}
-
-function salvarUsuario(nome){
-  localStorage.setItem('usuario_logado', nome);
-  atualizarTopo();
-  fecharLogin();
-}
-function loginGoogleFake(){
-  const nome = prompt('Digite seu nome (simulando Google):') || 'Usuário Google';
-  salvarUsuario(nome);
-}
-function loginCelular(){
-  const cel = prompt('Digite seu celular com DDD:');
-  if(cel) salvarUsuario('Cel: '+cel);
-}
-function loginEmailFake(){
-  const email = document.getElementById('emailLogin').value;
-  if(!email){alert('Digite seu e-mail');return}
-  salvarUsuario(email);
-}
-function sair(){
-  localStorage.removeItem('usuario_logado');
-  atualizarTopo();
-}
-function atualizarTopo(){
-  const user = localStorage.getItem('usuario_logado');
-  if(user){
-    document.getElementById('userName').textContent=user;
-    document.getElementById('userName').style.display='block';
-    document.getElementById('btnEntrar').style.display='none';
-    document.getElementById('btnSair').style.display='inline-flex';
-  }else{
-    document.getElementById('userName').style.display='none';
-    document.getElementById('btnEntrar').style.display='inline-flex';
-    document.getElementById('btnSair').style.display='none';
-  }
-}
+function salvarUsuario(nome){localStorage.setItem('usuario_logado',nome);atualizarTopo();fecharLogin()}
+function loginGoogleFake(){const n=prompt('Seu nome:')||'Usuário';salvarUsuario(n)}
+function loginCelular(){const c=prompt('Seu celular:');if(c)salvarUsuario('Cel: '+c)}
+function loginEmailFake(){const e=document.getElementById('emailLogin').value;if(!e){alert('Digite e-mail');return}salvarUsuario(e)}
+function sair(){localStorage.removeItem('usuario_logado');atualizarTopo()}
+function atualizarTopo(){const u=localStorage.getItem('usuario_logado');if(u){document.getElementById('userName').textContent=u;document.getElementById('userName').style.display='block';document.getElementById('btnEntrar').style.display='none';document.getElementById('btnSair').style.display='inline-flex'}else{document.getElementById('userName').style.display='none';document.getElementById('btnEntrar').style.display='inline-flex';document.getElementById('btnSair').style.display='none'}}
 atualizarTopo();
-
-// lista galpões
 function getDados(){return JSON.parse(localStorage.getItem('galpoes')||'[]')}
-function filtrar(){
-  const c=document.getElementById('f-cidade').value.toLowerCase();
-  let d=getDados().filter(g=>(c===''||(g.cidade||'').toLowerCase().includes(c)));
-  render(d);
-}
-function render(dados){
+function render(){
+  const dados=getDados();
   const lista=document.getElementById('lista');
-  if(dados.length===0){lista.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px;color:#6b7280">Nenhum galpão<br><br><a href="meus-imoveis.html" class="btn btn-orange">+ CADASTRAR</a></div>';return}
-  lista.innerHTML=dados.map(g=>`<div class="card-galpao"><div class="card-img"><img src="${(g.galeria&&g.galeria[0])||g.fotos||'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d'}"></div><div class="card-body"><b>${g.titulo||'Galpão'}</b><br><small>${g.cidade||''} - ${g.areaUtil||''}m²</small><br><b>R$ ${g.valor||''}</b></div></div>`).join('');
+  if(dados.length===0){lista.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:#6b7280"><p style="font-size:18px;font-weight:800;margin-bottom:6px">Nenhum galpão cadastrado ainda</p><p style="margin-bottom:20px">Seja o primeiro a anunciar</p><a href="meus-imoveis.html" class="btn btn-orange">+ CADASTRAR MEU GALPÃO</a></div>';return}
+  lista.innerHTML=dados.map(g=>`<div class="card-galpao"><div class="card-img"><img src="${(g.galeria&&g.galeria[0])||g.fotos||'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d'}"></div><div class="card-body"><b>${g.titulo||'Galpão'}</b><br><small>📍 ${g.cidade||''} • ${g.areaUtil||''}m² • Pé ${g.peDireito||''}</small><br><div style="margin-top:8px;font-weight:900;font-size:18px">R$ ${Number(g.valor||0).toLocaleString('pt-BR')}/mês</div><a href="https://wa.me/55${(g.whatsapp||'').replace(/\D/g,'')}" target="_blank" class="btn btn-orange" style="width:100%;margin-top:10px">💬 FALAR COM DONO</a></div></div>`).join('');
 }
-render(getDados());
+render();
 </script>
 </body>
 </html>
