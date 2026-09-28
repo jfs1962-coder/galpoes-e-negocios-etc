@@ -3,44 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galpões & Negócios - Anúncios direto do proprietário</title>
+<title>Galpões & Negócios - Em Todo o Brasil</title>
 <link rel="manifest" href="manifest.json">
-<link rel="icon" href="logo.png">
+<link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-180.png">
 <meta name="theme-color" content="#FF6A00">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800;900&display=swap" rel="stylesheet">
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Inter',system-ui,sans-serif;background:#fff;color:#1a1a1a}
-  header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;gap:12px}
-  .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-  .logo img{height:38px;width:auto;object-fit:contain}
-  .logo b{font-size:14px;line-height:1.1;color:#111;letter-spacing:-0.5px}
-  .nav{display:flex;gap:8px;align-items:center}
-  .btn{border-radius:999px;padding:10px 18px;font-weight:700;font-size:14px;border:2px solid transparent;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap}
-  .btn-dark{background:#1e232e;color:#fff}
-  .btn-orange{background:#FF6A00;color:#fff}
-  .hero{padding:32px 20px 20px;max-width:1100px;margin:0 auto}
-  .hero h1{font-size:clamp(32px,8vw,56px);line-height:0.95;letter-spacing:-1.5px;font-weight:800}
-  .hero h1 span{display:block;color:#FF6A00}
-  .hero p{margin-top:16px;color:#6b7280;font-size:17px;line-height:1.5;max-width:520px}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
-  @media(max-width:600px){.grid{grid-template-columns:1fr 1fr}}
-  .card{border-radius:20px;padding:18px;border:2px solid #111}
-  .card-orange{background:#FFF6EF;border-color:#FF6A00}
-  .card b{display:block;font-size:16px;line-height:1.1;margin-bottom:6px;text-transform:uppercase}
-  .card small{color:#6b7280;font-size:13px;line-height:1.3;display:block;margin-bottom:14px}
-  .card .btn{width:100%;padding:12px}
-  @media(max-width:380px){header{padding:10px 12px}.logo img{height:32px}.btn{padding:8px 12px;font-size:13px}}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:#fff;color:#111}
+header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;padding:8px 14px;gap:10px}
+.logo{flex-shrink:0;line-height:0}
+.logo img{height:42px;width:42px;object-fit:contain;border-radius:8px}
+.nav{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.btn{border-radius:999px;padding:11px 18px;font-weight:800;font-size:14px;border:0;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.btn-dark{background:#1e232e;color:#fff}
+.btn-orange{background:#FF6A00;color:#fff}
+.hero{padding:32px 18px 20px;max-width:1100px;margin:0 auto}
+.hero h1{font-size:clamp(30px,9vw,56px);line-height:.92;font-weight:900;letter-spacing:-1px}
+.hero h1 span{color:#FF6A00;display:block}
+.hero p{margin-top:14px;color:#6b7280;font-size:16px;max-width:540px;line-height:1.5}
+.grid-cta{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;max-width:500px}
+.card{border-radius:20px;padding:16px;border:2px solid #111}
+.card-orange{border-color:#FF6A00;background:#FFF6EF}
+.card b{display:block;font-size:14px;text-transform:uppercase;margin-bottom:6px;line-height:1.1}
+.card small{display:block;color:#6b7280;font-size:12.5px;margin-bottom:12px;line-height:1.3}
+.card .btn{width:100%}
+.filtros{background:#f7f7f8;border-top:1px solid #eee;border-bottom:1px solid #eee;padding:16px}
+.filtros-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:10px;align-items:end}
+@media(max-width:800px){.filtros-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.filtros-inner{grid-template-columns:1fr}}
+.input{width:100%;padding:12px 14px;border:2px solid #111;border-radius:12px;font-weight:600}
+label{font-size:12px;font-weight:800;text-transform:uppercase;margin-bottom:6px;display:block}
+.lista{max-width:1100px;margin:0 auto;padding:20px 14px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.galpao{border:2px solid #111;border-radius:20px;overflow:hidden;background:#fff}
+.galpao img{width:100%;height:180px;object-fit:cover}
+.galpao-body{padding:14px}
+.galpao-body h3{font-size:16px;line-height:1.1;margin-bottom:6px}
+.galpao-body p{font-size:13px;color:#6b7280;line-height:1.3}
+.como{max-width:1100px;margin:0 auto;padding:30px 18px}
+.como h2{font-size:24px;font-weight:900;margin-bottom:16px}
+.como-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+@media(max-width:600px){.como-grid{grid-template-columns:1fr}}
+.como-item{border:2px solid #eee;border-radius:18px;padding:16px}
+.como-item b{display:block;margin-bottom:6px}
+footer{border-top:1px solid #eee;padding:20px;text-align:center;color:#9ca3af;font-size:12px}
 </style>
 </head>
 <body>
 <header>
-  <a class="logo" href="index.html">
-    <img src="logo.jpg" alt="G">
-    <b>GALPÕES &<br>NEGÓCIOS</b>
-  </a>
+  <a class="logo" href="/"><img src="icon-192.png" alt="G"></a>
   <div class="nav">
     <a href="#galpoes" class="btn btn-dark">Buscar Galpão</a>
     <a href="meus-imoveis.html" class="btn btn-orange">+ CADASTRAR</a>
@@ -48,24 +60,59 @@
 </header>
 
 <div class="hero">
-  <h1>Anuncie seu <span>galpão direto<br>para empresas.</span></h1>
+  <h1>Anuncie seu <span>galpão direto para empresas.</span></h1>
   <p>Plataforma de classificados onde o proprietário cadastra seu galpão e a empresa interessada entra em contato direto. Sem intermediação da plataforma.</p>
-
-  <div class="grid">
-    <div class="card">
-      <b>SOU<br>PROPRIETÁRIO</b>
-      <small>Quero anunciar meu galpão</small>
-      <a href="meus-imoveis.html" class="btn btn-dark">ANUNCIAR</a>
-    </div>
-    <div class="card card-orange">
-      <b style="color:#FF6A00">BUSCO GALPÃO</b>
-      <small>Quero contato direto com dono</small>
-      <a href="#galpoes" class="btn btn-orange">ENCONTRAR</a>
-    </div>
+  <div class="grid-cta">
+    <div class="card"><b>SOU PROPRIETÁRIO</b><small>Quero anunciar meu galpão</small><a href="meus-imoveis.html" class="btn btn-dark">ANUNCIAR</a></div>
+    <div class="card card-orange"><b style="color:#FF6A00">BUSCO GALPÃO</b><small>Quero contato direto com dono</small><a href="#galpoes" class="btn btn-orange">ENCONTRAR</a></div>
   </div>
 </div>
 
+<div class="filtros" id="galpoes">
+  <div class="filtros-inner">
+    <div><label>Cidade</label><input class="input" id="f-cidade" placeholder="Ex: Santo André"></div>
+    <div><label>Área mínima (m²)</label><input class="input" id="f-area" type="number" placeholder="Ex: 500"></div>
+    <div><label>Valor máximo</label><input class="input" id="f-valor" type="number" placeholder="Ex: 10000"></div>
+    <div><label>Tipo</label><select class="input" id="f-tipo"><option value="">Todos</option><option>Galpão</option><option>Armazém</option><option>Barracão</option></select></div>
+    <button class="btn btn-dark" onclick="filtrar()" style="height:46px">FILTRAR</button>
+  </div>
+</div>
+
+<div class="lista" id="lista-galpoes"></div>
+
+<div class="como">
+  <h2>Como funciona a plataforma</h2>
+  <div class="como-grid">
+    <div class="como-item"><b>1. Cadastre</b><small>Proprietário cadastra seu galpão com fotos e informações.</small></div>
+    <div class="como-item"><b>2. Empresa encontra</b><small>Quem busca filtra por cidade, área e valor.</small></div>
+    <div class="como-item"><b>3. Contato direto</b><small>Contato direto com o proprietário, sem corretagem da plataforma.</small></div>
+  </div>
+</div>
+
+<footer>Galpões & Negócios - Em Todo o Brasil © 2026<br>www.galpoesenegocios.com.br</footer>
+
 <script>
+// Carrega galpões do localStorage (seus cadastros)
+function carregar(){
+  const lista = document.getElementById('lista-galpoes');
+  let dados = JSON.parse(localStorage.getItem('galpoes') || '[]');
+  if(dados.length===0){
+    lista.innerHTML = '<p style=\"grid-column:1/-1;color:#6b7280;padding:20px;text-align:center\">Nenhum galpão cadastrado ainda. Seja o primeiro a cadastrar!</p>';
+    return;
+  }
+  lista.innerHTML = dados.map(g=>`
+    <div class="galpao">
+      <img src="${g.foto || 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d'}">
+      <div class="galpao-body">
+        <h3>${g.titulo || 'Galpão'} - ${g.cidade || ''}</h3>
+        <p>${g.area || ''}m² • R$ ${g.valor || ''}/mês • ${g.tipo || ''}</p>
+        <a href="https://wa.me/55${(g.whatsapp||'').replace(/\D/g,'')}" class="btn btn-orange" style="width:100%;margin-top:12px">FALAR COM PROPRIETÁRIO</a>
+      </div>
+    </div>
+  `).join('');
+}
+function filtrar(){ carregar(); }
+carregar();
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}
 </script>
 </body>
