@@ -1,108 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>GALPÕES E NEGÓCIOS</title>
-<style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#f5f5f5}
-.topo{padding:12px;display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:10}
-.logo-area{display:flex;align-items:center;gap:9px}
-.logo-area img{width:44px;height:44px;border-radius:50%;border:2px solid #FFD700;object-fit:cover}
-.btn-anunciar{background:#111;color:#FFD700;padding:10px 18px;border-radius:20px;font-size:12px;font-weight:bold;border:0;cursor:pointer}
-.banner img{width:100%;height:190px;object-fit:cover;display:block}
-.frase{text-align:center;padding:9px;font-size:11px;background:#FFFBEB;font-weight:bold;border-bottom:1px solid #f5e6a0}
-.filtros{padding:10px;background:#fff;border-bottom:1px solid #eee}
-.pilulas{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
-.pilulas select{width:100%;padding:11px 4px;border-radius:20px;border:1px solid #ddd;background:#f6f6f6;font-size:11px;font-weight:bold;text-align:center}
-#lista-imoveis{padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px;min-height:60px}
-.card-imovel{background:#fff;border-radius:14px;overflow:hidden;border:1px solid #eee}
-.card-imovel img{width:100%;height:130px;object-fit:cover}
-#cadastrar{display:none;max-width:520px;margin:12px auto;background:#fff;border-radius:16px;padding:16px;border:2px solid #FFD700}
-#cadastrar input,#cadastrar select,#cadastrar textarea{width:100%;padding:12px;margin:5px 0;border-radius:10px;border:1px solid #ddd;font-size:13px}
-#preview{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px}
-#preview img{width:100%;height:80px;object-fit:cover;border-radius:8px}
-.opcao{display:none;background:#f9f9f9;border-radius:10px;padding:10px;margin:8px 0;border:1px solid #eee}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.planos{background:#fff;padding:20px;text-align:center;border-top:1px solid #eee}
-.pix-box{margin:12px auto 0;max-width:420px;background:#FFFBEB;border:1px dashed #c9a400;padding:12px;border-radius:10px;font-size:11px;text-align:left}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galpões & Negócios | Em todo o Brasil</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif']},colors:{grafite:'#1F2937',laranja:'#FF7A00',claro:'#FFF7ED'}}}}</script>
 </head>
-<body>
-<div class="topo">
-<div class="logo-area"><img src="logo.jpg"><div><b style="font-size:13px">GALPÕES E NEGÓCIOS</b><div style="font-size:9px;color:#777">SEM COMISSÃO - SÓ PROPRIETÁRIO</div></div></div>
-<button class="btn-anunciar" onclick="document.getElementById('cadastrar').style.display='block';window.scrollTo(0,250)">+ ANUNCIAR</button>
+<body class="bg-[#FAFAF9] font-sans">
+<header class="sticky top-0 z-50 bg-white border-b border-gray-100">
+<div class="max-w-[1400px] mx-auto px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-grafite rounded-xl flex items-center justify-center relative"><span class="text-white font-black text-2xl">G</span><div class="absolute -right-1 top-1 flex flex-col gap-[2px]"><div class="w-2 h-2 bg-laranja rounded-sm"></div><div class="w-2 h-2 bg-laranja rounded-sm"></div><div class="w-2 h-2 bg-laranja rounded-sm"></div><div class="w-2 h-2 bg-laranja rounded-sm"></div><div class="w-2 h-2 bg-laranja rounded-sm"></div></div></div>
+<div><h1 class="font-black text-grafite leading-none text-[18px]">GALPÕES<br>& NEGÓCIOS</h1><p class="text-[9px] tracking-[0.3em] text-grafite/70">EM TODO O BRASIL</p></div>
 </div>
-<div class="banner"><img src="banner.jpg" onerror="this.style.display='none'"></div>
-<div class="frase">Proprietário direto • Sem comissão • Até 15 fotos</div>
-
-<div class="filtros">
-<div class="pilulas">
-<select><option>📍 Todas Cidades</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option><option>São Paulo</option></select>
-<select><option>🏠 Todos Imóveis</option><option>Galpão</option><option>Casa</option><option>Apartamento</option><option>Prédio</option><option>Terreno</option></select>
-<select><option>💰 Locação e Venda</option><option>Locação</option><option>Venda</option></select>
+<nav class="hidden md:flex gap-8 text-sm font-semibold text-grafite/80"><a href="#" class="hover:text-laranja">Galpões</a><a href="#" class="hover:text-laranja">Condomínios</a><a href="#" class="hover:text-laranja">Anunciar</a><a href="#" class="bg-grafite text-white px-5 py-2.5 rounded-full">Contato</a></nav>
 </div>
+</header>
+<section class="relative bg-gradient-to-br from-white via-[#FFF7ED] to-white">
+<div class="max-w-[1400px] mx-auto px-6 py-12 md:py-16 grid md:grid-cols-2 gap-10 items-center">
+<div><span class="inline-flex bg-laranja/10 text-laranja text-xs font-bold px-3 py-1 rounded-full tracking-widest">+1.200 GALPÕES ATIVOS</span><h2 class="mt-4 text-4xl md:text-[52px] font-black text-grafite leading-[0.95]">O maior portal de<br><span class="text-laranja">galpões logísticos</span><br>do Brasil.</h2><p class="mt-4 text-grafite/60 text-[15px] max-w-[420px]">Filtre por pé-direito, docas, capacidade de piso e localização real.</p></div>
+<div class="relative"><img src="hero.jpg" alt="Hero" class="rounded-[24px] shadow-2xl border border-gray-100 w-full"><div class="hidden md:flex absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border gap-4"><div class="bg-laranja/10 w-12 h-12 rounded-xl flex items-center justify-center text-laranja font-black">G</div><div><p class="font-black text-grafite text-sm">Busca técnica</p><p class="text-xs text-grafite/60">Pé-direito • Docas • Piso</p></div></div></div>
 </div>
-
-<div id="cadastrar">
-<div style="display:flex;justify-content:space-between;align-items:center"><b>📸 Cadastrar Imóvel</b><button onclick="cadastrar.style.display='none'" style="border:0;background:#eee;border-radius:50%;width:28px;height:28px;font-weight:bold">X</button></div>
-
-<select id="tipo" onchange="mostrar()">
-<option value="">Tipo de imóvel?</option>
-<option value="galpao">Galpão</option>
-<option value="casa">Casa</option>
-<option value="apartamento">Apartamento</option>
-<option value="predio">Prédio Comercial</option>
-<option value="terreno">Terreno</option>
-</select>
-
-<select id="negocio"><option>Quer?</option><option>Alugar</option><option>Vender</option><option>Alugar e Vender</option></select>
-
-<div id="op-galpao" class="opcao"><b>🏭 Galpão</b><div class="grid2"><input placeholder="Terreno m²"><input placeholder="Construção m²"><input placeholder="Área fabril m²"><input placeholder="Pé direito"><select><option>Docas?</option><option>1 doca</option><option>2 docas</option></select><select><option>Piso?</option><option>6 ton/m²</option></select></div></div>
-<div id="op-casa" class="opcao"><b>🏠 Casa</b><div class="grid2"><input placeholder="Área m²"><select><option>Quartos?</option><option>2</option><option>3</option><option>4+</option></select><select><option>Suítes?</option><option>1</option><option>2+</option></select><select><option>Vagas?</option><option>1</option><option>2+</option></select></div></div>
-<div id="op-apartamento" class="opcao"><b>🏢 Apartamento</b><div class="grid2"><input placeholder="Área m²"><input placeholder="Andar"><select><option>Quartos?</option><option>2</option><option>3</option></select><select><option>Vagas?</option><option>1 coberta</option><option>2</option></select><select><option>Condomínio R$</option><option>R$ 500</option><option>R$ 850</option></select><select><option>IPTU R$</option><option>R$ 153</option></select></div></div>
-<div id="op-predio" class="opcao"><b>🏬 Prédio</b><div class="grid2"><input placeholder="Terreno m²"><input placeholder="Construção m²"><input placeholder="Vagas"><input placeholder="WCs"></div></div>
-<div id="op-terreno" class="opcao"><b>🌳 Terreno</b><input placeholder="Área total m²"></div>
-
-<input id="bairro" placeholder="Bairro e Cidade">
-<input id="valor" placeholder="Valor R$">
-<textarea id="desc" placeholder="Descrição"></textarea>
-<input id="zap" placeholder="WhatsApp">
-<label style="font-size:11px;font-weight:bold">Fotos (máx 15)</label>
-<input type="file" id="fotos" multiple accept="image/*">
-<div id="preview"></div>
-<button id="btn" style="background:#111;color:#FFD700;padding:14px;width:100%;border:0;border-radius:24px;font-weight:bold;margin-top:10px">SALVAR IMÓVEL</button>
-<div style="margin-top:8px;background:#FFFBEB;border:1px dashed #c9a400;padding:8px;border-radius:6px;font-size:10px">PIX CNPJ: 63.329.574/0001-28 - Galpões e Negócios Internet Ltda - ME</div>
+</section>
+<section class="max-w-[1400px] mx-auto px-6 -mt-6 relative z-20">
+<div class="bg-white rounded-[24px] shadow-[0_20px_80px_rgba(0,0,0,0.08)] border border-gray-100 p-6 md:p-8">
+<div class="flex items-center justify-between mb-6"><h3 class="font-black text-grafite text-lg">Filtros profissionais</h3><span class="text-xs text-grafite/50">Filtros que corretores comuns não têm</span></div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+<div><label class="text-[11px] font-bold tracking-widest text-grafite/60">ESTADO</label><select class="w-full mt-1 border border-gray-200 rounded-xl px-3 py-3 text-sm font-semibold bg-gray-50"><option>Todos</option><option>SP</option><option>MG</option><option>RJ</option><option>PR</option><option>SC</option><option>RS</option><option>BA</option><option>Todo Brasil</option></select></div>
+<div><label class="text-[11px] font-bold tracking-widest text-grafite/60">CIDADE</label><input placeholder="Ex: Guarulhos" class="w-full mt-1 border border-gray-200 rounded-xl px-3 py-3 text-sm bg-gray-50"></div>
+<div><label class="text-[11px] font-bold tracking-widest text-grafite/60">BAIRRO / REGIÃO</label><input placeholder="Ex: Cumbica" class="w-full mt-1 border border-gray-200 rounded-xl px-3 py-3 text-sm bg-gray-50"></div>
+<div><label class="text-[11px] font-bold tracking-widest text-grafite/60">ÁREA M²</label><select class="w-full mt-1 border border-gray-200 rounded-xl px-3 py-3 text-sm bg-gray-50"><option>Qualquer</option><option>500-1.000</option><option>1.000-5.000</option><option>5.000-10.000</option><option>+10.000</option></select></div>
+<div><label class="text-[11px] font-bold tracking-widest text-grafite/60">PÉ-DIREITO</label><select class="w-full mt-1 border border-laranja/30 rounded-xl px-3 py-3 text-sm bg-claro font-bold text-grafite"><option>Qualquer</option><option>6m+</option><option>8m+</option><option>10m+</option><option>12m+ AAA</option></select></div>
+<div><label class="text-[11px] font-bold tracking-widest text-grafite/60">DOCAS</label><select class="w-full mt-1 border border-laranja/30 rounded-xl px-3 py-3 text-sm bg-claro font-bold"><option>Qualquer</option><option>1+</option><option>3+</option><option>5+</option><option>10+</option></select></div>
+<div><label class="text-[11px] font-bold tracking-widest text-grafite/60">PISO TON/M²</label><select class="w-full mt-1 border border-gray-200 rounded-xl px-3 py-3 text-sm bg-gray-50"><option>Qualquer</option><option>3 ton</option><option>5 ton</option><option>6 ton+</option></select></div>
 </div>
-
-<div id="lista-imoveis"><div style="grid-column:1/3;background:#fff;padding:18px;border-radius:12px;text-align:center;color:#888;font-size:12px">Nenhum imóvel ainda. Clique em + ANUNCIAR</div></div>
-
-<div class="planos">
-<b>Anuncie seu Imóvel</b><br><span style="font-size:11px">R$49,90 = 1 anúncio | R$99,90 = 3 anúncios - 10 dias grátis</span>
-<div class="pix-box">🔑 PIX CNPJ: 63.329.574/0001-28<br>Galpões e Negócios Internet Ltda - ME<br>Copie: 63329574000128</div>
+<div class="mt-6 flex gap-3"><button class="flex-1 bg-grafite text-white font-black py-4 rounded-xl hover:bg-black">BUSCAR GALPÕES →</button><button class="px-6 border border-gray-200 rounded-xl font-bold text-grafite/70">Limpar</button></div>
 </div>
-
-<script>
-function mostrar(){document.querySelectorAll('.opcao').forEach(o=>o.style.display='none');let t=document.getElementById('tipo').value;if(t)document.getElementById('op-'+t).style.display='block'}
-let fotos=[]; 
-document.getElementById('fotos').addEventListener('change',async e=>{
-let files=[...e.target.files].slice(0,15);fotos=[];document.getElementById('preview').innerHTML='';
-for(let f of files){let b=await comprimir(f);fotos.push(b);document.getElementById('preview').innerHTML+=`<img src="${b}">`}
-});
-function comprimir(file){return new Promise(r=>{let rd=new FileReader();rd.onload=e=>{let img=new Image();img.onload=()=>{let cv=document.createElement('canvas');let max=800;let w=img.width,h=img.height;if(w>h){if(w>max){h*=max/w;w=max}}else{if(h>max){w*=max/h;h=max}}cv.width=w;cv.height=h;cv.getContext('2d').drawImage(img,0,0,w,h);r(cv.toDataURL('image/jpeg',0.7))};img.src=e.target.result};rd.readAsDataURL(file)})}
-document.getElementById('btn').addEventListener('click',()=>{
-if(fotos.length==0){alert('Coloque 1 foto');return}
-let im={titulo:document.getElementById('tipo').value+' - '+document.getElementById('bairro').value,bairro:bairro.value,valor:valor.value,fotos:fotos};
-let lista=JSON.parse(localStorage.getItem('imoveis_galpoes')||'[]');lista.push(im);localStorage.setItem('imoveis_galpoes',JSON.stringify(lista));document.getElementById('cadastrar').style.display='none';carregar()
-});
-function carregar(){
-let lista=JSON.parse(localStorage.getItem('imoveis_galpoes')||'[]');
-let div=document.getElementById('lista-imoveis');
-if(lista.length==0)return;
-div.innerHTML='';lista.slice().reverse().forEach(im=>{
-div.innerHTML+=`<div class="card-imovel"><img src="${im.fotos[0]}"><div style="padding:8px"><b style="font-size:11px">${im.titulo}</b><br><span style="font-size:10px;color:#666">${im.bairro}</span><br><b style="font-size:12px">${im.valor}</b></div></div>`
-});
-}
-carregar();
-</script>
+</section>
 </body>
 </html>
