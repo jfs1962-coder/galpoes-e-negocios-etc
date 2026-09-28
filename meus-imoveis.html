@@ -1,37 +1,51 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Meus Imóveis</title>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meus Galpões</title>
+<link rel="icon" href="icon-192.png">
 <style>
-body{font-family:Arial;max-width:700px;margin:0 auto;padding:20px;background:#f5f7fb}
-.card{background:white;padding:16px;border-radius:12px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.btn{padding:12px 14px;border-radius:8px;border:0;font-weight:bold;cursor:pointer;margin:4px}
-.vendi{background:#d32f2f;color:white}
-.aluguei{background:#ef6c00;color:white}
-.pausar{background:#555;color:white}
-.denunciar{background:#fff0f0;color:#d32f2f;border:1px solid #d32f2f}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,sans-serif;background:#f6f6f7}
+header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;display:flex;justify-content:space-between;padding:8px 14px}
+.logo img{height:42px;width:42px;border-radius:8px}
+.btn{border-radius:999px;padding:11px 18px;font-weight:800;font-size:14px;border:0;text-decoration:none;display:inline-flex}
+.btn-dark{background:#1e232e;color:#fff}.btn-orange{background:#FF6A00;color:#fff;width:100%}
+.wrap{max-width:700px;margin:0 auto;padding:20px 16px}
+.card{background:#fff;border:2px solid #111;border-radius:20px;padding:18px;margin-bottom:14px}
+.input{width:100%;padding:13px;border:2px solid #111;border-radius:12px;margin-bottom:10px;font-weight:600}
 </style>
 </head>
 <body>
-<h2>Meus Imóveis Cadastrados</h2>
-<p>Gerencie seu anúncio aqui. Tudo com a palavra IMÓVEL (não galpão).</p>
-
-<div class="card">
-<b>Imóvel: Galpão 800m² - Fortaleza - Jangurussu</b><br>
-Status: <span style="color:green">● Ativo - Verificado ✅</span><br><br>
-<button class="btn vendi" onclick="alert('Imóvel marcado como VENDIDO e removido do ar.')">🔴 VENDI</button>
-<button class="btn aluguei" onclick="alert('Imóvel marcado como ALUGADO e removido do ar.')">🟠 ALUGUEI</button>
-<button class="btn pausar" onclick="alert('Imóvel pausado. Ninguém mais vê.')">⏸️ PAUSAR</button>
-<hr>
-<p><b>Interessado recente:</b> João - 85 9xxxx - Quer comprar</p>
-<button class="btn denunciar" onclick="alert('Obrigado! Este contato foi denunciado como corretor e bloqueado.')">🚫 Denunciar como corretor</button>
+<header><a class="logo" href="/"><img src="icon-192.png" alt="G"></a><a href="/" class="btn btn-dark">Voltar ao site</a></header>
+<div class="wrap">
+<h1 style="font-weight:900">Meus Galpões Cadastrados</h1>
+<p style="color:#6b7280;font-size:14px;margin:8px 0 18px">Gerencie seu anúncio de galpão aqui.</p>
+<div id="lista"></div>
+<div class="card" style="border-style:dashed"><b>+ Cadastrar novo GALPÃO</b><br><br>
+<input class="input" id="titulo" placeholder="Título do Galpão">
+<input class="input" id="cidade" placeholder="Cidade">
+<input class="input" id="area" type="number" placeholder="Área m²">
+<input class="input" id="valor" type="number" placeholder="Valor R$/mês">
+<input class="input" id="whatsapp" placeholder="WhatsApp">
+<button class="btn btn-orange" onclick="salvar()">CADASTRAR GALPÃO</button>
 </div>
-
-<a href="/cadastrar-imovel.html">+ Cadastrar outro IMÓVEL</a><br><br>
-<a href="/">Voltar ao site</a>
-
+</div>
 <script>
-// Aqui depois ligamos com seu banco de dados
+function getDados(){return JSON.parse(localStorage.getItem('galpoes')||'[]')}
+function setDados(d){localStorage.setItem('galpoes',JSON.stringify(d))}
+function carregar(){
+  const dados=getDados(); const lista=document.getElementById('lista');
+  if(dados.length===0){lista.innerHTML='<div style="text-align:center;padding:20px;color:#6b7280">Nenhum galpão ainda</div>';return;}
+  lista.innerHTML=dados.map((g,i)=>`<div class="card"><b>${g.titulo}</b><br><small>${g.cidade} - ${g.area}m²</small><br><br><button onclick="remover(${i})" style="background:#dc2626;color:#fff;border:0;border-radius:999px;padding:10px 16px;font-weight:800">🔴 VENDI / ALUGUEI - REMOVER</button></div>`).join('');
+}
+function salvar(){
+  const g={titulo:document.getElementById('titulo').value,cidade:document.getElementById('cidade').value,area:document.getElementById('area').value,valor:document.getElementById('valor').value,whatsapp:document.getElementById('whatsapp').value};
+  if(!g.titulo){alert('Digite o título');return;}
+  const dados=getDados(); dados.push(g); setDados(dados); carregar(); alert('Cadastrado!');
+}
+function remover(i){if(confirm('Remover?')){const d=getDados();d.splice(i,1);setDados(d);carregar();}}
+carregar();
 </script>
 </body>
 </html>
