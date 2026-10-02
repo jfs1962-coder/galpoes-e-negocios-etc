@@ -1,182 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galpões & Negócios - Direto com o dono</title><link rel="icon" href="icon-192.png">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,system-ui,sans-serif;background:#fff;color:#111}
-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee;display:flex;justify-content:space-between;padding:10px 14px;align-items:center}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#111}
-.logo img{height:44px;width:44px;border-radius:8px}
-.logo-text{font-weight:900;font-size:16px;letter-spacing:-0.5px;line-height:1}
-.logo-text span{color:#FF6A00}
-.btn{border-radius:999px;padding:12px 20px;font-weight:800;font-size:14px;border:0;cursor:pointer;display:inline-flex;justify-content:center;text-decoration:none;white-space:nowrap}
-.btn-dark{background:#1e232e;color:#fff}.btn-orange{background:#FF6A00;color:#fff}
-.hero{padding:28px 18px 14px;max-width:1200px;margin:0 auto}
-.hero h1{font-size:clamp(32px,9vw,54px);line-height:.9;font-weight:900;letter-spacing:-1.2px}
-.hero h1 span{color:#FF6A00;display:block}
-.busca-interessado{max-width:1200px;margin:16px auto;padding:0 14px}
-.input{width:100%;padding:13px 12px;border:2px solid #111;border-radius:12px;font-weight:700;font-size:13px;background:#fff;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.lista{max-width:1200px;margin:0 auto;padding:18px 12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
-.card-galpao{border:2px solid #111;border-radius:20px;overflow:hidden;background:#fff}
-.card-img{height:190px;background:#e5e7eb}.card-img img{width:100%;height:100%;object-fit:cover}.card-body{padding:14px}
-#modalLogin,#modalCadastro,#modalEscolha{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;align-items:center;justify-content:center;padding:12px}
-.modal-box{background:#fff;border-radius:24px;max-width:440px;width:100%;padding:22px;position:relative;max-height:92vh;overflow:auto}
-.badge{font-size:10px;font-weight:900;background:#FF6A00;color:#fff;padding:4px 8px;border-radius:999px;margin-bottom:10px;display:inline-block}
-.filtros-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
-.filtros-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px}
-.filtros-grid-cta{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-@media(max-width:700px){
- .filtros-grid-2{grid-template-columns:1fr}
- .filtros-grid-3{grid-template-columns:1fr 1fr}
- .filtros-grid-cta{grid-template-columns:1fr}
- .input{font-size:14px;padding:14px 12px}
- .lista{grid-template-columns:1fr}
-  header{flex-wrap:wrap;gap:8px}
- .hero h1{font-size:34px}
- .logo-text{font-size:14px}
-}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galpões e Negócios - ABC Paulista</title>
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<header>
-  <a href="/" class="logo">
-    <img src="icon-192.png" alt="G">
-    <div class="logo-text">Galpões<br><span>& Negócios</span></div>
-  </a>
-  <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-    <span id="userName" style="font-size:12px;font-weight:800;display:none"></span>
-    <button id="btnEntrar" onclick="abrirLogin()" class="btn btn-dark">Entrar</button>
-    <button id="btnSair" onclick="sair()" class="btn" style="display:none;border:1.5px solid #111">Sair</button>
-    <button onclick="abrirEscolhaCadastro()" class="btn btn-orange">+ CADASTRAR</button>
-  </div>
+<body class="bg-gray-50">
+<header class="bg-white shadow p-4 flex justify-between items-center">
+<h1 class="font-black text-xl">GALPÕES<span class="text-orange-600"> E NEGÓCIOS</span></h1>
+<a href="meus-imoveis.html" class="bg-black text-white px-4 py-2 rounded-full text-sm font-bold">+ Anunciar Galpão</a>
 </header>
-
-<div class="hero">
-  <h1>Encontre seu <span>galpão direto com o dono.</span></h1>
-  <p style="color:#6b7280;margin-top:8px">Sem corretagem. Fale direto com o proprietário.</p>
+<section class="max-w-6xl mx-auto p-6">
+<div class="bg-white p-6 rounded-2xl shadow mb-6">
+<h2 class="font-bold text-lg mb-4">Buscar Galpões no ABC</h2>
+<div class="grid md:grid-cols-3 gap-3">
+<input id="f-cidade" placeholder="Cidade: Santo André, São Bernardo..." class="border p-3 rounded-xl">
+<input id="f-bairro" placeholder="Bairro (opcional)" class="border p-3 rounded-xl">
+<button onclick="buscar()" class="bg-orange-600 text-white font-bold rounded-xl p-3">BUSCAR GALPÕES →</button>
 </div>
-
-<div class="busca-interessado">
-  <div style="border:2px solid #111;border-radius:22px;padding:16px;background:#fff">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px;flex-wrap:wrap">
-      <h3 style="font-weight:900">🔍 O que sua empresa precisa?</h3>
-      <span style="font-size:10px;background:#111;color:#fff;padding:6px 10px;border-radius:999px;white-space:nowrap">FILTRO PROFISSIONAL</span>
-    </div>
-    <div class="filtros-grid-2">
-      <input class="input" id="buscaCidade" placeholder="📍 Cidade *">
-      <input class="input" id="buscaBairro" placeholder="🏘️ Bairro / Região">
-    </div>
-    <div class="filtros-grid-3">
-      <select class="input" id="buscaTipo"><option value="">Alugar ou Comprar?</option><option value="aluguel">Alugar</option><option value="venda">Comprar</option></select>
-      <select class="input" id="buscaTamanho"><option value="">Tamanho</option><option value="0-500">Até 500m²</option><option value="500-1000">500 a 1.000m²</option><option value="1000-2000">1.000 a 2.000m²</option><option value="2000-5000">2.000 a 5.000m²</option><option value="5000+">Acima de 5.000m²</option></select>
-      <select class="input" id="buscaDocas"><option value="">Nº de Docas</option><option value="1">1+ docas</option><option value="2">2+ docas</option><option value="4">4+ docas</option></select>
-    </div>
-    <div class="filtros-grid-3">
-      <select class="input" id="buscaPe"><option value="">Pé direito</option><option value="6">Mín 6m</option><option value="8">Mín 8m</option><option value="10">Mín 10m</option><option value="12">Mín 12m</option></select>
-      <select class="input" id="buscaEnergia"><option value="">Energia</option><option value="trifasico">Trifásico</option><option value="cabine">Cabine Primária</option></select>
-      <select class="input" id="buscaEntrada"><option value="">Entrada</option><option value="caminhao">Caminhão</option><option value="carreta">Carreta</option><option value="bitrem">Bitrem</option></select>
-    </div>
-    <div class="filtros-grid-cta">
-      <select class="input" id="buscaCondominio"><option value="">Tipo</option><option value="monousuario">Monousuário</option><option value="condominio">Condomínio Logístico</option></select>
-      <button class="btn btn-dark" onclick="buscarInteressado()" style="height:48px;width:100%">BUSCAR GALPÕES →</button>
-    </div>
-    <div style="margin-top:10px;font-size:11px;color:#6b7280">👉 <b id="totalGalpoes">0</b> galpões • Cadastro grátis para ver contatos</div>
-  </div>
 </div>
-
-<div class="lista" id="lista"></div>
-
-<div id="modalEscolha"><div class="modal-box">
-  <button onclick="document.getElementById('modalEscolha').style.display='none'" style="position:absolute;top:14px;right:14px;border:0;background:none;font-size:22px;cursor:pointer">✕</button>
-  <h2 style="font-size:22px;font-weight:900">Como você quer se cadastrar?</h2>
-  <p style="color:#6b7280;margin:6px 0 18px;font-size:13px">Os dois precisam de cadastro com Nome, E-mail e Telefone</p>
-  <button onclick="escolherTipo('dono')" style="width:100%;border:2px solid #111;border-radius:16px;padding:16px;text-align:left;background:#111;color:#fff;margin-bottom:12px;cursor:pointer"><div style="font-weight:900">🏭 SOU PROPRIETÁRIO</div><div style="font-size:12px;opacity:.8;margin-top:4px">Tenho galpão para anunciar</div></button>
-  <button onclick="escolherTipo('busca')" style="width:100%;border:2px solid #111;border-radius:16px;padding:16px;text-align:left;background:#fff;color:#111;cursor:pointer"><div style="font-weight:900">🔍 SOU INTERESSADO</div><div style="font-size:12px;color:#6b7280;margin-top:4px">Busco galpão para alugar/comprar</div></button>
-</div></div>
-
-<div id="modalLogin"><div class="modal-box">
-  <button onclick="document.getElementById('modalLogin').style.display='none'" style="position:absolute;top:14px;right:14px;border:0;background:none;font-size:22px">✕</button>
-  <h2 style="font-weight:900">Entrar</h2>
-  <input class="input" id="emailLogin" placeholder="seu@email.com" style="margin:14px 0 8px"><input class="input" id="senhaLogin" type="password" placeholder="Senha">
-  <button onclick="loginEmailFake()" style="width:100%;background:#111;color:#fff;margin-top:12px;padding:14px;border-radius:12px;font-weight:800;border:0">Entrar</button>
-  <div style="text-align:center;margin-top:12px;font-size:13px">Não tem conta? <span onclick="abrirEscolhaCadastro()" style="color:#FF6A00;font-weight:800;cursor:pointer">Cadastre-se</span></div>
-</div></div>
-
-<div id="modalCadastro"><div class="modal-box">
-  <button onclick="document.getElementById('modalCadastro').style.display='none'" style="position:absolute;top:14px;right:14px;border:0;background:none;font-size:22px">✕</button>
-  <span class="badge" id="badgeTipo">CADASTRO GRÁTIS</span>
-  <h2 style="font-size:20px;font-weight:900" id="tituloCadastro">Crie sua conta</h2>
-  <p style="color:#6b7280;margin:6px 0 14px;font-size:13px">Obrigatório igual Mercado Livre</p>
-  <label style="font-size:10px;font-weight:900">NOME COMPLETO *</label><input class="input" id="cadNome" style="margin:4px 0 10px">
-  <label style="font-size:10px;font-weight:900">E-MAIL *</label><input class="input" id="cadEmail" style="margin:4px 0 10px">
-  <label style="font-size:10px;font-weight:900">TELEFONE / WHATSAPP *</label><input class="input" id="cadCel" style="margin:4px 0 10px">
-  <button onclick="finalizarCadastro()" style="width:100%;background:#FF6A00;color:#fff;margin-top:10px;padding:14px;border-radius:12px;font-weight:800;border:0" id="btnFinalizar">CADASTRAR E CONTINUAR</button>
-</div></div>
-
-<script>
-let tipoEscolhido='busca'; let acaoPendente=null;
-function abrirEscolhaCadastro(){document.getElementById('modalEscolha').style.display='flex'; document.getElementById('modalLogin').style.display='none';}
-function escolherTipo(tipo){tipoEscolhido=tipo; document.getElementById('modalEscolha').style.display='none'; document.getElementById('badgeTipo').textContent=tipo==='dono'?'SOU PROPRIETÁRIO':'SOU INTERESSADO'; document.getElementById('tituloCadastro').textContent=tipo==='dono'?'Cadastro Proprietário':'Cadastro Interessado'; document.getElementById('btnFinalizar').textContent=tipo==='dono'?'CADASTRAR E ANUNCIAR':'CADASTRAR E BUSCAR'; document.getElementById('modalCadastro').style.display='flex';}
-function abrirLogin(){document.getElementById('modalLogin').style.display='flex'}
-function loginEmailFake(){const e=document.getElementById('emailLogin').value; if(!e){alert('Digite e-mail');return} localStorage.setItem('usuario_logado',e); atualizarTopo(); document.getElementById('modalLogin').style.display='none'; if(acaoPendente){acaoPendente(); acaoPendente=null;}}
-function finalizarCadastro(){
-  const nome=document.getElementById('cadNome').value.trim(); const email=document.getElementById('cadEmail').value.trim(); const cel=document.getElementById('cadCel').value.trim();
-  if(!nome||!email||!cel){alert('Preencha Nome, E-mail e Telefone *');return}
-  localStorage.setItem('usuario_logado',nome); localStorage.setItem('usuario_email',email); localStorage.setItem('usuario_cel',cel); localStorage.setItem('usuario_tipo',tipoEscolhido);
-  let usuarios=JSON.parse(localStorage.getItem('usuarios')||'[]'); usuarios.push({nome,email,cel,tipo:tipoEscolhido,data:new Date().toLocaleString('pt-BR')}); localStorage.setItem('usuarios',JSON.stringify(usuarios));
-  document.getElementById('modalCadastro').style.display='none'; atualizarTopo();
-  if(tipoEscolhido==='dono'){alert('✅ Cadastro proprietário feito! Agora cadastre seu galpão.'); window.location.href='meus-imoveis.html';}else{alert('✅ Cadastro interessado feito! Pode buscar.'); if(acaoPendente){acaoPendente(); acaoPendente=null;} render();}
+<div id="lista" class="grid md:grid-cols-3 gap-4"></div>
+<div id="loading" class="text-center py-10">Carregando galpões...</div>
+</section>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyC7pY7zOU-zUNoB-P_eRzxcU9OBAp4B9I",
+  authDomain: "galpoes-e-negocios.firebaseapp.com",
+  projectId: "galpoes-e-negocios",
+  storageBucket: "galpoes-e-negocios.firebasestorage.app",
+  messagingSenderId: "394078482486",
+  appId: "1:394078482486:web:718b1c9ec6fef801426897"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+let todos = [];
+async function carregar(){
+  const q = query(collection(db, "galpoes"), orderBy("criadoEm","desc"));
+  const snap = await getDocs(q);
+  todos = snap.docs.map(d=>({id:d.id, ...d.data()}));
+  document.getElementById('loading').style.display='none';
+  render(todos);
 }
-function sair(){localStorage.removeItem('usuario_logado'); atualizarTopo(); render();}
-function atualizarTopo(){const u=localStorage.getItem('usuario_logado'); if(u){document.getElementById('userName').textContent=u;document.getElementById('userName').style.display='block';document.getElementById('btnEntrar').style.display='none';document.getElementById('btnSair').style.display='inline-flex'}else{document.getElementById('userName').style.display='none';document.getElementById('btnEntrar').style.display='inline-flex';document.getElementById('btnSair').style.display='none'}}
-atualizarTopo();
-function getDados(){
-  let dados=JSON.parse(localStorage.getItem('galpoes')||'[]');
-  if(!dados||dados.length===0){
-    dados=[
-      {titulo:'Galpão 1.200m² - Santo André - 4 Docas - 12m Pé',cidade:'Santo André',bairro:'Distrito Industrial',areaUtil:'1200',docas:'4',peDireito:'12m',energia:'cabine',entrada:'carreta',tipoGalpao:'monousuario',valor:'25000',tipo:'aluguel',whatsapp:'11999999999',fotos:'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d',galeria:['https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d']},
-      {titulo:'Galpão 800m² - Barueri - Trifásico - 10m Pé',cidade:'Barueri',bairro:'Tamboré',areaUtil:'800',docas:'2',peDireito:'10m',energia:'trifasico',entrada:'caminhao',tipoGalpao:'condominio',valor:'18000',tipo:'aluguel',whatsapp:'11988888888',fotos:'https://images.unsplash.com/photo-1553413077-190dd305871c',galeria:['https://images.unsplash.com/photo-1553413077-190dd305871c']},
-      {titulo:'Galpão 2.000m² - Guarulhos - Cabine Primária - 12m',cidade:'Guarulhos',bairro:'Cumbica',areaUtil:'2000',docas:'6',peDireito:'12m',energia:'cabine',entrada:'bitrem',tipoGalpao:'monousuario',valor:'2500000',tipo:'venda',whatsapp:'11977777777',fotos:'https://images.unsplash.com/photo-1586528116493-a02932554059',galeria:['https://images.unsplash.com/photo-1586528116493-a02932554059']}
-    ];
-    localStorage.setItem('galpoes',JSON.stringify(dados));
-  }
-  return dados;
+window.buscar = function(){
+  const c = document.getElementById('f-cidade').value.toLowerCase();
+  const b = document.getElementById('f-bairro').value.toLowerCase();
+  let filtrados = todos.filter(g=>{
+    const matchCidade = !c || (g.cidade||'').toLowerCase().includes(c);
+    const matchBairro = !b || (g.bairro||'').toLowerCase().includes(b);
+    return matchCidade && matchBairro;
+  });
+  render(filtrados);
 }
-function buscarInteressado(){
-  const user=localStorage.getItem('usuario_logado');
-  if(!user){acaoPendente=()=>executarBusca(); escolherTipo('busca'); return;}
-  executarBusca();
+function render(lista){
+  const div = document.getElementById('lista');
+  if(lista.length==0){ div.innerHTML='<p class="col-span-3 text-center text-gray-500 py-10">Nenhum galpão encontrado. Seja o primeiro a anunciar em Santo André!</p>'; return; }
+  div.innerHTML = lista.map(g=>`
+    <div class="bg-white rounded-2xl overflow-hidden shadow">
+      <img src="${g.imagem||'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d'}" class="h-40 w-full object-cover">
+      <div class="p-4">
+        <p class="text-xs text-orange-600 font-bold">${g.cidade||''} - ${g.bairro||''}</p>
+        <h3 class="font-bold">${g.titulo||'Galpão Comercial'}</h3>
+        <p class="text-sm text-gray-500">${g.area||'?'}m² | R$ ${g.valor||'---'}/mês</p>
+        <a href="https://wa.me/${(g.whatsapp||'').replace(/[^0-9]/g,'')}" target="_blank" class="mt-3 block bg-green-600 text-white text-center py-2 rounded-xl font-bold text-sm">WhatsApp</a>
+      </div>
+    </div>
+  `).join('');
 }
-function executarBusca(){
-  const cidade=document.getElementById('buscaCidade').value.toLowerCase().trim();
-  const bairro=document.getElementById('buscaBairro').value.toLowerCase().trim();
-  const tamanho=document.getElementById('buscaTamanho').value;
-  const docas=document.getElementById('buscaDocas').value;
-  const pe=document.getElementById('buscaPe').value;
-  const energia=document.getElementById('buscaEnergia').value;
-  const entrada=document.getElementById('buscaEntrada').value;
-  const condominio=document.getElementById('buscaCondominio').value;
-  let dados=getDados();
-  if(cidade) dados=dados.filter(g=>(g.cidade||'').toLowerCase().includes(cidade));
-  if(bairro) dados=dados.filter(g=>(g.bairro||'').toLowerCase().includes(bairro));
-  if(docas) dados=dados.filter(g=>Number(g.docas||0)>=Number(docas));
-  if(pe) dados=dados.filter(g=>Number((g.peDireito||'').replace(/\D/g,''))>=Number(pe));
-  if(energia) dados=dados.filter(g=>(g.energia||'').toLowerCase().includes(energia));
-  if(entrada) dados=dados.filter(g=>(g.entrada||'').toLowerCase().includes(entrada));
-  if(condominio) dados=dados.filter(g=>(g.tipoGalpao||'').toLowerCase().includes(condominio));
-  if(tamanho){const [min,max]=tamanho.includes('+')?[5000,999999]:tamanho.split('-').map(Number); dados=dados.filter(g=>{const a=Number(g.areaUtil||0); return a>=min && (max?a<=max:true)});}
-  renderLista(dados);
-}
-function render(){renderLista(getDados())}
-function renderLista(dados){
-  document.getElementById('totalGalpoes').textContent=dados.length;
-  const lista=document.getElementById('lista');
-  if(dados.length===0){lista.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:40px"><h3 style="font-weight:900">Nenhum galpão encontrado com esse filtro.</h3><p style="color:#6b7280;margin:8px 0">Tente tirar bairro ou docas, ou veja todos.</p><button onclick="render()" class="btn btn-orange">Ver todos</button></div>`;return;}
-  lista.innerHTML=dados.map(g=>`<div class="card-galpao"><div class="card-img"><img src="${(g.galeria&&g.galeria[0])||g.fotos}"></div><div class="card-body"><b>${g.titulo}</b><br><small>📍 ${g.cidade} - ${g.bairro||''} • ${g.areaUtil}m² • ${g.docas} docas • ${g.peDireito} • ${g.energia} • ${g.entrada}</small><br><div style="margin-top:6px;font-weight:900">R$ ${Number(g.valor||0).toLocaleString('pt-BR')}${g.tipo==='venda'?'':'/mês'} • ${g.tipoGalpao}</div><button onclick="falarComDono('${g.whatsapp}','${g.titulo}')" class="btn btn-orange" style="width:100%;margin-top:10px">💬 FALAR COM DONO</button></div></div>`).join('');
-}
-function falarComDono(whatsapp,titulo){const user=localStorage.getItem('usuario_logado'); if(!user){acaoPendente=()=>window.open('https://wa.me/55'+whatsapp.replace(/\D/g,'')+'?text=Olá, interesse no '+titulo,'_blank'); escolherTipo('busca'); return;} window.open('https://wa.me/55'+whatsapp.replace(/\D/g,'')+'?text=Olá, sou '+user+' - Vi '+titulo+' no Galpões & Negócios','_blank');}
-render();
+carregar();
 </script>
 </body>
 </html>
