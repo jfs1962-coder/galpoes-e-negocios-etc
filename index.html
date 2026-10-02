@@ -6,7 +6,10 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,system-ui,sans-serif;background:#fff;color:#111}
 header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee;display:flex;justify-content:space-between;padding:10px 14px;align-items:center}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#111}
 .logo img{height:44px;width:44px;border-radius:8px}
+.logo-text{font-weight:900;font-size:16px;letter-spacing:-0.5px;line-height:1}
+.logo-text span{color:#FF6A00}
 .btn{border-radius:999px;padding:12px 20px;font-weight:800;font-size:14px;border:0;cursor:pointer;display:inline-flex;justify-content:center;text-decoration:none;white-space:nowrap}
 .btn-dark{background:#1e232e;color:#fff}.btn-orange{background:#FF6A00;color:#fff}
 .hero{padding:28px 18px 14px;max-width:1200px;margin:0 auto}
@@ -24,19 +27,23 @@ header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid 
 .filtros-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px}
 .filtros-grid-cta{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 @media(max-width:700px){
-  .filtros-grid-2{grid-template-columns:1fr}
-  .filtros-grid-3{grid-template-columns:1fr 1fr}
-  .filtros-grid-cta{grid-template-columns:1fr}
-  .input{font-size:14px;padding:14px 12px}
-  .lista{grid-template-columns:1fr}
+ .filtros-grid-2{grid-template-columns:1fr}
+ .filtros-grid-3{grid-template-columns:1fr 1fr}
+ .filtros-grid-cta{grid-template-columns:1fr}
+ .input{font-size:14px;padding:14px 12px}
+ .lista{grid-template-columns:1fr}
   header{flex-wrap:wrap;gap:8px}
-  .hero h1{font-size:34px}
+ .hero h1{font-size:34px}
+ .logo-text{font-size:14px}
 }
 </style>
 </head>
 <body>
 <header>
-  <a href="/" class="logo"><img src="icon-192.png" alt="G"></a>
+  <a href="/" class="logo">
+    <img src="icon-192.png" alt="G">
+    <div class="logo-text">Galpões<br><span>& Negócios</span></div>
+  </a>
   <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
     <span id="userName" style="font-size:12px;font-weight:800;display:none"></span>
     <button id="btnEntrar" onclick="abrirLogin()" class="btn btn-dark">Entrar</button>
