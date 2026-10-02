@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro Proprietário - Galpões & Negócios</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="icon" href="icon-192.png">
+</head>
+<body class="bg-gray-50">
+<header class="bg-white border-b p-3 flex justify-between items-center sticky top-0">
+<a href="index.html" class="font-bold text-sm">← Voltar ao início</a>
+<img src="logo.png" class="h-10 w-auto">
+</header>
+
+<div class="max-w-xl mx-auto p-4 md:p-6">
+<div class="bg-white rounded-[24px] p-7 md:p-8 border shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<img src="icon-192.png" class="w-12 h-12 rounded-xl">
+<div><h1 class="font-black text-xl leading-tight">Cadastro do Proprietário / Corretor</h1><p class="text-gray-400 text-xs">Passo 1 de 2 - Depois cadastra o galpão completo</p></div>
+</div>
+
+<div class="grid gap-4">
+<input id="nome" placeholder="Nome completo *" class="border-2 border-gray-100 focus:border-orange-500 p-4 rounded-xl outline-none font-bold">
+<input id="email" placeholder="E-mail *" type="email" class="border-2 border-gray-100 focus:border-orange-500 p-4 rounded-xl outline-none">
+<input id="telefone" placeholder="Telefone / WhatsApp com DDD *" class="border-2 border-gray-100 focus:border-orange-500 p-4 rounded-xl outline-none">
+<input id="doc" placeholder="CPF ou CNPJ *" class="border-2 border-gray-100 focus:border-orange-500 p-4 rounded-xl outline-none">
+<select id="tipoAnunciante" class="border-2 border-gray-100 p-4 rounded-xl font-bold">
+<option>Proprietário direto</option>
+<option>Corretor / Imobiliária</option>
+<option>Advogado / Representante legal</option>
+</select>
+
+<div class="bg-[#f8f8f7] border rounded-xl p-4 text-[11px] leading-relaxed text-gray-600">
+<p class="font-black text-black text-xs mb-2">Regras, Privacidade e Responsabilidade Jurídica - Leia antes:</p>
+1. Declaro que as informações são verídicas.<br>
+2. Autorizo uso de meus dados apenas para contato via chat interno da plataforma Galpões & Negócios, para evitar captação por corretores. Não vendemos dados.<br>
+3. Entendo que <b>todas as responsabilidades de cadastro do galpão, fotos, agendamento de visitas, verificação de documentos, contratos de compra/venda e locação são de responsabilidade do meu jurídico</b>. A plataforma CNPJ 63.329.574/0001-28 é apenas vitrine/marketplace igual Mercado Livre, não participa da negociação e não cobra comissão de intermediação.
+</div>
+
+<label class="flex gap-2 text-[11px] items-start"><input type="checkbox" id="termos" class="mt-1"><span>Li e aceito as Regras, Política de Privacidade e Responsabilidade Jurídica acima. Declaro ser responsável por visitas e contratos.</span></label>
+
+<button onclick="cadastrar()" id="btn" class="bg-[#1a2533] hover:bg-black text-white p-4 rounded-xl font-black text-lg">CRIAR CADASTRO E CONTINUAR →</button>
+
+<p class="text-[11px] text-center text-gray-400">Seu acesso será liberado na hora. Banco seguro em São Paulo - southamerica-east1<br>PIX para planos: CNPJ 63.329.574/0001-28</p>
+</div>
+</div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyC7pY7zOU-zUNoB-P_eRzxcU9OBAp4B9I",
+  authDomain: "galpoes-e-negocios.firebaseapp.com",
+  projectId: "galpoes-e-negocios",
+  storageBucket: "galpoes-e-negocios.firebasestorage.app",
+  messagingSenderId: "394078482486",
+  appId: "1:394078482486:web:718b1c9ec6fef801426897"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.cadastrar = async function(){
+  const nome = document.getElementById('nome').value;
+  const email = document.getElementById('email').value;
+  const telefone = document.getElementById('telefone').value;
+  const termos = document.getElementById('termos').checked;
+  const btn = document.getElementById('btn');
+
+  if(!nome ||!email ||!telefone){ alert('Preencha nome, email e telefone'); return; }
+  if(!termos){ alert('Você precisa aceitar as regras jurídicas'); return; }
+
+  btn.innerText = 'SALVANDO...';
+
+  try{
+    const dados = {
+      nome: nome,
+      email: email,
+      telefone: telefone,
+      doc: document.getElementById('doc').value,
+      tipoAnunciante: document.getElementById('tipoAnunciante').value,
+      criadoEm: serverTimestamp()
+    };
+    const ref = await addDoc(collection(db, "proprietarios"), dados);
+    localStorage.setItem('gn_proprietario_id', ref.id);
+    localStorage.setItem('gn_proprietario_nome', nome);
+    localStorage.setItem('gn_proprietario_email', email);
+    localStorage.setItem('gn_owner', ref.id);
+
+    alert('Cadastro criado com sucesso! Agora vamos cadastrar seu galpão completo.');
+    window.location.href = 'cadastrar-galpao.html';
+  }catch(e){
+    alert('Erro: ' + e.message);
+    btn.innerText = 'CRIAR CADASTRO E CONTINUAR →';
+  }
+}
+</script>
+</body>
+</html>
