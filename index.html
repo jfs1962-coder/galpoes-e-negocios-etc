@@ -3,161 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galpões & Negócios - Galpões em todo o Brasil</title>
+<title>Termos de Uso - Galpões & Negócios</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
-<meta name="theme-color" content="#1a2533">
 </head>
-<body class="bg-[#f8f8f7]">
-<header class="bg-white border-b sticky top-0 z-50">
-<div class="max-w-7xl mx-auto px-4 py-2.5 flex justify-between items-center">
-<div class="flex items-center gap-2 bg-white px-2 py-1 rounded-lg">
-<img src="logo.png" alt="Galpões e Negócios" class="h-10 md:h-11 w-auto">
-<span class="font-black text-[11px] leading-none">GALPÕES &<br>NEGÓCIOS</span>
+<body class="bg-white text-gray-800 leading-relaxed">
+<div class="max-w-3xl mx-auto p-6 md:p-10">
+<div class="flex justify-between items-center">
+<a href="index.html" class="text-sm font-bold border px-4 py-2 rounded-full">← Voltar ao início</a>
+<img src="logo.png" class="h-8">
 </div>
-<div class="flex gap-2">
-<a href="cadastro-proprietario.html" class="border border-black px-4 py-2 rounded-full text-sm font-bold">Entrar / Cadastrar</a>
-<a href="cadastrar-galpao.html" class="bg-[#1a2533] text-white px-5 py-2.5 rounded-full text-sm font-black">+ Anunciar Galpão</a>
-</div>
-</div>
-</header>
 
-<section class="relative min-h-[520px] flex items-center">
-<div class="absolute inset-0">
-<img src="hero.jpg" class="w-full h-full object-cover">
-<div class="absolute inset-0 bg-[#1a2533]/60"></div>
-</div>
-<div class="relative max-w-7xl mx-auto px-6 py-14 w-full grid md:grid-cols-2 gap-8 items-center">
+<h1 class="font-black text-3xl mt-8 leading-tight">Termos de Uso - Galpões & Negócios</h1>
+<p class="text-xs text-gray-400 mt-2">GALPÕES E NEGÓCIOS INTERNET LTDA - CNPJ 63.329.574/0001-28<br>Plataforma: www.galpoesenegocios.com.br<br>Última atualização: Outubro/2026</p>
+
+<div class="mt-8 space-y-8 text-[14px] leading-relaxed">
+
 <div>
-<h1 class="text-white text-4xl md:text-6xl font-black leading-[0.9]">GALPÕES EM<br><span class="text-orange-400">TODO O BRASIL</span><br>SEM INTERMEDIÁRIO</h1>
-<p class="text-white mt-4 text-lg leading-snug">Proprietários anunciam.<br>Cliente fala no chat interno.<br>Zero comissão.</p>
-<div class="mt-8 grid grid-cols-3 gap-3 text-center max-w-[360px]">
-<div class="bg-white/15 backdrop-blur border border-white/20 rounded-xl p-3"><p class="text-white font-black">1</p><p class="text-white text-[11px]">Anuncie seu galpão</p></div>
-<div class="bg-white/15 backdrop-blur border border-white/20 rounded-xl p-3"><p class="text-white font-black">2</p><p class="text-white text-[11px]">Receba no chat</p></div>
-<div class="bg-orange-500 rounded-xl p-3"><p class="text-black font-black">3</p><p class="text-black text-[11px] font-bold">Feche direto</p></div>
-</div>
-</div>
-<div class="bg-white rounded-[24px] p-7 shadow-2xl">
-<h2 class="font-black text-xl">Encontre seu galpão</h2>
-<p class="text-gray-400 text-xs mt-1">Mais de <span id="countTop">...</span> galpões disponíveis</p>
-<input id="f-cidade" placeholder="Cidade" class="w-full border-2 p-3.5 rounded-xl font-bold mt-4 outline-none focus:border-orange-500">
-<input id="f-bairro" placeholder="Bairro" class="w-full border-2 p-3.5 rounded-xl mt-3 outline-none focus:border-orange-500">
-<button onclick="buscar()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-black p-4 rounded-xl mt-4">BUSCAR GALPÕES →</button>
-</div>
-</div>
-</section>
-
-<section class="max-w-7xl mx-auto px-6 py-10">
-<div class="flex justify-between items-center mb-5"><h2 class="font-black text-2xl">Galpões em destaque</h2><span id="count" class="text-gray-400 text-sm bg-white px-3 py-1 rounded-full border"></span></div>
-<div id="loading" class="text-center py-16 bg-white rounded-2xl border">Carregando galpões...</div>
-<div id="lista" class="grid md:grid-cols-3 gap-5"></div>
-</section>
-
-<section class="bg-[#1a2533] text-white py-12">
-<div class="max-w-4xl mx-auto px-6">
-<h2 class="font-black text-3xl text-center">Planos para anunciar</h2>
-<p class="text-center text-white/60 text-sm mt-2 mb-8">Pagamento via PIX - Liberação imediata</p>
-<div class="grid md:grid-cols-2 gap-6">
-<div class="bg-white text-black rounded-[24px] p-7">
-<h3 class="text-[11px] tracking-widest text-gray-400 font-black">ESSENCIAL</h3><p class="text-3xl font-black mt-2">R$49,90<span class="text-lg font-normal text-gray-500">/mês</span></p>
-<ul class="text-sm mt-4 space-y-2 text-gray-600"><li>• 1 galpão ativo</li><li>• Fotos ilimitadas</li><li>• Chat interno protegido</li><li>• Aparece nas buscas</li></ul>
-<a href="cadastro-proprietario.html" class="block bg-black text-white text-center font-black py-3.5 rounded-xl mt-6">ASSINAR ESSENCIAL</a>
-<p class="text-[10px] text-center mt-2 text-gray-400">PIX CNPJ 63.329.574/0001-28</p>
-</div>
-<div class="bg-orange-500 rounded-[24px] p-7 text-black">
-<h3 class="text-[11px] tracking-widest font-black">PRO - MAIS VENDIDO</h3><p class="text-3xl font-black mt-2">R$99,90<span class="text-lg font-medium">/mês</span></p>
-<ul class="text-sm mt-4 space-y-2 font-medium"><li>• Até 5 galpões</li><li>• Selo Destaque</li><li>• Topo da busca</li><li>• Suporte prioritário</li></ul>
-<a href="cadastro-proprietario.html" class="block bg-black text-white text-center font-black py-3.5 rounded-xl mt-6">ASSINAR PRO</a>
-<p class="text-[10px] text-center mt-2">PIX CNPJ 63.329.574/0001-28</p>
-</div>
-</div>
-</div>
-</section>
-
-<footer class="bg-black text-white py-8">
-<div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="text-white/40 text-[11px]">GALPÕES & NEGÓCIOS © 2026 - CNPJ 63.329.574/0001-28</p>
-<div class="flex gap-2">
-<button onclick="abrirModal('regras')" class="border border-white/20 text-white/70 hover:text-white px-4 py-2 rounded-full text-xs">Regras</button>
-<button onclick="abrirModal('privacidade')" class="border border-white/20 text-white/70 hover:text-white px-4 py-2 rounded-full text-xs">Privacidade</button>
-<button onclick="abrirModal('juridico')" class="border border-white/20 text-white/70 hover:text-white px-4 py-2 rounded-full text-xs">Jurídico</button>
-</div>
-</div>
-</footer>
-
-<!-- MODAIS -->
-<div id="modal" class="fixed inset-0 bg-black/70 hidden z-[100] p-4 flex items-center justify-center">
-<div class="bg-white rounded-[20px] max-w-lg w-full p-6 max-h-[80vh] overflow-y-auto">
-<div class="flex justify-between items-center mb-4"><h3 id="modalTitulo" class="font-black text-lg"></h3><button onclick="fecharModal()" class="bg-black text-white w-8 h-8 rounded-full">X</button></div>
-<p id="modalTexto" class="text-sm text-gray-600 leading-relaxed"></p>
-</div>
+<h2 class="font-black text-base">1. DEFINIÇÕES</h2>
+<p class="mt-2 text-gray-600"><b>Plataforma:</b> site www.galpoesenegocios.com.br para divulgação de galpões industriais e logísticos.<br>
+<b>Usuário:</b> toda pessoa que acessa a plataforma.<br>
+<b>Proprietário:</b> Usuário que é proprietário de galpão ou representante legal com autorização formal, e cadastra galpão para venda e/ou locação. Vedado anúncio de terceiros sem autorização expressa.<br>
+<b>Interessado:</b> Usuário que busca galpão para locação ou compra.<br>
+<b>Anúncio:</b> publicação de galpão contendo apenas: cidade, bairro (sem rua/número por segurança), área terreno m², área construída m², área fabril m², área armazenamento m², pé direito, piso industrial, energia (trifásica/cabine primária), entrada caminhão/carreta, altura/largura portão, docas, valor, descrição e fotos.<br>
+<b>Chat Interno:</b> sistema de mensagens dentro da plataforma. WhatsApp só liberado após aceite mútuo para evitar captação.</p>
 </div>
 
-<script>
-function abrirModal(tipo){
-  const modal = document.getElementById('modal');
-  const titulo = document.getElementById('modalTitulo');
-  const texto = document.getElementById('modalTexto');
-  modal.classList.remove('hidden');
-  if(tipo=='regras'){ titulo.innerText='Regras de Cadastro'; texto.innerHTML='O proprietário declara que as informações, fotos, metragens e valores são verídicos. Proibido anúncio de terceiros sem autorização. O anúncio deve conter apenas galpões de sua propriedade ou com autorização formal.'; }
-  if(tipo=='privacidade'){ titulo.innerText='Política de Privacidade'; texto.innerHTML='Seus dados (nome, e-mail, telefone) são usados apenas para contato entre interessado e anunciante dentro da plataforma. Não vendemos seus dados. O WhatsApp fica oculto até você aceitar o contato via chat interno, para evitar captação.'; }
-  if(tipo=='juridico'){ titulo.innerText='Responsabilidade Jurídica'; texto.innerHTML='Todas as responsabilidades de cadastro do galpão, fotos, agendamento de visitas, verificação de documentos, contratos de compra/venda e locação são de responsabilidade do proprietário anunciante. A plataforma Galpões & Negócios (CNPJ 63.329.574/0001-28) é apenas vitrine/marketplace, não participa da negociação, não cobra comissão e não se responsabiliza por acordos entre as partes.'; }
-}
-function fecharModal(){ document.getElementById('modal').classList.add('hidden'); }
-</script>
+<div>
+<h2 class="font-black text-base">2. ACEITAÇÃO</h2>
+<p class="mt-2 text-gray-600">2.1 O uso da plataforma implica leitura e aceite integral destes Termos. Se não concorda, não utilize.<br>
+2.2 Declara ter +18 anos, ser capaz e que todas as informações fornecidas são verdadeiras e atualizadas.<br>
+2.3 Dúvidas: contato@galpoesenegocios.com.br<br>
+2.4 O aceite é registrado com IP, data e hora para fins de prova jurídica e LGPD.</p>
+</div>
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-const firebaseConfig = { apiKey: "AIzaSyC7pY7zOU-zUNoB-P_eRzxcU9OBAp4B9I", authDomain: "galpoes-e-negocios.firebaseapp.com", projectId: "galpoes-e-negocios", storageBucket: "galpoes-e-negocios.firebasestorage.app", messagingSenderId: "394078482486", appId: "1:394078482486:web:718b1c9ec6fef801426897" };
-const db = getFirestore(initializeApp(firebaseConfig));
-let todos=[];
-async function carregar(){
-  try{
-    const q = query(collection(db, "galpoes"), orderBy("criadoEm","desc"));
-    const snap = await getDocs(q);
-    todos = snap.docs.map(d=>({id:d.id,...d.data()}));
-    document.getElementById('loading').style.display='none';
-    document.getElementById('count').innerText = todos.length + ' galpões';
-    document.getElementById('countTop').innerText = todos.length;
-    render(todos);
-  }catch(e){
-    document.getElementById('loading').innerText = 'Erro ao carregar. Verifique regras do Firebase.';
-  }
-}
-window.buscar = function(){
-  const c = document.getElementById('f-cidade').value.toLowerCase().trim();
-  const b = document.getElementById('f-bairro').value.toLowerCase().trim();
-  let f = todos.filter(g=> {
-    const cidadeOk =!c || (g.cidade||'').toLowerCase().includes(c);
-    const bairroOk =!b || (g.bairro||'').toLowerCase().includes(b);
-    return cidadeOk && bairroOk;
-  });
-  render(f);
-}
-function render(lista){
-  const div = document.getElementById('lista');
-  if(!lista.length){
-    div.innerHTML='<div class="col-span-3 text-center py-16 bg-white rounded-2xl border"><p class="text-gray-500">Nenhum galpão encontrado.</p><a href="cadastrar-galpao.html" class="inline-block mt-3 bg-black text-white px-5 py-2 rounded-full text-sm font-bold">+ Anunciar o primeiro</a></div>';
-    return;
-  }
-  div.innerHTML = lista.map(g=>`
-    <div class="bg-white rounded-[18px] border overflow-hidden hover:shadow-lg transition">
-      <img src="${g.imagem||'hero.jpg'}" onerror="this.src='hero.jpg'" class="h-44 w-full object-cover">
-      <div class="p-4">
-        <span class="text-[10px] font-black tracking-widest text-orange-500 uppercase">${g.tipoNegocio||'Locação'} • ${g.cidade||''} ${g.bairro?'- '+g.bairro:''}</span>
-        <h3 class="font-black text-sm mt-1 line-clamp-2">${g.titulo||'Galpão'}</h3>
-        <p class="text-[11px] text-gray-500 mt-1">${g.areaConstruida||g.areaTotal||'-'}m² • Pé ${g.peDireito||'-'} • ${g.energia||''}</p>
-        <div class="flex justify-between items-center mt-4">
-          <p class="font-black text-sm">R$ ${g.valor||'a combinar'}</p>
-          <a href="cadastrar-galpao.html" class="bg-[#1a2533] text-white px-4 py-2 rounded-full text-xs font-bold">Tenho Interesse</a>
-        </div>
-      </div>
-    </div>
-  `).join('');
-}
-carregar();
-</script>
+<div>
+<h2 class="font-black text-base">3. A PLATAFORMA - MERA VITRINE CLASSIFICATÓRIA</h2>
+<p class="mt-2 text-gray-600">3.1 A GALPÕES & NEGÓCIOS é mera vitrine classificatória. <b>NÃO somos imobiliária, NÃO possuímos CRECI, NÃO intermediamos, NÃO participamos de visitas, negociações, contratos, pagamentos, garantias ou due diligence.</b> Não cobramos comissão sobre venda ou locação.<br>
+3.2 Para acessar chat interno, editar anúncio e destacar, o Usuário cria Conta e ativa Plano via PIX CNPJ 63.329.574/0001-28 ou cartão.</p>
+</div>
+
+<div>
+<h2 class="font-black text-base">4. CONTA DO USUÁRIO</h2>
+<p class="mt-2 text-gray-600">4.1 Conta pessoal e intransferível. Vedada cessão.<br>
+4.2 Informações devem ser verídicas. O Usuário responde civil e criminalmente por falsidade.<br>
+4.3 Reservamo-nos o direito de recusar ou cancelar cadastro sem aviso prévio, sem indenização.<br>
+4.4 Nunca exibimos endereço completo, apenas bairro + cidade, por segurança do proprietário.</p>
+</div>
+
+<div>
+<h2 class="font-black text-base">5. ANÚNCIOS DE GALPÃO</h2>
+<p class="mt-2 text-gray-600">5.1 Somente galpões em território brasileiro.<br>
+5.2 O conteúdo não pode violar direitos de terceiros, ter caráter difamatório, ofensivo ou ilícito. Proibida cópia de anúncios por concorrentes sem autorização.<br>
+5.3 <b>Proprietário é ÚNICO responsável</b> por condições físicas, jurídicas, ambientais, tributárias, titularidade, metragens e valores. A plataforma não verifica matrícula, débitos ou existência do imóvel.<br>
+5.4 Recomendamos que Interessado vistorie o galpão e avalie documentação com advogado antes de proposta. Recomendamos que Proprietário avalie idoneidade do Interessado com advogado.<br>
+5.5 Proprietário pode editar ou excluir anúncio a qualquer momento.<br>
+5.6 Denúncia de anúncio falso ou fraude: contato@galpoesenegocios.com.br - análise e remoção em até 24h.</p>
+</div>
+
+<div class="bg-[#1a2533] text-white rounded-[16px] p-6">
+<h2 class="font-black text-base">6. PLANOS E COBRANÇA - MODELO GALPÕES & NEGÓCIOS</h2>
+<p class="mt-3 text-white/80 text-[13px] leading-relaxed">
+6.1 <b>ESSENCIAL - R$49,90/mês:</b> 1 galpão ativo, fotos ilimitadas, chat interno protegido, aparece nas buscas.<br>
+<b>PRO - R$99,90/mês (Mais vendido):</b> até 5 galpões, selo destaque, topo da busca, suporte prioritário.<br><br>
+6.2 <b>Forma de pagamento:</b> PIX CNPJ 63.329.574/0001-28 - GALPÕES E NEGÓCIOS INTERNET LTDA ou cartão de crédito. Liberação imediata após compensação. Não trabalhamos com boleto ou parcelamento para evitar fraudes e inadimplência.<br><br>
+6.3 <b>Renovação automática:</b> a cada 30 dias corridos contados do pagamento, até cancelamento pelo Usuário no painel "Meus Imóveis" ou e-mail contato@galpoesenegocios.com.br<br><br>
+6.4 <b>POLÍTICA DE NÃO REEMBOLSO:</b> Por se tratar de serviço digital de veiculação imediata de anúncio, com exposição do galpão nas buscas logo após pagamento (consumo instantâneo), <b>não há reembolso, estorno, crédito proporcional ou devolução por período não utilizado, desistência, exclusão do anúncio pelo próprio Usuário, venda ou locação do galpão durante a vigência, ou qualquer outro motivo.</b> O Usuário declara ciência de que a plataforma inicia a prestação imediatamente após o pagamento.<br><br>
+6.5 O cancelamento impede apenas cobranças futuras. Não gera devolução de valores já pagos. Valores já pagos não serão restituídos mesmo que o Usuário exclua o anúncio sem cancelar assinatura.<br>
+6.6 Podemos alterar valores dos planos a qualquer momento. Renovações futuras seguirão valor vigente à época.
+</p>
+</div>
+
+<div>
+<h2 class="font-black text-base">7. RELAÇÃO ENTRE USUÁRIOS</h2>
+<p class="mt-2 text-gray-600">7.1 Contato inicial obrigatoriamente via chat interno para evitar captação por terceiros. WhatsApp só após aceite mútuo.<br>
+7.2 GALPÕES & NEGÓCIOS não se responsabiliza por transações realizadas entre Proprietário e Interessado, mesmo que tenham se conhecido na plataforma.<br>
+7.3 Vedado uso da plataforma para captação ou intermediação para terceiros.</p>
+</div>
+
+<div>
+<h2 class="font-black text-base">8. PROPRIEDADE INTELECTUAL</h2>
+<p class="mt-2 text-gray-600">Marca, domínio www.galpoesenegocios.com.br, layout, banco de dados são propriedade da GALPÕES & NEGÓCIOS. Proibida cópia. Usuário autoriza uso de suas fotos com marca d'água da plataforma para evitar cópia por concorrentes.</p>
+</div>
+
+<div>
+<h2 class="font-black text-base">9. ISENÇÃO E LIMITAÇÃO DE RESPONSABILIDADE</h2>
+<p class="mt-2 text-gray-600">9.1 Não garantimos exatidão das informações fornecidas pelos Usuários e não temos obrigação de verificar.<br>
+9.2 Não garantimos êxito de venda/locação.<br>
+9.3 Não nos responsabilizamos por falhas de internet, sistema, vírus ou força maior.<br>
+9.4 Em nenhuma hipótese nossa responsabilidade excederá o valor pago no último plano (R$49,90 ou R$99,90).<br>
+9.5 Caso sejamos incluídos no polo passivo de ação judicial por ato/omissão do Usuário, este será chamado ao processo e deverá ressarcir todas as despesas, perdas, danos e honorários advocatícios.<br>
+9.6 Usuário indenizará a plataforma, sócios, diretores e colaboradores por demandas de terceiros decorrentes de seus atos.</p>
+</div>
+
+<div>
+<h2 class="font-black text-base">10. FRAUDES</h2>
+<p class="mt-2 text-gray-600">Tentativa de: calúnia, discriminação, spam, scrape, bots, vírus, invadir sistema, intermediar para terceiros, resulta em suspensão/banimento imediato sem ressarcimento e medidas legais.</p>
+</div>
+
+<div>
+<h2 class="font-black text-base">11. RESCISÃO</h2>
+<p class="mt-2 text-gray-600">Podemos rescindir Termos, bloquear conta e remover conteúdo a qualquer momento por violação da lei, destes Termos, fraude, dano a terceiros ou inadimplência.</p>
+</div>
+
+<div>
+<h2 class="font-black text-base">12. FORO</h2>
+<p class="mt-2 text-gray-600">Fica eleito o foro de Santo André-SP, com renúncia a qualquer outro por mais privilegiado que seja. Leis da República Federativa do Brasil.</p>
+</div>
+
+<p class="text-[11px] text-gray-400 mt-10 border-t pt-6">GALPÕES E NEGÓCIOS INTERNET LTDA - CNPJ 63.329.574/0001-28 - Contato DPO/LGPD: contato@galpoesenegocios.com.br<br>
+Este Termo foi aceito com registro de IP, data e hora para prova jurídica. Ao continuar usando a plataforma após alteração, você aceita a nova versão.</p>
+
+<div class="mt-8 flex gap-3">
+<a href="privacidade.html" class="border px-5 py-2.5 rounded-full text-sm font-bold">Ver Privacidade</a>
+<a href="index.html" class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-black">Voltar ao site</a>
+</div>
+
+</div>
+</div>
 </body>
 </html>
