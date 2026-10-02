@@ -1,0 +1,30 @@
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const SUPABASE_URL = 'https://gyqksjdncn oiecvytxoq.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGc0i1JIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOjJzdXBhYmFzZSIsInJlZiI6Imd5cWtzanRjbmNvaWVjdnZ0eG9xIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg5...'; // COLE AQUI SUA CHAVE COMPLETA QUE VOCÊ COPIOU
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const BUCKET = 'fotos-galpoes';
+</script>
+
+<script>
+// FUNÇÃO PARA FAZER UPLOAD DE ATÉ 10 FOTOS
+async function uploadFotos(files) {
+  if (files.length > 10) {
+    alert('Máximo 10 fotos!');
+    return [];
+  }
+  const urls = [];
+  for (let file of files) {
+    const nomeUnico = Date.now() + '-' + Math.random().toString(36).substring(7) + '-' + file.name;
+    const { data, error } = await supabaseClient.storage.from(BUCKET).upload(nomeUnico, file);
+    if (error) {
+      console.error('Erro upload:', error);
+      alert('Erro ao enviar: ' + file.name);
+    } else {
+      const { data: urlData } = supabaseClient.storage.from(BUCKET).getPublicUrl(nomeUnico);
+      urls.push(urlData.publicUrl);
+    }
+  }
+  return urls;
+}
+</script>
