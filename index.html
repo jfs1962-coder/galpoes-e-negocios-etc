@@ -11,66 +11,66 @@
 </head>
 <body class="bg-[#f8f8f7]">
 <header class="bg-white border-b sticky top-0 z-50">
-<div class="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
-<img src="logo.png" class="h-12 md:h-14 w-auto">
-<a href="meus-imoveis.html" class="bg-[#1a2533] text-white px-6 py-2.5 rounded-full font-bold text-sm">+ Anunciar</a>
+<div class="max-w-7xl mx-auto px-4 py-2.5 flex justify-between items-center">
+<img src="logo.png" alt="Galpões e Negócios" class="h-11 w-auto">
+<div class="flex gap-2">
+<a href="cadastro-proprietario.html" class="border px-4 py-2 rounded-full text-sm font-bold">Entrar / Cadastrar</a>
+<a href="cadastrar-galpao.html" class="bg-[#1a2533] text-white px-5 py-2.5 rounded-full text-sm font-black">+ Anunciar Galpão</a>
+</div>
 </div>
 </header>
-<section class="relative min-h-[520px] flex items-center">
-<div class="absolute inset-0">
-<img src="hero.jpg" class="w-full h-full object-cover">
-<div class="absolute inset-0 bg-gradient-to-r from-[#1a2533]/90 via-[#1a2533]/60 to-transparent"></div>
-</div>
-<div class="relative max-w-7xl mx-auto px-6 py-12 w-full grid md:grid-cols-2 gap-10">
+<section class="relative min-h-[560px] flex items-center">
+<div class="absolute inset-0"><img src="hero.jpg" class="w-full h-full object-cover"><div class="absolute inset-0 bg-[#1a2533]/85"></div></div>
+<div class="relative max-w-7xl mx-auto px-6 py-14 w-full grid md:grid-cols-2 gap-8">
 <div>
-<h1 class="text-white text-5xl md:text-6xl font-black">GALPÕES EM<br><span class="text-orange-500">TODO O BRASIL</span></h1>
-<p class="text-white/80 mt-4">Direto com o proprietário, sem comissão.</p>
+<h1 class="text-white text-4xl md:text-6xl font-black leading-[0.9]">GALPÕES EM<br><span class="text-orange-400">TODO O BRASIL</span><br>SEM INTERMEDIÁRIO</h1>
+<p class="text-white/70 mt-4">Proprietários e corretores anunciam. Cliente fala no chat interno, igual Mercado Livre. Zero comissão.</p>
+<div class="mt-8 grid grid-cols-3 gap-3 text-center">
+<div class="bg-white/10 border border-white/20 rounded-xl p-3"><p class="text-white font-black">1</p><p class="text-white/70 text-[11px]">Dono anuncia</p></div>
+<div class="bg-white/10 border border-white/20 rounded-xl p-3"><p class="text-white font-black">2</p><p class="text-white/70 text-[11px]">Chat interno</p></div>
+<div class="bg-orange-500 rounded-xl p-3"><p class="text-black font-black">3</p><p class="text-black text-[11px] font-bold">Negócio seu</p></div>
 </div>
-<div class="bg-white rounded-[24px] p-8 shadow-2xl">
+</div>
+<div class="bg-white rounded-[24px] p-7 shadow-2xl">
 <h2 class="font-black text-xl">Encontre seu galpão</h2>
-<input id="f-cidade" placeholder="Cidade: Santo André" class="w-full border-2 p-4 rounded-xl mt-4 font-bold">
-<input id="f-bairro" placeholder="Bairro" class="w-full border-2 p-4 rounded-xl mt-3">
+<input id="f-cidade" placeholder="Cidade" class="w-full border-2 p-3 rounded-xl font-bold mt-4">
+<input id="f-bairro" placeholder="Bairro" class="w-full border-2 p-3 rounded-xl mt-2">
 <button onclick="buscar()" class="w-full bg-orange-500 text-white font-black p-4 rounded-xl mt-4">BUSCAR GALPÕES →</button>
+<p class="text-center text-[11px] text-gray-400 mt-2">Banco São Paulo - southamerica-east1</p>
 </div>
 </div>
 </section>
-<section class="max-w-7xl mx-auto px-6 py-12">
-<div id="loading" class="text-center py-10">Carregando...</div>
-<div id="lista" class="grid md:grid-cols-3 gap-6"></div>
+<section class="max-w-7xl mx-auto px-6 py-10">
+<div class="flex justify-between mb-5"><h2 class="font-black text-2xl">Galpões em destaque</h2><span id="count" class="text-gray-400 text-sm"></span></div>
+<div id="loading" class="text-center py-16">Carregando...</div>
+<div id="lista" class="grid md:grid-cols-3 gap-5"></div>
 </section>
-<section class="bg-[#1a2533] text-white py-16">
+<section class="bg-[#1a2533] text-white py-12">
 <div class="max-w-4xl mx-auto px-6 grid md:grid-cols-2 gap-6">
-<div class="bg-white/5 border border-white/10 rounded-[24px] p-8">
-<h3>PLANO ESSENCIAL</h3><p class="text-4xl font-black">R$49,90/mês</p>
-<a class="block mt-6 bg-white text-black text-center font-black py-4 rounded-xl">ASSINAR R$49,90</a>
-<p class="text-[11px] text-center mt-2 opacity-50">PIX CNPJ 63.329.574/0001-28</p>
-</div>
-<div class="bg-orange-500 rounded-[24px] p-8">
-<h3>PLANO PRO</h3><p class="text-4xl font-black">R$99,90/mês</p>
-<a class="block mt-6 bg-black text-white text-center font-black py-4 rounded-xl">ASSINAR PRO R$99,90</a>
-<p class="text-[11px] text-center mt-2">PIX CNPJ 63.329.574/0001-28</p>
-</div>
+<div class="bg-white/5 border border-white/10 rounded-[24px] p-7"><h3 class="text-xs text-gray-400">ESSENCIAL</h3><p class="text-3xl font-black">R$49,90/mês</p><a href="cadastro-proprietario.html" class="block bg-white text-black text-center font-black py-3 rounded-xl mt-6">ASSINAR R$49,90</a><p class="text-[11px] text-center mt-2 opacity-50">PIX CNPJ 63.329.574/0001-28</p></div>
+<div class="bg-orange-500 rounded-[24px] p-7 text-black"><h3 class="text-xs">PRO - MAIS VENDIDO</h3><p class="text-3xl font-black">R$99,90/mês</p><a href="cadastro-proprietario.html" class="block bg-black text-white text-center font-black py-3 rounded-xl mt-6">ASSINAR PRO R$99,90</a><p class="text-[11px] text-center mt-2">PIX CNPJ 63.329.574/0001-28</p></div>
 </div>
 </section>
+<section class="bg-[#f1f1ef] py-8">
+<div class="max-w-5xl mx-auto px-6 grid md:grid-cols-3 gap-6 text-[11px] text-gray-600">
+<div><b class="text-black">Regras</b><br>Proprietário declara informações verídicas. Proibido anúncio de terceiros sem autorização.</div>
+<div><b class="text-black">Privacidade</b><br>Dados usados apenas para chat interno da plataforma para evitar captação por corretores.</div>
+<div><b class="text-black">Jurídico</b><br>Visitas, contratos de locação/venda são responsabilidade do proprietário. Plataforma é vitrine tipo Mercado Livre, CNPJ 63.329.574/0001-28, não cobra comissão.</div>
+</div>
+</section>
+<footer class="bg-black text-white/30 text-center py-6 text-[11px]">GALPÕES & NEGÓCIOS © 2026 - CNPJ 63.329.574/0001-28</footer>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-const firebaseConfig = {
-  apiKey: "AIzaSyC7pY7zOU-zUNoB-P_eRzxcU9OBAp4B9I",
-  authDomain: "galpoes-e-negocios.firebaseapp.com",
-  projectId: "galpoes-e-negocios",
-  storageBucket: "galpoes-e-negocios.firebasestorage.app",
-  messagingSenderId: "394078482486",
-  appId: "1:394078482486:web:718b1c9ec6fef801426897"
-};
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const firebaseConfig = { apiKey: "AIzaSyC7pY7zOU-zUNoB-P_eRzxcU9OBAp4B9I", authDomain: "galpoes-e-negocios.firebaseapp.com", projectId: "galpoes-e-negocios", storageBucket: "galpoes-e-negocios.firebasestorage.app", messagingSenderId: "394078482486", appId: "1:394078482486:web:718b1c9ec6fef801426897" };
+const db = getFirestore(initializeApp(firebaseConfig));
 let todos=[];
 async function carregar(){
   const q = query(collection(db, "galpoes"), orderBy("criadoEm","desc"));
   const snap = await getDocs(q);
   todos = snap.docs.map(d=>({id:d.id,...d.data()}));
   document.getElementById('loading').style.display='none';
+  document.getElementById('count').innerText = todos.length + ' galpões';
   render(todos);
 }
 window.buscar = function(){
@@ -81,11 +81,16 @@ window.buscar = function(){
 }
 function render(lista){
   const div = document.getElementById('lista');
-  if(!lista.length){ div.innerHTML='<p class="col-span-3 text-center py-10">Nenhum galpão ainda.</p>'; return; }
+  if(!lista.length){ div.innerHTML='<div class="col-span-3 text-center py-16 bg-white rounded-xl border">Nenhum galpão ainda. <a href="cadastrar-galpao.html" class="font-bold underline">Anunciar</a></div>'; return; }
   div.innerHTML = lista.map(g=>`
-    <div class="bg-white rounded-[20px] overflow-hidden border">
-      <img src="${g.imagem||'hero.jpg'}" class="h-48 w-full object-cover">
-      <div class="p-5"><p class="text-orange-500 text-xs font-black">${g.cidade} - ${g.bairro}</p><h3 class="font-black">${g.titulo}</h3><p class="font-black text-xl mt-2">R$ ${g.valor}</p><a href="https://wa.me/${(g.whatsapp||'').replace(/[^0-9]/g,'')}" class="block mt-3 bg-green-600 text-white text-center py-2 rounded-full font-bold">WhatsApp</a></div>
+    <div class="bg-white rounded-[18px] border overflow-hidden">
+      <img src="${g.imagem||'hero.jpg'}" class="h-44 w-full object-cover">
+      <div class="p-4">
+        <span class="text-[10px] font-black text-orange-500">${g.tipoNegocio||'LOCAÇÃO'} • ${g.cidade||''}</span>
+        <h3 class="font-black text-sm">${g.titulo||'Galpão'}</h3>
+        <p class="text-[11px] text-gray-500">${g.areaConstruida||g.areaTotal||''}m² • Pé ${g.peDireito||''} • ${g.energia||''}</p>
+        <div class="flex justify-between mt-3"><p class="font-black">R$ ${g.valor||''}</p><a href="cadastrar-galpao.html" class="bg-[#1a2533] text-white px-4 py-2 rounded-full text-xs">Tenho Interesse</a></div>
+      </div>
     </div>
   `).join('');
 }
