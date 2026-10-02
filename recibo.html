@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recibo - Galpões e Negócios</title></head>
+<body style="font-family:Arial;padding:20px;max-width:600px;margin:auto">
+<h2>Recibo - Galpões e Negócios</h2>
+<p>CNPJ 63.329.574/0001-28</p>
+<p id="dados"></p>
+<script>
+const p=new URLSearchParams(location.search);
+document.getElementById('dados').innerHTML=`Plano: ${p.get('plano')||'-'}<br>Valor: ${p.get('valor')||'-'}<br>Data: ${new Date().toLocaleDateString('pt-BR')}`;
+</script>
+<br><a href="index.html">Voltar ao site</a>
+</body>
+</html>
