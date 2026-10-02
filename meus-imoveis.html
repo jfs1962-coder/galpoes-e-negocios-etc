@@ -1,187 +1,31 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cadastrar Galpão - Galpões & Negócios</title>
-<link rel="icon" href="icon-192.png">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,sans-serif;background:#f6f6f7;color:#111}
-header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;display:flex;justify-content:space-between;padding:10px 14px;z-index:20;align-items:center}
-.logo img{height:42px;width:42px;border-radius:8px}
-.btn{border-radius:999px;padding:11px 18px;font-weight:800;font-size:14px;border:0;display:inline-flex;cursor:pointer;justify-content:center;text-decoration:none}
-.btn-dark{background:#1e232e;color:#fff}.btn-orange{background:#FF6A00;color:#fff}
-.wrap{max-width:900px;margin:0 auto;padding:18px 14px 40px}
-.section{background:#fff;border:2px solid #111;border-radius:20px;padding:18px;margin-bottom:14px}
-.section-title{font-weight:900;font-size:13px;text-transform:uppercase;margin-bottom:12px;letter-spacing:.5px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:650px){.grid{grid-template-columns:1fr}}
-.input,select,textarea{width:100%;padding:12px 14px;border:2px solid #111;border-radius:12px;font-weight:600;font-size:14px;background:#fff}
-label{font-size:11px;font-weight:800;text-transform:uppercase;margin-bottom:5px;display:block;color:#374151}
-.foto-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}
-@media(max-width:500px){.foto-grid{grid-template-columns:repeat(3,1fr)}}
-.foto-item{position:relative}
-.foto-item img{width:100%;height:80px;object-fit:cover;border-radius:10px;border:2px solid #111}
-.foto-item button{position:absolute;top:-6px;right:-6px;background:#dc2626;color:#fff;border:0;border-radius:50%;width:22px;height:22px;font-weight:900;cursor:pointer;font-size:12px}
-</style>
-</head>
-<body>
-<header>
-  <a href="/" class="logo"><img src="icon-192.png"></a>
-  <div style="display:flex;gap:8px;align-items:center">
-    <span id="userTop" style="font-size:12px;font-weight:800"></span>
-    <a href="/" class="btn btn-dark">Voltar</a>
-  </div>
-</header>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Meus Galpões - Galpões & Negócios</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,sans-serif;background:#f5f5f5;padding:20px} .box{background:#fff;max-width:800px;margin:0 auto;padding:24px;border-radius:20px;border:2px solid #111} .input{width:100%;padding:12px;border:2px solid #111;border-radius:12px;font-weight:700;margin:6px 0} label{font-size:11px;font-weight:900;margin-top:12px;display:block} .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px} @media(max-width:600px){.grid{grid-template-columns:1fr}} .btn{padding:14px;border-radius:999px;font-weight:900;border:0;cursor:pointer} .btn-orange{background:#FF6A00;color:#fff;width:100%;margin-top:16px}</style>
+</head><body>
+<div class="box">
+<h2 style="font-weight:900">🏭 Cadastrar meu Galpão</h2><p style="color:#6b7280;font-size:13px;margin-bottom:16px">Preencha o básico que o cliente busca</p>
 
-<div class="wrap">
-<h1 style="font-weight:900;font-size:28px">Cadastrar meu Galpão</h1>
-<p style="color:#6b7280;font-size:14px;margin:6px 0 18px">Preencha a ficha completa. Esses campos eram da home e agora estão aqui.</p>
-
-<form id="formGalpao">
-<div class="section">
-  <div class="section-title">📍 Localização e Identificação</div>
-  <div class="grid">
-    <div style="grid-column:1/-1"><label>Título do Anúncio *</label><input class="input" id="titulo" required placeholder="Ex: Galpão 1200m² em Santo André com 4 docas"></div>
-    <div><label>Cidade *</label><input class="input" id="cidade" required placeholder="Ex: Barueri"></div>
-    <div><label>Bairro / Região</label><input class="input" id="bairro" placeholder="Ex: Tamboré"></div>
-    <div style="grid-column:1/-1"><label>Endereço (não aparece no site, só para conferência)</label><input class="input" id="endereco" placeholder="Rua, número"></div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-title">📐 Características Técnicas - (esses eram os filtros da home)</div>
-  <div class="grid">
-    <div><label>Área Útil m² * (Área mín)</label><input class="input" type="number" id="areaUtil" required placeholder="1500"></div>
-    <div><label>Área Total Terreno m²</label><input class="input" type="number" id="areaTotal" placeholder="2000"></div>
-    <div><label>Pé Direito *</label>
-      <select id="peDireito" class="input">
-        <option value="">Selecione</option><option>6m</option><option>8m</option><option>10m</option><option selected>12m</option><option>13,3m</option><option>15m</option>
-      </select>
-    </div>
-    <div><label>Docas *</label><input class="input" type="number" id="docas" required placeholder="3"></div>
-    <div><label>Capacidade Piso</label>
-      <select id="piso" class="input"><option>4 ton/m²</option><option selected>6 ton/m²</option><option>8 ton/m²</option></select>
-    </div>
-    <div><label>Vagas / Pátio</label><input class="input" id="vagas" placeholder="Ex: 20 carretas"></div>
-    <div><label>Energia</label><select id="energia" class="input"><option>Trifásico</option><option>500 KVA</option><option>1000 KVA</option></select></div>
-    <div><label>Tipo</label><select id="tipo" class="input"><option>Galpão Isolado</option><option>Cond. Fechado</option><option>Galpão + Escritório</option></select></div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-title">💰 Valores e Contato</div>
-  <div class="grid">
-    <div><label>Valor Aluguel R$/mês * (Valor máx)</label><input class="input" type="number" id="valor" required placeholder="45000"></div>
-    <div><label>Condomínio R$</label><input class="input" type="number" id="condominio" placeholder="0"></div>
-    <div><label>IPTU R$</label><input class="input" type="number" id="iptu" placeholder="0"></div>
-    <div><label>WhatsApp para contato *</label><input class="input" id="whatsapp" required placeholder="11999999999"></div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-title">📸 Fotos do Galpão - Até 10 fotos (com compressão automática)</div>
-  <input type="file" id="fotosInput" accept="image/*" multiple class="input" style="padding:10px">
-  <small style="color:#6b7280;display:block;margin-top:6px">Selecione até 10 fotos. Dica: Frente, Docas, Interior, Pátio, Escritório, Banheiros. O sistema comprime sozinho.</small>
-  <div id="previewFotos" class="foto-grid"></div>
-  <div id="contadorFotos" style="font-size:12px;font-weight:800;margin-top:10px">0 / 10 fotos</div>
-</div>
-
-<div class="section">
-  <div class="section-title">📝 Descrição</div>
-  <textarea id="descricao" class="input" rows="4" style="resize:none" placeholder="Ex: Galpão novo, 4 docas com niveladora, escritório 200m², refeitório..."></textarea>
-</div>
-
-<button type="submit" class="btn btn-orange" style="width:100%;padding:18px;font-size:17px;margin-top:10px">💾 SALVAR GALPÃO COM 10 FOTOS</button>
-</form>
-
+<label>Título *</label><input class="input" id="titulo" placeholder="Ex: Galpão 1.200m² Santo André 4 docas">
+<div class="grid"><div><label>Cidade *</label><input class="input" id="cidade" placeholder="Ex: Santo André"></div><div><label>Bairro / Região *</label><input class="input" id="bairro" placeholder="Ex: Distrito Industrial"></div></div>
+<div class="grid"><div><label>Área útil (m²) *</label><input class="input" id="areaUtil" type="number" placeholder="1200"></div><div><label>Pé direito *</label><select class="input" id="peDireito"><option>6m</option><option>8m</option><option>10m</option><option selected>12m</option><option>15m</option></select></div></div>
+<div class="grid"><div><label>Nº de Docas *</label><input class="input" id="docas" type="number" placeholder="4"></div><div><label>Valor R$ *</label><input class="input" id="valor" type="number" placeholder="25000"></div></div>
+<div class="grid"><div><label>Tipo</label><select class="input" id="tipo"><option value="aluguel">Alugar</option><option value="venda">Vender</option></select></div><div><label>Tipo de Galpão *</label><select class="input" id="tipoGalpao"><option value="monousuario">Monousuário (isolado)</option><option value="condominio">Em Condomínio Logístico</option></select></div></div>
+<div class="grid"><div><label>Energia *</label><select class="input" id="energia"><option value="trifasico">Trifásico</option><option value="cabine">Cabine Primária</option><option value="bifasico">Bifásico</option></select></div><div><label>Entrada *</label><select class="input" id="entrada"><option value="caminhao">Caminhão</option><option value="carreta">Carreta</option><option value="bitrem">Carreta + Bitrem</option></select></div></div>
+<label>Endereço</label><input class="input" id="endereco" placeholder="Rua, número">
+<label>WhatsApp com DDD *</label><input class="input" id="whatsapp" placeholder="11 99999-9999">
+<label>Link da foto principal (ou deixe padrão)</label><input class="input" id="fotos" placeholder="https://...">
+<button class="btn btn-orange" onclick="salvar()">SALVAR GALPÃO E PUBLICAR →</button>
 <div id="lista" style="margin-top:24px"></div>
+<a href="/" style="display:block;text-align:center;margin-top:16px;color:#111;font-weight:800">← Voltar para busca</a>
 </div>
-
 <script>
-// Nome do topo
-document.getElementById('userTop').textContent = localStorage.getItem('usuario_logado')||'';
-
-let fotosBase64 = [];
-function comprimirImagem(file, maxWidth=800, quality=0.6){
-  return new Promise((resolve)=>{
-    const reader = new FileReader();
-    reader.onload = (e)=>{
-      const img = new Image();
-      img.onload = ()=>{
-        const canvas = document.createElement('canvas');
-        let w = img.width, h = img.height;
-        if(w > maxWidth){ h = h * (maxWidth/w); w = maxWidth; }
-        canvas.width = w; canvas.height = h;
-        canvas.getContext('2d').drawImage(img,0,0,w,h);
-        resolve(canvas.toDataURL('image/jpeg', quality));
-      };
-      img.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
-  });
+function salvar(){
+  const g={titulo:document.getElementById('titulo').value, cidade:document.getElementById('cidade').value, bairro:document.getElementById('bairro').value, areaUtil:document.getElementById('areaUtil').value, peDireito:document.getElementById('peDireito').value, docas:document.getElementById('docas').value, valor:document.getElementById('valor').value, tipo:document.getElementById('tipo').value, tipoGalpao:document.getElementById('tipoGalpao').value, energia:document.getElementById('energia').value, entrada:document.getElementById('entrada').value, endereco:document.getElementById('endereco').value, whatsapp:document.getElementById('whatsapp').value, fotos:document.getElementById('fotos').value||'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d', galeria:[document.getElementById('fotos').value||'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d']};
+  if(!g.titulo||!g.cidade||!g.areaUtil){alert('Preencha Título, Cidade e Área');return}
+  let dados=JSON.parse(localStorage.getItem('galpoes')||'[]'); dados.push(g); localStorage.setItem('galpoes',JSON.stringify(dados)); alert('✅ Galpão publicado! Já aparece na busca com filtros.'); render(); 
 }
-document.getElementById('fotosInput').addEventListener('change', async function(e){
-  const files = Array.from(e.target.files).slice(0,10);
-  if(fotosBase64.length + files.length > 10){ alert('Máximo 10 fotos! Você já tem '+fotosBase64.length); return; }
-  for(let file of files){
-    const comp = await comprimirImagem(file);
-    fotosBase64.push(comp);
-  }
-  renderPreview();
-});
-function renderPreview(){
-  document.getElementById('previewFotos').innerHTML = fotosBase64.map((src,i)=>`
-    <div class="foto-item"><img src="${src}"><button type="button" onclick="fotosBase64.splice(${i},1);renderPreview()">X</button></div>
-  `).join('');
-  document.getElementById('contadorFotos').textContent = fotosBase64.length + ' / 10 fotos';
-}
-
-function getDados(){return JSON.parse(localStorage.getItem('galpoes')||'[]')}
-function setDados(d){localStorage.setItem('galpoes',JSON.stringify(d))}
-
-document.getElementById('formGalpao').addEventListener('submit',function(e){
-  e.preventDefault();
-  const g={
-    titulo:document.getElementById('titulo').value,
-    cidade:document.getElementById('cidade').value,
-    bairro:document.getElementById('bairro').value,
-    endereco:document.getElementById('endereco').value,
-    areaUtil:document.getElementById('areaUtil').value,
-    areaTotal:document.getElementById('areaTotal').value,
-    peDireito:document.getElementById('peDireito').value,
-    docas:document.getElementById('docas').value,
-    piso:document.getElementById('piso').value,
-    vagas:document.getElementById('vagas').value,
-    energia:document.getElementById('energia').value,
-    tipo:document.getElementById('tipo').value,
-    valor:document.getElementById('valor').value,
-    condominio:document.getElementById('condominio').value,
-    iptu:document.getElementById('iptu').value,
-    whatsapp:document.getElementById('whatsapp').value,
-    descricao:document.getElementById('descricao').value,
-    fotos:fotosBase64[0]||'',
-    galeria:fotosBase64,
-    dono:localStorage.getItem('usuario_logado')||'Proprietário',
-    data:new Date().toLocaleDateString('pt-BR')
-  };
-  const dados=getDados(); dados.push(g); setDados(dados);
-  alert('✅ Galpão salvo com '+fotosBase64.length+' fotos!');
-  fotosBase64=[]; renderPreview(); e.target.reset(); carregar();
-});
-
-function carregar(){
-  const lista=document.getElementById('lista'); const dados=getDados();
-  if(dados.length===0)return;
-  lista.innerHTML='<h3 style="font-weight:900;margin:10px 0">Meus Galpões Cadastrados: '+dados.length+'</h3>'+dados.map((g,i)=>`
-    <div class="section"><b>${g.titulo}</b> - ${g.cidade} - ${g.areaUtil}m² - R$ ${g.valor}<br>
-    <small>${g.galeria?g.galeria.length:0} fotos</small>
-    <div style="display:flex;gap:4px;margin-top:8px;overflow-x:auto">${(g.galeria||[]).map(s=>`<img src="${s}" style="width:50px;height:50px;object-fit:cover;border-radius:8px;border:1px solid #111">`).join('')}</div>
-    <button onclick="if(confirm('Remover este galpão?')){let d=getDados();d.splice(${i},1);setDados(d);location.reload()}" style="margin-top:8px;background:#dc2626;color:#fff;border:0;border-radius:999px;padding:6px 12px;font-weight:800">Remover</button></div>
-  `).join('');
-}
-carregar();
+function render(){let dados=JSON.parse(localStorage.getItem('galpoes')||'[]'); document.getElementById('lista').innerHTML='<h3 style="margin-bottom:8px">Meus galpões ('+dados.length+')</h3>'+dados.map((g,i)=>`<div style="border:1px solid #ddd;padding:10px;border-radius:12px;margin-bottom:8px;display:flex;justify-content:space-between"><div><b>${g.titulo}</b><br><small>${g.cidade} - ${g.bairro} • ${g.areaUtil}m² • ${g.peDireito} • ${g.energia} • ${g.entrada}</small></div><button onclick="remover(${i})" style="color:red;background:none;border:0;font-weight:800;cursor:pointer">Excluir</button></div>`).join('');}
+function remover(i){let d=JSON.parse(localStorage.getItem('galpoes')||'[]'); d.splice(i,1); localStorage.setItem('galpoes',JSON.stringify(d)); render();}
+render();
 </script>
-</body>
-</html>
+</body></html>
