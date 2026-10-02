@@ -1,79 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meus Imóveis - Galpões e Negócios</title>
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50">
-<header class="bg-white shadow p-4 flex justify-between">
-<a href="index.html" class="font-bold">← Voltar</a>
-<h1 class="font-black">MEUS GALPÕES</h1>
-</header>
-<div class="max-w-4xl mx-auto p-6">
-<div class="bg-white p-6 rounded-2xl shadow mb-6">
-<h2 class="font-bold mb-4">Cadastrar Novo Galpão</h2>
-<div class="grid md:grid-cols-2 gap-3">
-<input id="titulo" placeholder="Título ex: Galpão 300m² no Campestre" class="border p-3 rounded-xl col-span-2">
-<input id="cidade" placeholder="Cidade: Santo André" class="border p-3 rounded-xl">
-<input id="bairro" placeholder="Bairro: Campestre" class="border p-3 rounded-xl">
-<input id="area" placeholder="Área m² ex: 300" class="border p-3 rounded-xl">
-<input id="valor" placeholder="Valor Aluguel ex: 4500" class="border p-3 rounded-xl">
-<input id="whatsapp" placeholder="WhatsApp ex: 11 99999-9999" class="border p-3 rounded-xl">
-<input id="imagem" placeholder="Link da imagem (opcional)" class="border p-3 rounded-xl col-span-2">
-<button onclick="salvar()" class="bg-black text-white p-3 rounded-xl font-bold col-span-2">SALVAR GALPÃO NO FIREBASE</button>
-</div>
-</div>
-<div id="meus" class="grid md:grid-cols-2 gap-4"></div>
-</div>
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-const firebaseConfig = {
-  apiKey: "AIzaSyC7pY7zOU-zUNoB-P_eRzxcU9OBAp4B9I",
-  authDomain: "galpoes-e-negocios.firebaseapp.com",
-  projectId: "galpoes-e-negocios",
-  storageBucket: "galpoes-e-negocios.firebasestorage.app",
-  messagingSenderId: "394078482486",
-  appId: "1:394078482486:web:718b1c9ec6fef801426897"
-};
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-let ownerId = localStorage.getItem('gn_owner') || 'owner_'+Math.random().toString(36).substring(2,9);
-localStorage.setItem('gn_owner', ownerId);
-window.salvar = async function(){
-  const dados = {
-    titulo: document.getElementById('titulo').value,
-    cidade: document.getElementById('cidade').value,
-    bairro: document.getElementById('bairro').value,
-    area: document.getElementById('area').value,
-    valor: document.getElementById('valor').value,
-    whatsapp: document.getElementById('whatsapp').value,
-    imagem: document.getElementById('imagem').value,
-    ownerId: ownerId,
-    criadoEm: serverTimestamp()
-  };
-  if(!dados.titulo || !dados.cidade){ alert('Preencha título e cidade'); return; }
-  await addDoc(collection(db, "galpoes"), dados);
-  alert('Galpão salvo! Já aparece na busca.');
-  location.reload();
-}
-async function listar(){
-  const q = query(collection(db, "galpoes"), orderBy("criadoEm","desc"));
-  const snap = await getDocs(q);
-  const meus = snap.docs.map(d=>({id:d.id, ...d.data()})).filter(g=>g.ownerId==ownerId);
-  document.getElementById('meus').innerHTML = meus.map(g=>`
-    <div class="bg-white p-4 rounded-xl shadow flex justify-between">
-      <div><b>${g.titulo}</b><br><small>${g.cidade} - ${g.bairro} - R$ ${g.valor}</small></div>
-      <button onclick="excluir('${g.id}')" class="text-red-600 text-sm font-bold">Excluir</button>
-    </div>
-  `).join('') || '<p class="text-gray-500">Você ainda não cadastrou nenhum galpão.</p>';
-}
-window.excluir = async function(id){
-  if(confirm('Excluir?')){ await deleteDoc(doc(db, "galpoes", id)); location.reload(); }
-}
-listar();
-</script>
-</body>
-</html>
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meus Imóveis</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#f5f5f5}.topo{background:#111;color:#fff;padding:10px 16px;display:flex;justify-content:space-between;font-size:11px}.box{background:#fff;margin:16px;border-radius:12px;padding:16px}.btn{background:#FFD700;color:#000;padding:12px;display:block;text-align:center;border-radius:20px;font-weight:bold;text-decoration:none;margin-top:10px}</style>
+</head><body>
+<div class="topo"><div id="user">Carregando...</div><div><a href="#" onclick="sair()" style="color:#FFD700">SAIR</a></div></div>
+<div class="box"><h2>Meus Galpões</h2><p style="font-size:11px;color:#666;margin-top:6px" id="info"></p><a href="cadastrar-galpao.html" class="btn">+ ANUNCIAR NOVO GALPÃO</a><div id="lista" style="margin-top:16px"></div></div>
+<script>
+const supa = supabase.createClient('https://SEU-PROJETO.supabase.co','SUA_ANON_KEY');
+async function init(){const {data:{user}} = await supa.auth.getUser(); if(!user){location.href='login.html';return;} document.getElementById('user').innerText=user.email; document.getElementById('info').innerText='Bem-vindo! Gerencie seus galpões aqui. Limite: 10 fotos por galpão.'; const {data}=await supa.from('galpoes').select('*').eq('email_proprietario',user.email); if(data&&data.length){document.getElementById('lista').innerHTML=data.map(g=>`<div style="border:1px solid #ddd;padding:10px;border-radius:8px;margin-top:8px">${g.cidade}-${g.bairro} - ${g.area}m²</div>`).join('');}else{document.getElementById('lista').innerHTML='<p style="font-size:12px;color:#888">Nenhum galpão ainda.</p>';}}
+async function sair(){await supa.auth.signOut(); location.href='index.html';} init();
+</script></body></html>
