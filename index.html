@@ -2,47 +2,43 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Galpões e Negócios</title>
+<title>Galpões e Negócios - Em Todo o Brasil</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#f2f2f2;position:relative;min-height:100vh}
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background-image: url('hero.jpg');
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  opacity:0.15;
-  pointer-events:none;
-  z-index:0;
+html,body{height:100%}
+body{
+  background-color:#ffffff !important;
+  background-image: url('./hero.jpg') !important;
+  background-repeat: no-repeat !important;
+  background-position: center 70px !important;
+  background-size: 95% auto !important;
+  background-attachment: fixed !important;
 }
-.topo{background:#111;padding:8px 12px;display:flex;justify-content:flex-end;gap:8px;position:relative;z-index:2}
-.topo a{color:#FFD700;text-decoration:none;border:1px solid #FFD700;padding:5px 12px;border-radius:15px;font-size:11px}
+.topo{background:#111;padding:8px 12px;display:flex;justify-content:flex-end;gap:8px}
+.topo a{color:#FFD700;text-decoration:none;border:1px solid #FFD700;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:bold}
 .topo a.fundo{background:#FFD700;color:#000}
-.hero{background:rgba(34,34,34,0.92);padding:22px 16px;text-align:center;color:#fff;position:relative;z-index:1}
-.frase{background:#FFD700;color:#000;display:inline-block;padding:5px 14px;border-radius:20px;font-weight:bold;font-size:11px;margin-bottom:8px}
-.planos{margin:16px;border-radius:14px;padding:20px 12px 30px 12px;text-align:center;background:rgba(255,255,255,0.90);position:relative;z-index:1}
-.cards{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:14px}
-.card{border:1px solid #ddd;border-radius:12px;padding:16px;width:270px;background:#fff;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.hero{background:#1a1a1a;padding:22px 16px;text-align:center;color:#fff}
+.frase{background:#FFD700;color:#000;display:inline-block;padding:6px 16px;border-radius:20px;font-weight:bold;font-size:11px;margin-bottom:8px}
+.planos{margin:18px 16px;border-radius:16px;padding:24px 12px 30px;text-align:center;background:rgba(255,255,255,0.82);border:1px solid #ddd}
+.cards{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+.card{border:1px solid #e5e5e5;border-radius:14px;padding:18px;width:280px;background:#fff;text-align:left;box-shadow:0 6px 18px rgba(0,0,0,.08)}
 .card.destaque{border:2px solid #FFD700}
-.preco{font-size:22px;font-weight:bold}
-.lista{font-size:12px;line-height:1.8;margin:10px 0}
-.btn-preto{display:block;background:#000;color:#FFD700;text-align:center;padding:11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:12px}
-.btn-amarelo{display:block;background:#FFD700;color:#000;text-align:center;padding:11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:12px}
-.rodape{background:#111;color:#aaa;padding:20px;text-align:center;font-size:11px;line-height:1.6;position:relative;z-index:1}
-.rodape a{color:#FFD700;text-decoration:none;margin:0 5px}
+.preco{font-size:24px;font-weight:900}
+.lista{font-size:12px;line-height:1.9;margin:12px 0;color:#333}
+.btn-preto{display:block;background:#111;color:#FFD700;text-align:center;padding:12px;border-radius:22px;text-decoration:none;font-weight:900;font-size:12px}
+.btn-amarelo{display:block;background:#FFD700;color:#111;text-align:center;padding:12px;border-radius:22px;text-decoration:none;font-weight:900;font-size:12px}
+.rodape{background:#111;color:#999;padding:22px;text-align:center;font-size:11px;line-height:1.6}
+.rodape a{color:#FFD700;text-decoration:none;margin:0 6px}
 </style>
 </head>
 <body>
 <div class="topo"><a href="cadastro-proprietario.html">CADASTRAR</a><a href="login.html" class="fundo">ENTRAR</a></div>
 <div class="hero"><div class="frase">PROPRIETÁRIO DIRETO COM VOCÊ - SEM COMISSÕES</div><h1>Galpões de Todos os Tamanhos - ABC e SP - sem intermediário</h1></div>
-<div class="planos"><h2>Planos para Proprietário</h2>
+<div class="planos"><h2 style="font-size:18px;font-weight:900">Planos para Proprietário</h2>
 <div class="cards">
-<div class="card"><b>1 GALPÃO</b><br><span class="preco">R$49,90</span><span style="font-size:11px">/30d</span><div class="lista">1 galpão ativo<br>Até 10 fotos por galpão<br>Chat protegido<br>Aparece nas buscas</div><a href="cadastro-proprietario.html?plano=1" class="btn-preto">QUERO 1 GALPÃO</a></div>
-<div class="card destaque"><b>3 GALPÕES ⭐ MAIS VENDIDO</b><br><span class="preco">R$99,90</span><span style="font-size:11px">/30d</span><div class="lista">Até 3 galpões<br>Até 10 fotos por galpão<br>Selo destaque topo<br>Suporte prioritário</div><a href="cadastro-proprietario.html?plano=3" class="btn-amarelo">QUERO 3 GALPÕES</a></div>
+<div class="card"><b>1 GALPÃO</b><br><span class="preco">R$49,90</span><span style="font-size:11px">/30d</span><div class="lista">1 galpão ativo<br>Até 10 fotos<br>Chat protegido<br>Aparece nas buscas</div><a href="cadastro-proprietario.html?plano=1" class="btn-preto">QUERO 1 GALPÃO</a></div>
+<div class="card destaque"><b>3 GALPÕES ⭐</b><br><span class="preco">R$99,90</span><span style="font-size:11px">/30d</span><div class="lista">Até 3 galpões<br>Até 10 fotos<br>Selo destaque topo<br>Suporte prioritário</div><a href="cadastro-proprietario.html?plano=3" class="btn-amarelo">QUERO 3 GALPÕES</a></div>
 </div></div>
-<div class="rodape"><b style="color:#fff">GALPÕES E NEGÓCIOS</b><br>CNPJ: 63.329.574/0001-28<br>PIX CNPJ: 63.329.574/0001-28<br><br><a href="privacidade.html">Privacidade</a> | <a href="termos.html">Termos</a> | <a href="faq.html">Dúvidas</a><br><br>© 2026</div>
+<div class="rodape"><b style="color:#fff">GALPÕES E NEGÓCIOS</b><br>CNPJ: 63.329.574/0001-28<br>© 2026</div>
 </body>
 </html>
