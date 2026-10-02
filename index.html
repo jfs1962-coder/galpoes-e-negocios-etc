@@ -7,25 +7,37 @@
 *{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,system-ui,sans-serif;background:#fff;color:#111}
 header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee;display:flex;justify-content:space-between;padding:10px 14px;align-items:center}
 .logo img{height:44px;width:44px;border-radius:8px}
-.btn{border-radius:999px;padding:12px 20px;font-weight:800;font-size:14px;border:0;cursor:pointer;display:inline-flex;justify-content:center;text-decoration:none}
+.btn{border-radius:999px;padding:12px 20px;font-weight:800;font-size:14px;border:0;cursor:pointer;display:inline-flex;justify-content:center;text-decoration:none;white-space:nowrap}
 .btn-dark{background:#1e232e;color:#fff}.btn-orange{background:#FF6A00;color:#fff}
 .hero{padding:28px 18px 14px;max-width:1200px;margin:0 auto}
 .hero h1{font-size:clamp(32px,9vw,54px);line-height:.9;font-weight:900;letter-spacing:-1.2px}
 .hero h1 span{color:#FF6A00;display:block}
 .busca-interessado{max-width:1200px;margin:16px auto;padding:0 14px}
-.input{width:100%;padding:13px 14px;border:2px solid #111;border-radius:12px;font-weight:700;font-size:14px;background:#fff}
+.input{width:100%;padding:13px 12px;border:2px solid #111;border-radius:12px;font-weight:700;font-size:13px;background:#fff;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lista{max-width:1200px;margin:0 auto;padding:18px 12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
 .card-galpao{border:2px solid #111;border-radius:20px;overflow:hidden;background:#fff}
 .card-img{height:190px;background:#e5e7eb}.card-img img{width:100%;height:100%;object-fit:cover}.card-body{padding:14px}
 #modalLogin,#modalCadastro,#modalEscolha{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;align-items:center;justify-content:center;padding:12px}
 .modal-box{background:#fff;border-radius:24px;max-width:440px;width:100%;padding:22px;position:relative;max-height:92vh;overflow:auto}
 .badge{font-size:10px;font-weight:900;background:#FF6A00;color:#fff;padding:4px 8px;border-radius:999px;margin-bottom:10px;display:inline-block}
+.filtros-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.filtros-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px}
+.filtros-grid-cta{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:700px){
+  .filtros-grid-2{grid-template-columns:1fr}
+  .filtros-grid-3{grid-template-columns:1fr 1fr}
+  .filtros-grid-cta{grid-template-columns:1fr}
+  .input{font-size:14px;padding:14px 12px}
+  .lista{grid-template-columns:1fr}
+  header{flex-wrap:wrap;gap:8px}
+  .hero h1{font-size:34px}
+}
 </style>
 </head>
 <body>
 <header>
   <a href="/" class="logo"><img src="icon-192.png" alt="G"></a>
-  <div style="display:flex;gap:8px;align-items:center">
+  <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
     <span id="userName" style="font-size:12px;font-weight:800;display:none"></span>
     <button id="btnEntrar" onclick="abrirLogin()" class="btn btn-dark">Entrar</button>
     <button id="btnSair" onclick="sair()" class="btn" style="display:none;border:1.5px solid #111">Sair</button>
@@ -40,27 +52,27 @@ header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid 
 
 <div class="busca-interessado">
   <div style="border:2px solid #111;border-radius:22px;padding:16px;background:#fff">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px;flex-wrap:wrap">
       <h3 style="font-weight:900">🔍 O que sua empresa precisa?</h3>
-      <span style="font-size:10px;background:#111;color:#fff;padding:4px 8px;border-radius:999px">FILTRO PROFISSIONAL</span>
+      <span style="font-size:10px;background:#111;color:#fff;padding:6px 10px;border-radius:999px;white-space:nowrap">FILTRO PROFISSIONAL</span>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
-      <input class="input" id="buscaCidade" placeholder="📍 Cidade de interesse *">
+    <div class="filtros-grid-2">
+      <input class="input" id="buscaCidade" placeholder="📍 Cidade *">
       <input class="input" id="buscaBairro" placeholder="🏘️ Bairro / Região">
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px">
+    <div class="filtros-grid-3">
       <select class="input" id="buscaTipo"><option value="">Alugar ou Comprar?</option><option value="aluguel">Alugar</option><option value="venda">Comprar</option></select>
       <select class="input" id="buscaTamanho"><option value="">Tamanho</option><option value="0-500">Até 500m²</option><option value="500-1000">500 a 1.000m²</option><option value="1000-2000">1.000 a 2.000m²</option><option value="2000-5000">2.000 a 5.000m²</option><option value="5000+">Acima de 5.000m²</option></select>
       <select class="input" id="buscaDocas"><option value="">Nº de Docas</option><option value="1">1+ docas</option><option value="2">2+ docas</option><option value="4">4+ docas</option></select>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px">
+    <div class="filtros-grid-3">
       <select class="input" id="buscaPe"><option value="">Pé direito</option><option value="6">Mín 6m</option><option value="8">Mín 8m</option><option value="10">Mín 10m</option><option value="12">Mín 12m</option></select>
       <select class="input" id="buscaEnergia"><option value="">Energia</option><option value="trifasico">Trifásico</option><option value="cabine">Cabine Primária</option></select>
       <select class="input" id="buscaEntrada"><option value="">Entrada</option><option value="caminhao">Caminhão</option><option value="carreta">Carreta</option><option value="bitrem">Bitrem</option></select>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+    <div class="filtros-grid-cta">
       <select class="input" id="buscaCondominio"><option value="">Tipo</option><option value="monousuario">Monousuário</option><option value="condominio">Condomínio Logístico</option></select>
-      <button class="btn btn-dark" onclick="buscarInteressado()" style="height:48px">BUSCAR GALPÕES →</button>
+      <button class="btn btn-dark" onclick="buscarInteressado()" style="height:48px;width:100%">BUSCAR GALPÕES →</button>
     </div>
     <div style="margin-top:10px;font-size:11px;color:#6b7280">👉 <b id="totalGalpoes">0</b> galpões • Cadastro grátis para ver contatos</div>
   </div>
@@ -112,7 +124,6 @@ function finalizarCadastro(){
 function sair(){localStorage.removeItem('usuario_logado'); atualizarTopo(); render();}
 function atualizarTopo(){const u=localStorage.getItem('usuario_logado'); if(u){document.getElementById('userName').textContent=u;document.getElementById('userName').style.display='block';document.getElementById('btnEntrar').style.display='none';document.getElementById('btnSair').style.display='inline-flex'}else{document.getElementById('userName').style.display='none';document.getElementById('btnEntrar').style.display='inline-flex';document.getElementById('btnSair').style.display='none'}}
 atualizarTopo();
-
 function getDados(){
   let dados=JSON.parse(localStorage.getItem('galpoes')||'[]');
   if(!dados||dados.length===0){
