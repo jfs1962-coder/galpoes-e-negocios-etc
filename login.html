@@ -1,9 +1,56 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Entrar</title><script src="https://cdn.tailwindcss.com"></script></head><body class="bg-gray-50">
-<div class="max-w-sm mx-auto mt-20 bg-white p-6 rounded-2xl border"><h1 class="font-black">Entrar</h1><input id="email" placeholder="E-mail" type="email" class="border w-full p-3 rounded-xl mt-3"><input id="senha" placeholder="Senha" type="password" class="border w-full p-3 rounded-xl mt-3"><button onclick="entrar()" class="bg-black text-yellow-400 w-full p-3 rounded-xl mt-4 font-bold">ENTRAR</button><p class="text-center text-xs mt-3"><a href="cadastro-proprietario.html">Criar conta</a> | <a href="index.html">Voltar</a></p><p id="msg" class="text-xs text-red-500 text-center mt-2"></p></div>
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-const firebaseConfig = {apiKey: "AIzaSyC7pY7zOU-zUNoB-P_eRzxcU9OBAp4B9I",authDomain: "galpoes-e-negocios.firebaseapp.com",projectId: "galpoes-e-negocios",storageBucket: "galpoes-e-negocios.firebasestorage.app",messagingSenderId: "394078482486",appId: "1:394078482486:web:718b1c9ec6fef801426897"};
-const app=initializeApp(firebaseConfig); const auth=getAuth(app);
-window.entrar=async function(){try{await signInWithEmailAndPassword(auth,document.getElementById('email').value,document.getElementById('senha').value); location.href='meus-imoveis.html';}catch(e){document.getElementById('msg').innerText='E-mail ou senha errados';}}
-</script></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entrar - Galpões e Negócios</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
+body{background:#f5f5f5;display:flex;min-height:100vh}
+.esq{
+  width:45%;background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.6)),url('hero.jpg');
+  background-size:cover;background-position:center;
+  color:#fff;padding:40px;display:flex;flex-direction:column;justify-content:space-between
+}
+.dir{width:55%;display:flex;align-items:center;justify-content:center;padding:20px}
+.box{background:#fff;width:100%;max-width:380px;padding:30px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.logo{height:54px;margin-bottom:18px}
+input{width:100%;padding:14px 16px;border:1px solid #ddd;border-radius:12px;margin-top:10px;font-size:13px;outline:none}
+input:focus{border-color:#FFD700}
+.btn{width:100%;background:#111;color:#FFD700;border:0;padding:14px;border-radius:30px;font-weight:900;margin-top:16px;cursor:pointer;font-size:13px}
+.btn:hover{background:#000}
+.link{font-size:11px;text-align:center;margin-top:14px;color:#666}
+.link a{color:#111;font-weight:800;text-decoration:none}
+@media(max-width:800px){body{flex-direction:column}.esq{width:100%;min-height:220px;padding:24px}.dir{width:100%}}
+</style>
+</head>
+<body>
+<div class="esq">
+<div><div style="background:#fff;display:inline-block;padding:8px 12px;border-radius:10px"><img src="logo.jpg" style="height:36px"></div></div>
+<div>
+<h2 style="font-size:26px;line-height:1.1;font-weight:900">Bem-vindo de volta, <span style="color:#FFD700">Proprietário</span></h2>
+<p style="font-size:13px;opacity:.8;margin-top:10px;line-height:1.5">Gerencie seus galpões, responda interessados no chat protegido e receba contatos direto, sem comissão.</p>
+<p style="font-size:11px;margin-top:18px">✓ 100% Direto • ✓ R$0 Comissão • ✓ CNPJ 63.329.574/0001-28</p>
+</div>
+</div>
+<div class="dir">
+<div class="box">
+<h3 style="font-size:18px;font-weight:900;margin-bottom:4px">Entrar na sua conta</h3>
+<p style="font-size:11px;color:#777;margin-bottom:16px">Acesse seu painel de proprietário</p>
+<input type="email" id="email" placeholder="Seu e-mail">
+<input type="password" id="senha" placeholder="Sua senha">
+<button class="btn" onclick="entrar()">ENTRAR →</button>
+<div class="link"><a href="cadastro-proprietario.html">Criar conta gratuita</a> • <a href="index.html">Voltar ao início</a><br><br><a href="#" style="color:#999">Esqueci minha senha</a></div>
+<p id="msg" style="font-size:11px;color:red;margin-top:10px;text-align:center"></p>
+</div>
+</div>
+<script>
+function entrar(){
+ const e=document.getElementById('email').value, s=document.getElementById('senha').value, m=document.getElementById('msg');
+ if(!e||!s){m.innerText="Preencha e-mail e senha";return}
+ m.innerText="Entrando...";
+ // AQUI SEU SCRIPT DE LOGIN
+ setTimeout(()=>{localStorage.setItem('usuario_logado',e); location.href='painel.html'},800)
+}
+</script>
+</body>
+</html>
