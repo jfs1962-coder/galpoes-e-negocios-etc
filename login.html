@@ -14,20 +14,18 @@ body{background:#f5f5f5;display:flex;min-height:100vh}
 .dir{
   width:55%;display:flex;align-items:center;justify-content:center;padding:20px;
   position:relative;overflow:hidden;
-  background-color:#ffffff;
+  background-color:#e5e5e5;
   background-image: url('hero.jpg');
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: 85%;
-  background-blend-mode: luminosity;
+  background-position: center center;
+  background-size: 95%;
 }
 .dir::before{
   content:"";position:absolute;inset:0;
-  background:rgba(255,255,255,0.88);
-  backdrop-filter: blur(1px);
+  background:rgba(229,229,229,0.55);
 }
-.box{position:relative;z-index:2;background:#fff;width:100%;max-width:380px;padding:30px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.08);border:1px solid #eee}
-input{width:100%;padding:14px 16px;border:1px solid #ddd;border-radius:12px;margin-top:10px;font-size:13px;outline:none}
+.box{position:relative;z-index:2;background:#ffffff;width:100%;max-width:380px;padding:30px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.15);border:1px solid #ddd}
+input{width:100%;padding:14px 16px;border:1px solid #ddd;border-radius:12px;margin-top:10px;font-size:13px;outline:none;background:#fff}
 input:focus{border-color:#FFD700}
 .btn{width:100%;background:#111;color:#FFD700;border:0;padding:14px;border-radius:30px;font-weight:900;margin-top:16px;cursor:pointer;font-size:13px}
 .link{font-size:11px;text-align:center;margin-top:14px;color:#666}
@@ -40,7 +38,7 @@ input:focus{border-color:#FFD700}
 <div><div style="background:#fff;display:inline-block;padding:8px 12px;border-radius:10px"><img src="logo.jpg" style="height:36px"></div></div>
 <div>
 <h2 style="font-size:26px;line-height:1.1;font-weight:900">Bem-vindo de volta, <span style="color:#FFD700">Proprietário</span></h2>
-<p style="font-size:13px;opacity:.8;margin-top:10px">Gerencie seus galpões, responda no chat protegido e receba contatos direto, sem comissão.</p>
+<p style="font-size:13px;opacity:.8;margin-top:10px">Gerencie seus galpões e receba contatos direto, sem comissão.</p>
 </div>
 </div>
 <div class="dir">
