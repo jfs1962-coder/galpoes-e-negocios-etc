@@ -3,17 +3,29 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Galpões e Negócios - Só Proprietário</title>
-<meta name="description" content="Galpões de Todos os Tamanhos - ABC e SP - sem intermediário">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#f5f5f5;color:#111}
-.topo{background:#111;color:#fff;padding:8px 16px;display:flex;justify-content:space-between;align-items:center;font-size:11px}
-.topo b{color:#FFD700}
-.menu-topo a{color:#FFD700;text-decoration:none;border:1px solid #FFD700;padding:5px 10px;border-radius:15px;font-size:10px;margin-left:6px}
-.hero{background:#111;padding:24px 16px;text-align:center;color:#fff}
+body{background:#f5f5f5;color:#111; position:relative;}
+/* FUNDO COM LOGO + MAPA DO BRASIL */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image: url('logo.png');
+  background-repeat: no-repeat;
+  background-position: center 80px;
+  background-size: 85% auto;
+  opacity:0.07;
+  pointer-events:none;
+  z-index:0;
+}
+.topo{background:#111;color:#fff;padding:10px 16px;display:flex;justify-content:flex-end;align-items:center;font-size:11px; position:relative; z-index:2}
+.menu-topo a{color:#FFD700;text-decoration:none;border:1px solid #FFD700;padding:6px 12px;border-radius:15px;font-size:11px;margin-left:8px}
+.menu-topo a.fundo{background:#FFD700;color:#000}
+.hero{background:rgba(17,17,17,0.92);padding:24px 16px;text-align:center;color:#fff; position:relative; z-index:1}
 .frase{background:#FFD700;color:#000;display:inline-block;padding:6px 14px;border-radius:20px;font-weight:bold;font-size:11px;margin-bottom:10px}
 .hero h1{font-size:18px;line-height:1.3}
-.planos{padding:16px;text-align:center;background:#fff;margin:16px;border-radius:12px}
+.planos{padding:16px;text-align:center;background:#fff;margin:16px;border-radius:12px; position:relative; z-index:1}
 .cards{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:12px}
 .card{border:1px solid #ddd;border-radius:12px;padding:16px;width:270px;background:#fff;text-align:left}
 .card.destaque{border:2px solid #FFD700}
@@ -21,23 +33,24 @@ body{background:#f5f5f5;color:#111}
 .lista{font-size:12px;line-height:1.8;margin:10px 0}
 .btn-preto{display:block;background:#000;color:#FFD700;text-align:center;padding:11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:12px}
 .btn-amarelo{display:block;background:#FFD700;color:#000;text-align:center;padding:11px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:12px}
-.rodape{background:#111;color:#aaa;padding:20px;text-align:center;font-size:11px;margin-top:20px;line-height:1.6}
+.rodape{background:#111;color:#aaa;padding:20px;text-align:center;font-size:11px;margin-top:20px;line-height:1.6; position:relative; z-index:1}
 .rodape a{color:#FFD700;text-decoration:none;margin:0 5px}
 </style>
 </head>
 <body>
 <div class="topo">
-<div>SÓ PROPRIETÁRIO • SEM COMISSÃO</div>
 <div class="menu-topo">
 <a href="cadastro-proprietario.html">CADASTRAR</a>
-<a href="login.html" style="background:#FFD700;color:#000">ENTRAR</a>
+<a href="login.html" class="fundo">ENTRAR</a>
 </div>
 </div>
+
 <div class="hero">
 <div class="frase">PROPRIETÁRIO DIRETO COM VOCÊ - SEM COMISSÕES</div>
 <h1>Galpões de Todos os Tamanhos - ABC e SP - sem intermediário</h1>
 <p style="font-size:11px;opacity:.7;margin-top:6px">ABC, São Paulo e Região</p>
 </div>
+
 <div class="planos">
 <h2>Planos para Proprietário</h2>
 <div class="cards">
@@ -53,10 +66,11 @@ body{background:#f5f5f5;color:#111}
 </div>
 </div>
 </div>
+
 <div class="rodape">
 <b style="color:#fff">GALPÕES E NEGÓCIOS</b><br>
 Galpões e Negócios Internet Ltda - ME<br>CNPJ: 63.329.574/0001-28<br>PIX CNPJ: 63.329.574/0001-28<br><br>
-<a href="privacidade.html">Privacidade</a> | <a href="termos.html">Termos</a> | <a href="faq.html">Dúvidas</a><br><br>© 2026 - SÓ PROPRIETÁRIO • SEM COMISSÃO
+<a href="privacidade.html">Privacidade</a> | <a href="termos.html">Termos</a> | <a href="faq.html">Dúvidas</a><br><br>© 2026
 </div>
 </body>
 </html>
