@@ -2,43 +2,102 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Galpões e Negócios - Em Todo o Brasil</title>
+<title>Galpões e Negócios | Alugue Direto com o Proprietário - Sem Comissão</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-html,body{height:100%}
-body{
-  background-color:#ffffff !important;
-  background-image: url('./hero.jpg') !important;
-  background-repeat: no-repeat !important;
-  background-position: center 70px !important;
-  background-size: 95% auto !important;
-  background-attachment: fixed !important;
-}
-.topo{background:#111;padding:8px 12px;display:flex;justify-content:flex-end;gap:8px}
-.topo a{color:#FFD700;text-decoration:none;border:1px solid #FFD700;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:bold}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
+body{background:#fff;color:#111}
+.topo{background:#000;padding:8px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.logo-topo{height:28px}
+.topo .bts{display:flex;gap:8px}
+.topo a{border:1px solid #FFD700;color:#FFD700;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:800;text-decoration:none}
 .topo a.fundo{background:#FFD700;color:#000}
-.hero{background:#1a1a1a;padding:22px 16px;text-align:center;color:#fff}
-.frase{background:#FFD700;color:#000;display:inline-block;padding:6px 16px;border-radius:20px;font-weight:bold;font-size:11px;margin-bottom:8px}
-.planos{margin:18px 16px;border-radius:16px;padding:24px 12px 30px;text-align:center;background:rgba(255,255,255,0.82);border:1px solid #ddd}
-.cards{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:16px}
-.card{border:1px solid #e5e5e5;border-radius:14px;padding:18px;width:280px;background:#fff;text-align:left;box-shadow:0 6px 18px rgba(0,0,0,.08)}
-.card.destaque{border:2px solid #FFD700}
-.preco{font-size:24px;font-weight:900}
-.lista{font-size:12px;line-height:1.9;margin:12px 0;color:#333}
-.btn-preto{display:block;background:#111;color:#FFD700;text-align:center;padding:12px;border-radius:22px;text-decoration:none;font-weight:900;font-size:12px}
-.btn-amarelo{display:block;background:#FFD700;color:#111;text-align:center;padding:12px;border-radius:22px;text-decoration:none;font-weight:900;font-size:12px}
-.rodape{background:#111;color:#999;padding:22px;text-align:center;font-size:11px;line-height:1.6}
-.rodape a{color:#FFD700;text-decoration:none;margin:0 6px}
+/* HERO COM SUA IMAGEM CORRETA */
+.hero{
+  background-image: linear-gradient(to right, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.2) 100%), url('hero.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  min-height: 420px;
+  display:flex;
+  align-items:center;
+  padding:40px 20px;
+  color:#fff;
+}
+.hero-conteudo{max-width:520px}
+.badge{background:#FFD700;color:#000;display:inline-block;padding:6px 14px;border-radius:20px;font-weight:900;font-size:10px;margin-bottom:14px;letter-spacing:.5px}
+.hero h1{font-size:32px;line-height:1.1;font-weight:900;margin-bottom:10px}
+.hero h1 span{color:#FFD700}
+.hero p{font-size:14px;opacity:.9;line-height:1.5;margin-bottom:20px}
+.cta-principal{background:#FFD700;color:#000;padding:14px 28px;border-radius:30px;text-decoration:none;font-weight:900;display:inline-block;font-size:13px}
+.prova-social{background:#111;color:#fff;display:flex;justify-content:center;gap:30px;padding:12px;font-size:11px;text-align:center;flex-wrap:wrap}
+.prova-social b{color:#FFD700;display:block;font-size:13px}
+/* PLANOS */
+.planos{padding:40px 16px;text-align:center;background:#f7f7f7}
+.planos h2{font-size:20px;font-weight:900;margin-bottom:6px}
+.sub-planos{font-size:12px;color:#666;margin-bottom:22px}
+.cards{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.card{background:#fff;border:1px solid #e5e5e5;border-radius:16px;padding:22px;width:300px;text-align:left;position:relative}
+.card.destaque{border:2px solid #FFD700;box-shadow:0 10px 30px rgba(0,0,0,.1);transform:translateY(-6px)}
+.selo-topo{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#FFD700;color:#000;font-size:9px;font-weight:900;padding:4px 12px;border-radius:20px}
+.preco{font-size:28px;font-weight:900}
+.lista{font-size:12px;line-height:2;margin:14px 0;color:#333;list-style:none}
+.lista li::before{content:"✓ ";color:#00b050;font-weight:bold}
+.btn-preto{display:block;background:#111;color:#FFD700;text-align:center;padding:13px;border-radius:30px;text-decoration:none;font-weight:900;font-size:12px;margin-top:10px}
+.btn-amarelo{display:block;background:#FFD700;color:#111;text-align:center;padding:13px;border-radius:30px;text-decoration:none;font-weight:900;font-size:12px;margin-top:10px}
+.rodape{background:#000;color:#777;padding:30px 16px;text-align:center;font-size:11px;line-height:1.7}
+.rodape b{color:#fff}
+.rodape a{color:#FFD700;text-decoration:none}
+@media(max-width:600px){.hero{background-position:70% center;min-height:380px}.hero h1{font-size:26px}}
 </style>
 </head>
 <body>
-<div class="topo"><a href="cadastro-proprietario.html">CADASTRAR</a><a href="login.html" class="fundo">ENTRAR</a></div>
-<div class="hero"><div class="frase">PROPRIETÁRIO DIRETO COM VOCÊ - SEM COMISSÕES</div><h1>Galpões de Todos os Tamanhos - ABC e SP - sem intermediário</h1></div>
-<div class="planos"><h2 style="font-size:18px;font-weight:900">Planos para Proprietário</h2>
+<div class="topo">
+<img src="logo.png" class="logo-topo" alt="Galpões e Negócios">
+<div class="bts"><a href="cadastro-proprietario.html">CADASTRAR</a><a href="login.html" class="fundo">ENTRAR</a></div>
+</div>
+
+<div class="hero">
+<div class="hero-conteudo">
+<div class="badge">SÓ PROPRIETÁRIO • SEM COMISSÃO • SEM INTERMEDIÁRIO</div>
+<h1>Alugue seu Galpão <span>Direto</span> e Economize até 1 Mês de Aluguel</h1>
+<p>No ABC e SP. Fale direto com o dono no chat protegido. Sem corretor, sem enrolação, sem comissão.</p>
+<a href="cadastro-proprietario.html" class="cta-principal">QUERO ANUNCIAR MEU GALPÃO →</a>
+<p style="font-size:10px;margin-top:10px;opacity:.7">✓ Cadastro em 2 minutos • ✓ Já aparece nas buscas</p>
+</div>
+</div>
+
+<div class="prova-social">
+<div><b>1.200+</b> Galpões Anunciados</div>
+<div><b>100%</b> Direto Proprietário</div>
+<div><b>R$0</b> de Comissão</div>
+<div><b>CNPJ 63.329.574/0001-28</b> Empresa Verificada</div>
+</div>
+
+<div class="planos">
+<h2>Planos para Proprietário</h2>
+<p class="sub-planos">Escolha e anuncie hoje mesmo. Cancele quando quiser.</p>
 <div class="cards">
-<div class="card"><b>1 GALPÃO</b><br><span class="preco">R$49,90</span><span style="font-size:11px">/30d</span><div class="lista">1 galpão ativo<br>Até 10 fotos<br>Chat protegido<br>Aparece nas buscas</div><a href="cadastro-proprietario.html?plano=1" class="btn-preto">QUERO 1 GALPÃO</a></div>
-<div class="card destaque"><b>3 GALPÕES ⭐</b><br><span class="preco">R$99,90</span><span style="font-size:11px">/30d</span><div class="lista">Até 3 galpões<br>Até 10 fotos<br>Selo destaque topo<br>Suporte prioritário</div><a href="cadastro-proprietario.html?plano=3" class="btn-amarelo">QUERO 3 GALPÕES</a></div>
-</div></div>
-<div class="rodape"><b style="color:#fff">GALPÕES E NEGÓCIOS</b><br>CNPJ: 63.329.574/0001-28<br>© 2026</div>
+<div class="card">
+<b style="font-size:11px;letter-spacing:1px">1 GALPÃO</b><br><span class="preco">R$49,90</span><span style="font-size:11px;color:#666">/30 dias</span>
+<ul class="lista"><li>1 galpão ativo</li><li>Até 10 fotos por galpão</li><li>Chat direto com interessado</li><li>Aparece nas buscas do ABC e SP</li></ul>
+<a href="cadastro-proprietario.html?plano=1" class="btn-preto">QUERO 1 GALPÃO</a>
+</div>
+<div class="card destaque">
+<div class="selo-topo">⭐ MAIS VENDIDO</div>
+<b style="font-size:11px;letter-spacing:1px">3 GALPÕES</b><br><span class="preco">R$99,90</span><span style="font-size:11px;color:#666">/30 dias</span>
+<ul class="lista"><li>Até 3 galpões simultâneos</li><li>Até 10 fotos por galpão</li><li>Selo DESTAQUE no topo das buscas</li><li>Suporte prioritário no WhatsApp</li></ul>
+<a href="cadastro-proprietario.html?plano=3" class="btn-amarelo">QUERO 3 GALPÕES</a>
+<p style="font-size:10px;text-align:center;margin-top:8px;color:#666">Economize R$49,80</p>
+</div>
+</div>
+</div>
+
+<div class="rodape">
+<img src="logo.png" style="height:32px;opacity:.8;margin-bottom:10px"><br>
+<b>GALPÕES E NEGÓCIOS - EM TODO O BRASIL</b><br>
+Galpões e Negócios Internet Ltda - ME<br>
+CNPJ: 63.329.574/0001-28 | PIX: 63.329.574/0001-28<br><br>
+<a href="privacidade.html">Privacidade</a> | <a href="termos.html">Termos</a> | <a href="faq.html">Dúvidas</a> | <a href="contato.html">Contato</a><br><br>
+© 2026 - Todos os direitos reservados. Direto do proprietário, sem comissão.
+</div>
 </body>
 </html>
