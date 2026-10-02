@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagar - Galpões & Negócios</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="icon" href="icon-192.png">
+</head>
+<body class="bg-[#f6f6f6] min-h-screen">
+<div class="max-w-[480px] mx-auto bg-white min-h-screen shadow-lg">
+<div class="p-4 border-b flex justify-between items-center sticky top-0 bg-white z-10">
+<a href="index.html" class="font-bold text-sm border px-4 py-2 rounded-full">← Voltar</a>
+<b class="text-[11px] tracking-widest">PAGAMENTO SEGURO PIX</b>
+</div>
+
+<div class="p-6 text-center">
+<h1 class="font-black text-2xl">Finalizar assinatura</h1>
+<p class="text-[12px] text-gray-500 mt-1">Liberação imediata após pagamento - Só proprietário</p>
+
+<div class="mt-6 grid grid-cols-2 gap-3 text-left">
+<div id="card49" onclick="selectPlano('49.90','ESSENCIAL - 1 galpão')" class="cursor-pointer border-2 rounded-[16px] p-4 bg-yellow-50 border-yellow-400">
+<b class="text-sm">ESSENCIAL</b><br><span class="text-[11px]">1 galpão ativo</span><br><b class="text-xl">R$49,90</b><span class="text-[10px]">/30d</span>
+<div id="check49" class="mt-2 text-[10px] font-black text-yellow-700">✓ SELECIONADO</div>
+</div>
+<div id="card99" onclick="selectPlano('99.90','PRO - até 5 galpões')" class="cursor-pointer border-2 rounded-[16px] p-4 border-gray-200">
+<b class="text-sm">PRO ⭐</b><br><span class="text-[11px]">Até 5 galpões</span><br><b class="text-xl">R$99,90</b><span class="text-[10px]">/30d</span>
+<div id="check99" class="mt-2 text-[10px] font-bold text-gray-400">Selecionar</div>
+</div>
+</div>
+
+<div class="mt-8 bg-black text-white rounded-[16px] p-5 text-left">
+<p class="text-[11px] tracking-widest text-yellow-400 font-bold">CHAVE PIX CNPJ</p>
+<p class="font-mono text-[16px] font-black mt-1 select-all">63.329.574/0001-28</p>
+<p class="text-[11px] opacity-60 mt-1">GALPÕES E NEGÓCIOS INTERNET LTDA - ME</p>
+<div class="mt-4 bg-white rounded-[12px] p-3 flex justify-center">
+<!-- QR CODE - use qualquer gerador PIX com sua chave CNPJ e valor dinâmico. Abaixo placeholder que funciona ao copiar chave -->
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=00020126580014br.gov.bcb.pix0136633295740001280208Galpoes e Negocios520400005303986540549.905802BR5925GALPOES E NEGOCIOS LTDA6009SAO PAULO62070503***6304" class="w-[180px] h-[180px]">
+</div>
+<button onclick="copiarPix()" class="mt-4 w-full bg-yellow-400 text-black font-black py-3 rounded-full text-sm">COPIAR CHAVE PIX CNPJ</button>
+<p id="copiado" class="text-[11px] mt-2 text-yellow-300 hidden">✓ Chave copiada! Abra seu banco e pague.</p>
+</div>
+
+<div class="mt-6 bg-white border rounded-[16px] p-4 text-left">
+<b class="text-[13px]">Dados para recibo e NFS-e (obrigatório)</b>
+<input id="nome" placeholder="Nome completo / Razão social" class="mt-3 w-full border rounded-[10px] px-4 py-3 text-sm">
+<input id="doc" placeholder="CPF ou CNPJ" class="mt-2 w-full border rounded-[10px] px-4 py-3 text-sm">
+<input id="email" placeholder="E-mail para envio da NFS-e" class="mt-2 w-full border rounded-[10px] px-4 py-3 text-sm">
+<label class="flex gap-2 mt-3 text-[11px] text-gray-500"><input type="checkbox" id="aceite" checked> Aceito Termos de Uso sem reembolso (serviço digital de veiculação imediata) e Política de Privacidade. Registro de IP, data e hora.</label>
+</div>
+
+<div class="mt-6 space-y-3">
+<button onclick="jaPaguei()" class="w-full bg-black text-white font-black py-4 rounded-full text-sm">JÁ PAGUEI - ENVIAR COMPROVANTE NO WHATSAPP</button>
+<a id="btnRecibo" target="_blank" class="block w-full border-2 border-black text-center font-bold py-3 rounded-full text-sm">GERAR RECIBO EM PDF</a>
+<p class="text-[10px] text-gray-400 text-center leading-tight">Serviço digital. Sem reembolso após veiculação. Cancelamento só impede cobranças futuras. Protocolo gerado automaticamente.<br>PIX CNPJ: 63.329.574/0001-28</p>
+</div>
+
+<div class="mt-8 text-[10px] text-gray-400 text-center pb-8">Suporte: contato@galpoesenegocios.com.br • Santo André-SP</div>
+</div>
+</div>
+
+<script>
+let valor='49.90', plano='ESSENCIAL - 1 galpão';
+function selectPlano(v,p){valor=v; plano=p;
+document.getElementById('card49').className=v=='49.90'?'cursor-pointer border-2 rounded-[16px] p-4 bg-yellow-50 border-yellow-400':'cursor-pointer border-2 rounded-[16px] p-4 border-gray-200';
+document.getElementById('card99').className=v=='99.90'?'cursor-pointer border-2 rounded-[16px] p-4 bg-yellow-50 border-yellow-400':'cursor-pointer border-2 rounded-[16px] p-4 border-gray-200';
+document.getElementById('check49').innerText=v=='49.90'?'✓ SELECIONADO':'Selecionar';
+document.getElementById('check99').innerText=v=='99.90'?'✓ SELECIONADO':'Selecionar';
+updateReciboLink();
+}
+function copiarPix(){navigator.clipboard.writeText('63329574000128');document.getElementById('copiado').classList.remove('hidden');}
+function updateReciboLink(){
+let n=document.getElementById('nome').value||'CLIENTE';
+let d=document.getElementById('doc').value||'';
+let link=`recibo.html?nome=${encodeURIComponent(n)}&doc=${encodeURIComponent(d)}&valor=${valor}&plano=${encodeURIComponent(plano)}`;
+document.getElementById('btnRecibo').href=link;
+}
+['nome','doc','email'].forEach(id=>document.getElementById(id).addEventListener('input',updateReciboLink));
+function jaPaguei(){
+let n=document.getElementById('nome').value; let d=document.getElementById('doc').value; let e=document.getElementById('email').value;
+if(!n||!d||!e){alert('Preencha nome, CPF/CNPJ e e-mail para gerar NFS-e');return;}
+if(!document.getElementById('aceite').checked){alert('Aceite os Termos');return;}
+let prot='GN'+Date.now();
+let msg=`Olá Galpões & Negócios! Já paguei PIX CNPJ 63.329.574/0001-28%0APlano: ${plano} - R$${valor}%0ANome: ${n}%0ADoc: ${d}%0AE-mail: ${e}%0AProtocolo: ${prot}%0AIP: será registrado%0AEnvio comprovante em anexo.`;
+updateReciboLink();
+window.open(`https://wa.me/5511963983081?text=${msg}`,'_blank');
+setTimeout(()=>{window.open(document.getElementById('btnRecibo').href,'_blank');},800);
+}
+updateReciboLink();
+</script>
+</body>
+</html>
