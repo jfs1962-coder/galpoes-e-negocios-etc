@@ -1,31 +1,79 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Meus Galpões - Galpões & Negócios</title>
-<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,sans-serif;background:#f5f5f5;padding:20px} .box{background:#fff;max-width:800px;margin:0 auto;padding:24px;border-radius:20px;border:2px solid #111} .input{width:100%;padding:12px;border:2px solid #111;border-radius:12px;font-weight:700;margin:6px 0} label{font-size:11px;font-weight:900;margin-top:12px;display:block} .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px} @media(max-width:600px){.grid{grid-template-columns:1fr}} .btn{padding:14px;border-radius:999px;font-weight:900;border:0;cursor:pointer} .btn-orange{background:#FF6A00;color:#fff;width:100%;margin-top:16px}</style>
-</head><body>
-<div class="box">
-<h2 style="font-weight:900">🏭 Cadastrar meu Galpão</h2><p style="color:#6b7280;font-size:13px;margin-bottom:16px">Preencha o básico que o cliente busca</p>
-
-<label>Título *</label><input class="input" id="titulo" placeholder="Ex: Galpão 1.200m² Santo André 4 docas">
-<div class="grid"><div><label>Cidade *</label><input class="input" id="cidade" placeholder="Ex: Santo André"></div><div><label>Bairro / Região *</label><input class="input" id="bairro" placeholder="Ex: Distrito Industrial"></div></div>
-<div class="grid"><div><label>Área útil (m²) *</label><input class="input" id="areaUtil" type="number" placeholder="1200"></div><div><label>Pé direito *</label><select class="input" id="peDireito"><option>6m</option><option>8m</option><option>10m</option><option selected>12m</option><option>15m</option></select></div></div>
-<div class="grid"><div><label>Nº de Docas *</label><input class="input" id="docas" type="number" placeholder="4"></div><div><label>Valor R$ *</label><input class="input" id="valor" type="number" placeholder="25000"></div></div>
-<div class="grid"><div><label>Tipo</label><select class="input" id="tipo"><option value="aluguel">Alugar</option><option value="venda">Vender</option></select></div><div><label>Tipo de Galpão *</label><select class="input" id="tipoGalpao"><option value="monousuario">Monousuário (isolado)</option><option value="condominio">Em Condomínio Logístico</option></select></div></div>
-<div class="grid"><div><label>Energia *</label><select class="input" id="energia"><option value="trifasico">Trifásico</option><option value="cabine">Cabine Primária</option><option value="bifasico">Bifásico</option></select></div><div><label>Entrada *</label><select class="input" id="entrada"><option value="caminhao">Caminhão</option><option value="carreta">Carreta</option><option value="bitrem">Carreta + Bitrem</option></select></div></div>
-<label>Endereço</label><input class="input" id="endereco" placeholder="Rua, número">
-<label>WhatsApp com DDD *</label><input class="input" id="whatsapp" placeholder="11 99999-9999">
-<label>Link da foto principal (ou deixe padrão)</label><input class="input" id="fotos" placeholder="https://...">
-<button class="btn btn-orange" onclick="salvar()">SALVAR GALPÃO E PUBLICAR →</button>
-<div id="lista" style="margin-top:24px"></div>
-<a href="/" style="display:block;text-align:center;margin-top:16px;color:#111;font-weight:800">← Voltar para busca</a>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meus Imóveis - Galpões e Negócios</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+<header class="bg-white shadow p-4 flex justify-between">
+<a href="index.html" class="font-bold">← Voltar</a>
+<h1 class="font-black">MEUS GALPÕES</h1>
+</header>
+<div class="max-w-4xl mx-auto p-6">
+<div class="bg-white p-6 rounded-2xl shadow mb-6">
+<h2 class="font-bold mb-4">Cadastrar Novo Galpão</h2>
+<div class="grid md:grid-cols-2 gap-3">
+<input id="titulo" placeholder="Título ex: Galpão 300m² no Campestre" class="border p-3 rounded-xl col-span-2">
+<input id="cidade" placeholder="Cidade: Santo André" class="border p-3 rounded-xl">
+<input id="bairro" placeholder="Bairro: Campestre" class="border p-3 rounded-xl">
+<input id="area" placeholder="Área m² ex: 300" class="border p-3 rounded-xl">
+<input id="valor" placeholder="Valor Aluguel ex: 4500" class="border p-3 rounded-xl">
+<input id="whatsapp" placeholder="WhatsApp ex: 11 99999-9999" class="border p-3 rounded-xl">
+<input id="imagem" placeholder="Link da imagem (opcional)" class="border p-3 rounded-xl col-span-2">
+<button onclick="salvar()" class="bg-black text-white p-3 rounded-xl font-bold col-span-2">SALVAR GALPÃO NO FIREBASE</button>
 </div>
-<script>
-function salvar(){
-  const g={titulo:document.getElementById('titulo').value, cidade:document.getElementById('cidade').value, bairro:document.getElementById('bairro').value, areaUtil:document.getElementById('areaUtil').value, peDireito:document.getElementById('peDireito').value, docas:document.getElementById('docas').value, valor:document.getElementById('valor').value, tipo:document.getElementById('tipo').value, tipoGalpao:document.getElementById('tipoGalpao').value, energia:document.getElementById('energia').value, entrada:document.getElementById('entrada').value, endereco:document.getElementById('endereco').value, whatsapp:document.getElementById('whatsapp').value, fotos:document.getElementById('fotos').value||'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d', galeria:[document.getElementById('fotos').value||'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d']};
-  if(!g.titulo||!g.cidade||!g.areaUtil){alert('Preencha Título, Cidade e Área');return}
-  let dados=JSON.parse(localStorage.getItem('galpoes')||'[]'); dados.push(g); localStorage.setItem('galpoes',JSON.stringify(dados)); alert('✅ Galpão publicado! Já aparece na busca com filtros.'); render(); 
+</div>
+<div id="meus" class="grid md:grid-cols-2 gap-4"></div>
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyC7pY7zOU-zUNoB-P_eRzxcU9OBAp4B9I",
+  authDomain: "galpoes-e-negocios.firebaseapp.com",
+  projectId: "galpoes-e-negocios",
+  storageBucket: "galpoes-e-negocios.firebasestorage.app",
+  messagingSenderId: "394078482486",
+  appId: "1:394078482486:web:718b1c9ec6fef801426897"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+let ownerId = localStorage.getItem('gn_owner') || 'owner_'+Math.random().toString(36).substring(2,9);
+localStorage.setItem('gn_owner', ownerId);
+window.salvar = async function(){
+  const dados = {
+    titulo: document.getElementById('titulo').value,
+    cidade: document.getElementById('cidade').value,
+    bairro: document.getElementById('bairro').value,
+    area: document.getElementById('area').value,
+    valor: document.getElementById('valor').value,
+    whatsapp: document.getElementById('whatsapp').value,
+    imagem: document.getElementById('imagem').value,
+    ownerId: ownerId,
+    criadoEm: serverTimestamp()
+  };
+  if(!dados.titulo || !dados.cidade){ alert('Preencha título e cidade'); return; }
+  await addDoc(collection(db, "galpoes"), dados);
+  alert('Galpão salvo! Já aparece na busca.');
+  location.reload();
 }
-function render(){let dados=JSON.parse(localStorage.getItem('galpoes')||'[]'); document.getElementById('lista').innerHTML='<h3 style="margin-bottom:8px">Meus galpões ('+dados.length+')</h3>'+dados.map((g,i)=>`<div style="border:1px solid #ddd;padding:10px;border-radius:12px;margin-bottom:8px;display:flex;justify-content:space-between"><div><b>${g.titulo}</b><br><small>${g.cidade} - ${g.bairro} • ${g.areaUtil}m² • ${g.peDireito} • ${g.energia} • ${g.entrada}</small></div><button onclick="remover(${i})" style="color:red;background:none;border:0;font-weight:800;cursor:pointer">Excluir</button></div>`).join('');}
-function remover(i){let d=JSON.parse(localStorage.getItem('galpoes')||'[]'); d.splice(i,1); localStorage.setItem('galpoes',JSON.stringify(d)); render();}
-render();
+async function listar(){
+  const q = query(collection(db, "galpoes"), orderBy("criadoEm","desc"));
+  const snap = await getDocs(q);
+  const meus = snap.docs.map(d=>({id:d.id, ...d.data()})).filter(g=>g.ownerId==ownerId);
+  document.getElementById('meus').innerHTML = meus.map(g=>`
+    <div class="bg-white p-4 rounded-xl shadow flex justify-between">
+      <div><b>${g.titulo}</b><br><small>${g.cidade} - ${g.bairro} - R$ ${g.valor}</small></div>
+      <button onclick="excluir('${g.id}')" class="text-red-600 text-sm font-bold">Excluir</button>
+    </div>
+  `).join('') || '<p class="text-gray-500">Você ainda não cadastrou nenhum galpão.</p>';
+}
+window.excluir = async function(id){
+  if(confirm('Excluir?')){ await deleteDoc(doc(db, "galpoes", id)); location.reload(); }
+}
+listar();
 </script>
-</body></html>
+</body>
+</html>
