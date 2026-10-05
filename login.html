@@ -30,35 +30,4 @@ input:focus{border-color:#FFD700}
 .btn{width:100%;background:#111;color:#FFD700;border:0;padding:14px;border-radius:30px;font-weight:900;margin-top:16px;cursor:pointer;font-size:13px}
 .link{font-size:11px;text-align:center;margin-top:14px;color:#666}
 .link a{color:#111;font-weight:800;text-decoration:none}
-@media(max-width:800px){body{flex-direction:column}.esq{width:100%;min-height:220px;padding:24px}.dir{width:100%}}
-</style>
-</head>
-<body>
-<div class="esq">
-<div><div style="background:#fff;display:inline-block;padding:8px 12px;border-radius:10px"><img src="logo.jpg" style="height:36px"></div></div>
-<div>
-<h2 style="font-size:26px;line-height:1.1;font-weight:900">Bem-vindo de volta, <span style="color:#FFD700">Proprietário</span></h2>
-<p style="font-size:13px;opacity:.8;margin-top:10px">Gerencie seus galpões e receba contatos direto, sem comissão.</p>
-</div>
-</div>
-<div class="dir">
-<div class="box">
-<h3 style="font-size:18px;font-weight:900;margin-bottom:4px">Entrar na sua conta</h3>
-<p style="font-size:11px;color:#777;margin-bottom:16px">Acesse seu painel</p>
-<input type="email" id="email" placeholder="Seu e-mail">
-<input type="password" id="senha" placeholder="Sua senha">
-<button class="btn" onclick="entrar()">ENTRAR →</button>
-<div class="link"><a href="cadastro-proprietario.html">Criar conta gratuita</a> • <a href="index.html">Voltar ao início</a></div>
-<p id="msg" style="font-size:11px;color:red;margin-top:10px;text-align:center"></p>
-</div>
-</div>
-<script>
-function entrar(){
- const e=document.getElementById('email').value, s=document.getElementById('senha').value, m=document.getElementById('msg');
- if(!e||!s){m.innerText="Preencha e-mail e senha";return}
- m.innerText="Entrando...";
- setTimeout(()=>{localStorage.setItem('usuario_logado',e); location.href='painel.html'},800)
-}
-</script>
-</body>
-</html>
+@media(max-width:800px){body{flex-direction:column}.esq{width:100%;min
