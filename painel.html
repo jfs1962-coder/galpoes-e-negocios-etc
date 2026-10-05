@@ -2,99 +2,25 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Painel - Galpões e Negócios</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
-body{background:#f0f0f0;min-height:100vh}
-.fundo{
-  position:fixed;inset:0;z-index:-2;
-  background-color:#e5e5e5;
-  background-image:url('hero.jpg');
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:95%;
-  opacity:.40;
-}
-.velo{
-  position:fixed;inset:0;z-index:-1;
-  background:rgba(240,240,240,.65);
-}
-.topo{background:#111;color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
-.logo{background:#fff;padding:6px 10px;border-radius:8px}
-.logo img{height:28px;display:block}
-.wrap{max-width:1100px;margin:0 auto;padding:20px;position:relative;z-index:1}
-.card{background:#fff;border:1px solid #ddd;border-radius:16px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.12)}
-.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
-.kpi{border:1px solid #eee;border-radius:14px;padding:14px;background:#fff}
-.kpi b{font-size:20px;display:block;margin-top:4px}
-.btn{padding:11px 16px;border-radius:30px;border:0;font-weight:900;cursor:pointer;font-size:12px}
-.btn-amarelo{background:#FFD700;color:#000}
-.btn-preto{background:#111;color:#FFD700}
-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:12px}
-th,td{padding:10px;border-bottom:1px solid #eee;text-align:left}
-@media(max-width:800px){.grid{grid-template-columns:1fr}}
-</style>
+<title>Painel</title>
+<style>body{font-family:Arial;background:#f2f2f2;margin:0;padding:0}.topo{background:#111;color:#fff;padding:15px 20px;display:flex;justify-content:space-between}.card{background:#fff;margin:20px auto;max-width:900px;padding:20px;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,.1)}</style>
 </head>
 <body>
-<div class="fundo"></div>
-<div class="velo"></div>
-
-<div class="topo">
-<div style="display:flex;align-items:center;gap:10px">
-<div class="logo"><img src="logo.jpg" alt="logo"></div>
-<b style="color:#FFD700;font-size:13px">Galpões e Negócios</b>
-</div>
-<div style="display:flex;gap:8px;align-items:center">
-<span id="userEmail" style="font-size:11px;opacity:.8"></span>
-<button onclick="sair()" style="background:#222;color:#fff;border:1px solid #333;padding:8px 14px;border-radius:20px;font-size:11px;cursor:pointer">Sair</button>
-</div>
-</div>
-
-<div class="wrap">
+<div class="topo"><b style="color:#FFD700">Galpões e Negócios</b><button onclick="sair()" style="padding:6px 12px;border-radius:15px;border:0;cursor:pointer">Sair</button></div>
 <div class="card">
-<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
-<div>
-<h2 style="font-weight:900;font-size:20px">Seu painel</h2>
-<p style="font-size:11px;color:#666">Gerencie seus galpões • <b id="planoInfo" style="color:#111"></b></p>
+<h2>Painel funcionando!</h2>
+<p>Email: <b id="email"></b></p>
+<p id="hora"></p>
+<hr style="margin:15px 0">
+<p>Se você está lendo isso, a tela branca foi corrigida.</p>
+<a href="index.html">Voltar ao site</a> | <a href="cadastrar-galpao.html">Cadastrar galpão</a>
 </div>
-<div style="display:flex;gap:8px">
-<button class="btn btn-amarelo" onclick="location.href='cadastrar-galpao.html'">+ NOVO GALPÃO</button>
-<button class="btn btn-preto" onclick="location.href='index.html'">VER SITE</button>
-</div>
-</div>
-
-<div class="grid">
-<div class="kpi"><span style="font-size:11px;color:#777">GALPÕES ATIVOS</span><b id="kpiAtivos">0</b></div>
-<div class="kpi"><span style="font-size:11px;color:#777">CONTATOS RECEBIDOS</span><b>0</b></div>
-<div class="kpi"><span style="font-size:11px;color:#777">VISUALIZAÇÕES</span><b>0</b></div>
-</div>
-
-<div style="margin-top:18px">
-<h4 style="font-size:13px;font-weight:900">Meus galpões</h4>
-<table>
-<tr><th>Galpão</th><th>Bairro/Cidade</th><th>Valor</th><th>Status</th></tr>
-<tr><td colspan="4" style="text-align:center;padding:24px;color:#999">Nenhum galpão cadastrado ainda. Clique em + NOVO GALPÃO</td></tr>
-</table>
-<p style="font-size:10px;color:#999;margin-top:14px;text-align:center">Se esta tela ficar branca, aperte Ctrl+Shift+R</p>
-</div>
-</div>
-</div>
-
 <script>
-console.log("painel carregou");
 const email = localStorage.getItem('usuario_logado');
-console.log("usuario:", email);
-document.getElementById('userEmail').innerText = email || 'não logado';
-document.getElementById('planoInfo').innerText = (localStorage.getItem('plano')||'3') + ' galpões';
-
-if(!email){
-  document.body.innerHTML = '<div style="padding:40px;text-align:center;font-family:Arial"><h3>Você não está logado</h3><p style="font-size:12px;color:#666;margin:10px 0">Faça login para acessar o painel</p><a href="login.html" style="background:#FFD700;color:#000;padding:10px 20px;border-radius:20px;text-decoration:none;font-weight:800;font-size:12px">IR PARA LOGIN</a></div>';
-}
-
-function sair(){
-  localStorage.removeItem('usuario_logado');
-  location.href='login.html';
-}
+document.getElementById('email').innerText = email || 'NÃO LOGADO';
+document.getElementById('hora').innerText = 'Carregado em: ' + new Date().toLocaleString();
+if(!email){ document.body.innerHTML = '<div style="padding:40px;text-align:center"><h3>Faça login</h3><a href="login.html">Ir para login</a></div>'; }
+function sair(){localStorage.clear(); location.href='login.html';}
 </script>
 </body>
 </html>
