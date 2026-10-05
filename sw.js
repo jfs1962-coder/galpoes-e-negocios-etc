@@ -1,43 +1,25 @@
-const CACHE_NAME = 'galpoes-v2';
-const FILES_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/logo.png',
-  '/logo.jpg',
-  '/hero.jpg',
-  '/banner.jpg',
-  '/icon-192.png',
-  '/icon-512.png',
-  '/manifest.json',
-  '/faq.html',
-  '/termos.html'
-];
+const CACHE = 'galpoes-v4-limpo';
+const FILES = ['index.html','logo.jpg','hero.jpg','manifest.json'];
 
 self.addEventListener('install', e => {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(FILES_TO_CACHE))
-  );
   self.skipWaiting();
+  e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)));
 });
 
 self.addEventListener('activate', e => {
   e.waitUntil(
-    caches.keys().then(keys => Promise.all(
-      keys.map(key => { if(key !== CACHE_NAME) return caches.delete(key); })
-    ))
+    caches.keys().then(keys => Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k))))
   );
   self.clients.claim();
 });
 
 self.addEventListener('fetch', e => {
+  const url = e.request.url;
+  // NUNCA cacheia login, painel, cadastro
+  if(url.includes('login.html') || url.includes('painel.html') || url.includes('cadastro')){
+    return e.request.mode === 'navigate' ? e.respondWith(fetch(e.request)) : null;
+  }
   e.respondWith(
-    caches.match(e.request).then(cached => {
-      return cached || fetch(e.request).then(res => {
-        return caches.open(CACHE_NAME).then(cache => {
-          cache.put(e.request, res.clone());
-          return res;
-        });
-      });
-    }).catch(() => caches.match('/index.html'))
+    fetch(e.request).catch(()=>caches.match(e.request))
   );
 });
