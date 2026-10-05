@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Painel - Galpões e Negócios</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
+body{background:#e5e5e5;min-height:100vh;position:relative}
+body::before{
+  content:"";position:fixed;inset:0;
+  background-color:#e5e5e5;
+  background-image: url('hero.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 95%;
+  opacity:0.45;
+  z-index:-1;
+}
+body::after{
+  content:"";position:fixed;inset:0;
+  background:rgba(229,229,229,0.55);
+  z-index:-1;
+}
+.topo{background:#111;color:#fff;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.topo .logo{background:#fff;padding:6px 10px;border-radius:8px}
+.topo .logo img{height:28px}
+.wrap{max-width:1100px;margin:0 auto;padding:24px}
+.card{background:#fff;border:1px solid #ddd;border-radius:16px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:18px}
+.kpi{border:1px solid #eee;border-radius:14px;padding:16px;background:#fff}
+.kpi b{font-size:22px;display:block;margin-top:4px}
+.btn{padding:12px 18px;border-radius:30px;border:0;font-weight:900;cursor:pointer;font-size:12px}
+.btn-amarelo{background:#FFD700;color:#000}
+.btn-preto{background:#111;color:#FFD700}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:12px}
+th,td{padding:10px;border-bottom:1px solid #eee;text-align:left}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.wrap{padding:14px}}
+</style>
+</head>
+<body>
+<div class="topo">
+<div style="display:flex;align-items:center;gap:12px">
+<div class="logo"><img src="logo.jpg"></div>
+<b style="color:#FFD700;font-size:13px">Galpões e Negócios</b>
+</div>
+<div style="display:flex;gap:8px;align-items:center">
+<span id="userEmail" style="font-size:11px;opacity:.8"></span>
+<button onclick="sair()" style="background:#222;color:#fff;border:1px solid #333;padding:8px 14px;border-radius:20px;font-size:11px;cursor:pointer">Sair</button>
+</div>
+</div>
+<div class="wrap">
+<div class="card">
+<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+<div>
+<h2 style="font-weight:900">Seu painel</h2>
+<p style="font-size:11px;color:#777">Gerencie seus galpões • <span id="planoInfo" style="font-weight:800;color:#111"></span></p>
+</div>
+<div style="display:flex;gap:8px">
+<button class="btn btn-amarelo" onclick="location.href='cadastro-galpoes.html'">+ NOVO GALPÃO</button>
+<button class="btn btn-preto" onclick="location.href='index.html'">VER SITE</button>
+</div>
+</div>
+<div class="grid">
+<div class="kpi"><span style="font-size:11px;color:#777">GALPÕES ATIVOS</span><b>0</b></div>
+<div class="kpi"><span style="font-size:11px;color:#777">CONTATOS RECEBIDOS</span><b>0</b></div>
+<div class="kpi"><span style="font-size:11px;color:#777">VISUALIZAÇÕES</span><b>0</b></div>
+</div>
+<div style="margin-top:18px">
+<h4 style="font-size:13px;font-weight:900">Meus galpões</h4>
+<div style="overflow:auto">
+<table><tr><th>Galpão</th><th>Bairro/Cidade</th><th>Valor</th><th>Status</th></tr>
+<tr><td colspan="4" style="text-align:center;padding:20px;color:#999">Nenhum galpão cadastrado ainda.</td></tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<script>
+document.getElementById('userEmail').innerText = localStorage.getItem('usuario_logado') || '';
+document.getElementById('planoInfo').innerText = (localStorage.getItem('plano')||'3')+' galpões no plano';
+function sair(){localStorage.removeItem('usuario_logado'); location.href='login.html'}
+</script>
+</body>
+</html>
