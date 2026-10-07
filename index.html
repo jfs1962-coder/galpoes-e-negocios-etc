@@ -12,49 +12,66 @@ body{background:#fff}
 .menu{display:flex;gap:18px;align-items:center}
 .menu a{color:#fff;text-decoration:none;font-size:12px;font-weight:800}
 .btn-amarelo{background:#FFD700;color:#000;padding:11px 20px;border-radius:22px;text-decoration:none;font-size:12px;font-weight:900}
-.hero{position:relative;min-height:460px;display:flex;align-items:center;padding:40px 26px;background:#f5f5f7 url('./hero.jpg') center/contain no-repeat}
-.hero-content{max-width:1200px;width:100%;margin:0 auto}
-.hero h1{color:#111;font-size:38px;font-weight:900;line-height:1.1;max-width:520px}
+/* HERO COBRINDO 100% DA AREA BRANCA */
+.hero{position:relative;min-height:500px;display:flex;align-items:center;padding:50px 26px;background:#eef0f3 url('./hero.jpg?v=11') center center / cover no-repeat;width:100%}
+.hero-content{max-width:1200px;width:100%;margin:0 auto;position:relative;z-index:2}
+.hero h1{color:#111;font-size:40px;font-weight:900;line-height:1.1;max-width:520px}
 .hero h1 span{color:#FF7A00}
-.hero p{color:#333;font-size:14px;margin:14px 0 22px;max-width:520px;line-height:1.6;font-weight:500}
-.search-box{background:#fff;border:1px solid #ddd;border-radius:14px;padding:10px;display:flex;gap:8px;max-width:680px;flex-wrap:wrap;box-shadow:0 8px 20px rgba(0,0,0,.08)}
-.search-box select,.search-box input{flex:1;min-width:140px;padding:12px;border:1px solid #ddd;border-radius:10px;font-size:13px}
+.hero p{color:#333;font-size:13.5px;margin:14px 0 22px;max-width:480px;line-height:1.6}
+.search-box{background:#fff;border:1px solid #ddd;border-radius:14px;padding:10px;display:flex;gap:8px;max-width:620px;flex-wrap:wrap;box-shadow:0 8px 24px rgba(0,0,0,.1)}
+.search-box select,.search-box input{flex:1;min-width:130px;padding:12px;border:1px solid #ddd;border-radius:10px;font-size:13px}
 .btn-buscar{background:#FFD700;border:0;padding:12px 24px;border-radius:10px;font-weight:900;cursor:pointer}
 .secao-prop{background:#f7f7f5;padding:42px 26px;border-top:1px solid #eee;border-bottom:1px solid #eee}
-.secao-prop-inner{max-width:1200px;margin:0 auto;display:flex;gap:40px;align-items:center}
+.secao-prop-inner{max-width:1200px;margin:0 auto;display:flex;gap:40px;align-items:flex-start}
+.secao-prop-text{flex:1.3}
+.secao-prop-text h2{font-size:19px;font-weight:900;line-height:1.3}
+.secao-prop-text h2 span{color:#FF7A00}
+.secao-prop-text p{font-size:13px;line-height:1.7;margin-top:12px;color:#222}
 .box-economia{flex:.7;background:#111;color:#fff;border-radius:16px;padding:22px;text-align:center}
 .btn-teste{width:100%;background:#FFD700;color:#000;border:0;padding:14px;border-radius:12px;font-weight:900;margin-top:16px;cursor:pointer}
-footer{background:#0a0a0a;color:#aaa;padding:26px;text-align:center;font-size:11px;line-height:1.8}
-@media(max-width:800px){.logo-box img{height:68px}.secao-prop-inner{flex-direction:column}}
+footer{background:#0a0a0a;color:#aaa;padding:26px;text-align:center;font-size:11px}
+@media(max-width:800px){.logo-box img{height:68px}.secao-prop-inner{flex-direction:column}.hero{ min-height:420px; background-position: 70% center}}
 </style>
 </head>
 <body>
 <div class="top">
-  <a href="./index.html"><div class="logo-box"><img src="./logo.jpg?v=10" alt="Galpões e Negócios - Em todo o Brasil"></div></a>
+  <a href="./index.html"><div class="logo-box"><img src="./logo.jpg?v=11" alt="Galpões e Negócios - Em todo o Brasil"></div></a>
   <div class="menu">
     <a href="./buscar.html">BUSCAR GALPÕES</a>
     <a href="./login.html">ENTRAR</a>
     <a href="./cadastro-proprietario.html" class="btn-amarelo">ANUNCIAR GALPÃO</a>
   </div>
 </div>
+
 <div class="hero">
   <div class="hero-content">
     <h1>Galpões para alugar <span>direto do proprietário</span> no ABC e SP</h1>
     <p>Chega de intermediário. Aqui você negocia direto com o dono. Sem corretor, sem comissão, preço aberto e WhatsApp liberado após cadastro seguro.</p>
     <div class="search-box">
-      <select><option>Todas as cidades</option><option>Santo André</option><option>São Bernardo</option></select>
-      <select><option>Qualquer metragem</option></select>
-      <input placeholder="Preço até R$">
+      <select id="fCidade"><option>Todas as cidades</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option></select>
+      <select id="fMetros"><option>Qualquer metragem</option><option>Até 200m²</option><option>200 a 500m²</option></select>
+      <input id="fPreco" placeholder="Preço até R$">
       <button class="btn-buscar" onclick="location.href='./buscar.html'">BUSCAR →</button>
     </div>
   </div>
 </div>
+
 <div class="secao-prop">
   <div class="secao-prop-inner">
-    <div style="flex:1.3"><h2>Proprietário: <span style="color:#FF7A00">continue com sua imobiliária.</span> Somos seu canal direto a mais.</h2><p style="font-size:13px;line-height:1.7;margin-top:12px">Na <b>Galpões e Negócios - CNPJ 63.329.574/0001-28</b> você não precisa de exclusividade. Somos um diferencial para acelerar a locação. Se fechar por aqui, você economiza praticamente 100% do primeiro aluguel que pagaria de comissão. Convidamos você para um teste.</p></div>
-    <div class="box-economia"><div style="font-size:12px;font-weight:800">ECONOMIA ESTIMADA</div><b style="color:#FFD700;font-size:28px;display:block">100%</b><div style="font-size:13px;font-weight:800">do 1º aluguel</div><button class="btn-teste" onclick="location.href='./cadastro-proprietario.html'">QUERO FAZER O TESTE →</button></div>
+    <div class="secao-prop-text">
+      <h2>Proprietário: <span>continue com sua imobiliária.</span> Somos seu canal direto a mais.</h2>
+      <p>Na Galpões e Negócios - Somos um diferencial para acelerar a locação. Se fechar por aqui, você economiza praticamente 100% do primeiro aluguel que pagaria de comissão. Convidamos você para um teste.</p>
+    </div>
+    <div class="box-economia">
+      <div style="font-size:11px;font-weight:800;letter-spacing:.5px">ECONOMIA ESTIMADA</div>
+      <div style="color:#FFD700;font-size:28px;font-weight:900;margin:4px 0">100%</div>
+      <div style="font-size:12px;font-weight:800">do 1º aluguel</div>
+      <button class="btn-teste" onclick="location.href='./cadastro-proprietario.html'">QUERO FAZER O TESTE →</button>
+      <div style="font-size:10px;color:#888;margin-top:10px">CNPJ 63.329.574/0001-28</div>
+    </div>
   </div>
 </div>
+
 <footer><b style="color:#fff">Galpões e Negócios - CNPJ 63.329.574/0001-28</b><br>Plataforma de negociação direta. Contato liberado somente após cadastro.</footer>
 </body>
 </html>
