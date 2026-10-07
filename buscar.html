@@ -2,148 +2,136 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Buscar Galpões - Galpões e Negócios - ABC e SP</title>
+<title>Buscar Galpões - Galpões e Negócios | CNPJ 63.329.574/0001-28</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
-body{background:#f7f7f7}
-.top{background:#000;color:#fff;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
-.logo-box{background:#fff;padding:6px 12px;border-radius:12px;display:flex;align-items:center}
-.logo-box img{height:56px;filter:contrast(1.2)}
-.top a{color:#fff;text-decoration:none;font-weight:800;font-size:12px;margin-left:14px}
-.btn-amarelo{background:#FFD700;color:#000;padding:10px 18px;border-radius:22px;font-weight:900;text-decoration:none;font-size:12px}
-.layout{display:flex;max-width:1400px;margin:0 auto}
-.filtros{width:300px;background:#fff;border-right:1px solid #e5e5e5;padding:20px;min-height:calc(100vh - 76px);position:sticky;top:76px;align-self:flex-start}
-.filtros h4{font-size:11px;font-weight:900;margin:18px 0 8px;letter-spacing:.5px}
-.filtros select,.filtros input{width:100%;padding:11px;border:1px solid #ddd;border-radius:10px;font-size:12px;margin-top:6px}
-.count{font-size:12px;color:#111;font-weight:800;background:#fffbe0;border:1px solid #FFD700;padding:10px;border-radius:10px;margin-bottom:12px}
-.cards{flex:1;padding:20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;align-content:start}
-.card{background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e5e5e5;box-shadow:0 4px 12px rgba(0,0,0,.06);display:flex;flex-direction:column}
-.card-img{height:190px;background:#ddd;background-size:cover;background-position:center;position:relative}
-.selo{position:absolute;top:10px;left:10px;background:#FFD700;color:#000;font-size:9px;font-weight:900;padding:6px 9px;border-radius:20px}
+body{background:#f5f5f5}
+.top{background:#000;padding:14px 26px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99}
+.logo-box{background:#fff;padding:10px 18px;border-radius:14px;display:flex;align-items:center}
+.logo-box img{height:90px;width:auto;display:block}
+.menu{display:flex;gap:18px;align-items:center}
+.menu a{color:#fff;text-decoration:none;font-size:12px;font-weight:800}
+.btn-amarelo{background:#FFD700;color:#000;padding:11px 20px;border-radius:22px;text-decoration:none;font-size:12px;font-weight:900}
+
+.filtros{background:#fff;padding:18px 26px;border-bottom:1px solid #e5e5e5;display:flex;gap:10px;flex-wrap:wrap;align-items:center;position:sticky;top:118px;z-index:9}
+.filtros select,.filtros input{padding:11px;border:1px solid #ddd;border-radius:10px;font-size:13px;background:#f9f9f9;min-width:160px}
+.filtros button{background:#111;color:#fff;border:0;padding:11px 18px;border-radius:10px;font-weight:800;cursor:pointer}
+
+.aviso-seguranca{max-width:1200px;margin:18px auto 0;padding:0 26px}
+.aviso-seguranca div{background:#fffbe6;border:1px solid #ffe58f;padding:12px 16px;border-radius:10px;font-size:11.5px;line-height:1.5;color:#333}
+.aviso-seguranca b{color:#111}
+
+.galpoes{max-width:1200px;margin:0 auto;padding:18px 26px 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.card{border:1px solid #e5e5e5;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.card img{width:100%;height:180px;object-fit:cover}
 .card-body{padding:14px}
-.preco{font-weight:900;font-size:18px}
-.meta{font-size:11px;color:#666;margin-top:6px;line-height:1.6}
-.meta b{color:#111}
-.btn-wpp{margin-top:12px;background:#000;color:#FFD700;width:100%;border:0;padding:12px;border-radius:10px;font-weight:900;cursor:pointer;font-size:12px}
-footer{grid-column:1/-1;background:#0a0a0a;color:#aaa;padding:24px;font-size:11px;line-height:1.6;text-align:center;border-radius:12px;margin-top:20px}
-footer a{color:#FFD700;text-decoration:none;margin:0 8px}
-@media(max-width:900px){.layout{flex-direction:column}.filtros{width:100%;position:relative;top:0;min-height:auto}.cards{grid-template-columns:1fr}}
+.card-body h3{font-size:14px;font-weight:800}
+.card-body p{font-size:12px;color:#666;margin:4px 0}
+.card-preco{font-size:16px;font-weight:900;color:#111;margin-top:6px}
+.btn-whats{width:100%;margin-top:10px;background:#111;color:#fff;border:0;padding:12px;border-radius:10px;font-weight:800;font-size:12px;cursor:pointer}
+.btn-whats.desbloqueado{background:#25D366}
+.btn-detalhes{width:100%;margin-top:8px;background:#f3f3f3;border:1px solid #e5e5e5;padding:10px;border-radius:10px;font-size:11px;font-weight:700;cursor:pointer}
+
+footer{background:#0a0a0a;color:#aaa;padding:26px;text-align:center;font-size:11px;line-height:1.7;margin-top:20px}
+footer b{color:#fff}
+footer a{color:#FFD700;text-decoration:none;margin:0 6px}
+@media(max-width:800px){.logo-box img{height:68px}.filtros{top:96px;flex-direction:column;align-items:stretch}.filtros select,.filtros input{min-width:100%}}
 </style>
 </head>
 <body>
+
 <div class="top">
-  <a href="./index.html"><div class="logo-box"><img src="./logo.png" onerror="this.src='./logo.jpg'"></div></a>
-  <div>
+  <a href="./index.html"><div class="logo-box"><img src="./logo.png?v=4" alt="G - Galpões e Negócios"></div></a>
+  <div class="menu">
     <a href="./index.html">INÍCIO</a>
-    <a href="./painel.html">MEUS GALPÕES</a>
-    <a href="./cadastro-proprietario.html" class="btn-amarelo">ANUNCIAR</a>
+    <a href="./login.html">ENTRAR</a>
+    <a href="./cadastro-proprietario.html" class="btn-amarelo">ANUNCIAR GALPÃO</a>
   </div>
 </div>
 
-<div class="layout">
-  <div class="filtros">
-    <div class="count" id="count">Carregando...</div>
-    
-    <h4>CIDADE / REGIÃO</h4>
-    <select id="fCidade" onchange="filtrar()">
-      <option value="">Todas do ABC e SP</option>
-      <option value="Santo André">Santo André</option>
-      <option value="São Bernardo">São Bernardo do Campo</option>
-      <option value="São Caetano">São Caetano do Sul</option>
-      <option value="Diadema">Diadema</option>
-      <option value="Mauá">Mauá</option>
-      <option value="São Paulo">São Paulo</option>
-    </select>
-
-    <h4>METRAGEM</h4>
-    <select id="fMetragem" onchange="filtrar()">
-      <option value="">Qualquer tamanho</option>
-      <option value="0-300">Até 300m²</option>
-      <option value="300-600">300 a 600m²</option>
-      <option value="600-99999">Acima de 600m²</option>
-    </select>
-
-    <h4>PREÇO MÁXIMO</h4>
-    <input type="number" id="fPreco" placeholder="Ex: 5000" oninput="filtrar()">
-
-    <div style="margin-top:20px;background:#fffbe0;padding:12px;border-radius:10px;border:1px solid #FFD700;font-size:11px;line-height:1.4">
-      <b>✓ Somente direto proprietário</b><br>Sem comissão, sem corretor. Contato direto no WhatsApp.
-    </div>
-
-    <div style="margin-top:16px;font-size:10px;color:#666">
-      <b>PLANOS:</b><br>
-      1 Galpão = R$49,90/mês<br>
-      3 Galpões = R$99,90/mês ⭐
-    </div>
-  </div>
-
-  <div class="cards" id="lista"></div>
+<div class="filtros">
+  <select id="fCidade"><option value="">Todas as cidades</option><option>Santo André</option><option>São Bernardo do Campo</option><option>São Caetano do Sul</option><option>Diadema</option><option>Mauá</option><option>São Paulo</option></select>
+  <select id="fMetros"><option value="">Qualquer metragem</option><option value="200">Até 200m²</option><option value="500">200 a 500m²</option><option value="1000">500 a 1000m²</option><option value="1001">Acima de 1000m²</option></select>
+  <input id="fPreco" type="number" placeholder="Preço até R$">
+  <button onclick="filtrar()">FILTRAR</button>
 </div>
+
+<div class="aviso-seguranca">
+  <div>🔒 <b>Segurança e Transparência - CNPJ 63.329.574/0001-28:</b> Para proteger o proprietário e evitar curiosos, o WhatsApp só é liberado após seu cadastro gratuito com senha. Negociação 100% direta, sem comissão. Você fala direto com quem decide.</div>
+</div>
+
+<div id="lista" class="galpoes"></div>
+
+<footer>
+  <b>Galpões e Negócios - CNPJ 63.329.574/0001-28</b><br>
+  Plataforma de negociação direta. Contato liberado somente após cadastro. Economia de até 100% do 1º aluguel para o proprietário.<br>
+  <a href="./termos.html">Termos</a> | <a href="./privacidade.html">Privacidade</a> | <a href="./faq.html">FAQ</a>
+</footer>
 
 <script>
-function getGalpoes(){
-  return JSON.parse(localStorage.getItem('gn_galpoes') || localStorage.getItem('galpoes') || localStorage.getItem('meus_galpoes') || '[]');
-}
-const demo = [
-  {titulo:"Galpão 400m² com escritório", cidade:"Santo André", bairro:"Vila Pires", metros:400, preco:4500, foto:"hero.jpg", whats:"11999999999"},
-  {titulo:"Galpão 250m² Rua Própria", cidade:"São Bernardo do Campo", bairro:"Rudge Ramos", metros:250, preco:3200, foto:"hero.jpg", whats:"11999999999"},
-  {titulo:"Galpão 800m² com doca", cidade:"Diadema", bairro:"Centro", metros:800, preco:8900, foto:"hero.jpg", whats:"11999999999"},
+const demo=[
+  {titulo:"Galpão 450m² em Santo André",cidade:"Santo André",bairro:"Vila Industrial",metros:450,preco:5800,whats:"5511999999999",foto:"https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600"},
+  {titulo:"Galpão 800m² em São Bernardo",cidade:"São Bernardo do Campo",bairro:"Batistini",metros:800,preco:9500,whats:"5511999999999",foto:"https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600"},
+  {titulo:"Galpão 320m² em São Caetano",cidade:"São Caetano do Sul",bairro:"Prosperidade",metros:320,preco:4200,whats:"5511999999999",foto:"https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600"},
+  {titulo:"Galpão 1200m² em Diadema",cidade:"Diadema",bairro:"Centro",metros:1200,preco:13500,whats:"5511999999999",foto:"https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600"},
+  {titulo:"Galpão 600m² em Mauá",cidade:"Mauá",bairro:"Capuava",metros:600,preco:6800,whats:"5511999999999",foto:"https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600"}
 ];
-
+function getAll(){
+  const salvos=JSON.parse(localStorage.getItem('gn_galpoes')||'[]');
+  return salvos.length?salvos:demo;
+}
 function render(lista){
-  const el = document.getElementById('lista');
-  const countEl = document.getElementById('count');
-  countEl.innerText = lista.length + ' galpões encontrados • direto proprietário';
-
-  if(lista.length===0){
-    el.innerHTML = `<div style="grid-column:1/-1;background:#fff;padding:20px;border-radius:12px">Nenhum galpão com esse filtro. <a href="./cadastro-proprietario.html" style="color:#000;font-weight:800">Seja o primeiro a anunciar</a>
-    <footer><b style="color:#fff">Galpões e Negócios - CNPJ 00.000.000/0001-00</b><br>Não somos imobiliária. Plataforma direta proprietário.<br><a href="./termos.html">Termos</a> | <a href="./privacidade.html">Privacidade</a> | contato@galpoesenegocios.com.br</footer></div>`;
+  const div=document.getElementById('lista');
+  if(!lista.length){div.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px;color:#666">Nenhum galpão encontrado com esses filtros.</div>';return}
+  div.innerHTML=lista.map((g,i)=>`
+    <div class="card">
+      <img src="${g.foto}" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600'">
+      <div class="card-body">
+        <h3>${g.titulo}</h3>
+        <p>${g.bairro} - ${g.cidade} • ${g.metros}m²</p>
+        <div class="card-preco">R$ ${Number(g.preco).toLocaleString('pt-BR')}/mês</div>
+        <button class="btn-whats" id="btn-${i}" onclick="verWhatsapp(${i})">🔒 Ver WhatsApp do Proprietário - Cadastro Grátis</button>
+        <button class="btn-detalhes" onclick="alert('Detalhes: ${g.metros}m² em ${g.cidade}. Para ver contato, faça cadastro.')">Ver detalhes</button>
+      </div>
+    </div>`).join('');
+}
+function verWhatsapp(index){
+  const logado=localStorage.getItem('usuario_logado');
+  if(!logado){
+    if(confirm("🔒 O contato do proprietário é liberado somente após cadastro com senha.\n\nQuer criar seu cadastro gratuito agora?")){
+      location.href='./cadastro-proprietario.html?tipo=cliente&origem=buscar';
+    }
     return;
   }
-
-  el.innerHTML = lista.map(g=>`
-    <div class="card">
-      <div class="card-img" style="background-image:url('${g.foto||'hero.jpg'}')"><div class="selo">DIRETO DO DONO • SEM COMISSÃO</div></div>
-      <div class="card-body">
-        <div class="preco">R$ ${Number(g.preco).toLocaleString('pt-BR')}/mês</div>
-        <div style="font-weight:800;font-size:13px;margin-top:4px">${g.titulo||'Galpão '+g.metros+'m² em '+g.cidade}</div>
-        <div class="meta">
-          <b>Metragem:</b> ${g.metros} m²<br>
-          <b>Bairro:</b> ${g.bairro||g.cidade}<br>
-          <b>Cidade:</b> ${g.cidade}<br>
-          <b>Condomínio:</b> R$ 0 (rua)
-        </div>
-        <button class="btn-wpp" onclick="window.open('https://wa.me/55${(g.whats||'').toString().replace(/\\D/g,'')}?text=Olá! Vi seu galpão de ${g.metros}m² em ${g.cidade} no Galpões e Negócios','_blank')">FALAR NO WHATSAPP →</button>
-      </div>
-    </div>
-  `).join('') + `<footer><b style="color:#fff">Galpões e Negócios - CNPJ 00.000.000/0001-00</b><br>Plataforma de anúncio direto proprietário. Não somos imobiliária e não cobramos comissão.<br><a href="./termos.html">Termos de Uso</a> | <a href="./privacidade.html">Privacidade</a> | <a href="mailto:contato@galpoesenegocios.com.br">contato@galpoesenegocios.com.br</a><br>Santo André - SP - ABC Paulista<br><br>Planos: 1 Galpão R$49,90/mês | 3 Galpões R$99,90/mês</footer>`;
+  // Se logado, libera
+  const galpoes=getAll();
+  const g=galpoes[index];
+  const btn=document.getElementById(`btn-${index}`);
+  btn.classList.add('desbloqueado');
+  btn.innerText=`✅ WhatsApp: ${g.whats} - Clique para abrir`;
+  btn.onclick=()=>window.open(`https://wa.me/${g.whats}?text=Olá! Vi seu galpão de ${g.metros}m² em ${g.cidade} no Galpões e Negócios - CNPJ 63.329.574/0001-28. Ainda está disponível?`,'_blank');
 }
-
 function filtrar(){
-  let galpoes = getGalpoes();
-  if(galpoes.length===0) galpoes = demo;
-  const c = document.getElementById('fCidade').value;
-  const m = document.getElementById('fMetragem').value;
-  const p = parseFloat(document.getElementById('fPreco').value)||99999999;
-  let f = galpoes.filter(g=>{
-    if(c && !(g.cidade||'').toLowerCase().includes(c.toLowerCase())) return false;
-    if(Number(g.preco) > p) return false;
-    if(m){
-      const [min,max] = m.split('-').map(Number);
-      if(Number(g.metros) < min || Number(g.metros) > max) return false;
-    }
-    return true;
-  });
-  render(f);
+  const cidade=document.getElementById('fCidade').value;
+  const metros=document.getElementById('fMetros').value;
+  const preco=document.getElementById('fPreco').value;
+  let lista=getAll();
+  if(cidade) lista=lista.filter(g=>g.cidade.includes(cidade));
+  if(metros){
+    const m=Number(metros);
+    if(m===200) lista=lista.filter(g=>g.metros<=200);
+    else if(m===500) lista=lista.filter(g=>g.metros>200&&g.metros<=500);
+    else if(m===1000) lista=lista.filter(g=>g.metros>500&&g.metros<=1000);
+    else if(m===1001) lista=lista.filter(g=>g.metros>1000);
+  }
+  if(preco) lista=lista.filter(g=>g.preco<=Number(preco));
+  render(lista);
 }
-
-// Ler filtros da URL ?cidade=...
-(function(){
-  const params = new URLSearchParams(window.location.search);
-  if(params.get('cidade')) document.getElementById('fCidade').value = params.get('cidade');
-  if(params.get('metragem')) document.getElementById('fMetragem').value = params.get('metragem');
-  if(params.get('preco')) document.getElementById('fPreco').value = params.get('preco');
-})();
+// ler URL
+const params=new URLSearchParams(location.search);
+if(params.get('cidade')) document.getElementById('fCidade').value=params.get('cidade');
+if(params.get('metros')) document.getElementById('fMetros').value=params.get('metros');
+if(params.get('preco')) document.getElementById('fPreco').value=params.get('preco');
 filtrar();
 </script>
 </body>
