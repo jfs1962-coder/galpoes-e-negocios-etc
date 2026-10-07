@@ -12,15 +12,56 @@ body{background:#f5f5f5;display:flex;min-height:100vh}
 .box{position:relative;z-index:2;background:#fff;width:100%;max-width:380px;padding:30px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.15);border:1px solid #ddd}
 input{width:100%;padding:14px 16px;border:1px solid #ddd;border-radius:12px;margin-top:10px;font-size:13px;outline:none}input:focus{border-color:#FFD700}
 .btn{width:100%;background:#111;color:#FFD700;border:0;padding:14px;border-radius:30px;font-weight:900;margin-top:16px;cursor:pointer}
+.bloqueado{background:#ffeaea;border:1px solid #ff0000;color:#b00000;padding:12px;border-radius:10px;font-size:11px;margin-top:12px;line-height:1.5;display:none}
 @media(max-width:800px){body{flex-direction:column}.esq{width:100%;min-height:220px}.dir{width:100%}}
 </style>
 </head>
 <body>
 <div class="esq"><div><div style="background:#fff;display:inline-block;padding:8px 12px;border-radius:10px"><img src="logo.jpg" style="height:36px"></div></div><div><h2 style="font-size:26px;font-weight:900">Bem-vindo de volta,<br><span style="color:#FFD700">Proprietário</span></h2></div></div>
-<div class="dir"><div class="box"><h3 style="font-weight:900">Entrar</h3><input id="email" type="email" placeholder="Seu e-mail"><input id="senha" type="password" placeholder="Sua senha"><button class="btn" onclick="entrar()">ENTRAR →</button><p id="msg" style="font-size:11px;color:red;text-align:center;margin-top:10px"></p><div style="text-align:center;margin-top:12px;font-size:11px"><a href="cadastro-proprietario.html" style="color:#111;font-weight:800;text-decoration:none">Criar conta</a> • <a href="index.html" style="color:#111;text-decoration:none">Voltar</a></div></div></div>
+<div class="dir"><div class="box">
+<h3 style="font-weight:900">Entrar</h3>
+<input id="email" type="email" placeholder="Seu e-mail">
+<input id="senha" type="password" placeholder="Sua senha">
+<button class="btn" onclick="entrar()">ENTRAR →</button>
+<p id="msg" style="font-size:11px;color:red;text-align:center;margin-top:10px"></p>
+<div id="boxBloqueado" class="bloqueado"></div>
+<div style="text-align:center;margin-top:12px;font-size:11px"><a href="cadastrar-proprietario.html" style="color:#111;font-weight:800;text-decoration:none">Criar conta</a> • <a href="index.html" style="color:#111;text-decoration:none">Voltar</a></div>
+</div></div>
+
 <script>
-function entrar(){const e=document.getElementById('email').value.trim(),s=document.getElementById('senha').value.trim(),m=document.getElementById('msg');if(!e||!s){m.innerText='Preencha e-mail e senha';return}m.style.color='green';m.innerText='Entrando...';localStorage.setItem('usuario_logado',e);window.location.replace('painel.html')}
+const BL_KEY='gn_blacklist_v2';
+const getBL=()=>JSON.parse(localStorage.getItem(BL_KEY)||'[]');
+
+function entrar(){
+  const e=document.getElementById('email').value.trim().toLowerCase();
+  const s=document.getElementById('senha').value.trim();
+  const m=document.getElementById('msg');
+  const boxB=document.getElementById('boxBloqueado');
+  
+  if(!e||!s){m.innerText='Preencha e-mail e senha';return}
+
+  // CHECA LISTA NEGRA
+  const bl=getBL();
+  const bloqueado=bl.find(b=> b.email===e);
+  
+  if(bloqueado){
+    m.innerText='';
+    boxB.style.display='block';
+    boxB.innerHTML=`⛔ <b>CONTA BLOQUEADA PERMANENTEMENTE</b><br>Motivo: ${bloqueado.motivo||'Violação - corretor/imobiliária identificado'}<br><small>Data: ${new Date(bloqueado.data).toLocaleString('pt-BR')}<br>Seu IP, e-mail e WhatsApp estão na lista negra.</small>`;
+    return;
+  }
+
+  m.style.color='green';m.innerText='Entrando...';
+  localStorage.setItem('usuario_logado',e);
+  // Registra IP fictício para controle (no backend real você grava IP real)
+  localStorage.setItem('gn_last_ip', Date.now().toString());
+  window.location.replace('painel.html')
+}
+
 document.addEventListener('keydown',ev=>{if(ev.key==='Enter')entrar()});
+
+// Corrige link antigo que você tinha
+document.querySelectorAll('a[href="cadastro-proprietario.html"]').forEach(a=>a.href='cadastrar-proprietario.html');
 </script>
 </body>
 </html>
