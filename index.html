@@ -1,92 +1,114 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galpões & Negócios - Em Todo o Brasil</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galpões e Negócios | Alugue Direto com o Proprietário - Sem Comissão</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-body{background:#0a0a0a;color:#fff;overflow-x:hidden}
-.header{background:#000;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20;border-bottom:1px solid #1a1a1a}
-.logo-box{background:#fff;border-radius:16px;padding:8px 16px;display:flex;align-items:center;gap:10px}
-.logo-icon{width:38px;height:38px;background:#ff7a00;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:22px;border-radius:6px}
-.logo-text{line-height:1.1}
-.logo-text b{font-size:14px;display:block;color:#000;letter-spacing:-0.3px;font-weight:900}
-.logo-text span{font-size:8px;color:#666;letter-spacing:1px;font-weight:700}
-.top-actions{display:flex;gap:8px}
-.btn-cad{background:#000;color:#ffcc00;border:1.5px solid #ffcc00;padding:10px 18px;border-radius:24px;font-weight:700;font-size:12px;cursor:pointer}
-.btn-entrar{background:#ffcc00;color:#000;border:1.5px solid #ffcc00;padding:10px 22px;border-radius:24px;font-weight:800;font-size:12px;cursor:pointer}
-.hero{position:relative;background:radial-gradient(120% 80% at 80% 30%, #3a3a3a 0%, #1a1a1a 40%, #0a0a0a 100%);padding:24px 20px 28px;overflow:hidden;min-height:420px}
-.pill{display:inline-block;background:#ffcc00;color:#000;font-weight:800;font-size:10px;letter-spacing:0.6px;padding:8px 14px;border-radius:20px;margin-bottom:18px}
-.hero h1{font-size:30px;font-weight:900;line-height:1.15;max-width:360px;position:relative;z-index:2;letter-spacing:-0.5px}
-.hero h1 span{color:#ffcc00}
-.sub{margin-top:14px;color:#cfd0d3;font-size:14px;line-height:1.45;max-width:340px;position:relative;z-index:2}
-.cta-main{margin-top:22px;background:#ffcc00;color:#000;border:none;width:100%;max-width:360px;padding:17px 20px;border-radius:28px;font-weight:800;font-size:14px;cursor:pointer;display:flex;justify-content:center;align-items:center;gap:8px;position:relative;z-index:2}
-.mini-checks{margin-top:12px;display:flex;gap:10px;font-size:11px;color:#9a9a9a;position:relative;z-index:2}
-.trust-bar{background:#000;border-top:1px solid #1f1f1f;border-bottom:1px solid #1f1f1f;padding:18px 16px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center}
-.trust-bar b{display:block;color:#ffcc00;font-size:16px;font-weight:800}
-.trust-bar span{font-size:11px;color:#e0e0e0;display:block;margin-top:2px}
-.cnpj-box{grid-column:1/-1;margin-top:14px;text-align:center;padding-top:12px;border-top:1px solid #1a1a1a}
-.cnpj-box b{color:#ffcc00;font-size:14px}
-.cnpj-box span{display:block;color:#ccc;font-size:12px;margin-top:2px}
-.planos{background:#f2f2f2;color:#111;padding:24px 16px;text-align:center}
-.planos h2{font-size:22px;font-weight:800}
-.planos p{color:#666;font-size:14px;margin-top:6px}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;padding:16px;z-index:100}
-.modal.active{display:flex}
-.box{background:#141414;border:1px solid #2a2a2a;border-radius:16px;padding:20px;width:100%;max-width:440px;max-height:90vh;overflow:auto}
-.tabs{display:flex;gap:8px;margin-bottom:14px}
-.tab{flex:1;padding:10px;border-radius:10px;border:1px solid #333;background:#1f1f1f;color:#aaa;font-weight:700;cursor:pointer;font-size:12px}
-.tab.active{background:#ffcc00;color:#000;border-color:#ffcc00}
-input,select,textarea{width:100%;padding:12px;margin:6px 0;border-radius:10px;border:1px solid #2a2a2a;background:#0e0e0e;color:#fff;font-size:14px}
-.check{background:#1a1500;border:1px solid #3d3200;padding:12px;border-radius:10px;margin:10px 0;font-size:11px;line-height:1.4;color:#e0c87a}
-.btn-submit{width:100%;padding:14px;border-radius:12px;border:none;font-weight:800;margin-top:10px;cursor:pointer}
-.btn-owner-submit{background:#fff;color:#000}
-.btn-company-submit{background:#ffcc00;color:#000}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
+body{background:#fff;color:#111}
+.topo{background:#000;padding:8px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.topo .bts{display:flex;gap:8px;align-items:center}
+.topo a{border:1px solid #FFD700;color:#FFD700;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:800;text-decoration:none}
+.topo a.fundo{background:#FFD700;color:#000}
+.hero{
+  background-image: linear-gradient(to right, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.2) 100%), url('hero.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  min-height: 420px;
+  display:flex;
+  align-items:center;
+  padding:40px 20px;
+  color:#fff;
+}
+.hero-conteudo{max-width:520px}
+.badge{background:#FFD700;color:#000;display:inline-block;padding:6px 14px;border-radius:20px;font-weight:900;font-size:10px;margin-bottom:14px;letter-spacing:.5px}
+.hero h1{font-size:32px;line-height:1.1;font-weight:900;margin-bottom:10px}
+.hero h1 span{color:#FFD700}
+.hero p{font-size:14px;opacity:.9;line-height:1.5;margin-bottom:20px}
+.cta-principal{background:#FFD700;color:#000;padding:14px 28px;border-radius:30px;text-decoration:none;font-weight:900;display:inline-block;font-size:13px}
+.prova-social{background:#111;color:#fff;display:flex;justify-content:center;gap:30px;padding:12px;font-size:11px;text-align:center;flex-wrap:wrap}
+.prova-social b{color:#FFD700;display:block;font-size:13px}
+.planos{padding:40px 16px;text-align:center;background:#f7f7f7}
+.planos h2{font-size:20px;font-weight:900;margin-bottom:6px}
+.sub-planos{font-size:12px;color:#666;margin-bottom:22px}
+.cards{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.card{background:#fff;border:1px solid #e5e5e5;border-radius:16px;padding:22px;width:300px;text-align:left;position:relative}
+.card.destaque{border:2px solid #FFD700;box-shadow:0 10px 30px rgba(0,0,0,.1);transform:translateY(-6px)}
+.selo-topo{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#FFD700;color:#000;font-size:9px;font-weight:900;padding:4px 12px;border-radius:20px}
+.preco{font-size:28px;font-weight:900}
+.lista{font-size:12px;line-height:2;margin:14px 0;color:#333;list-style:none}
+.lista li::before{content:"✓ ";color:#00b050;font-weight:bold}
+.btn-preto{display:block;background:#111;color:#FFD700;text-align:center;padding:13px;border-radius:30px;text-decoration:none;font-weight:900;font-size:12px;margin-top:10px}
+.btn-amarelo{display:block;background:#FFD700;color:#111;text-align:center;padding:13px;border-radius:30px;text-decoration:none;font-weight:900;font-size:12px;margin-top:10px}
+.rodape{background:#000;color:#777;padding:30px 16px;text-align:center;font-size:11px;line-height:1.7}
+.rodape b{color:#fff}
+.rodape a{color:#FFD700;text-decoration:none}
+@media(max-width:600px){.hero{background-position:70% center;min-height:380px}.hero h1{font-size:26px}}
 </style>
 </head>
 <body>
-<div class="header">
-<div class="logo-box"><div class="logo-icon">G</div><div class="logo-text"><b>GALPÕES<br>& NEGÓCIOS</b><span>EM TODO O BRASIL</span></div></div>
-<div class="top-actions">
-<button class="btn-cad" onclick="openModal()">CADASTRAR</button>
-<button class="btn-entrar" onclick="openModal()">ENTRAR</button>
+<div class="topo">
+<div style="background:#fff;padding:8px 14px;border-radius:12px;display:flex;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.3)">
+<img src="logo.jpg" style="height:58px;display:block" alt="Galpões e Negócios">
 </div>
+<div class="bts"><a href="cadastrar-proprietario.html">CADASTRAR</a><a href="login.html" class="fundo">ENTRAR</a></div>
 </div>
+
 <div class="hero">
-<div class="pill">SÓ PROPRIETÁRIO • SEM COMISSÃO • SEM INTERMEDIÁRIO</div>
+<div class="hero-conteudo">
+<div class="badge">SÓ PROPRIETÁRIO • SEM COMISSÃO • SEM INTERMEDIÁRIO</div>
 <h1>Alugue seu Galpão <span>Direto</span> e Economize até 1 Mês de Aluguel</h1>
-<p class="sub">No ABC e SP. Fale direto com o dono no chat protegido. Sem corretor, sem enrolação, sem comissão.</p>
-<button class="cta-main" onclick="openModal()">QUERO ANUNCIAR MEU GALPÃO →</button>
-<div class="mini-checks"><span>✓ Cadastro em 2 minutos</span><span>•</span><span>✓ Já aparece nas buscas</span></div>
+<p>No ABC e SP. Fale direto com o dono no chat protegido. Sem corretor, sem enrolação, sem comissão.</p>
+<a href="cadastrar-proprietario.html" class="cta-principal">QUERO ANUNCIAR MEU GALPÃO →</a>
+<p style="font-size:10px;margin-top:10px;opacity:.7">✓ Cadastro em 2 minutos • ✓ Já aparece nas buscas</p>
 </div>
-<div class="trust-bar">
-<div><b>100%</b><span>Direto Proprietário</span></div>
-<div><b>R$0</b><span>de Comissão</span></div>
-<div><b>CHAT</b><span>Protegido</span></div>
-<div class="cnpj-box"><b>CNPJ 63.329.574/0001-28</b><span>Empresa Verificada</span></div>
 </div>
+
+<div class="prova-social">
+<div><b>100%</b> Direto Proprietário</div>
+<div><b>R$0</b> de Comissão</div>
+<div><b>CHAT</b> Protegido</div>
+<div><b>CNPJ 63.329.574/0001-28</b> Empresa Verificada</div>
+</div>
+
 <div class="planos">
 <h2>Planos para Proprietário</h2>
-<p>Escolha e anuncie hoje mesmo. Cancele quando quiser.</p>
+<p class="sub-planos">Escolha e anuncie hoje mesmo. Cancele quando quiser.</p>
+<div class="cards">
+<div class="card">
+<b style="font-size:11px;letter-spacing:1px">1 GALPÃO</b><br><span class="preco">R$49,90</span><span style="font-size:11px;color:#666">/30 dias</span>
+<ul class="lista"><li>1 galpão ativo</li><li>Até 10 fotos por galpão</li><li>Chat direto com interessado</li><li>Aparece nas buscas do ABC e SP</li></ul>
+<a href="cadastrar-proprietario.html?plano=1" class="btn-preto">QUERO 1 GALPÃO</a>
 </div>
-<div class="modal" id="modal"><div class="box">
-<h3>Cadastro</h3>
-<div class="tabs"><button class="tab active" id="tabOwner" onclick="switchTab('owner')">Sou Proprietário</button><button class="tab" id="tabCompany" onclick="switchTab('company')">Sou Empresa</button></div>
-<div id="formOwner"><input id="o_nome" placeholder="Nome"><input id="o_email" placeholder="E-mail"><input id="o_cel" placeholder="Celular"><input id="o_cpf" placeholder="CPF"><button class="btn-submit btn-owner-submit" onclick="register('owner')">Criar conta Proprietário</button></div>
-<div id="formCompany" style="display:none"><input id="c_empresa" placeholder="Empresa"><input id="c_cnpj" placeholder="CNPJ"><input id="c_resp" placeholder="Responsável"><input id="c_email" placeholder="E-mail corporativo"><input id="c_cel" placeholder="Celular"><select id="c_motivo"><option>Motivo da busca</option><option>Expansão</option></select><div class="check"><label><input type="checkbox" id="c_check"> Declaro que NÃO sou corretor / imobiliária e busco para uso próprio. Bloqueio por IP se violar.</label></div><button class="btn-submit btn-company-submit" onclick="register('company')">Criar conta Empresa</button></div>
-<div id="msg" style="margin-top:12px;font-size:12px;color:#ffcc00"></div>
-<button onclick="closeModal()" style="margin-top:12px;background:none;border:none;color:#777;width:100%">Fechar</button>
-</div></div>
+<div class="card destaque">
+<div class="selo-topo">⭐ MAIS VENDIDO</div>
+<b style="font-size:11px;letter-spacing:1px">3 GALPÕES</b><br><span class="preco">R$99,90</span><span style="font-size:11px;color:#666">/30 dias</span>
+<ul class="lista"><li>Até 3 galpões simultâneos</li><li>Até 10 fotos por galpão</li><li>Selo DESTAQUE no topo das buscas</li><li>Suporte prioritário no WhatsApp</li></ul>
+<a href="cadastrar-proprietario.html?plano=3" class="btn-amarelo">QUERO 3 GALPÕES</a>
+<p style="font-size:10px;text-align:center;margin-top:8px;color:#666">Economize R$49,80</p>
+</div>
+</div>
+</div>
+
+<div class="rodape">
+<img src="logo.png" style="height:32px;opacity:.8;margin-bottom:10px"><br>
+<b>GALPÕES E NEGÓCIOS - EM TODO O BRASIL</b><br>
+Galpões e Negócios Internet Ltda - ME<br>
+CNPJ: 63.329.574/0001-28 | PIX: 63.329.574/0001-28<br><br>
+<a href="privacidade.html">Privacidade</a> | <a href="termos.html">Termos</a> | <a href="faq.html">Dúvidas</a> | <a href="contato.html">Contato</a><br><br>
+© 2026 - Todos os direitos reservados. Direto do proprietário, sem comissão.
+</div>
+
 <script>
-let blacklist=JSON.parse(localStorage.getItem('bl')||'[]')
-let currentUser=JSON.parse(localStorage.getItem('user')||'null')
-function openModal(){document.getElementById('modal').classList.add('active')}
-function closeModal(){document.getElementById('modal').classList.remove('active')}
-function switchTab(t){document.getElementById('formOwner').style.display=t==='owner'?'block':'none';document.getElementById('formCompany').style.display=t==='company'?'block':'none';document.getElementById('tabOwner').classList.toggle('active',t==='owner');document.getElementById('tabCompany').classList.toggle('active',t==='company')}
-function isBlacklisted(e,c,j){return blacklist.some(b=> b.email===e || b.cel===c || (j && b.cnpj===j))}
-function register(type){let email,cel,cnpj,msg=document.getElementById('msg');if(type==='owner'){email=document.getElementById('o_email').value.trim();cel=document.getElementById('o_cel').value.trim();if(isBlacklisted(email,cel,'')){msg.innerText='⛔ BLOQUEADO';return}currentUser={type,email,cel}}else{email=document.getElementById('c_email').value.trim();cel=document.getElementById('c_cel').value.trim();cnpj=document.getElementById('c_cnpj').value.trim();let check=document.getElementById('c_check').checked;if(!cnpj||!email){msg.innerText='CNPJ obrigatório';return}if(!check){msg.innerText='Marque anti-corretor';return}if(isBlacklisted(email,cel,cnpj)){msg.innerText='⛔ BLOQUEADO lista negra';return}currentUser={type,email,cel,cnpj}}localStorage.setItem('user',JSON.stringify(currentUser));msg.innerText='✅ Criado!';setTimeout(closeModal,800)}
+// SISTEMA ANTI-CORRETOR v2 - BLINDAGEM PERMANENTE
+// Salva lista negra que funciona em todo o site
+const BL_KEY='gn_blacklist_v2';
+const getBL=()=>JSON.parse(localStorage.getItem(BL_KEY)||'[]');
+const saveBL=(l)=>localStorage.setItem(BL_KEY, JSON.stringify(l));
+// Corrige link quebrado que você tinha (cadastro-proprietario vs cadastrar)
+document.querySelectorAll('a[href="cadastro-proprietario.html"]').forEach(a=>{
+  a.href='cadastrar-proprietario.html'+(a.search||'');
+});
 </script>
 </body>
 </html>
