@@ -70,16 +70,19 @@ let planoSel='3';
 function sel(el,v){document.querySelectorAll('.plano div').forEach(d=>d.classList.remove('ativo'));el.classList.add('ativo');planoSel=v}
 const urlParams=new URLSearchParams(window.location.search); if(urlParams.get('plano')){planoSel=urlParams.get('plano'); let el=document.getElementById('p'+planoSel); if(el) sel(el,planoSel)}
 
-// ANTI-CORRETOR
 const BL_KEY='gn_blacklist_v2';
 const getBL=()=>JSON.parse(localStorage.getItem(BL_KEY)||'[]');
 function isBlocked(email, whats){
   const bl=getBL();
-  return bl.some(b=> b.email===email.toLowerCase() || b.whats===whats.replace(/\D/g,''));
+  const wClean = whats.replace(/\D/g,'');
+  return bl.some(b=> b.email===email.toLowerCase() || b.whats===wClean);
 }
 
 function criar(){
- const n=document.getElementById('nome').value.trim(), w=document.getElementById('whats').value.trim(), e=document.getElementById('email').value.trim().toLowerCase(), s=document.getElementById('senha').value;
+ const n=document.getElementById('nome').value.trim();
+ const w=document.getElementById('whats').value.trim();
+ const e=document.getElementById('email').value.trim().toLowerCase();
+ const s=document.getElementById('senha').value;
  const check=document.getElementById('antiCorretor').checked;
  const msg=document.getElementById('msg');
 
@@ -87,7 +90,6 @@ function criar(){
  if(!n||!w||!e||!s){ msg.style.color='red'; msg.innerText='Preencha todos os campos';return}
  if(!check){ msg.style.color='red'; msg.innerText='Você precisa declarar que é o proprietário e não é corretor.';return}
 
- // Detecção simples de corretor tentando se passar por proprietário
  const termosCorretor=['corretor','imobiliaria','imobiliária','creci','intermediador'];
  if(termosCorretor.some(t=> n.toLowerCase().includes(t) || e.toLowerCase().includes(t))){
    let bl=getBL(); bl.push({email:e, whats:w.replace(/\D/g,''), motivo:'tentou cadastro como corretor', data:new Date().toISOString()});
@@ -97,7 +99,20 @@ function criar(){
  }
 
  msg.style.color='green'; msg.innerText='Criando sua conta...';
- setTimeout(()=>{localStorage.setItem('usuario_logado',e); localStorage.setItem('plano',planoSel); location.href='painel.html'},900)
+ 
+ // Salva conta para o painel ler
+ localStorage.setItem('usuario_logado', e);
+ localStorage.setItem('usuario_nome', n);
+ localStorage.setItem('usuario_whats', w);
+ localStorage.setItem('plano', planoSel);
+ // Salva lista de usuarios (para login.html funcionar)
+ let usuarios = JSON.parse(localStorage.getItem('gn_usuarios')||'[]');
+ usuarios = usuarios.filter(u=>u.email!==e);
+ usuarios.push({nome:n, whats:w, email:e, senha:s, plano:planoSel, data:new Date().toISOString()});
+ localStorage.setItem('gn_usuarios', JSON.stringify(usuarios));
+
+ // REDIRECT SEGURO - evita cache da Vercel e o 404
+ setTimeout(()=>{ window.location.replace('./painel.html?v='+Date.now()) }, 800);
 }
 </script>
 </body>
