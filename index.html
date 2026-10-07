@@ -2,85 +2,121 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Galpões e Negócios - Galpões Direto do Proprietário no ABC e SP</title>
+<title>Galpões e Negócios - Aluguel direto proprietário no ABC e SP</title>
+<meta name="description" content="Galpões para alugar direto do proprietário no ABC e SP. Sem corretor, sem comissão.">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
 body{background:#fff}
-.top{background:#000;color:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
-.top img{height:36px;background:#fff;padding:6px 10px;border-radius:8px}
-.top a{color:#fff;text-decoration:none;font-weight:800;font-size:12px;margin-left:14px}
-.btn-amarelo{background:#FFD700;color:#000;padding:10px 18px;border-radius:22px;font-weight:900;text-decoration:none;font-size:12px}
-.hero{background:linear-gradient(90deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.3) 100%), url('hero.jpg');background-size:cover;background-position:center;padding:60px 20px;color:#fff}
-.hero h1{font-size:42px;font-weight:900;max-width:600px;line-height:1.05}
+.top{background:#000;padding:14px 26px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99}
+.logo-box{background:#fff;padding:10px 18px;border-radius:14px;display:flex;align-items:center}
+.logo-box img{height:90px;width:auto;display:block}
+.menu{display:flex;gap:18px;align-items:center}
+.menu a{color:#fff;text-decoration:none;font-size:12px;font-weight:800;letter-spacing:.3px}
+.btn-amarelo{background:#FFD700;color:#000;padding:11px 20px;border-radius:22px;text-decoration:none;font-size:12px;font-weight:900}
+
+/* HERO COM MAPA */
+.hero{position:relative;background:#1a1a1a;overflow:hidden;min-height:380px;display:flex;align-items:center;padding:60px 26px}
+.hero::before{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000') center/cover;opacity:.25}
+.hero::after{content:"";position:absolute;right:0;top:0;bottom:0;width:55%;background:url('https://upload.wikimedia.org/wikipedia/commons/8/81/Brazil_location_map.svg') center/contain no-repeat;opacity:.15;pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:1200px;width:100%;margin:0 auto}
+.hero h1{color:#fff;font-size:38px;font-weight:900;line-height:1.15;max-width:520px}
 .hero h1 span{color:#FFD700}
-.hero p{margin-top:12px;font-size:14px;max-width:500px;color:#ddd}
-.barra-busca{background:#fff;max-width:900px;margin-top:24px;border-radius:14px;padding:10px;display:flex;gap:10px;flex-wrap:wrap;box-shadow:0 10px 30px rgba(0,0,0,.2)}
-.barra-busca select,.barra-busca input{flex:1;min-width:140px;padding:12px;border:1px solid #ddd;border-radius:10px;font-size:13px}
-.barra-busca button{background:#FFD700;border:0;padding:12px 22px;border-radius:10px;font-weight:900;cursor:pointer}
-.regioes{max-width:1200px;margin:30px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
-.reg{border:1px solid #e5e5e5;border-radius:12px;padding:14px;background:#fff;cursor:pointer;text-align:center;font-size:12px;font-weight:800}
-.reg:hover{border-color:#FFD700;background:#fffbe0}
-@media(max-width:700px){.hero h1{font-size:28px}.barra-busca{flex-direction:column}}
+.hero p{color:#ddd;font-size:13px;margin:14px 0 24px;max-width:460px;line-height:1.5}
+.search-box{background:#fff;border-radius:14px;padding:10px;display:flex;gap:8px;max-width:680px;flex-wrap:wrap;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.search-box select,.search-box input{flex:1;min-width:140px;padding:12px;border:1px solid #ddd;border-radius:10px;font-size:13px;background:#f9f9f9}
+.btn-buscar{background:#FFD700;border:0;padding:12px 24px;border-radius:10px;font-weight:900;cursor:pointer;font-size:13px}
+
+.regiao{max-width:1200px;margin:0 auto;padding:28px 26px}
+.regiao h2{font-size:12px;font-weight:900;letter-spacing:.5px;margin-bottom:16px}
+.regiao-grid{display:flex;gap:10px;flex-wrap:wrap}
+.regiao-grid a{border:1px solid #e5e5e5;padding:10px 18px;border-radius:10px;font-size:12px;font-weight:700;color:#222;text-decoration:none;background:#fff}
+.regiao-grid a:hover{border-color:#000}
+
+.galpoes{max-width:1200px;margin:0 auto;padding:10px 26px 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.card{border:1px solid #e5e5e5;border-radius:14px;overflow:hidden;background:#fff}
+.card img{width:100%;height:170px;object-fit:cover}
+.card-body{padding:14px}
+.card-body h3{font-size:14px;font-weight:800}
+.card-body p{font-size:12px;color:#666;margin:4px 0}
+.card-preco{font-size:16px;font-weight:900;color:#111;margin-top:6px}
+.btn-whats{width:100%;margin-top:10px;background:#25D366;color:#fff;border:0;padding:11px;border-radius:10px;font-weight:800;font-size:12px;cursor:pointer}
+
+footer{background:#0a0a0a;color:#888;padding:26px;text-align:center;font-size:11px;line-height:1.7;margin-top:20px}
+footer a{color:#FFD700;text-decoration:none;margin:0 6px}
+@media(max-width:800px){.hero h1{font-size:28px}.logo-box img{height:68px}.search-box{flex-direction:column}.hero::after{width:100%;opacity:.08}}
 </style>
 </head>
 <body>
+
 <div class="top">
-  <a href="index.html"><img src="logo.jpg" alt="Galpões e Negócios"></a>
-  <div>
-    <a href="buscar.html">BUSCAR GALPÕES</a>
-    <a href="login.html">ENTRAR</a>
-    <a href="cadastro-proprietario.html" class="btn-amarelo">ANUNCIAR GALPÃO</a>
+  <a href="./index.html"><div class="logo-box"><img src="./logo.png?v=2" alt="Galpões e Negócios - G"></div></a>
+  <div class="menu">
+    <a href="./buscar.html">BUSCAR GALPÕES</a>
+    <a href="./login.html">ENTRAR</a>
+    <a href="./cadastro-proprietario.html" class="btn-amarelo">ANUNCIAR GALPÃO</a>
   </div>
 </div>
 
 <div class="hero">
-  <h1>Galpões para alugar <span>direto do proprietário</span> no ABC e SP</h1>
-  <p>Sem comissão, sem corretor, sem "sob consulta". Preço na cara e WhatsApp direto do dono, igual WebIndustrial mas 100% direto.</p>
-  
-  <div class="barra-busca">
-    <select id="cidade">
-      <option value="">Todas as cidades</option>
-      <option value="Santo André">Santo André</option>
-      <option value="São Bernardo">São Bernardo</option>
-      <option value="São Caetano">São Caetano</option>
-      <option value="Diadema">Diadema</option>
-      <option value="Mauá">Mauá</option>
-      <option value="São Paulo">São Paulo</option>
-    </select>
-    <select id="tamanho">
-      <option value="">Qualquer metragem</option>
-      <option value="0-300">Até 300m²</option>
-      <option value="300-600">300 a 600m²</option>
-      <option value="600-99999">Acima de 600m²</option>
-    </select>
-    <input id="preco" type="number" placeholder="Preço até R$">
-    <button onclick="buscar()">BUSCAR →</button>
+  <div class="hero-content">
+    <h1>Galpões para alugar <span>direto do proprietário</span> no ABC e SP</h1>
+    <p>Sem comissão, sem corretor, sem "sob consulta". Preço na cara e WhatsApp direto do dono, igual Webindustrial mas 100% direto.</p>
+    <div class="search-box">
+      <select id="fCidade"><option value="">Todas as cidades</option><option>Santo André</option><option>São Bernardo do Campo</option><option>São Caetano do Sul</option><option>Diadema</option><option>Mauá</option><option>São Paulo - Capital</option></select>
+      <select id="fMetros"><option value="">Qualquer metragem</option><option value="200">Até 200m²</option><option value="500">200 a 500m²</option><option value="1000">500 a 1000m²</option><option value="1001">Acima de 1000m²</option></select>
+      <input id="fPreco" type="number" placeholder="Preço até R$">
+      <button class="btn-buscar" onclick="buscar()">BUSCAR →</button>
+    </div>
   </div>
 </div>
 
-<div style="max-width:1200px;margin:0 auto;padding:20px 20px 0;font-weight:900;font-size:13px">BUSCAR POR REGIÃO - IGUAL WEBINDUSTRIAL</div>
-<div class="regioes">
-  <div class="reg" onclick="ir('Santo André')">📍 Santo André</div>
-  <div class="reg" onclick="ir('São Bernardo')">📍 São Bernardo</div>
-  <div class="reg" onclick="ir('São Caetano')">📍 São Caetano</div>
-  <div class="reg" onclick="ir('Diadema')">📍 Diadema</div>
-  <div class="reg" onclick="ir('Mauá')">📍 Mauá</div>
-  <div class="reg" onclick="ir('São Paulo')">📍 São Paulo - Capital</div>
+<div class="regiao">
+  <h2>BUSCAR POR REGIÃO - IGUAL WEBINDUSTRIAL</h2>
+  <div class="regiao-grid">
+    <a href="./buscar.html?cidade=Santo André">📍 Santo André</a>
+    <a href="./buscar.html?cidade=São Bernardo">📍 São Bernardo</a>
+    <a href="./buscar.html?cidade=São Caetano">📍 São Caetano</a>
+    <a href="./buscar.html?cidade=Diadema">📍 Diadema</a>
+    <a href="./buscar.html?cidade=Mauá">📍 Mauá</a>
+    <a href="./buscar.html?cidade=São Paulo">📍 São Paulo - Capital</a>
+  </div>
 </div>
 
+<div id="listaGalpoes" class="galpoes"></div>
+
+<footer>
+  <b style="color:#fff">Galpões e Negócios - CNPJ 00.000.000/0001-00</b><br>
+  Plataforma direta proprietário. Não somos imobiliária. Santo André - SP - ABC Paulista<br>
+  <a href="./termos.html">Termos de Uso</a> | <a href="./privacidade.html">Privacidade</a> | <a href="./faq.html">FAQ</a> | contato@galpoesenegocios.com.br
+</footer>
+
 <script>
+const galpoesDemo=[
+  {titulo:"Galpão 450m² em Santo André",cidade:"Santo André",bairro:"Vila Industrial",metros:450,preco:5800,whats:"5511999999999",foto:"https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600"},
+  {titulo:"Galpão 800m² em São Bernardo",cidade:"São Bernardo do Campo",bairro:"Batistini",metros:800,preco:9500,whats:"5511999999999",foto:"https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600"},
+  {titulo:"Galpão 300m² em São Caetano",cidade:"São Caetano do Sul",bairro:"Prosperidade",metros:300,preco:4200,whats:"5511999999999",foto:"https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600"}
+];
+function render(lista){
+  const div=document.getElementById('listaGalpoes');
+  const dados=lista.length?lista:JSON.parse(localStorage.getItem('gn_galpoes')||'[]').concat(galpoesDemo);
+  div.innerHTML=dados.map(g=>`
+    <div class="card">
+      <img src="${g.foto}" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600'">
+      <div class="card-body">
+        <h3>${g.titulo}</h3>
+        <p>${g.bairro} - ${g.cidade} • ${g.metros}m²</p>
+        <div class="card-preco">R$ ${Number(g.preco).toLocaleString('pt-BR')}/mês</div>
+        <button class="btn-whats" onclick="window.open('https://wa.me/${g.whats}?text=Vi%20seu%20galpão%20no%20Galpões%20e%20Negócios','_blank')">WhatsApp Direto Proprietário</button>
+      </div>
+    </div>`).join('');
+}
 function buscar(){
-  const c = document.getElementById('cidade').value;
-  const t = document.getElementById('tamanho').value;
-  const p = document.getElementById('preco').value;
-  // Manda para o buscar.html com os filtros na URL
-  location.href = `buscar.html?cidade=${encodeURIComponent(c)}&metragem=${t}&preco=${p}`;
+  const c=document.getElementById('fCidade').value;
+  const m=document.getElementById('fMetros').value;
+  const p=document.getElementById('fPreco').value;
+  location.href=`./buscar.html?cidade=${encodeURIComponent(c)}&metros=${m}&preco=${p}`;
 }
-function ir(cidade){
-  location.href = `buscar.html?cidade=${encodeURIComponent(cidade)}`;
-}
-// Permite Enter no preço
-document.getElementById('preco').addEventListener('keydown', e=>{ if(e.key==='Enter') buscar() });
+render([]);
 </script>
 </body>
 </html>
