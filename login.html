@@ -2,66 +2,81 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Entrar - Galpões e Negócios</title>
+<title>Login - Galpões e Negócios</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
-body{background:#f5f5f5;display:flex;min-height:100vh}
-.esq{width:45%;background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.6)),url('hero.jpg');background-size:cover;background-position:center;color:#fff;padding:40px;display:flex;flex-direction:column;justify-content:space-between}
-.dir{width:55%;display:flex;align-items:center;justify-content:center;padding:20px;position:relative;overflow:hidden;background-color:#e5e5e5;background-image:url('hero.jpg');background-repeat:no-repeat;background-position:center;background-size:95%}
-.dir::before{content:"";position:absolute;inset:0;background:rgba(229,229,229,.55)}
-.box{position:relative;z-index:2;background:#fff;width:100%;max-width:380px;padding:30px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.15);border:1px solid #ddd}
-input{width:100%;padding:14px 16px;border:1px solid #ddd;border-radius:12px;margin-top:10px;font-size:13px;outline:none}input:focus{border-color:#FFD700}
-.btn{width:100%;background:#111;color:#FFD700;border:0;padding:14px;border-radius:30px;font-weight:900;margin-top:16px;cursor:pointer}
-.bloqueado{background:#ffeaea;border:1px solid #ff0000;color:#b00000;padding:12px;border-radius:10px;font-size:11px;margin-top:12px;line-height:1.5;display:none}
-@media(max-width:800px){body{flex-direction:column}.esq{width:100%;min-height:220px}.dir{width:100%}}
+body{background:#fff;min-height:100vh;display:flex;flex-direction:column}
+.top{background:#000;padding:10px 20px;display:flex;justify-content:space-between;align-items:center}
+.logo-box{background:#fff;padding:6px 12px;border-radius:12px}
+.logo-box img{height:52px}
+.wrap{flex:1;max-width:1100px;margin:0 auto;width:100%;display:flex;gap:60px;padding:60px 20px;align-items:center}
+.left{flex:1.2}
+.left h1{font-size:32px;font-weight:900;color:#111}
+.left p{font-size:13px;color:#333;margin:10px 0 20px}
+.left input{width:100%;padding:14px 16px;border:1px solid #ddd;border-radius:10px;margin-top:12px;font-size:14px;outline:none}
+.left input:focus{border-color:#000}
+.btn-login{width:100%;background:#E86E1A;color:#fff;border:0;padding:14px;border-radius:10px;font-weight:800;margin-top:16px;cursor:pointer;font-size:14px}
+.link-senha{font-size:12px;margin-top:14px;display:inline-block;color:#000;text-decoration:underline;font-weight:600}
+.right{flex:1;border-left:1px solid #eee;padding-left:50px}
+.right p{font-size:13px;font-weight:600;margin-bottom:16px}
+.btn-sec{width:100%;background:#f3f3f3;border:1px solid #e5e5e5;padding:13px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;margin-top:12px;display:flex;justify-content:center;align-items:center;gap:8px}
+.btn-sec:hover{background:#ebebeb}
+footer{background:#0a0a0a;color:#aaa;padding:20px;text-align:center;font-size:11px}
+footer a{color:#FFD700;text-decoration:none;margin:0 6px}
+@media(max-width:800px){.wrap{flex-direction:column;gap:30px;padding:30px 20px}.right{border-left:0;padding-left:0;border-top:1px solid #eee;padding-top:30px;width:100%}}
 </style>
 </head>
 <body>
-<div class="esq"><div><div style="background:#fff;display:inline-block;padding:8px 12px;border-radius:10px"><img src="logo.jpg" style="height:36px"></div></div><div><h2 style="font-size:26px;font-weight:900">Bem-vindo de volta,<br><span style="color:#FFD700">Proprietário</span></h2></div></div>
-<div class="dir"><div class="box">
-<h3 style="font-weight:900">Entrar</h3>
-<input id="email" type="email" placeholder="Seu e-mail">
-<input id="senha" type="password" placeholder="Sua senha">
-<button class="btn" onclick="entrar()">ENTRAR →</button>
-<p id="msg" style="font-size:11px;color:red;text-align:center;margin-top:10px"></p>
-<div id="boxBloqueado" class="bloqueado"></div>
-<div style="text-align:center;margin-top:12px;font-size:11px"><a href="cadastrar-proprietario.html" style="color:#111;font-weight:800;text-decoration:none">Criar conta</a> • <a href="index.html" style="color:#111;text-decoration:none">Voltar</a></div>
-</div></div>
+<div class="top">
+  <a href="./index.html"><div class="logo-box"><img src="./logo.png" onerror="this.src='./logo.jpg'"></div></a>
+  <a href="./index.html" style="color:#fff;text-decoration:none;font-size:12px;font-weight:800">← VOLTAR AO INÍCIO</a>
+</div>
+
+<div class="wrap">
+  <div class="left">
+    <h1>Bem Vindo!</h1>
+    <p>Para seguir, insira seu e-mail e senha</p>
+    <input id="email" type="email" placeholder="E-mail">
+    <input id="senha" type="password" placeholder="Senha">
+    <button class="btn-login" onclick="entrar()">Login</button>
+    <a class="link-senha" href="#" onclick="recuperar()">Esqueci minha senha</a>
+    <p id="msg" style="font-size:11px;color:red;margin-top:10px"></p>
+  </div>
+
+  <div class="right">
+    <p>Outras formas de Login</p>
+    <button class="btn-sec" onclick="alert('Login com Google em breve - por enquanto use e-mail e senha')">G Continuar com o Google</button>
+    <button class="btn-sec" onclick="location.href='./cadastro-proprietario.html'">👤 Criar um cadastro novo</button>
+    <div style="margin-top:20px;font-size:11px;color:#666;line-height:1.5">
+      <b>Planos Direto Proprietário:</b><br>
+      1 Galpão R$49,90/mês<br>
+      3 Galpões R$99,90/mês ⭐<br><br>
+      Sem comissão. Contato direto no WhatsApp.
+    </div>
+  </div>
+</div>
+
+<footer>
+  <b style="color:#fff">Galpões e Negócios - CNPJ 00.000.000/0001-00</b><br>
+  <a href="./termos.html">Termos de Uso</a> | <a href="./privacidade.html">Privacidade</a>
+</footer>
 
 <script>
-const BL_KEY='gn_blacklist_v2';
-const getBL=()=>JSON.parse(localStorage.getItem(BL_KEY)||'[]');
-
 function entrar(){
-  const e=document.getElementById('email').value.trim().toLowerCase();
-  const s=document.getElementById('senha').value.trim();
-  const m=document.getElementById('msg');
-  const boxB=document.getElementById('boxBloqueado');
-  
-  if(!e||!s){m.innerText='Preencha e-mail e senha';return}
-
-  // CHECA LISTA NEGRA
-  const bl=getBL();
-  const bloqueado=bl.find(b=> b.email===e);
-  
-  if(bloqueado){
-    m.innerText='';
-    boxB.style.display='block';
-    boxB.innerHTML=`⛔ <b>CONTA BLOQUEADA PERMANENTEMENTE</b><br>Motivo: ${bloqueado.motivo||'Violação - corretor/imobiliária identificado'}<br><small>Data: ${new Date(bloqueado.data).toLocaleString('pt-BR')}<br>Seu IP, e-mail e WhatsApp estão na lista negra.</small>`;
-    return;
-  }
-
-  m.style.color='green';m.innerText='Entrando...';
-  localStorage.setItem('usuario_logado',e);
-  // Registra IP fictício para controle (no backend real você grava IP real)
-  localStorage.setItem('gn_last_ip', Date.now().toString());
-  window.location.replace('painel.html')
+  const e=document.getElementById('email').value.toLowerCase().trim();
+  const s=document.getElementById('senha').value;
+  if(!e||!s){ document.getElementById('msg').innerText='Preencha e-mail e senha'; return}
+  const usuarios=JSON.parse(localStorage.getItem('gn_usuarios')||'[]');
+  const u=usuarios.find(x=>x.email===e && x.senha===s);
+  if(!u){ document.getElementById('msg').innerText='E-mail ou senha inválidos. Crie um cadastro novo.'; return}
+  localStorage.setItem('usuario_logado', e);
+  location.href='./painel.html';
 }
-
-document.addEventListener('keydown',ev=>{if(ev.key==='Enter')entrar()});
-
-// Corrige link antigo que você tinha
-document.querySelectorAll('a[href="cadastro-proprietario.html"]').forEach(a=>a.href='cadastrar-proprietario.html');
+function recuperar(){
+  const e=document.getElementById('email').value;
+  if(!e) { alert('Digite seu e-mail no campo E-mail para recuperar'); return }
+  alert('Link de recuperação enviado para '+e+' (simulação - no sistema real enviaria e-mail)');
+}
 </script>
 </body>
 </html>
