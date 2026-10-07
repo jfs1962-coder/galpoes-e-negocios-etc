@@ -16,10 +16,7 @@ body{background:#f5f5f5;display:flex;min-height:100vh}
   background-position: center center;
   background-size: 95%;
 }
-.dir::before{
-  content:"";position:absolute;inset:0;
-  background:rgba(229,229,229,0.55);
-}
+.dir::before{content:"";position:absolute;inset:0;background:rgba(229,229,229,0.55);}
 .box{position:relative;z-index:2;background:#fff;width:100%;max-width:420px;padding:28px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.15);border:1px solid #ddd}
 input{width:100%;padding:13px 14px;border:1px solid #ddd;border-radius:10px;margin-top:10px;font-size:13px;outline:none}
 input:focus{border-color:#FFD700}
@@ -27,6 +24,9 @@ input:focus{border-color:#FFD700}
 .plano div{flex:1;border:1px solid #ddd;border-radius:12px;padding:12px;text-align:center;cursor:pointer;font-size:11px;background:#fff}
 .plano div.ativo{border:2px solid #FFD700;background:#fffbe0}
 .btn{width:100%;background:#FFD700;color:#000;border:0;padding:14px;border-radius:30px;font-weight:900;margin-top:16px;cursor:pointer}
+.check-area{margin-top:14px;background:#fffbe0;border:1px solid #FFD700;border-radius:10px;padding:10px 12px;display:flex;gap:8px;align-items:flex-start}
+.check-area input{width:auto;margin-top:3px}
+.check-area label{font-size:11px;line-height:1.4;color:#333}
 @media(max-width:800px){body{flex-direction:column}.esq{width:100%}.dir{width:100%}}
 </style>
 </head>
@@ -48,6 +48,12 @@ input:focus{border-color:#FFD700}
 <input id="whats" placeholder="WhatsApp (11) 9xxxx-xxxx">
 <input id="email" type="email" placeholder="Seu melhor e-mail">
 <input id="senha" type="password" placeholder="Crie uma senha">
+
+<div class="check-area">
+<input type="checkbox" id="antiCorretor">
+<label for="antiCorretor"><b>Declaro que SOU o proprietário do imóvel</b> e NÃO sou corretor, imobiliária ou intermediário. Entendo que se for identificado como corretor, serei <b>bloqueado permanentemente por IP, e-mail e WhatsApp</b> conforme Termos.</label>
+</div>
+
 <div style="font-size:11px;font-weight:800;margin-top:14px">Escolha seu plano:</div>
 <div class="plano" id="planos">
 <div onclick="sel(this,'1')" id="p1"><b>1 GALPÃO</b><br>R$49,90/mês</div>
@@ -62,11 +68,35 @@ input:focus{border-color:#FFD700}
 <script>
 let planoSel='3';
 function sel(el,v){document.querySelectorAll('.plano div').forEach(d=>d.classList.remove('ativo'));el.classList.add('ativo');planoSel=v}
-const urlParams=new URLSearchParams(window.location.search); if(urlParams.get('plano')){planoSel=urlParams.get('plano'); sel(document.getElementById('p'+planoSel),planoSel)}
+const urlParams=new URLSearchParams(window.location.search); if(urlParams.get('plano')){planoSel=urlParams.get('plano'); let el=document.getElementById('p'+planoSel); if(el) sel(el,planoSel)}
+
+// ANTI-CORRETOR
+const BL_KEY='gn_blacklist_v2';
+const getBL=()=>JSON.parse(localStorage.getItem(BL_KEY)||'[]');
+function isBlocked(email, whats){
+  const bl=getBL();
+  return bl.some(b=> b.email===email.toLowerCase() || b.whats===whats.replace(/\D/g,''));
+}
+
 function criar(){
- const n=document.getElementById('nome').value, w=document.getElementById('whats').value, e=document.getElementById('email').value, s=document.getElementById('senha').value;
- if(!n||!w||!e||!s){document.getElementById('msg').innerText='Preencha todos os campos';return}
- document.getElementById('msg').style.color='green'; document.getElementById('msg').innerText='Criando sua conta...';
+ const n=document.getElementById('nome').value.trim(), w=document.getElementById('whats').value.trim(), e=document.getElementById('email').value.trim().toLowerCase(), s=document.getElementById('senha').value;
+ const check=document.getElementById('antiCorretor').checked;
+ const msg=document.getElementById('msg');
+
+ if(isBlocked(e,w)){ msg.style.color='red'; msg.innerText='⛔ Este e-mail/WhatsApp está BLOQUEADO permanentemente por violação dos termos (corretor).'; return; }
+ if(!n||!w||!e||!s){ msg.style.color='red'; msg.innerText='Preencha todos os campos';return}
+ if(!check){ msg.style.color='red'; msg.innerText='Você precisa declarar que é o proprietário e não é corretor.';return}
+
+ // Detecção simples de corretor tentando se passar por proprietário
+ const termosCorretor=['corretor','imobiliaria','imobiliária','creci','intermediador'];
+ if(termosCorretor.some(t=> n.toLowerCase().includes(t) || e.toLowerCase().includes(t))){
+   let bl=getBL(); bl.push({email:e, whats:w.replace(/\D/g,''), motivo:'tentou cadastro como corretor', data:new Date().toISOString()});
+   localStorage.setItem(BL_KEY, JSON.stringify(bl));
+   msg.style.color='red'; msg.innerText='⛔ Cadastro bloqueado: identificado como corretor/imobiliária.';
+   return;
+ }
+
+ msg.style.color='green'; msg.innerText='Criando sua conta...';
  setTimeout(()=>{localStorage.setItem('usuario_logado',e); localStorage.setItem('plano',planoSel); location.href='painel.html'},900)
 }
 </script>
