@@ -51,7 +51,7 @@ body{background:#fff;color:#111}
 <div style="background:#fff;padding:8px 14px;border-radius:12px;display:flex;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.3)">
 <img src="logo.jpg" style="height:58px;display:block" alt="Galpões e Negócios">
 </div>
-<div class="bts"><a href="cadastrar-proprietario.html">CADASTRAR</a><a href="login.html" class="fundo">ENTRAR</a></div>
+<div class="bts"><a href="cadastro-proprietario.html">CADASTRAR</a><a href="login.html" class="fundo">ENTRAR</a></div>
 </div>
 
 <div class="hero">
@@ -59,7 +59,7 @@ body{background:#fff;color:#111}
 <div class="badge">SÓ PROPRIETÁRIO • SEM COMISSÃO • SEM INTERMEDIÁRIO</div>
 <h1>Alugue seu Galpão <span>Direto</span> e Economize até 1 Mês de Aluguel</h1>
 <p>No ABC e SP. Fale direto com o dono no chat protegido. Sem corretor, sem enrolação, sem comissão.</p>
-<a href="cadastrar-proprietario.html" class="cta-principal">QUERO ANUNCIAR MEU GALPÃO →</a>
+<a href="cadastro-proprietario.html" class="cta-principal">QUERO ANUNCIAR MEU GALPÃO →</a>
 <p style="font-size:10px;margin-top:10px;opacity:.7">✓ Cadastro em 2 minutos • ✓ Já aparece nas buscas</p>
 </div>
 </div>
@@ -78,13 +78,13 @@ body{background:#fff;color:#111}
 <div class="card">
 <b style="font-size:11px;letter-spacing:1px">1 GALPÃO</b><br><span class="preco">R$49,90</span><span style="font-size:11px;color:#666">/30 dias</span>
 <ul class="lista"><li>1 galpão ativo</li><li>Até 10 fotos por galpão</li><li>Chat direto com interessado</li><li>Aparece nas buscas do ABC e SP</li></ul>
-<a href="cadastrar-proprietario.html?plano=1" class="btn-preto">QUERO 1 GALPÃO</a>
+<a href="cadastro-proprietario.html?plano=1" class="btn-preto">QUERO 1 GALPÃO</a>
 </div>
 <div class="card destaque">
 <div class="selo-topo">⭐ MAIS VENDIDO</div>
 <b style="font-size:11px;letter-spacing:1px">3 GALPÕES</b><br><span class="preco">R$99,90</span><span style="font-size:11px;color:#666">/30 dias</span>
 <ul class="lista"><li>Até 3 galpões simultâneos</li><li>Até 10 fotos por galpão</li><li>Selo DESTAQUE no topo das buscas</li><li>Suporte prioritário no WhatsApp</li></ul>
-<a href="cadastrar-proprietario.html?plano=3" class="btn-amarelo">QUERO 3 GALPÕES</a>
+<a href="cadastro-proprietario.html?plano=3" class="btn-amarelo">QUERO 3 GALPÕES</a>
 <p style="font-size:10px;text-align:center;margin-top:8px;color:#666">Economize R$49,80</p>
 </div>
 </div>
@@ -100,15 +100,9 @@ CNPJ: 63.329.574/0001-28 | PIX: 63.329.574/0001-28<br><br>
 </div>
 
 <script>
-// SISTEMA ANTI-CORRETOR v2 - BLINDAGEM PERMANENTE
-// Salva lista negra que funciona em todo o site
+// SISTEMA ANTI-CORRETOR v2 - MANTÉM LISTA NEGRA
 const BL_KEY='gn_blacklist_v2';
 const getBL=()=>JSON.parse(localStorage.getItem(BL_KEY)||'[]');
-const saveBL=(l)=>localStorage.setItem(BL_KEY, JSON.stringify(l));
-// Corrige link quebrado que você tinha (cadastro-proprietario vs cadastrar)
-document.querySelectorAll('a[href="cadastro-proprietario.html"]').forEach(a=>{
-  a.href='cadastrar-proprietario.html'+(a.search||'');
-});
 </script>
 </body>
 </html>
