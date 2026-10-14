@@ -1,20 +1,133 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cadastrar Galpão</title>
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cadastrar Galpão - Galpões e Negócios</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#f5f5f5}.topo{background:#111;color:#fff;padding:8px 16px;display:flex;justify-content:space-between;font-size:11px}.frase{background:#FFD700;color:#000;padding:6px 14px;border-radius:20px;font-weight:bold;font-size:11px}.box{background:#fff;margin:16px;border-radius:12px;padding:16px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}input,select{width:100%;border:1px solid #ddd;border-radius:8px;padding:10px;font-size:12px}.full{grid-column:1/3}.fotos{border:2px dashed #FFD700;border-radius:10px;padding:12px;text-align:center;background:#fffbe6;margin-top:12px}#preview{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}#preview img{width:70px;height:70px;object-fit:cover;border-radius:6px}.btn{background:#111;color:#FFD700;border:none;border-radius:20px;padding:12px;width:100%;font-weight:bold;margin-top:12px;cursor:pointer}</style>
+<style>*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}body{background:#f5f5f5}
+.topo{background:#111;color:#fff;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px}
+.topo div{white-space:nowrap}
+.frases{background:#111;padding:12px 14px;text-align:center}
+.frases .frase{background:#FFD700;color:#000;padding:7px 14px;border-radius:20px;font-weight:900;font-size:11px;display:inline-block;max-width:100%}
+.frases h1{color:#fff;font-size:14px;margin-top:10px;line-height:1.3}
+.box{background:#fff;margin:12px;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.box h2{font-size:15px;font-weight:900}
+.box h3{font-size:12px;font-weight:900;margin-top:18px;margin-bottom:6px;color:#333;text-transform:uppercase;letter-spacing:.5px;border-left:3px solid #FFD700;padding-left:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+input,select,textarea{width:100%;border:1px solid #ddd;border-radius:10px;padding:11px;font-size:12px;background:#fff;outline:none}
+textarea{min-height:80px;resize:vertical}
+.full{grid-column:1/3}
+.tipo-box{display:flex;gap:10px;margin-top:8px}
+.tipo{flex:1;border:2px solid #ddd;border-radius:12px;padding:12px;text-align:center;cursor:pointer;background:#fff;transition:.2s}
+.tipo.ativo{border-color:#FF7A00;background:#fff4e6}
+.tipo b{font-size:11px}
+.checks{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.checks label{font-size:11px;background:#f9f9f9;border:1px solid #eee;padding:7px 10px;border-radius:20px;display:flex;align-items:center;gap:5px;cursor:pointer;margin:0}
+.checks input{width:auto}
+.fotos{border:2px dashed #FFD700;border-radius:12px;padding:14px;text-align:center;background:#fffbe6;margin-top:16px}
+#preview{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;justify-content:center}
+#preview img{width:70px;height:70px;object-fit:cover;border-radius:8px;border:1px solid #ddd}
+.btn{background:#111;color:#FFD700;border:none;border-radius:24px;padding:14px;width:100%;font-weight:900;margin-top:16px;cursor:pointer;font-size:13px}
+.btn2{background:#f3f3f3;color:#111;border:1px solid #ddd;border-radius:24px;padding:12px;width:100%;font-weight:800;margin-top:8px;cursor:pointer;font-size:12px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.full{grid-column:1}.tipo-box{flex-direction:column}.topo{font-size:10px}.frases h1{font-size:13px}}
+</style>
 </head><body>
-<div class="topo"><div>SÓ PROPRIETÁRIO • SEM COMISSÃO</div><div style="color:#FFD700">PROPRIETÁRIO DIRETO COM VOCÊ - SEM COMISSÕES</div></div>
-<div style="background:#111;padding:16px;text-align:center"><div class="frase">PROPRIETÁRIO DIRETO COM VOCÊ - SEM COMISSÕES</div><h1 style="color:#fff;font-size:16px;margin-top:8px">Galpões de Todos os Tamanhos - ABC e SP - sem intermediário</h1></div>
+<div class="topo"><div>✓ SÓ PROPRIETÁRIO • SEM COMISSÃO</div><div style="color:#FFD700;font-weight:800">DIRETO COM VOCÊ - CNPJ 63.329.574/0001-28</div></div>
+<div class="frases"><div class="frase">PROPRIETÁRIO DIRETO COM VOCÊ - SEM COMISSÕES</div><h1>Galpões de Todos os Tamanhos - ABC e SP - sem intermediário</h1></div>
+
 <div class="box">
-<h2 style="font-size:14px">Cadastrar Galpão</h2>
-<div class="grid" style="margin-top:12px">
-<input id="cidade" placeholder="Cidade *" class="full"><input id="bairro" placeholder="Bairro *"><input id="area" placeholder="Área m² *" type="number"><input id="valor" placeholder="Valor R$ *" type="number"><input id="pe" placeholder="Pé direito"><input id="docas" placeholder="Docas"><input id="piso" placeholder="Piso" class="full"><input id="whats" placeholder="WhatsApp *" class="full">
+<h2>Cadastrar Galpão - Completo</h2>
+<p style="font-size:11px;color:#666;margin-top:4px">Campos com * são obrigatórios. Quanto mais completo, mais rápido aluga.</p>
+
+<h3>1. Tipo do galpão</h3>
+<div class="tipo-box">
+  <div class="tipo ativo" id="t_mono" onclick="setTipo('monousuario')"><b>MONOUSUÁRIO</b><div style="font-size:10px;margin-top:3px">Galpão isolado, só seu</div></div>
+  <div class="tipo" id="t_cond" onclick="setTipo('condominio')"><b>EM CONDOMÍNIO</b><div style="font-size:10px;margin-top:3px">Condomínio logístico / industrial</div></div>
 </div>
-<div class="fotos"><b style="font-size:12px">FOTOS - Até 10 fotos por galpão</b><br><input type="file" id="fotos" multiple accept="image/*" onchange="ver(this)" style="margin-top:8px"><div id="contador">0 / 10 fotos</div><div id="preview"></div></div>
-<button class="btn" onclick="salvar()">SALVAR E IR PARA PAGAMENTO</button>
+<div class="grid">
+  <select id="finalidade"><option>Locação</option><option>Venda</option><option>Locação e Venda</option></select>
+  <select id="status"><option>Disponível</option><option>Em reforma</option><option>Locado</option></select>
 </div>
+
+<h3>2. Localização</h3>
+<div class="grid">
+  <input id="cep" placeholder="CEP">
+  <select id="cidade"><option value="">Cidade *</option><option>Santo André</option><option>São Bernardo do Campo</option><option>São Caetano do Sul</option><option>Diadema</option><option>Mauá</option><option>São Paulo</option><option>Guarulhos</option></select>
+  <input id="bairro" placeholder="Bairro *" class="full">
+  <input id="endereco" placeholder="Rua / nº (opcional)" class="full">
+  <input id="referencia" placeholder="Referência / Rodovia - ex: Próx. Anchieta" class="full">
+</div>
+
+<h3>3. Medidas e estrutura - padrão portais</h3>
+<div class="grid">
+  <input id="area_total" type="number" placeholder="Área total terreno m² *">
+  <input id="area" type="number" placeholder="Área construída m² *">
+  <input id="area_esc" type="number" placeholder="Área escritório m²">
+  <input id="mezanino" type="number" placeholder="Mezanino m²">
+  <input id="pe" type="number" step="0.1" placeholder="Pé-direito livre (m) * ex: 7">
+  <input id="cap_piso" type="number" placeholder="Cap. piso ton/m² ex: 5">
+  <input id="docas" type="number" placeholder="Nº Docas *">
+  <input id="vagas" type="number" placeholder="Vagas / Estacionamento">
+  <input id="portao" placeholder="Altura portão ex: 5x6m">
+  <select id="piso" class="full"><option value="">Tipo de piso</option><option>Concreto usinado polido</option><option>Concreto</option><option>Intertravado</option><option>Cimento queimado</option></select>
+</div>
+
+<h3>4. Infraestrutura e valores</h3>
+<div class="grid">
+  <select id="energia"><option>Energia: Trifásico</option><option>Monofásico</option><option>Bifásico</option><option>Alta 100kVA+</option><option>Alta 300kVA+</option></select>
+  <input id="valor" type="number" placeholder="Valor aluguel R$ *">
+  <input id="condominio" type="number" placeholder="Condomínio R$ (0 se monousuário)">
+  <input id="iptu" type="number" placeholder="IPTU R$/mês">
+  <input id="whats" placeholder="WhatsApp com DDD *" class="full">
+</div>
+
+<label style="font-size:11px;font-weight:800;margin-top:14px;display:block">Diferenciais (toque nos que tem)</label>
+<div class="checks">
+  <label><input type="checkbox" value="AVCB"> AVCB</label>
+  <label><input type="checkbox" value="Sprinkler"> Sprinkler</label>
+  <label><input type="checkbox" value="Hidrantes"> Hidrantes</label>
+  <label><input type="checkbox" value="Portaria 24h"> Portaria 24h</label>
+  <label><input type="checkbox" value="CFTV"> CFTV</label>
+  <label><input type="checkbox" value="Refeitório"> Refeitório</label>
+  <label><input type="checkbox" value="Vestiário"> Vestiário</label>
+  <label><input type="checkbox" value="Pátio manobra"> Pátio manobra</label>
+  <label><input type="checkbox" value="Niveladora"> Niveladora doca</label>
+  <label><input type="checkbox" value="Cross docking"> Cross docking</label>
+  <label><input type="checkbox" value="Cabine primária"> Cabine primária</label>
+  <label><input type="checkbox" value="Gerador"> Gerador</label>
+</div>
+
+<h3>5. Título e descrição</h3>
+<div class="grid">
+  <input id="titulo" placeholder="Título - Ex: Galpão 450m² 2 docas Santo André *" class="full">
+  <textarea id="descricao" placeholder="Descrição completa: fale sobre zoneamento, acesso carreta, altura, docas, escritório..." class="full"></textarea>
+</div>
+
+<div class="fotos"><b style="font-size:12px">FOTOS - Até 10 fotos por galpão</b><br><input type="file" id="fotos" multiple accept="image/*" onchange="ver(this)" style="margin-top:8px"><div id="contador" style="font-size:11px;margin-top:6px">0 / 10 fotos</div><div id="preview"></div></div>
+
+<button class="btn" onclick="salvar()">SALVAR E IR PARA PAGAMENTO →</button>
+<button class="btn2" onclick="location.href='./painel.html'">Salvar depois</button>
+<p id="msg" style="text-align:center;font-size:11px;margin-top:10px"></p>
+</div>
+
 <script>
 const supa = supabase.createClient('https://SEU-PROJETO.supabase.co','SUA_ANON_KEY');
 let arquivos=[]; 
+let tipoGalpao='monousuario';
+function setTipo(t){tipoGalpao=t;document.getElementById('t_mono').classList.toggle('ativo',t==='monousuario');document.getElementById('t_cond').classList.toggle('ativo',t==='condominio');}
 function ver(input){let novos=Array.from(input.files); if(arquivos.length+novos.length>10){alert('Máximo 10 fotos'); novos=novos.slice(0,10-arquivos.length);} arquivos=arquivos.concat(novos).slice(0,10); const prev=document.getElementById('preview'); prev.innerHTML=''; arquivos.forEach(f=>{const r=new FileReader(); r.onload=e=>prev.innerHTML+=`<img src="${e.target.result}">`; r.readAsDataURL(f);}); document.getElementById('contador').innerText=arquivos.length+' / 10 fotos';}
-async function salvar(){const urlParams=new URLSearchParams(window.location.search); const plano=urlParams.get('plano')||'1'; location.href=`pagar.html?plano=${plano}`;}
+async function salvar(){
+  const cidade=document.getElementById('cidade').value;
+  const bairro=document.getElementById('bairro').value;
+  const area=document.getElementById('area').value;
+  const valor=document.getElementById('valor').value;
+  const whats=document.getElementById('whats').value;
+  const titulo=document.getElementById('titulo').value;
+  if(!cidade||!bairro||!area||!valor||!whats||!titulo){document.getElementById('msg').innerText='Preencha os campos com *';document.getElementById('msg').style.color='red';return;}
+  const checks=[...document.querySelectorAll('.checks input:checked')].map(c=>c.value);
+  const galpao={
+    tipo:tipoGalpao, cidade, bairro, area_total:document.getElementById('area_total').value, area_construida:area,
+    pe_direito:document.getElementById('pe').value, docas:document.getElementById('docas').value, piso:document.getElementById('piso').value,
+    preco:Number(valor), whats, titulo, descricao:document.getElementById('descricao').value, diferenciais:checks, foto:'./hero.jpg?v=14'
+  };
+  let galpoes=JSON.parse(localStorage.getItem('gn_galpoes')||'[]');galpoes.push(galpao);localStorage.setItem('gn_galpoes',JSON.stringify(galpoes));
+  const urlParams=new URLSearchParams(window.location.search); const plano=urlParams.get('plano')||'3';
+  location.href=`pagar.html?plano=${plano}`;
+}
 </script></body></html>
