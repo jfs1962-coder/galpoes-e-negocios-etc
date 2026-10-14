@@ -1,38 +1,25 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Entrar - Galpões e Negócios</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}body{background:#f5f5f5;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:14px}
-.box{background:#fff;border-radius:16px;padding:22px;max-width:400px;width:100%;box-shadow:0 8px 24px rgba(0,0,0,.08)}
-.box h1{font-size:20px;font-weight:900}.box p{font-size:12px;color:#666;margin:8px 0 16px}
-.box input{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;font-size:13px;margin-top:8px}
-.btn{background:#111;color:#FFD700;border:0;padding:13px;width:100%;border-radius:12px;font-weight:900;margin-top:14px;cursor:pointer}
-.link{font-size:11px;text-align:center;margin-top:12px}.link a{font-weight:900;color:#111}
-</style>
-</head><body>
-<div class="box">
-<h1>Entrar na sua conta</h1>
-<p>Se você já é cadastrado, digite seu email e senha para ver os galpões.</p>
-<input id="email" type="email" placeholder="Seu email cadastrado *">
-<input id="senha" type="password" placeholder="Sua senha *">
-<button class="btn" onclick="entrar()">ENTRAR →</button>
-<div class="link">Não tem cadastro? <a href="./cadastro-cliente.html">Cadastre-se grátis</a><br><br>Sou proprietário? <a href="./cadastro-proprietario.html">Anunciar galpão</a></div>
-<p id="msg" style="font-size:11px;text-align:center;margin-top:10px;color:red"></p>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Login Proprietário - Galpões e Negócios</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+<div class="bg-white rounded-[16px] p-6 w-full max-w-[400px] shadow">
+<h1 class="font-black text-lg">Entrar - Proprietário</h1>
+<p class="text-[11px] text-gray-500 mt-1">CNPJ 63.329.574/0001-28 - Cada CPF/CNPJ vê só seus galpões (até 3)</p>
+<input id="cpf" placeholder="Digite seu CPF ou CNPJ" class="mt-5 w-full border rounded-[10px] px-4 py-3 text-sm">
+<button onclick="entrar()" class="mt-4 w-full bg-black text-white font-black py-3 rounded-full text-sm">ENTRAR E VER MEUS GALPÕES</button>
+<p class="mt-4 text-[10px] text-gray-400 text-center">Não compartilhamos seu documento. Usado só para separar seus anúncios dos outros clientes no mesmo PC.</p>
 </div>
 <script>
 function entrar(){
-  const email=document.getElementById('email').value.trim().toLowerCase();
-  const senha=document.getElementById('senha').value;
-  if(!email||!senha){document.getElementById('msg').innerText='Digite email e senha';return}
-  const usuarios=JSON.parse(localStorage.getItem('gn_usuarios')||'[]');
-  const user=usuarios.find(u=>u.email===email&&u.senha===senha);
-  if(!user){document.getElementById('msg').innerText='Email ou senha incorretos';return}
-  localStorage.setItem('usuario_logado',JSON.stringify(user));
-  const busca=JSON.parse(localStorage.getItem('busca_pendente')||'{}');
-  if(busca.cidade||busca.metros||busca.preco){
-    location.href=`./buscar.html?cidade=${encodeURIComponent(busca.cidade||'')}&metros=${busca.metros||''}&preco=${busca.preco||''}`;
-  } else {
-    location.href='./buscar.html';
-  }
+  let doc = document.getElementById('cpf').value.replace(/\D/g,'');
+  if(doc.length < 11){ alert('Digite CPF com 11 ou CNPJ com 14 dígitos'); return; }
+  localStorage.setItem('gn_dono_atual', doc);
+  // CORREÇÃO DO 404: usa caminho relativo correto
+  window.location.href = './cadastro-proprietario.html';
 }
 </script>
-</body></html>
+</body>
+</html>
