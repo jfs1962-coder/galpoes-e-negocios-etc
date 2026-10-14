@@ -6,47 +6,42 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
 body{background:#f5f5f5;overflow-x:hidden}
-.top{background:#000;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;gap:6px;position:sticky;top:0;z-index:99;flex-wrap:nowrap}
-.logo-box{background:#fff;padding:6px 10px;border-radius:12px;display:flex;align-items:center;flex-shrink:0}
-.logo-box img{height:48px;width:auto;max-width:115px;object-fit:contain;display:block}
-.menu{display:flex;gap:4px;align-items:center;flex-shrink:0;flex-wrap:nowrap}
-.menu a{color:#fff;text-decoration:none;font-size:11px;font-weight:800;white-space:nowrap;padding:6px 4px}
-.btn-amarelo{background:#FFD700;color:#000!important;padding:9px 14px!important;border-radius:18px;font-size:11px!important;font-weight:900!important;line-height:1;display:flex;align-items:center;justify-content:center;white-space:nowrap}
+.top{background:#000;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;position:sticky;top:0;z-index:99}
+.logo-box{background:#fff;padding:6px 12px;border-radius:12px;display:flex;align-items:center;flex-shrink:0}
+.logo-box img{height:50px;max-width:130px;object-fit:contain}
+.menu{display:flex;gap:10px;align-items:center;flex-shrink:0}
+.menu a{color:#fff;text-decoration:none;font-size:12px;font-weight:800;white-space:nowrap}
+.btn-amarelo{background:#FFD700;color:#000!important;padding:10px 18px!important;border-radius:20px;font-size:12px!important;font-weight:900!important;white-space:nowrap}
 .btn-amarelo.txt-short{display:none}
 .btn-amarelo.txt-long{display:inline}
-.filtros{background:#fff;padding:12px;border-bottom:1px solid #e5e5e5;display:flex;gap:8px;flex-wrap:wrap;align-items:center;position:sticky;top:64px;z-index:9}
-.filtros select,.filtros input{padding:11px;border:1px solid #ddd;border-radius:10px;font-size:13px;background:#f9f9f9;flex:1;min-width:140px}
-.filtros button{background:#111;color:#fff;border:0;padding:11px 16px;border-radius:10px;font-weight:800;cursor:pointer;flex-shrink:0}
+.filtros{background:#fff;padding:12px;border-bottom:1px solid #e5e5e5;display:flex;gap:8px;flex-wrap:wrap;align-items:center;position:sticky;top:70px;z-index:9}
+.filtros select,.filtros input{padding:11px;border:1px solid #ddd;border-radius:10px;font-size:13px;background:#f9f9f9;flex:1;min-width:150px}
+.filtros button{background:#111;color:#fff;border:0;padding:11px 18px;border-radius:10px;font-weight:800;cursor:pointer}
 .aviso{max-width:1200px;margin:12px auto 0;padding:0 12px}
-.aviso div{background:#fffbe6;border:1px solid #ffe58f;padding:10px 12px;border-radius:10px;font-size:11px;line-height:1.4;color:#333}
+.aviso div{background:#fffbe6;border:1px solid #ffe58f;padding:10px 12px;border-radius:10px;font-size:11px}
 .galpoes{max-width:1200px;margin:0 auto;padding:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
-.card{border:1px solid #e5e5e5;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.04)}
+.card{border:1px solid #e5e5e5;border-radius:14px;overflow:hidden;background:#fff}
 .card img{width:100%;height:170px;object-fit:cover}
 .card-body{padding:12px}
 .card-body h3{font-size:13px;font-weight:800}
-.card-body p{font-size:11px;color:#666;margin:3px 0}
-.preco{font-size:15px;font-weight:900;color:#111;margin-top:5px}
+.preco{font-size:15px;font-weight:900;margin-top:5px}
 .btn-whats{width:100%;margin-top:8px;background:#111;color:#fff;border:0;padding:11px;border-radius:10px;font-weight:800;font-size:11px;cursor:pointer}
-.tag{display:inline-block;background:#f3f3f3;border:1px solid #eee;padding:3px 8px;border-radius:20px;font-size:10px;margin-top:6px;margin-right:4px}
-footer{background:#0a0a0a;color:#aaa;padding:18px;text-align:center;font-size:10px;line-height:1.6;margin-top:16px}
-@media(max-width:480px){
-.logo-box img{height:40px;max-width:100px}
-.top{padding:8px 8px;gap:4px}
-.menu{gap:3px}
-.menu a{font-size:10px;padding:4px 2px}
-.btn-amarelo{padding:8px 10px!important;font-size:10px!important}
+.tag{display:inline-block;background:#f3f3f3;padding:3px 8px;border-radius:20px;font-size:10px;margin:4px 4px 0 0}
+footer{background:#0a0a0a;color:#aaa;padding:18px;text-align:center;font-size:10px;margin-top:16px}
+@media(max-width:600px){
+.logo-box img{height:42px;max-width:110px}
 .btn-amarelo.txt-long{display:none}
 .btn-amarelo.txt-short{display:inline}
-.filtros{top:56px;flex-direction:column;align-items:stretch}
-.filtros select,.filtros input{flex:none;min-width:100%;width:100%}
-.filtros button{width:100%}
+.btn-amarelo{padding:8px 12px!important;font-size:10px!important}
+.filtros{flex-direction:column;align-items:stretch;top:62px}
+.filtros select,.filtros input{width:100%;min-width:100%}
 .galpoes{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 <div class="top">
-  <a href="./index.html"><div class="logo-box"><img src="./logo.jpg?v=16" alt="Galpões e Negócios"></div></a>
+  <a href="./index.html"><div class="logo-box"><img src="./logo.jpg?v=17"></div></a>
   <div class="menu">
     <a href="./index.html">INÍCIO</a>
     <a href="./login.html">ENTRAR</a>
@@ -54,43 +49,49 @@ footer{background:#0a0a0a;color:#aaa;padding:18px;text-align:center;font-size:10
   </div>
 </div>
 <div class="filtros">
-  <select id="fCidade"><option value="">Todas as cidades</option><option>Santo André</option><option>São Bernardo do Campo</option><option>São Caetano do Sul</option><option>Diadema</option><option>Mauá</option><option>São Paulo</option></select>
+  <select id="fCidade">
+  <option value="">Todas as cidades</option>
+  <option>Santo André</option>
+  <option>São Bernardo do Campo</option>
+  <option>São Caetano do Sul</option>
+  <option>Diadema</option>
+  <option>Mauá</option>
+  <option>Ribeirão Pires</option>
+  <option>Rio Grande da Serra</option>
+  <option>São Paulo</option>
+  <option>São Paulo - Zona Sul</option>
+  <option>São Paulo - Zona Leste</option>
+  <option>São Paulo - Zona Norte</option>
+  <option>São Paulo - Zona Oeste</option>
+  <option>Guarulhos</option>
+  <option>Osasco</option>
+  <option>Barueri</option>
+  <option>Embu das Artes</option>
+  <option>Taboão da Serra</option>
+  <option>Itapevi</option>
+  <option>Cotia</option>
+  </select>
   <select id="fTipo"><option value="">Monousuário ou Condomínio</option><option value="monousuario">Monousuário</option><option value="condominio">Condomínio</option></select>
   <select id="fMetros"><option value="">Qualquer metragem</option><option value="200">Até 200m²</option><option value="500">200 a 500m²</option><option value="1000">500 a 1000m²</option><option value="1001">Acima de 1000m²</option></select>
   <input id="fPreco" type="number" placeholder="Preço até R$">
   <button onclick="filtrar()">FILTRAR</button>
 </div>
-<div class="aviso"><div>🔒 <b>CNPJ 63.329.574/0001-28 - Segurança:</b> WhatsApp do proprietário liberado somente após seu cadastro com senha. Negociação 100% direta, sem comissão.</div></div>
+<div class="aviso"><div>🔒 <b>CNPJ 63.329.574/0001-28:</b> WhatsApp liberado só após cadastro. Direto com proprietário.</div></div>
 <div id="lista" class="galpoes"></div>
-<footer><b>Galpões e Negócios - CNPJ 63.329.574/0001-28</b><br>Plataforma direta proprietário.</footer>
+<footer><b>Galpões e Negócios - CNPJ 63.329.574/0001-28</b></footer>
 <script>
 const demo=[
-  {titulo:"Galpão 450m² Monousuário - 2 docas",cidade:"Santo André",bairro:"Vila Industrial",metros:450,preco:5800,tipo:"monousuario",pe:"7m",docas:2,foto:"./hero.jpg?v=16"},
-  {titulo:"Galpão 800m² Condomínio - 4 docas",cidade:"São Bernardo do Campo",bairro:"Batistini",metros:800,preco:9500,tipo:"condominio",pe:"8m",docas:4,foto:"./hero.jpg?v=16"}
+  {titulo:"Galpão 450m² Monousuário - 2 docas - Fabril 380m²",cidade:"Santo André",bairro:"Vila Industrial",metros:450,area_fabril:380,preco:5800,tipo:"monousuario",pe:"7m",docas:2,foto:"./hero.jpg?v=17"},
+  {titulo:"Galpão 800m² Condomínio - 4 docas - Fabril 700m²",cidade:"São Bernardo do Campo",bairro:"Batistini",metros:800,area_fabril:700,preco:9500,tipo:"condominio",pe:"8m",docas:4,foto:"./hero.jpg?v=17"}
 ];
-function getAll(){const salvos=JSON.parse(localStorage.getItem('gn_galpoes')||'[]');return salvos.length?salvos:demo;}
+function getAll(){const s=JSON.parse(localStorage.getItem('gn_galpoes')||'[]');return s.length?s:demo;}
 function render(lista){
   const div=document.getElementById('lista');
   if(!lista.length){div.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:30px;color:#666">Nenhum galpão com esses filtros.</div>';return}
-  div.innerHTML=lista.map((g,i)=>`<div class="card"><img src="${g.foto}" onerror="this.src='./hero.jpg?v=16'"><div class="card-body"><h3>${g.titulo||`Galpão ${g.metros||g.area_construida||g.area}m² em ${g.cidade}`}</h3><p>${g.bairro||g.cidade} - ${g.cidade} • ${g.metros||g.area||''}m²</p><div><span class="tag">${(g.tipo||'monousuario').toUpperCase()}</span><span class="tag">Pé ${g.pe_direito||g.pe||'7m'}</span><span class="tag">${g.docas||2} DOCAS</span></div><div class="preco">R$ ${Number(g.preco||g.valor||0).toLocaleString('pt-BR')}/mês</div><button class="btn-whats" onclick="verWhatsapp(${i})">🔒 Ver WhatsApp - Cadastro Grátis</button></div></div>`).join('');
+  div.innerHTML=lista.map((g,i)=>`<div class="card"><img src="${g.foto}" onerror="this.src='./hero.jpg?v=17'"><div class="card-body"><h3>${g.titulo}</h3><p>${g.bairro} - ${g.cidade}</p><div><span class="tag">${(g.tipo||'').toUpperCase()}</span><span class="tag">FABRIL ${g.area_fabril||g.area_construida||g.metros}m²</span><span class="tag">${g.docas||2} DOCAS</span></div><div class="preco">R$ ${Number(g.preco||0).toLocaleString('pt-BR')}/mês</div><button class="btn-whats" onclick="verWhatsapp(${i})">🔒 Ver WhatsApp</button></div></div>`).join('');
 }
-function verWhatsapp(index){
-  const logado=localStorage.getItem('usuario_logado');
-  if(!logado){if(confirm("🔒 Contato liberado só após cadastro. Quer criar agora?")){location.href='./cadastro-proprietario.html';}return;}
-  const g=getAll()[index];window.open(`https://wa.me/${g.whats||'5511999999999'}?text=Olá! Vi seu galpão em ${g.cidade} no Galpões e Negócios`,'_blank');
-}
-function filtrar(){
-  const cidade=document.getElementById('fCidade').value;
-  const tipo=document.getElementById('fTipo').value;
-  const metros=document.getElementById('fMetros').value;
-  const preco=document.getElementById('fPreco').value;
-  let lista=getAll();
-  if(cidade) lista=lista.filter(g=> (g.cidade||'').includes(cidade));
-  if(tipo) lista=lista.filter(g=> (g.tipo||'')===tipo);
-  if(metros){const m=Number(metros);lista=lista.filter(g=>{const met=Number(g.metros||g.area||0);if(m===200)return met<=200;if(m===500)return met>200&&met<=500;if(m===1000)return met>500&&met<=1000;if(m===1001)return met>1000;return true})}
-  if(preco) lista=lista.filter(g=> Number(g.preco||g.valor||0)<=Number(preco));
-  render(lista);
-}
+function verWhatsapp(i){const l=localStorage.getItem('usuario_logado');if(!l){if(confirm("Cadastro necessário para ver WhatsApp. Criar agora?"))location.href='./cadastro-proprietario.html';return}const g=getAll()[i];window.open(`https://wa.me/${g.whats||'5511999999999'}`,'_blank');}
+function filtrar(){const c=document.getElementById('fCidade').value,t=document.getElementById('fTipo').value,m=document.getElementById('fMetros').value,p=document.getElementById('fPreco').value;let l=getAll();if(c)l=l.filter(g=>(g.cidade||'').includes(c));if(t)l=l.filter(g=>(g.tipo||'')===t);if(p)l=l.filter(g=>Number(g.preco||0)<=Number(p));render(l);}
 render(getAll());
 </script>
 </body>
