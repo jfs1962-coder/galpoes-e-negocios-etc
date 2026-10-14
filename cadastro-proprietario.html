@@ -2,50 +2,49 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cadastro - CNPJ 63.329.574/0001-28</title>
+<title>Anunciar Galpão - Galpões e Negócios</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
-body{background:#f7f7f5;min-height:100vh;display:flex;flex-direction:column}
-.top{background:#000;padding:10px 12px;display:flex;justify-content:space-between;align-items:center}
-.logo-box{background:#fff;padding:7px 12px;border-radius:12px}.logo-box img{height:56px;max-width:150px}
-.wrap{max-width:440px;width:100%;margin:24px auto;padding:0 12px;flex:1}
-.card{background:#fff;border-radius:18px;padding:24px 18px;box-shadow:0 6px 20px rgba(0,0,0,.07);border:1px solid #eee}
-.card h1{font-size:20px;font-weight:900}
-.sub{font-size:12px;color:#666;margin:6px 0 16px;line-height:1.5}
-.etapas{display:flex;gap:6px;margin-bottom:16px}.etapas div{flex:1;height:6px;background:#e5e5e5;border-radius:10px}.etapas div.ativo{background:#FF7A00}
-input{width:100%;padding:13px;border:1px solid #ddd;border-radius:11px;margin-top:10px;font-size:14px}
-.btn{width:100%;background:#FF7A00;color:#fff;border:0;padding:14px;border-radius:11px;font-weight:900;margin-top:16px;cursor:pointer}
-footer{background:#0a0a0a;color:#aaa;padding:14px;text-align:center;font-size:10px;margin-top:20px}
+body{background:#f5f5f5;padding:14px}
+.box{max-width:560px;margin:0 auto;background:#fff;border-radius:16px;padding:20px;box-shadow:0 8px 24px rgba(0,0,0,.06)}
+h1{font-size:20px;font-weight:900} p{font-size:11px;color:#666;margin:6px 0 14px;line-height:1.4}
+input,select,textarea{width:100%;padding:11px;border:1px solid #ddd;border-radius:10px;font-size:13px;margin-top:8px}
+.btn{width:100%;padding:13px;background:#111;color:#fff;border:0;border-radius:12px;font-weight:900;margin-top:14px;cursor:pointer}
+.btn-amarelo{background:#FFD700;color:#000}
+.aviso-plano{background:#fffbe6;border:1px solid #ffe58f;padding:10px;border-radius:10px;font-size:11px;margin-bottom:12px}
 </style>
 </head>
 <body>
-<div class="top"><a href="./index.html"><div class="logo-box"><img src="./logo.jpg?v=15"></div></a><a href="./login.html" style="color:#fff;text-decoration:none;font-size:11px;font-weight:800">JÁ TENHO CONTA</a></div>
-<div class="wrap"><div class="card">
-<div class="etapas"><div class="ativo"></div><div></div></div>
-<h1>Crie seu cadastro</h1><p class="sub">Etapa 1 de 2: apenas nome, e-mail, telefone e senha. Na próxima tela você cadastra o galpão completo.</p>
-<input id="nome" placeholder="Nome completo *">
-<input id="email" type="email" placeholder="Seu melhor e-mail *">
-<input id="whats" placeholder="WhatsApp com DDD (11) 9XXXX-XXXX *">
-<input id="senha" type="password" placeholder="Crie uma senha (mín. 6) *">
-<button class="btn" onclick="criar()">CRIAR CONTA E CONTINUAR →</button>
-<p id="msg" style="text-align:center;font-size:12px;margin-top:10px"></p>
-</div></div>
-<footer><b>Galpões e Negócios - CNPJ 63.329.574/0001-28</b></footer>
+<div class="box">
+<h1>Anunciar Galpão</h1>
+<p>CNPJ 63.329.574/0001-28 - Galpões e Negócios® - Seu limite: <b id="limiteTxt">1</b> galpão(ões)</p>
+<div id="aviso" class="aviso-plano"></div>
+<input id="titulo" placeholder="Título ex: Galpão 450m² Monousuário">
+<select id="cidade"><option>Santo André</option><option>São Bernardo do Campo</option><option>São Caetano do Sul</option><option>Diadema</option><option>Mauá</option><option>São Paulo</option><option>Guarulhos</option></select>
+<input id="bairro" placeholder="Bairro">
+<input id="metros" type="number" placeholder="Metragem total (m²)">
+<input id="preco" type="number" placeholder="Preço aluguel R$">
+<input id="whats" placeholder="Seu WhatsApp com DDD">
+<input id="fotos" type="file" accept="image/*">
+<button class="btn" onclick="salvar()">SALVAR GALPÃO</button>
+<button class="btn btn-amarelo" onclick="location.href='./pagamento.html'">FAZER UPGRADE PARA 3 GALPÕES</button>
+<p id="msg" style="font-size:11px;text-align:center;margin-top:10px;color:red"></p>
+</div>
 <script>
-function criar(){
-  const n=document.getElementById('nome').value.trim();
-  const e=document.getElementById('email').value.toLowerCase().trim();
-  const w=document.getElementById('whats').value.trim();
-  const s=document.getElementById('senha').value;
-  if(!n||!e||!w||!s){document.getElementById('msg').innerText='Preencha todos os campos';document.getElementById('msg').style.color='red';return}
-  if(s.length<6){document.getElementById('msg').innerText='Senha mínima 6 caracteres';document.getElementById('msg').style.color='red';return}
-  let u=JSON.parse(localStorage.getItem('gn_usuarios')||'[]');
-  if(u.find(x=>x.email===e)){document.getElementById('msg').innerText='E-mail já cadastrado';document.getElementById('msg').style.color='red';return}
-  u.push({nome:n,email:e,whats:w,senha:s});
-  localStorage.setItem('gn_usuarios',JSON.stringify(u));
-  localStorage.setItem('usuario_logado',e);
-  localStorage.setItem('usuario_nome',n);
-  location.href='./cadastrar-galpao.html';
+const limite = Number(localStorage.getItem('limite_galpoes')||1);
+document.getElementById('limiteTxt').innerText=limite;
+const lista=JSON.parse(localStorage.getItem('gn_galpoes')||'[]');
+const aviso=document.getElementById('aviso');
+if(lista.length>=limite){
+aviso.innerHTML=`⚠️ Você já atingiu seu limite de <b>${limite} galpão(ões)</b>. Para anunciar até 3, faça upgrade para o PRO.`;
+}else{
+aviso.innerHTML=`✅ Você pode anunciar até <b>${limite}</b> galpão(ões). Você tem <b>${lista.length}</b> ativo(s).`;
+}
+function salvar(){
+if(lista.length>=limite){alert(`Limite de ${limite} galpão(ões) atingido! Faça upgrade para PRO (até 3 galpões)`);location.href='./pagamento.html';return}
+const g={titulo:document.getElementById('titulo').value,cidade:document.getElementById('cidade').value,bairro:document.getElementById('bairro').value,metros:document.getElementById('metros').value,preco:document.getElementById('preco').value,whats:document.getElementById('whats').value,foto:'./hero.jpg?v=21',tipo:'monousuario',docas:2,pe:'7m'};
+lista.push(g);localStorage.setItem('gn_galpoes',JSON.stringify(lista));
+alert('Galpão salvo!');location.href='./buscar.html';
 }
 </script>
 </body>
