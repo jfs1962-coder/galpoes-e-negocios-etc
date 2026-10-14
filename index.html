@@ -6,40 +6,38 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
 body{background:#fff;overflow-x:hidden}
-.top{background:#000;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;gap:6px;position:sticky;top:0;z-index:99;flex-wrap:nowrap}
-.logo-box{background:#fff;padding:6px 10px;border-radius:12px;display:flex;align-items:center;flex-shrink:0}
-.logo-box img{height:48px;width:auto;max-width:115px;object-fit:contain;display:block}
-.menu{display:flex;gap:4px;align-items:center;flex-shrink:0;flex-wrap:nowrap}
-.menu a{color:#fff;text-decoration:none;font-size:11px;font-weight:800;white-space:nowrap;padding:6px 4px}
-.btn-amarelo{background:#FFD700;color:#000!important;padding:9px 14px!important;border-radius:18px;font-size:11px!important;font-weight:900!important;line-height:1;display:flex;align-items:center;justify-content:center;white-space:nowrap}
+.top{background:#000;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;position:sticky;top:0;z-index:99}
+.logo-box{background:#fff;padding:6px 12px;border-radius:12px;display:flex;align-items:center;flex-shrink:0}
+.logo-box img{height:50px;width:auto;max-width:130px;object-fit:contain;display:block}
+.menu{display:flex;gap:10px;align-items:center;flex-shrink:0}
+.menu a{color:#fff;text-decoration:none;font-size:12px;font-weight:800;white-space:nowrap;padding:6px 4px}
+.btn-amarelo{background:#FFD700;color:#000!important;padding:10px 18px!important;border-radius:20px;font-size:12px!important;font-weight:900!important;white-space:nowrap}
 .btn-amarelo.txt-short{display:none}
 .btn-amarelo.txt-long{display:inline}
-.hero{min-height:520px;display:flex;align-items:center;padding:24px 14px;background:#eef0f3 url('./hero.jpg?v=16') center/cover no-repeat}
+.hero{min-height:520px;display:flex;align-items:center;padding:24px 14px;background:#eef0f3 url('./hero.jpg?v=17') center/cover no-repeat}
 .hero-content{max-width:1200px;margin:0 auto;width:100%}
 .hero h1{font-size:32px;font-weight:900;line-height:1.1;max-width:540px;color:#111}
 .hero h1 span{color:#FF7A00}
-.destaque{background:rgba(255,255,255,.96);padding:12px 14px;border-radius:12px;max-width:540px;margin:14px 0 18px;font-size:14px;font-weight:800;line-height:1.4;border-left:4px solid #FF7A00;box-shadow:0 4px 14px rgba(0,0,0,.1)}
+.destaque{background:rgba(255,255,255,.96);padding:12px 14px;border-radius:12px;max-width:540px;margin:14px 0 18px;font-size:14px;font-weight:800;line-height:1.4;border-left:4px solid #FF7A00}
 .search{background:#fff;border:1px solid #ddd;border-radius:14px;padding:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:640px}
-.search select,.search input{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;font-size:13px;min-width:0}
+.search select,.search input{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;font-size:13px}
 .btn-buscar{grid-column:1/-1;background:#FFD700;border:0;padding:13px;border-radius:10px;font-weight:900;cursor:pointer}
-@media(max-width:480px){
-.logo-box img{height:40px;max-width:100px}
-.top{padding:8px 8px;gap:4px}
-.menu{gap:3px}
-.menu a{font-size:10px;padding:4px 2px}
-.btn-amarelo{padding:8px 10px!important;font-size:10px!important}
+@media(max-width:600px){
+.logo-box img{height:42px;max-width:110px}
+.top{padding:8px 10px;gap:6px}
+.menu{gap:6px}
+.menu a{font-size:10px}
+.btn-amarelo{padding:8px 12px!important;font-size:10px!important}
 .btn-amarelo.txt-long{display:none}
 .btn-amarelo.txt-short{display:inline}
-.hero{padding:18px 12px;min-height:auto}
 .hero h1{font-size:24px}
-.destaque{font-size:13px}
 .search{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 <div class="top">
-  <a href="./index.html"><div class="logo-box"><img src="./logo.jpg?v=16" alt="Galpões e Negócios"></div></a>
+  <a href="./index.html"><div class="logo-box"><img src="./logo.jpg?v=17" alt="Galpões e Negócios"></div></a>
   <div class="menu">
     <a href="./buscar.html">BUSCAR</a>
     <a href="./login.html">ENTRAR</a>
@@ -48,9 +46,23 @@ body{background:#fff;overflow-x:hidden}
 </div>
 <div class="hero"><div class="hero-content">
 <h1>Galpões para alugar <span>direto do proprietário</span> no ABC e SP</h1>
-<div class="destaque">Chega de intermediário. Aqui você negocia direto com o proprietário. Sem corretor, sem comissão, preço aberto e WhatsApp liberado após cadastro seguro.</div>
+<div class="destaque">Chega de intermediário. Aqui você negocia direto com o proprietário. Sem corretor, sem comissão.</div>
 <div class="search">
-<select><option>Todas as cidades</option><option>Santo André</option><option>São Bernardo</option><option>Diadema</option><option>São Paulo</option></select>
+<select id="cHome">
+<option>Todas as cidades</option>
+<option>Santo André</option>
+<option>São Bernardo do Campo</option>
+<option>São Caetano do Sul</option>
+<option>Diadema</option>
+<option>Mauá</option>
+<option>Ribeirão Pires</option>
+<option>Rio Grande da Serra</option>
+<option>São Paulo</option>
+<option>Guarulhos</option>
+<option>Osasco</option>
+<option>Barueri</option>
+<option>Embu das Artes</option>
+</select>
 <select><option>Qualquer metragem</option><option>Até 200m²</option><option>200 a 500m²</option><option>500 a 1000m²</option><option>Acima 1000m²</option></select>
 <input placeholder="Preço até R$">
 <button class="btn-buscar" onclick="location.href='./buscar.html'">BUSCAR →</button>
