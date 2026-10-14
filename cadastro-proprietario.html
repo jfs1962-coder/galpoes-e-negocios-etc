@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Criar Cadastro - Galpões e Negócios</title>
+<title>Criar Cadastro - Galpões e Negócios | CNPJ 63.329.574/0001-28</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
 body{background:#fff;min-height:100vh}
@@ -14,7 +14,6 @@ body{background:#fff;min-height:100vh}
 .left h1{font-size:30px;font-weight:900;color:#111}
 .left p.sub{font-size:13px;color:#555;margin:8px 0 20px}
 .left input,.left select{width:100%;padding:14px;border:1px solid #d0d0d0;border-radius:12px;margin-top:12px;font-size:14px;background:#fff;outline:none}
-.left input:focus,.left select:focus{border-color:#000}
 .planos{display:flex;gap:12px;margin-top:18px}
 .plano{flex:1;border:2px solid #ddd;border-radius:14px;padding:14px;text-align:center;cursor:pointer;background:#fff;transition:.2s}
 .plano.ativo{border-color:#ff7a00;background:#fff4e6}
@@ -24,27 +23,29 @@ body{background:#fff;min-height:100vh}
 .right{flex:1;border-left:1px solid #e5e5e5;padding-left:50px}
 .right h4{font-size:14px;font-weight:800;margin-bottom:14px}
 .btn-sec{width:100%;background:#f3f3f3;border:1px solid #e0e0e0;padding:14px;border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;margin-top:12px;display:flex;justify-content:center;align-items:center;gap:8px}
+.secao-prop-mini{background:#f7f7f5;border:1px solid #eee;border-radius:12px;padding:16px;margin-top:20px}
+.secao-prop-mini h2{font-size:13px;font-weight:900;line-height:1.3}
+.secao-prop-mini h2 span{color:#FF7A00}
+.secao-prop-mini p{font-size:11.5px;line-height:1.6;margin-top:8px;color:#222}
 footer{background:#0a0a0a;color:#aaa;padding:22px;text-align:center;font-size:11px;margin-top:30px;line-height:1.6}
 footer a{color:#ff7a00;text-decoration:none;margin:0 6px}
+footer b{color:#fff}
 @media(max-width:900px){.wrap{flex-direction:column;gap:30px;padding:30px 20px}.right{border-left:0;padding-left:0;border-top:1px solid #eee;padding-top:30px}.logo-box img{height:68px}}
 </style>
 </head>
 <body>
 <div class="top">
-  <a href="./index.html"><div class="logo-box"><img src="./logo.png" alt="G - Galpões e Negócios"></div></a>
+  <a href="./index.html"><div class="logo-box"><img src="./logo.jpg?v=13" alt="Galpões e Negócios - Em todo o Brasil"></div></a>
   <a href="./login.html" style="color:#fff;text-decoration:none;font-size:12px;font-weight:800">JÁ TENHO CONTA →</a>
 </div>
-
 <div class="wrap">
   <div class="left">
     <h1>Crie seu cadastro</h1>
     <p class="sub">Anuncie direto proprietário, sem comissão. Escolha seu plano:</p>
-    
     <div class="planos">
       <div class="plano" id="plano1" onclick="setPlano(1)"><b>1 GALPÃO</b><span>R$49,90</span><div style="font-size:11px">/mês</div></div>
       <div class="plano ativo" id="plano3" onclick="setPlano(3)"><b>3 GALPÕES ⭐</b><span>R$99,90</span><div style="font-size:11px">R$33,30 por galpão - Mais vendido</div></div>
     </div>
-
     <input id="nome" placeholder="Seu nome completo">
     <input id="email" type="email" placeholder="Seu melhor e-mail">
     <input id="whats" placeholder="WhatsApp com DDD (11) 9XXXX-XXXX">
@@ -52,39 +53,45 @@ footer a{color:#ff7a00;text-decoration:none;margin:0 6px}
     <select id="cidade"><option value="">Cidade do galpão</option><option>Santo André</option><option>São Bernardo do Campo</option><option>São Caetano do Sul</option><option>Diadema</option><option>Mauá</option><option>São Paulo</option></select>
     <input id="metros" type="number" placeholder="Metragem do galpão (ex: 400)">
     <input id="preco" type="number" placeholder="Valor do aluguel (ex: 4500)">
-
     <button class="btn-criar" onclick="criar()">CRIAR CADASTRO E ANUNCIAR →</button>
     <p id="msg" style="font-size:12px;margin-top:12px;text-align:center"></p>
     <p style="font-size:10px;color:#666;margin-top:10px;text-align:center">Ao criar você aceita nossos <a href="./termos.html">Termos</a> e <a href="./privacidade.html">Privacidade</a></p>
   </div>
-
   <div class="right">
     <h4>Outras formas de cadastro</h4>
     <button class="btn-sec" onclick="location.href='./login.html'">👤 Já tenho cadastro - Entrar</button>
-    <div style="margin-top:26px">
+    <div class="secao-prop-mini">
+      <h2>Proprietário: <span>continue com sua imobiliária.</span> Somos seu canal direto a mais.</h2>
+      <p>Na Galpões e Negócios - Somos um diferencial para acelerar a locação. Se fechar por aqui, você economiza praticamente 100% do primeiro aluguel que pagaria de comissão. Convidamos você para um teste.</p>
+      <div style="margin-top:12px;background:#111;color:#fff;border-radius:10px;padding:12px;text-align:center">
+        <div style="font-size:10px;font-weight:800">ECONOMIA ESTIMADA</div>
+        <div style="color:#FFD700;font-size:20px;font-weight:900">100%</div>
+        <div style="font-size:11px">do 1º aluguel</div>
+      </div>
+    </div>
+    <div style="margin-top:20px">
       <h4>Por que anunciar aqui?</h4>
       <div style="font-size:12px;line-height:1.6;margin-top:10px">
         ✓ Direto proprietário, sem corretor<br>
         ✓ Contato direto no WhatsApp<br>
         ✓ Foco no ABC e SP<br>
-        ✓ Sem "sob consulta" - preço na cara
+        ✓ Sem "sob consulta" - preço na cara<br>
+        ✓ Chega de intermediário
       </div>
     </div>
     <div style="margin-top:20px;background:#fff;border:1px solid #eee;padding:12px;border-radius:10px;font-size:11px;line-height:1.6">
-      <b>Galpões e Negócios</b><br>
-      CNPJ: 00.000.000/0001-00<br>
+      <b>Galpões e Negócios - CNPJ 63.329.574/0001-28</b><br>
       Santo André - SP - ABC Paulista<br>
-      contato@galpoesenegocios.com.br
+      contato@galpoesenegocios.com.br<br>
+      Empresa verificada - Negociação direta
     </div>
   </div>
 </div>
-
 <footer>
-  <b style="color:#fff">Galpões e Negócios - CNPJ 00.000.000/0001-00</b><br>
+  <b>Galpões e Negócios - CNPJ 63.329.574/0001-28</b><br>
   Plataforma direta proprietário. Não somos imobiliária.<br>
   <a href="./termos.html">Termos de Uso</a> | <a href="./privacidade.html">Privacidade</a> | <a href="./faq.html">FAQ</a>
 </footer>
-
 <script>
 let planoEscolhido=3;
 function setPlano(n){
@@ -114,7 +121,7 @@ function criar(){
   usuarios.push({nome,email,whats,senha,plano:planoEscolhido});
   localStorage.setItem('gn_usuarios',JSON.stringify(usuarios));
   let galpoes=JSON.parse(localStorage.getItem('gn_galpoes')||'[]');
-  galpoes.push({titulo:`Galpão ${metros}m² em ${cidade}`,cidade,bairro:cidade,metros:Number(metros),preco:Number(preco),whats,foto:'hero.jpg',email});
+  galpoes.push({titulo:`Galpão ${metros}m² em ${cidade}`,cidade,bairro:cidade,metros:Number(metros),preco:Number(preco),whats,foto:'./hero.jpg?v=13',email});
   localStorage.setItem('gn_galpoes',JSON.stringify(galpoes));
   localStorage.setItem('usuario_logado',email);
   document.getElementById('msg').style.color='green';
