@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pagamento Seguro PIX - Galpões e Negócios</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
+body{background:#f5f5f5}
+.top{padding:12px 14px;display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:10}
+.btn-voltar{border:1px solid #ddd;background:#fff;padding:8px 14px;border-radius:20px;font-size:12px;font-weight:800;cursor:pointer}
+.titulo{font-size:11px;font-weight:900;letter-spacing:1px}
+.container{max-width:420px;margin:0 auto;padding:12px}
+.planos{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.plano{background:#fff;border:1px solid #ddd;border-radius:14px;padding:14px;cursor:pointer}
+.plano.ativo{border:2px solid #FFD700;background:#fffbe6}
+.plano b{font-size:12px;display:block}
+.plano span{font-size:11px;color:#666}
+.plano .preco{font-size:18px;font-weight:900;margin:6px 0}
+.plano small{font-size:11px;font-weight:800;color:#111}
+.check{font-size:10px;font-weight:900;color:#8a6d00;margin-top:6px}
+.pix-box{background:#0a0a0a;border-radius:20px;padding:18px;color:#fff;margin-top:14px}
+.pix-box .label{color:#FFD700;font-size:11px;font-weight:900;letter-spacing:1px}
+.pix-box .cnpj{font-size:15px;font-weight:900;margin:6px 0;letter-spacing:0.5px}
+.pix-box .razao{font-size:10px;color:#aaa;margin-bottom:14px}
+.qr{background:#fff;border-radius:14px;padding:12px;display:flex;justify-content:center;align-items:center}
+.qr img{width:180px;height:180px;object-fit:contain}
+.btn-copiar{width:100%;margin-top:14px;background:#FFD700;color:#000;border:0;padding:13px;border-radius:20px;font-weight:900;font-size:13px;cursor:pointer}
+.aviso{font-size:10px;color:#888;text-align:center;margin-top:10px;line-height:1.4}
+footer{background:#000;color:#aaa;text-align:center;padding:14px;font-size:10px;margin-top:20px}
+footer b{color:#fff}
+</style>
+</head>
+<body>
+<div class="top">
+<button class="btn-voltar" onclick="history.back()">← Voltar</button>
+<div class="titulo">PAGAMENTO SEGURO PIX</div>
+<div style="width:60px"></div>
+</div>
+
+<div class="container">
+<div class="planos">
+<div id="plano-essencial" class="plano ativo" onclick="selecionar('essencial')">
+<b>ESSENCIAL</b>
+<span>1 galpão ativo</span>
+<div class="preco">R$49,90<span style="font-size:11px;font-weight:400">/30d</span></div>
+<div class="check">✓ SELECIONADO</div>
+</div>
+<div id="plano-pro" class="plano" onclick="selecionar('pro')">
+<b>PRO ⭐</b>
+<span>Até 3 galpões</span>
+<div class="preco">R$99,90<span style="font-size:11px;font-weight:400">/30d</span></div>
+<small>Selecionar</small>
+</div>
+</div>
+
+<div class="pix-box">
+<div class="label">CHAVE PIX CNPJ</div>
+<div class="cnpj">63.329.574/0001-28</div>
+<div class="razao">GALPÕES E NEGÓCIOS INTERNET LTDA - ME</div>
+<div class="qr">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=00020126580014BR.GOV.BCB.PIX0136633295740001280208Galpoes e Negocios520400005303986540549.905802BR5915GALPOES E NEGOCIOS6009SAO PAULO62070503***6304" alt="QR PIX">
+</div>
+<button class="btn-copiar" onclick="copiar()">COPIAR CHAVE PIX CNPJ</button>
+<div class="aviso">Após pagar, envie o comprovante no WhatsApp. Liberação em até 15 min. CNPJ 63.329.574/0001-28</div>
+</div>
+</div>
+
+<footer><b>Galpões e Negócios® - Marca Registrada</b><br>CNPJ 63.329.574/0001-28</footer>
+
+<script>
+let planoAtual='essencial';
+function selecionar(plano){
+  planoAtual=plano;
+  document.getElementById('plano-essencial').classList.remove('ativo');
+  document.getElementById('plano-pro').classList.remove('ativo');
+  document.getElementById('plano-essencial').innerHTML=`<b>ESSENCIAL</b><span>1 galpão ativo</span><div class="preco">R$49,90<span style="font-size:11px;font-weight:400">/30d</span></div><small>Selecionar</small>`;
+  document.getElementById('plano-pro').innerHTML=`<b>PRO ⭐</b><span>Até 3 galpões</span><div class="preco">R$99,90<span style="font-size:11px;font-weight:400">/30d</span></div><small>Selecionar</small>`;
+  const el=document.getElementById('plano-'+plano);
+  el.classList.add('ativo');
+  el.querySelector('small')?el.querySelector('small').outerHTML=`<div class="check">✓ SELECIONADO</div>`:el.innerHTML+='<div class="check">✓ SELECIONADO</div>';
+  if(plano==='essencial'){el.innerHTML=`<b>ESSENCIAL</b><span>1 galpão ativo</span><div class="preco">R$49,90<span style="font-size:11px;font-weight:400">/30d</span></div><div class="check">✓ SELECIONADO</div>`}
+  if(plano==='pro'){el.innerHTML=`<b>PRO ⭐</b><span>Até 3 galpões</span><div class="preco">R$99,90<span style="font-size:11px;font-weight:400">/30d</span></div><div class="check">✓ SELECIONADO</div>`}
+  localStorage.setItem('plano_selecionado',plano);
+  localStorage.setItem('limite_galpoes',plano==='pro'?3:1);
+}
+function copiar(){
+  navigator.clipboard.writeText('63329574000128');
+  alert('Chave PIX CNPJ 63.329.574/0001-28 copiada!');
+}
+selecionar(localStorage.getItem('plano_selecionado')||'essencial');
+</script>
+</body>
+</html>
