@@ -1,5 +1,52 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cadastro - Etapa 1</title>
-<style>*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}body{background:#f7f7f5;min-height:100vh;display:flex;flex-direction:column}.top{background:#000;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}.logo-box{background:#fff;padding:8px 14px;border-radius:12px}.logo-box img{height:60px}.wrap{max-width:480px;width:100%;margin:30px auto;padding:0 16px;flex:1}.card{background:#fff;border-radius:18px;padding:28px 22px;box-shadow:0 8px 24px rgba(0,0,0,.08);border:1px solid #eee}.card h1{font-size:22px;font-weight:900}.card p.sub{font-size:13px;color:#666;margin:8px 0 18px}.card input{width:100%;padding:14px;border:1px solid #ddd;border-radius:12px;margin-top:12px;font-size:14px}.btn{width:100%;background:#FF7A00;color:#fff;border:0;padding:15px;border-radius:12px;font-weight:900;margin-top:18px;cursor:pointer;font-size:15px}.etapas{display:flex;gap:8px;margin-bottom:18px}.etapas div{flex:1;height:6px;border-radius:10px;background:#e5e5e5}.etapas div.ativo{background:#FF7A00}</style>
-</head><body><div class="top"><a href="./index.html"><div class="logo-box"><img src="./logo.jpg?v=14"></div></a><a href="./login.html" style="color:#fff;text-decoration:none;font-size:11px;font-weight:800">JÁ TENHO CONTA</a></div>
-<div class="wrap"><div class="card"><div class="etapas"><div class="ativo"></div><div></div></div><h1>Crie seu cadastro</h1><p class="sub">Etapa 1 de 2: seus dados. Depois você cadastra o galpão completo.</p><input id="nome" placeholder="Nome completo *"><input id="email" type="email" placeholder="Seu melhor e-mail *"><input id="whats" placeholder="WhatsApp com DDD *"><input id="senha" type="password" placeholder="Crie uma senha *"><button class="btn" onclick="criarConta()">CRIAR CONTA E CONTINUAR →</button><p id="msg" style="font-size:12px;margin-top:12px;text-align:center"></p></div></div>
-<script>function criarConta(){const nome=document.getElementById('nome').value.trim();const email=document.getElementById('email').value.toLowerCase().trim();const whats=document.getElementById('whats').value.trim();const senha=document.getElementById('senha').value;if(!nome||!email||!whats||!senha){document.getElementById('msg').innerText='Preencha todos';return}let usuarios=JSON.parse(localStorage.getItem('gn_usuarios')||'[]');usuarios.push({nome,email,whats,senha});localStorage.setItem('gn_usuarios',JSON.stringify(usuarios));localStorage.setItem('usuario_logado',email);localStorage.setItem('usuario_nome',nome);location.href='./cadastrar-galpao.html'}</script></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cadastro - CNPJ 63.329.574/0001-28</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
+body{background:#f7f7f5;min-height:100vh;display:flex;flex-direction:column}
+.top{background:#000;padding:10px 12px;display:flex;justify-content:space-between;align-items:center}
+.logo-box{background:#fff;padding:7px 12px;border-radius:12px}.logo-box img{height:56px;max-width:150px}
+.wrap{max-width:440px;width:100%;margin:24px auto;padding:0 12px;flex:1}
+.card{background:#fff;border-radius:18px;padding:24px 18px;box-shadow:0 6px 20px rgba(0,0,0,.07);border:1px solid #eee}
+.card h1{font-size:20px;font-weight:900}
+.sub{font-size:12px;color:#666;margin:6px 0 16px;line-height:1.5}
+.etapas{display:flex;gap:6px;margin-bottom:16px}.etapas div{flex:1;height:6px;background:#e5e5e5;border-radius:10px}.etapas div.ativo{background:#FF7A00}
+input{width:100%;padding:13px;border:1px solid #ddd;border-radius:11px;margin-top:10px;font-size:14px}
+.btn{width:100%;background:#FF7A00;color:#fff;border:0;padding:14px;border-radius:11px;font-weight:900;margin-top:16px;cursor:pointer}
+footer{background:#0a0a0a;color:#aaa;padding:14px;text-align:center;font-size:10px;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="top"><a href="./index.html"><div class="logo-box"><img src="./logo.jpg?v=15"></div></a><a href="./login.html" style="color:#fff;text-decoration:none;font-size:11px;font-weight:800">JÁ TENHO CONTA</a></div>
+<div class="wrap"><div class="card">
+<div class="etapas"><div class="ativo"></div><div></div></div>
+<h1>Crie seu cadastro</h1><p class="sub">Etapa 1 de 2: apenas nome, e-mail, telefone e senha. Na próxima tela você cadastra o galpão completo.</p>
+<input id="nome" placeholder="Nome completo *">
+<input id="email" type="email" placeholder="Seu melhor e-mail *">
+<input id="whats" placeholder="WhatsApp com DDD (11) 9XXXX-XXXX *">
+<input id="senha" type="password" placeholder="Crie uma senha (mín. 6) *">
+<button class="btn" onclick="criar()">CRIAR CONTA E CONTINUAR →</button>
+<p id="msg" style="text-align:center;font-size:12px;margin-top:10px"></p>
+</div></div>
+<footer><b>Galpões e Negócios - CNPJ 63.329.574/0001-28</b></footer>
+<script>
+function criar(){
+  const n=document.getElementById('nome').value.trim();
+  const e=document.getElementById('email').value.toLowerCase().trim();
+  const w=document.getElementById('whats').value.trim();
+  const s=document.getElementById('senha').value;
+  if(!n||!e||!w||!s){document.getElementById('msg').innerText='Preencha todos os campos';document.getElementById('msg').style.color='red';return}
+  if(s.length<6){document.getElementById('msg').innerText='Senha mínima 6 caracteres';document.getElementById('msg').style.color='red';return}
+  let u=JSON.parse(localStorage.getItem('gn_usuarios')||'[]');
+  if(u.find(x=>x.email===e)){document.getElementById('msg').innerText='E-mail já cadastrado';document.getElementById('msg').style.color='red';return}
+  u.push({nome:n,email:e,whats:w,senha:s});
+  localStorage.setItem('gn_usuarios',JSON.stringify(u));
+  localStorage.setItem('usuario_logado',e);
+  localStorage.setItem('usuario_nome',n);
+  location.href='./cadastrar-galpao.html';
+}
+</script>
+</body>
+</html>
