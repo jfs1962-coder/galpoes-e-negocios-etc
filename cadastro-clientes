@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cadastro Cliente - Galpões e Negócios</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}body{background:#f5f5f5;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:14px}
+.box{background:#fff;border-radius:16px;padding:22px;max-width:420px;width:100%;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.box h1{font-size:20px;font-weight:900}.box p{font-size:12px;color:#666;margin:8px 0 16px;line-height:1.4}
+.box input{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;font-size:13px;margin-top:8px}
+.btn{background:#FFD700;border:0;padding:13px;width:100%;border-radius:12px;font-weight:900;margin-top:14px;cursor:pointer}
+.link{font-size:11px;text-align:center;margin-top:12px}.link a{font-weight:900;color:#111}
+</style>
+</head><body>
+<div class="box">
+<h1>Cadastro Grátis - Ver Galpões</h1>
+<p>🔒 <b>Obrigatório cadastro</b> para ver galpões e liberar WhatsApp do proprietário. CNPJ 63.329.574/0001-28 - Seguro.</p>
+<input id="nome" placeholder="Seu nome completo *">
+<input id="email" type="email" placeholder="Seu email *">
+<input id="whats" placeholder="Seu WhatsApp com DDD *">
+<input id="senha" type="password" placeholder="Crie uma senha *">
+<input id="senha2" type="password" placeholder="Repita a senha *">
+<button class="btn" onclick="cadastrar()">CADASTRAR E VER GALPÕES →</button>
+<div class="link">Já tem cadastro? <a href="./login.html">Entrar com email e senha</a></div>
+<p id="msg" style="font-size:11px;text-align:center;margin-top:10px;color:red"></p>
+</div>
+<script>
+function cadastrar(){
+  const nome=document.getElementById('nome').value.trim();
+  const email=document.getElementById('email').value.trim().toLowerCase();
+  const whats=document.getElementById('whats').value.trim();
+  const senha=document.getElementById('senha').value;
+  const senha2=document.getElementById('senha2').value;
+  if(!nome||!email||!whats||!senha){document.getElementById('msg').innerText='Preencha todos os campos *';return}
+  if(senha!==senha2){document.getElementById('msg').innerText='Senhas não conferem';return}
+  if(senha.length<4){document.getElementById('msg').innerText='Senha mínimo 4 caracteres';return}
+  let usuarios=JSON.parse(localStorage.getItem('gn_usuarios')||'[]');
+  if(usuarios.find(u=>u.email===email)){document.getElementById('msg').innerText='Este email já tem cadastro. Faça login.';return}
+  const novo={nome,email,whats,senha,tipo:'cliente',data:new Date().toISOString()};
+  usuarios.push(novo);localStorage.setItem('gn_usuarios',JSON.stringify(usuarios));
+  localStorage.setItem('usuario_logado',JSON.stringify(novo));
+  const busca=JSON.parse(localStorage.getItem('busca_pendente')||'{}');
+  location.href=`./buscar.html?cidade=${encodeURIComponent(busca.cidade||'')}&metros=${busca.metros||''}&preco=${busca.preco||''}`;
+}
+</script>
+</body></html>
