@@ -1,94 +1,23 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Anunciar Galpão - Galpões e Negócios CNPJ 63.329.574/0001-28</title>
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-[#f6f6f6] min-h-screen">
-<div class="max-w-[600px] mx-auto bg-white min-h-screen p-5">
-<h1 class="font-black text-xl">Anunciar Galpão</h1>
-<p class="text-[11px] text-gray-500 mt-1">CNPJ 63.329.574/0001-28 • Seu limite: <b id="limiteTxt" class="text-black">1</b> galpão(ões) • Marca Registrada</p>
-
-<div id="aviso" class="mt-4 bg-yellow-50 border border-yellow-200 rounded-[12px] p-3 text-[11px] leading-tight"></div>
-
-<div class="mt-5 space-y-3">
-<input id="titulo" placeholder="Título ex: Galpão 450m² Monousuário" class="w-full border rounded-[10px] px-4 py-3 text-sm">
-<div class="grid grid-cols-3 gap-2">
-<input id="cep" placeholder="CEP 09000-000" maxlength="9" class="col-span-1 w-full border rounded-[10px] px-4 py-3 text-sm">
-<input id="rua" placeholder="Rua / Avenida (auto)" class="col-span-2 w-full border rounded-[10px] px-4 py-3 text-sm bg-gray-50">
-</div>
-<div class="grid grid-cols-3 gap-2">
-<input id="numero" placeholder="Número" class="w-full border rounded-[10px] px-4 py-3 text-sm">
-<input id="bairro" placeholder="Bairro (auto)" class="col-span-2 w-full border rounded-[10px] px-4 py-3 text-sm bg-gray-50">
-</div>
-<div class="grid grid-cols-3 gap-2">
-<input id="cidade" placeholder="Cidade (auto)" class="w-full col-span-2 border rounded-[10px] px-4 py-3 text-sm bg-gray-50">
-<input id="uf" placeholder="UF" maxlength="2" class="w-full border rounded-[10px] px-4 py-3 text-sm bg-gray-50">
-</div>
-<input id="metros" type="number" placeholder="Metragem total (m²)" class="w-full border rounded-[10px] px-4 py-3 text-sm">
-<input id="preco" type="number" placeholder="Preço aluguel R$ ex: 8500" class="w-full border rounded-[10px] px-4 py-3 text-sm">
-<input id="whats" placeholder="Seu WhatsApp com DDD ex: 11963983081" class="w-full border rounded-[10px] px-4 py-3 text-sm">
-<input id="fotos" type="file" accept="image/*" multiple class="w-full border rounded-[10px] px-4 py-3 text-sm">
-</div>
-
-<button onclick="salvar()" class="mt-6 w-full bg-black text-white font-black py-4 rounded-full text-sm">SALVAR GALPÃO</button>
-<button onclick="location.href='./pagar.html'" class="mt-3 w-full bg-yellow-400 text-black font-black py-3 rounded-full text-sm">FAZER UPGRADE PARA ATÉ 3 GALPÕES - PRO R$99,90</button>
-
-<p id="msg" class="text-[11px] text-center mt-3 text-red-500"></p>
-<div class="mt-8 text-[10px] text-gray-400 text-center">Galpões e Negócios® • CNPJ 63.329.574/0001-28</div>
-</div>
-
 <script>
-// LIMITE 3 GALPOES
-const limite = Number(localStorage.getItem('limite_galpoes')||1);
-document.getElementById('limiteTxt').innerText=limite;
-const lista=JSON.parse(localStorage.getItem('gn_galpoes')||'[]');
-const aviso=document.getElementById('aviso');
-if(lista.length>=limite){
-aviso.innerHTML=`⚠️ Você já atingiu seu limite de <b>${limite} galpão(ões)</b>. Para anunciar até 3, faça upgrade para o PRO R$99,90.`;
-aviso.className="mt-4 bg-red-50 border border-red-200 rounded-[12px] p-3 text-[11px]";
-}else{
-aviso.innerHTML=`✅ Você pode anunciar até <b>${limite}</b> galpão(ões). Você tem <b>${lista.length}</b> ativo(s). CEP preenche endereço automático.`;
-}
+// NOVO: Pega dono logado
+let dono = localStorage.getItem('gn_dono_atual') || prompt('Digite seu CPF/CNPJ para entrar:');
+if(!dono){ location.href='login.html'; }
+localStorage.setItem('gn_dono_atual', dono);
 
-// CEP AUTOMATICO - ViaCEP
-function buscarCep(valor){
-  let cep = valor.replace(/\D/g,'');
-  if(cep.length!= 8) return;
-  document.getElementById('rua').value = "Buscando...";
-  document.getElementById('bairro').value = "Buscando...";
-  fetch(`https://viacep.com.br/ws/${cep}/json/`)
- .then(r => r.json())
- .then(d=>{
-    if(d.erro){ alert('CEP não encontrado'); document.getElementById('rua').value=""; document.getElementById('bairro').value=""; return; }
-    document.getElementById('rua').value = d.logradouro;
-    document.getElementById('bairro').value = d.bairro;
-    document.getElementById('cidade').value = d.localidade;
-    document.getElementById('uf').value = d.uf;
-    document.getElementById('numero').focus();
-  });
-}
-document.getElementById('cep').addEventListener('blur', e=>buscarCep(e.target.value));
-document.getElementById('cep').addEventListener('input', e=>{
-  let v=e.target.value.replace(/\D/g,'');
-  if(v.length>5) v=v.replace(/(\d{5})(\d)/,'$1-$2');
-  e.target.value=v;
-  if(v.replace(/\D/g,'').length==8) buscarCep(v);
-});
+const chaveLista = 'gn_galpoes_' + dono.replace(/\D/g,'');
+const limite = Number(localStorage.getItem('limite_galpoes_'+dono)||1);
+document.getElementById('limiteTxt').innerText=limite;
+
+const lista = JSON.parse(localStorage.getItem(chaveLista)||'[]');
 
 function salvar(){
- if(lista.length>=limite){alert(`Limite de ${limite} galpão(ões) atingido! Faça upgrade PRO até 3 galpões.`);location.href='./pagar.html';return;}
- const t=document.getElementById('titulo').value; const cep=document.getElementById('cep').value;
- const rua=document.getElementById('rua').value; const num=document.getElementById('numero').value;
- const bairro=document.getElementById('bairro').value; const cid=document.getElementById('cidade').value;
- const uf=document.getElementById('uf').value; const m=document.getElementById('metros').value;
- const pr=document.getElementById('preco').value;
- if(!t||!cep||!m||!pr){document.getElementById('msg').innerText='Preencha título, CEP, metragem e preço'; return;}
- const g={id:Date.now(),titulo:t,cep,rua,numero:num,bairro,cidade:cid,uf,metros:m,preco:pr,whats:document.getElementById('whats').value,foto:'./hero.jpg?v=23',tipo:'monousuario'};
- lista.push(g); localStorage.setItem('gn_galpoes',JSON.stringify(lista));
- alert('Galpão salvo!'); location.href='./buscar.html';
+  // salva só na lista desse dono
+  lista.push(g);
+  localStorage.setItem(chaveLista, JSON.stringify(lista));
+}
+
+function sair(){
+  localStorage.removeItem('gn_dono_atual');
+  location.href='login.html';
 }
 </script>
-</body>
-</html>
