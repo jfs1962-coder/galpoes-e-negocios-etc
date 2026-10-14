@@ -6,66 +6,54 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
 body{background:#fff;overflow-x:hidden}
-.top{background:#000;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;position:sticky;top:0;z-index:99;flex-wrap:nowrap}
-.logo-box{background:#fff;padding:8px 14px;border-radius:14px;display:flex;align-items:center;flex-shrink:0}
-.logo-box img{height:72px;width:auto;display:block;max-width:180px;object-fit:contain}
-.menu{display:flex;gap:8px;align-items:center;flex-wrap:nowrap}
-.menu a{color:#fff;text-decoration:none;font-size:11px;font-weight:800;white-space:nowrap;padding:8px 6px}
-.btn-amarelo{background:#FFD700;color:#000!important;padding:10px 14px!important;border-radius:20px;font-size:11px!important;font-weight:900!important;white-space:nowrap;line-height:1.1;text-align:center}
-.hero{position:relative;min-height:520px;display:flex;align-items:center;padding:32px 16px;background:#eef0f3 url('./hero.jpg?v=14') center center / cover no-repeat;width:100%}
-.hero-content{max-width:1200px;width:100%;margin:0 auto;position:relative;z-index:2}
-.hero h1{color:#111;font-size:36px;font-weight:900;line-height:1.1;max-width:560px;text-shadow:0 1px 0 rgba(255,255,255,.9)}
+.top{background:#000;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;gap:6px;position:sticky;top:0;z-index:99;flex-wrap:nowrap}
+.logo-box{background:#fff;padding:6px 10px;border-radius:12px;display:flex;align-items:center;flex-shrink:0}
+.logo-box img{height:48px;width:auto;max-width:115px;object-fit:contain;display:block}
+.menu{display:flex;gap:4px;align-items:center;flex-shrink:0;flex-wrap:nowrap}
+.menu a{color:#fff;text-decoration:none;font-size:11px;font-weight:800;white-space:nowrap;padding:6px 4px}
+.btn-amarelo{background:#FFD700;color:#000!important;padding:9px 14px!important;border-radius:18px;font-size:11px!important;font-weight:900!important;line-height:1;display:flex;align-items:center;justify-content:center;white-space:nowrap}
+.btn-amarelo.txt-short{display:none}
+.btn-amarelo.txt-long{display:inline}
+.hero{min-height:520px;display:flex;align-items:center;padding:24px 14px;background:#eef0f3 url('./hero.jpg?v=16') center/cover no-repeat}
+.hero-content{max-width:1200px;margin:0 auto;width:100%}
+.hero h1{font-size:32px;font-weight:900;line-height:1.1;max-width:540px;color:#111}
 .hero h1 span{color:#FF7A00}
-.hero .frase-destaque{color:#111;font-size:16px;line-height:1.45;font-weight:800;background:rgba(255,255,255,.95);padding:14px 16px;border-radius:12px;display:block;max-width:560px;margin:16px 0 22px;box-shadow:0 4px 16px rgba(0,0,0,.12);border-left:4px solid #FF7A00}
-.search-box{background:#fff;border:1px solid #ddd;border-radius:16px;padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:680px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
-.search-box select,.search-box input{width:100%;padding:13px 12px;border:1px solid #ddd;border-radius:10px;font-size:14px;min-width:0}
-.btn-buscar{grid-column:1/-1;background:#FFD700;border:0;padding:14px 24px;border-radius:10px;font-weight:900;cursor:pointer;font-size:15px}
-.secao-prop{background:#f7f7f5;padding:32px 16px;border-top:1px solid #eee;border-bottom:1px solid #eee}
-.secao-prop-inner{max-width:1200px;margin:0 auto;display:flex;gap:30px;align-items:flex-start}
-.secao-prop-text{flex:1.3}
-.secao-prop-text h2{font-size:18px;font-weight:900;line-height:1.3}
-.secao-prop-text h2 span{color:#FF7A00}
-.secao-prop-text p{font-size:13.5px;line-height:1.7;margin-top:10px;color:#222}
-.box-economia{flex:.7;background:#111;color:#fff;border-radius:16px;padding:20px;text-align:center}
-.btn-teste{width:100%;background:#FFD700;color:#000;border:0;padding:14px;border-radius:12px;font-weight:900;margin-top:14px;cursor:pointer}
-footer{background:#0a0a0a;color:#aaa;padding:20px 14px;text-align:center;font-size:11px;line-height:1.7}
-footer b{color:#fff}
-@media(max-width:820px){
-  .top{padding:8px 10px}
-  .logo-box{padding:6px 10px;border-radius:10px}
-  .logo-box img{height:52px;max-width:140px}
-  .menu a{font-size:10px;padding:6px 4px}
-  .btn-amarelo{padding:8px 10px!important;font-size:9.5px!important;max-width:92px}
-  .hero{padding:20px 14px;min-height:auto}
-  .hero h1{font-size:26px}
-  .hero .frase-destaque{font-size:14px;padding:12px}
-  .search-box{grid-template-columns:1fr;max-width:100%}
-  .secao-prop-inner{flex-direction:column}
+.destaque{background:rgba(255,255,255,.96);padding:12px 14px;border-radius:12px;max-width:540px;margin:14px 0 18px;font-size:14px;font-weight:800;line-height:1.4;border-left:4px solid #FF7A00;box-shadow:0 4px 14px rgba(0,0,0,.1)}
+.search{background:#fff;border:1px solid #ddd;border-radius:14px;padding:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:640px}
+.search select,.search input{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;font-size:13px;min-width:0}
+.btn-buscar{grid-column:1/-1;background:#FFD700;border:0;padding:13px;border-radius:10px;font-weight:900;cursor:pointer}
+@media(max-width:480px){
+.logo-box img{height:40px;max-width:100px}
+.top{padding:8px 8px;gap:4px}
+.menu{gap:3px}
+.menu a{font-size:10px;padding:4px 2px}
+.btn-amarelo{padding:8px 10px!important;font-size:10px!important}
+.btn-amarelo.txt-long{display:none}
+.btn-amarelo.txt-short{display:inline}
+.hero{padding:18px 12px;min-height:auto}
+.hero h1{font-size:24px}
+.destaque{font-size:13px}
+.search{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 <div class="top">
-  <a href="./index.html"><div class="logo-box"><img src="./logo.jpg?v=14" alt="Galpões e Negócios"></div></a>
+  <a href="./index.html"><div class="logo-box"><img src="./logo.jpg?v=16" alt="Galpões e Negócios"></div></a>
   <div class="menu">
-    <a href="./buscar.html">BUSCAR GALPÕES</a>
+    <a href="./buscar.html">BUSCAR</a>
     <a href="./login.html">ENTRAR</a>
-    <a href="./cadastro-proprietario.html" class="btn-amarelo">ANUNCIAR<br>GALPÃO</a>
+    <a href="./cadastro-proprietario.html" class="btn-amarelo"><span class="txt-long">ANUNCIAR GALPÃO</span><span class="txt-short">ANUNCIAR</span></a>
   </div>
 </div>
 <div class="hero"><div class="hero-content">
 <h1>Galpões para alugar <span>direto do proprietário</span> no ABC e SP</h1>
-<div class="frase-destaque">Chega de intermediário. Aqui você negocia direto com o proprietário. Sem corretor, sem comissão, preço aberto e WhatsApp liberado após cadastro seguro.</div>
-<div class="search-box">
-<select><option>Todas as cidades</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option><option>São Paulo</option></select>
+<div class="destaque">Chega de intermediário. Aqui você negocia direto com o proprietário. Sem corretor, sem comissão, preço aberto e WhatsApp liberado após cadastro seguro.</div>
+<div class="search">
+<select><option>Todas as cidades</option><option>Santo André</option><option>São Bernardo</option><option>Diadema</option><option>São Paulo</option></select>
 <select><option>Qualquer metragem</option><option>Até 200m²</option><option>200 a 500m²</option><option>500 a 1000m²</option><option>Acima 1000m²</option></select>
 <input placeholder="Preço até R$">
 <button class="btn-buscar" onclick="location.href='./buscar.html'">BUSCAR →</button>
 </div></div></div>
-<div class="secao-prop"><div class="secao-prop-inner">
-<div class="secao-prop-text"><h2>Proprietário: <span>continue com sua imobiliária.</span> Somos seu canal direto a mais.</h2><p>Na Galpões e Negócios - Somos um diferencial para acelerar a locação. Se fechar por aqui, você economiza praticamente 100% do primeiro aluguel que pagaria de comissão. Convidamos você para um teste.</p></div>
-<div class="box-economia"><div style="font-size:11px;font-weight:800">ECONOMIA ESTIMADA</div><div style="color:#FFD700;font-size:28px;font-weight:900;margin:4px 0">100%</div><div style="font-size:12px;font-weight:800">do 1º aluguel</div><button class="btn-teste" onclick="location.href='./cadastro-proprietario.html'">QUERO FAZER O TESTE →</button><div style="font-size:10px;color:#888;margin-top:10px">CNPJ 63.329.574/0001-28</div></div>
-</div></div>
-<footer><b>Galpões e Negócios - CNPJ 63.329.574/0001-28</b><br>Plataforma de negociação direta. Contato liberado somente após cadastro.</footer>
 </body>
 </html>
