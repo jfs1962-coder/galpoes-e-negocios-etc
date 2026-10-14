@@ -1,15 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Recibo - Galpões e Negócios</title></head>
-<body style="font-family:Arial;padding:20px;max-width:600px;margin:auto">
-<h2>Recibo - Galpões e Negócios</h2>
-<p>CNPJ 63.329.574/0001-28</p>
-<p id="dados"></p>
+<title>Recibo - Galpões e Negócios</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif}
+body{background:#f2f2f2;padding:12px}
+.papel{max-width:640px;margin:0 auto;background:#fff;border-radius:16px;padding:22px;border:1px solid #ddd}
+.topo{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #000;padding-bottom:12px;margin-bottom:14px}
+.topo h1{font-size:16px;font-weight:900}.topo small{font-size:10px;color:#666}
+.linha{font-size:13px;padding:7px 0;border-bottom:1px dashed #ddd;display:flex;justify-content:space-between}
+.linha b{font-size:13px}.total{font-size:16px;font-weight:900;padding:12px 0;display:flex;justify-content:space-between;border-top:2px solid #000;margin-top:10px}
+.carimbo{margin-top:16px;background:#f9f9f9;border-radius:10px;padding:12px;font-size:10px;line-height:1.5;color:#444}
+.btn{margin-top:14px;width:100%;padding:12px;background:#FFD700;border:0;border-radius:10px;font-weight:900;cursor:pointer}
+@media print{.btn{display:none} body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="papel" id="print">
+<div class="topo">
+<div><h1>Galpões e Negócios®</h1><small>CNPJ 63.329.574/0001-28<br>GALPÕES E NEGÓCIOS INTERNET LTDA - ME</small></div>
+<div style="text-align:right"><small>RECIBO DIGITAL</small><br><b id="protocolo" style="font-size:12px"></b></div>
+</div>
+<div class="linha"><span>Cliente / Razão Social:</span><b id="nome">-</b></div>
+<div class="linha"><span>CPF/CNPJ:</span><b id="doc">-</b></div>
+<div class="linha"><span>Plano Contratado:</span><b id="plano">-</b></div>
+<div class="linha"><span>Limite de Galpões:</span><b id="limite">-</b></div>
+<div class="linha"><span>Data/Hora Pagamento:</span><b id="data">-</b></div>
+<div class="linha"><span>Chave PIX CNPJ:</span><b>63.329.574/0001-28</b></div>
+<div class="total"><span>VALOR PAGO</span><span id="valor">R$ -</span></div>
+<div class="carimbo">
+<b>Validação:</b> Recibo referente a serviço digital de veiculação de anúncios de galpões. Sem reembolso após veiculação conforme Termos de Uso. <br>
+<b>Plano Essencial:</b> 1 galpão ativo por 30 dias.<br>
+<b>Plano PRO:</b> Até 3 galpões ativos por 30 dias.<br>
+Protocolo gerado automaticamente com registro de IP e horário de Brasília. NFS-e será enviada para o e-mail informado.
+</div>
+<button class="btn" onclick="window.print()">IMPRIMIR / SALVAR EM PDF</button>
+<br><br><a href="index.html" style="font-size:11px">← Voltar ao site</a>
+</div>
 <script>
 const p=new URLSearchParams(location.search);
-document.getElementById('dados').innerHTML=`Plano: ${p.get('plano')||'-'}<br>Valor: ${p.get('valor')||'-'}<br>Data: ${new Date().toLocaleDateString('pt-BR')}`;
+const nome=p.get('nome')||'CLIENTE'; const doc=p.get('doc')||'-';
+const plano=p.get('plano')||'ESSENCIAL - 1 galpao'; const valor=p.get('valor')||'49.90';
+const prot='GN'+Date.now(); const agora=new Date().toLocaleString('pt-BR');
+document.getElementById('nome').innerText=nome;
+document.getElementById('doc').innerText=doc;
+document.getElementById('plano').innerText=plano.toUpperCase();
+document.getElementById('valor').innerText='R$ '+valor;
+document.getElementById('data').innerText=agora;
+document.getElementById('protocolo').innerText=prot;
+document.getElementById('limite').innerText=plano.toLowerCase().includes('3')||plano.toLowerCase().includes('pro')?'ATÉ 3 GALPÕES':'1 GALPÃO';
 </script>
-<br><a href="index.html">Voltar ao site</a>
 </body>
 </html>
