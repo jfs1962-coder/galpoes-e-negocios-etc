@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Buscar</title><script src="https://cdn.tailwindcss.com"></script></head>
+<title>Buscar Galpões</title><script src="https://cdn.tailwindcss.com"></script></head>
 <body class="bg-[#f6f6f6]">
 <div class="max-w-[700px] mx-auto bg-white min-h-screen p-4">
-<div class="flex justify-between items-center border-b pb-3"><h1 class="font-black">Buscar Galpão</h1><b id="quem" class="text-[10px]"></b></div>
+<div class="flex justify-between items-center border-b pb-3">
+  <a href="/" class="font-black text-[14px]">← GALPÕES E NEGÓCIOS</a>
+  <b id="quem" class="text-[10px]"></b>
+</div>
 <div id="lista" class="mt-4 grid gap-3"></div>
 </div>
 <script>
-let buscador=localStorage.getItem('gn_buscador_atual');if(!buscador)location.href='login-buscador.html';document.getElementById('quem').innerText=buscador+' • '+localStorage.getItem('gn_buscador_tipo');
-let galpoes=JSON.parse(localStorage.getItem('galpoes')||'[]');let div=document.getElementById('lista');
-if(galpoes.length==0){div.innerHTML='<p class="text-[12px] text-gray-500">Nenhum galpão cadastrado ainda. Volte em breve.</p>'}
-galpoes.forEach(g=>{div.innerHTML+=`<div class="border rounded-[12px] p-3"><p class="font-black text-sm">${g.titulo||'Galpão'}</p><p class="text-[11px] text-gray-500">${g.cidade||''} • ${g.metragem||''}m²</p><button onclick="solicitar('${g.id}')" class="mt-3 bg-black text-white text-[11px] font-bold px-4 py-2 rounded-full">🔒 SOLICITAR CONTATO EM SIGILO</button><p class="text-[9px] text-gray-400 mt-1">Contato intermediado com autorização LGPD. Empresa em sigilo.</p></div>`});
-function solicitar(id){let cpf=localStorage.getItem('gn_buscador_doc');let chave='sol_'+cpf;let lista=JSON.parse(localStorage.getItem(chave)||'[]');if(lista.length>=3){alert('Limite de 3 solicitações por dia atingido por segurança anti-corretor. Tente amanhã.');return}lista.push({id,dt:Date.now()});localStorage.setItem(chave,JSON.stringify(lista));alert('Solicitação enviada! O proprietário foi notificado e decidirá liberar o contato. Você será avisado no WhatsApp.');}
+let buscador=localStorage.getItem('gn_buscador_atual');
+let quemEl=document.getElementById('quem');
+if(buscador){
+  quemEl.innerText=buscador+' • '+(localStorage.getItem('gn_buscador_tipo')||'');
+} else {
+  quemEl.innerHTML='<a href="/login.html" class="bg-black text-white px-3 py-1 rounded-full">ENTRAR PARA BUSCAR</a>';
+}
+
+let galpoes=JSON.parse(localStorage.getItem('galpoes')||'[]');
+let div=document.getElementById('lista');
+if(galpoes.length==0){
+  div.innerHTML='<p class="text-[12px] text-gray-500 p-4 text-center">Nenhum galpão cadastrado ainda. <br>Se você é proprietário, clique em ANUNCIAR GALPÃO.</p>'
+}
+galpoes.forEach(g=>{
+  div.innerHTML+=`<div class="border rounded-[12px] p-3">
+    <p class="font-black text-sm">${g.titulo||'Galpão'}</p>
+    <p class="text-[11px] text-gray-500">${g.cidade||''} • ${g.metragem||''}m²</p>
+    <button onclick="solicitar('${g.id}')" class="mt-3 bg-black text-white text-[11px] font-bold px-4 py-2 rounded-full">🔒 SOLICITAR CONTATO EM SIGILO</button>
+    <p class="text-[9px] text-gray-400 mt-1">Contato intermediado com autorização LGPD. Empresa em sigilo.</p>
+  </div>`
+});
+
+function solicitar(id){
+  let cpf=localStorage.getItem('gn_buscador_doc');
+  if(!cpf){ alert('Faça login para solicitar contato.'); location.href='/login.html'; return; }
+  let chave='sol_'+cpf;
+  let lista=JSON.parse(localStorage.getItem(chave)||'[]');
+  if(lista.length>=3){alert('Limite de 3 solicitações por dia atingido por segurança anti-corretor. Tente amanhã.');return}
+  lista.push({id,dt:Date.now()});
+  localStorage.setItem(chave,JSON.stringify(lista));
+  alert('Solicitação enviada! O proprietário foi notificado e decidirá liberar o contato. Você será avisado no WhatsApp.');
+}
 </script></body></html>
