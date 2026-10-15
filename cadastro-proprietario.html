@@ -1,104 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Anunciar Galpão Completo</title>
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-[#f6f6f6] min-h-screen">
-<div class="max-w-[700px] mx-auto bg-white min-h-screen p-5 pb-20">
-<div class="flex justify-between items-center">
-<h1 class="font-black text-xl">Anunciar Galpão</h1>
-<button onclick="sair()" class="text-[11px] border px-4 py-2 rounded-full">Sair</button>
-</div>
-<p class="text-[11px] text-gray-500 mt-1">Cliente: <b id="donoTxt"></b> • Limite: <b id="limiteTxt">1</b> • CNPJ 63.329.574/0001-28</p>
-<div id="aviso" class="mt-4 bg-yellow-50 border border-yellow-200 rounded-[12px] p-3 text-[11px]"></div>
-
-<!-- DADOS BÁSICOS -->
-<h2 class="font-black text-[13px] mt-6 mb-2">📍 LOCALIZAÇÃO</h2>
-<input id="titulo" placeholder="Título ex: Galpão 450m² Monousuário com 2 docas" class="w-full border rounded-[10px] px-4 py-3 text-sm">
-<div class="grid grid-cols-3 gap-2 mt-2">
-<input id="cep" placeholder="CEP 09070-220" maxlength="9" class="border rounded-[10px] px-4 py-3 text-sm">
-<input id="rua" placeholder="Rua das Paineiras (auto)" class="col-span-2 border rounded-[10px] px-4 py-3 text-sm bg-gray-50">
-</div>
-<div class="grid grid-cols-3 gap-2 mt-2">
-<input id="numero" placeholder="Número" class="border rounded-[10px] px-4 py-3 text-sm">
-<input id="bairro" placeholder="Bairro (auto)" class="border rounded-[10px] px-4 py-3 text-sm bg-gray-50">
-<input id="cidade" placeholder="Cidade (auto)" class="border rounded-[10px] px-4 py-3 text-sm bg-gray-50">
-</div>
-
-<h2 class="font-black text-[13px] mt-6 mb-2">📐 DIMENSÕES</h2>
-<div class="grid grid-cols-2 gap-2">
-<input id="metros" type="number" placeholder="Área galpão m² *" class="border rounded-[10px] px-4 py-3 text-sm">
-<input id="terreno" type="number" placeholder="Área terreno m²" class="border rounded-[10px] px-4 py-3 text-sm">
-<input id="pedireito" type="number" placeholder="Pé-direito (m) ex: 8" class="border rounded-[10px] px-4 py-3 text-sm">
-<input id="docas" type="number" placeholder="Nº de Docas ex: 2" class="border rounded-[10px] px-4 py-3 text-sm">
-<input id="vagas" type="number" placeholder="Vagas estacionamento" class="border rounded-[10px] px-4 py-3 text-sm">
-<input id="energia" placeholder="Energia ex: 150kVA Trifásico" class="border rounded-[10px] px-4 py-3 text-sm">
-</div>
-
-<h2 class="font-black text-[13px] mt-6 mb-2">🏗️ CARACTERÍSTICAS</h2>
-<div class="grid grid-cols-2 gap-2">
-<select id="piso" class="border rounded-[10px] px-4 py-3 text-sm">
-<option value="">Tipo de Piso</option><option>Polido / Alto desempenho</option><option>Concreto simples</option><option>Intertravado</option></select>
-<select id="tipo" class="border rounded-[10px] px-4 py-3 text-sm">
-<option value="">Tipo Galpão</option><option>Monousuário</option><option>Cond. Fechado</option><option>Galpão Isolado</option><option>Barracão</option></select>
-<select id="finalidade" class="border rounded-[10px] px-4 py-3 text-sm">
-<option value="">Finalidade</option><option>Logística</option><option>Industrial</option><option>Comercial</option><option>Depósito</option></select>
-<select id="portaria" class="border rounded-[10px] px-4 py-3 text-sm">
-<option value="">Portaria</option><option>24h</option><option>Horário Comercial</option><option>Não tem</option></select>
-</div>
-
-<div class="mt-3 grid grid-cols-2 gap-2 text-[12px]">
-<label class="flex gap-2"><input type="checkbox" id="escritorio"> Escritório</label>
-<label class="flex gap-2"><input type="checkbox" id="banheiro"> Banheiros</label>
-<label class="flex gap-2"><input type="checkbox" id="refeitorio"> Refeitório</label>
-<label class="flex gap-2"><input type="checkbox" id="camara"> Câmara Fria</label>
-</div>
-
-<h2 class="font-black text-[13px] mt-6 mb-2">💰 VALORES</h2>
-<div class="grid grid-cols-2 gap-2">
-<input id="preco" type="number" placeholder="Aluguel R$ *" class="border rounded-[10px] px-4 py-3 text-sm">
-<input id="condominio" type="number" placeholder="Condomínio R$" class="border rounded-[10px] px-4 py-3 text-sm">
-<input id="iptu" type="number" placeholder="IPTU R$ / mês" class="border rounded-[10px] px-4 py-3 text-sm">
-<input id="whats" placeholder="WhatsApp com DDD" class="border rounded-[10px] px-4 py-3 text-sm">
-</div>
-
-<h2 class="font-black text-[13px] mt-6 mb-2">📝 DESCRIÇÃO COMPLETA</h2>
-<textarea id="descricao" rows="4" placeholder="Descreva o galpão, vizinhança, acessos a rodovias, diferenciais..." class="w-full border rounded-[10px] px-4 py-3 text-sm"></textarea>
-<input id="fotos" type="file" accept="image/*" multiple class="mt-3 w-full border rounded-[10px] px-4 py-3 text-sm">
-
-<button onclick="salvar()" class="mt-6 w-full bg-black text-white font-black py-4 rounded-full text-sm">SALVAR GALPÃO COMPLETO</button>
-<button onclick="location.href='./pagar.html'" class="mt-3 w-full bg-yellow-400 text-black font-black py-3 rounded-full text-sm">UPGRADE ATÉ 3 GALPÕES - R$99,90</button>
-</div>
-
-<script>
-let dono=localStorage.getItem('gn_dono_atual'); if(!dono) location.href='./login.html';
-document.getElementById('donoTxt').innerText=dono;
-let chave='gn_galpoes_'+dono; let limite=Number(localStorage.getItem('limite_galpoes_'+dono)||1);
-document.getElementById('limiteTxt').innerText=limite;
-let lista=JSON.parse(localStorage.getItem(chave)||'[]');
-document.getElementById('aviso').innerHTML=`✅ Limite: ${limite} • Você tem ${lista.length} ativo(s).`;
-
-function buscarCep(v){let cep=v.replace(/\D/g,''); if(cep.length!=8)return; fetch(`https://viacep.com.br/ws/${cep}/json/`).then(r=>r.json()).then(d=>{if(!d.erro){document.getElementById('rua').value=d.logradouro; document.getElementById('bairro').value=d.bairro; document.getElementById('cidade').value=d.localidade;}});}
-document.getElementById('cep').addEventListener('blur',e=>buscarCep(e.target.value));
-
-function salvar(){
- if(lista.length>=limite){alert('Limite atingido'); location.href='./pagar.html'; return;}
- let g={
-  id:Date.now(), titulo:document.getElementById('titulo').value, cep:document.getElementById('cep').value,
-  rua:document.getElementById('rua').value, bairro:document.getElementById('bairro').value, cidade:document.getElementById('cidade').value,
-  metros:document.getElementById('metros').value, terreno:document.getElementById('terreno').value, pedireito:document.getElementById('pedireito').value,
-  docas:document.getElementById('docas').value, vagas:document.getElementById('vagas').value, energia:document.getElementById('energia').value,
-  piso:document.getElementById('piso').value, tipo:document.getElementById('tipo').value, preco:document.getElementById('preco').value,
-  descricao:document.getElementById('descricao').value, dono:dono, foto:'./hero.jpg'
- };
- if(!g.titulo||!g.metros||!g.preco){alert('Preencha título, metragem e preço');return;}
- lista.push(g); localStorage.setItem(chave, JSON.stringify(lista));
- let geral=JSON.parse(localStorage.getItem('gn_galpoes')||'[]'); geral.push(g); localStorage.setItem('gn_galpoes', JSON.stringify(geral));
- alert('Galpão completo salvo!'); location.href='./buscar.html';
-}
-function sair(){localStorage.removeItem('gn_dono_atual'); location.href='./login.html';}
-</script>
-</body>
-</html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anunciar</title><script src="https://cdn.tailwindcss.com"></script></head>
+<body class="bg-[#f6f6f6]">
+<div class="max-w-[700px] mx-auto bg-white min-h-screen p-4">
+<h1 class="font-black">Anunciar Galpão</h1><p class="text-[10px] text-green-600">✓ Cadastro com tópicos leves (não cansativo)</p>
+<input id="titulo" placeholder="Título *" class="mt-4 w-full border rounded-[10px] px-4 py-3 text-sm">
+<details open class="mt-4 border rounded-[12px] p-3"><summary class="font-black text-[11px]">1. ÁREAS</summary><div class="grid grid-cols-2 gap-2 mt-2"><input placeholder="Área total" class="border rounded p-2 text-[12px]"><input placeholder="ABL" class="border rounded p-2 text-[12px]"><input placeholder="Fabril / Armaz." class="border rounded p-2 text-[12px]"><input placeholder="Mezanino" class="border rounded p-2 text-[12px]"><input placeholder="Marquise" class="border rounded p-2 text-[12px]"><input placeholder="Apoio" class="border rounded p-2 text-[12px]"></div></details>
+<details class="mt-3 border rounded-[12px] p-3"><summary class="font-black text-[11px]">2. ESTRUTURA</summary><div class="grid grid-cols-2 gap-2 mt-2"><input placeholder="Pé-direito" class="border rounded p-2 text-[12px]"><input placeholder="Carga piso" class="border rounded p-2 text-[12px]"><input placeholder="Tipo piso" class="border rounded p-2 text-[12px]"><input placeholder="Modulação pilares" class="border rounded p-2 text-[12px]"><input placeholder="Cobertura" class="border rounded p-2 text-[12px]"><input placeholder="Iluminação/Vent." class="border rounded p-2 text-[12px]"></div></details>
+<details class="mt-3 border rounded-[12px] p-3"><summary class="font-black text-[11px]">3. CARGA/DESCARGA</summary><div class="grid grid-cols-2 gap-2 mt-2"><input placeholder="Qtd docas" class="border rounded p-2 text-[12px]"><input placeholder="Tipo docas" class="border rounded p-2 text-[12px]"><input placeholder="Niveladoras" class="border rounded p-2 text-[12px]"><input placeholder="Portas nível" class="border rounded p-2 text-[12px]"><input placeholder="Pátio" class="border rounded p-2 text-[12px]"></div></details>
+<details class="mt-3 border rounded-[12px] p-3"><summary class="font-black text-[11px]">4. ELÉTRICA/UTILIDADES</summary><div class="grid grid-cols-2 gap-2 mt-2"><input placeholder="kVA" class="border rounded p-2 text-[12px]"><input placeholder="Entrada energia" class="border rounded p-2 text-[12px]"><input placeholder="Água" class="border rounded p-2 text-[12px]"><input placeholder="Efluentes" class="border rounded p-2 text-[12px]"></div></details>
+<details class="mt-3 border rounded-[12px] p-3"><summary class="font-black text-[11px]">5. INCÊNDIO</summary><div class="grid grid-cols-2 gap-2 mt-2"><input placeholder="Classif. risco" class="border rounded p-2 text-[12px]"><input placeholder="Sprinklers" class="border rounded p-2 text-[12px]"><input placeholder="Hidrantes" class="border rounded p-2 text-[12px]"><input placeholder="Reserva" class="border rounded p-2 text-[12px]"></div></details>
+<details class="mt-3 border rounded-[12px] p-3"><summary class="font-black text-[11px]">6. CONDOMÍNIO</summary><div class="grid grid-cols-2 gap-2 mt-2"><input placeholder="Portaria" class="border rounded p-2 text-[12px]"><input placeholder="CFTV" class="border rounded p-2 text-[12px]"><input placeholder="Balança" class="border rounded p-2 text-[12px]"><input placeholder="Vagas" class="border rounded p-2 text-[12px]"></div></details>
+<details class="mt-3 border rounded-[12px] p-3"><summary class="font-black text-[11px]">7. LEGAL</summary><div class="grid grid-cols-2 gap-2 mt-2"><input placeholder="Zoneamento" class="border rounded p-2 text-[12px]"><input placeholder="AVCB" class="border rounded p-2 text-[12px]"><input placeholder="Habite-se" class="border rounded p-2 text-[12px]"></div></details>
+<label class="flex gap-2 mt-4 text-[10px]"><input type="checkbox" checked> Autorizo exibição do meu WhatsApp para empresas verificadas com CPF/CNPJ, com sigilo intermediado (LGPD). Não autorizo corretores.</label>
+<button class="mt-6 w-full bg-black text-white font-black py-4 rounded-full">SALVAR GALPÃO</button>
+</div></body></html>
