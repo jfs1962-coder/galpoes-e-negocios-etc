@@ -2,17 +2,78 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Anunciar - Galpões e Negócios</title>
+<title>Anunciar Galpão - Galpões e Negócios</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-body{background:#cbd6e2 url('/hero.jpg') no-repeat top center; background-size:120% auto; background-attachment:fixed; background-blend-mode:multiply}
-@media(max-width:768px){body{background-image:url('/hero-mobile.jpg'); background-size:100% auto}}
-.overlay{background:rgba(203,214,226,0.88); min-height:calc(100vh - 62px)}
+body{background-color:#eef2f6;background-image:url('/hero.jpg');background-repeat:no-repeat;background-position:top center;background-size:100% auto;font-family:Arial,sans-serif}
+@media(max-width:768px){body{background-image:url('/hero-mobile.jpg')}}
 </style>
 </head>
-<body>
-<header class="bg-black h-[62px] px-3 md:px-8 flex justify-between items-center sticky top-0 z-50"><a href="/" class="bg-white rounded-xl px-2 py-1"><img src="/logo.jpg" class="h-[40px] w-auto object-contain"></a><nav class="flex items-center gap-3 md:gap-6"><a href="/buscar.html" class="text-white text-[12px] font-bold">BUSCAR</a><a href="/login.html" class="text-white text-[12px] font-bold">ENTRAR</a><a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[11px] font-black px-4 py-2.5 rounded-full">ANUNCIAR GALPÃO</a></nav></header>
-<div class="overlay flex justify-center p-4"><div class="bg-white rounded-[20px] p-6 md:p-8 w-full max-w-[560px] shadow-2xl mt-4"><h1 class="font-black text-[22px] text-center">Anunciar Galpão</h1><div class="grid grid-cols-2 gap-3 mt-6"><button id="btn1" onclick="setPlano(1)" class="border-2 border-black bg-black text-white rounded-2xl p-3 text-left"><b class="text-[13px]">1 GALPÃO</b><br><span class="text-[#FFD60A] font-black text-[18px]">R$49,90</span><br><span class="text-[10px]">/mês</span></button><button id="btn3" onclick="setPlano(3)" class="border-2 border-zinc-200 bg-zinc-50 rounded-2xl p-3 text-left"><b class="text-[13px]">3 GALPÕES</b><br><span class="font-black text-[18px]">R$99,90</span><br><span class="text-[10px]">R$33,30 cada</span></button></div><div class="mt-4 bg-[#FFFBEB] border border-amber-300 rounded-xl p-3 text-[11px]"><b>PIX CNPJ: 63.329.574/0001-28</b><br><span id="valorPix" class="font-black">Valor: R$49,90 - 1 Galpão</span></div><input placeholder="Bairro e Cidade" class="mt-4 w-full p-3 rounded-xl border border-zinc-300 bg-zinc-50 text-[13px]"><input placeholder="Área m²" class="mt-2 w-full p-3 rounded-xl border border-zinc-300 bg-zinc-50 text-[13px]"><input placeholder="Valor do aluguel" class="mt-2 w-full p-3 rounded-xl border border-zinc-300 bg-zinc-50 text-[13px]"><input placeholder="WhatsApp" class="mt-2 w-full p-3 rounded-xl border border-zinc-300 bg-zinc-50 text-[13px]"><button class="mt-5 w-full bg-black text-[#FFD60A] font-black p-4 rounded-full text-[13px]">SALVAR E PAGAR VIA PIX</button></div></div>
-<script>let plano=1;function setPlano(p){plano=p;document.getElementById('btn1').className=p==1?'border-2 border-black bg-black text-white rounded-2xl p-3 text-left':'border-2 border-zinc-200 bg-zinc-50 rounded-2xl p-3 text-left';document.getElementById('btn3').className=p==3?'border-2 border-black bg-black text-white rounded-2xl p-3 text-left':'border-2 border-zinc-200 bg-zinc-50 rounded-2xl p-3 text-left';document.getElementById('valorPix').innerText=p==1?'Valor: R$49,90 - 1 Galpão':'Valor: R$99,90 - 3 Galpões';}const u=new URLSearchParams(location.search);if(u.get('plano')=='3')setPlano(3);</script>
+<body class="min-h-screen">
+<header class="bg-black h-[62px] px-3 md:px-8 flex justify-between items-center sticky top-0 z-50">
+  <a href="/" class="bg-white rounded-xl px-2 py-1"><img src="/logo.jpg" class="h-[40px] w-auto object-contain"></a>
+  <nav class="flex items-center gap-3 md:gap-6">
+    <a href="/buscar.html" class="text-white text-[12px] font-bold">BUSCAR</a>
+    <a href="/login.html" class="text-white text-[12px] font-bold">ENTRAR</a>
+    <a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[11px] font-black px-4 py-2.5 rounded-full">ANUNCIAR GALPÃO</a>
+  </nav>
+</header>
+<div class="min-h-[calc(100vh-62px)] flex justify-center p-4">
+  <div class="bg-white rounded-[24px] p-6 md:p-8 w-full max-w-[600px] shadow-xl border border-zinc-100 mt-2">
+    <h1 class="font-black text-[24px] text-center">Anunciar Galpão</h1>
+    <p class="text-[11px] text-center text-zinc-500 mt-1">Sem comissão • Direto proprietário • Economize 100% do 1º aluguel</p>
+
+    <div class="grid grid-cols-2 gap-3 mt-6">
+      <button id="btn1" onclick="setPlano(1)" class="border-2 border-black bg-black text-white rounded-2xl p-4 text-left transition-all">
+        <div class="font-black text-[13px]">1 GALPÃO</div>
+        <div class="text-[#FFD60A] font-black text-[22px] leading-none mt-1">R$49,90</div>
+        <div class="text-[10px] opacity-80 mt-1">/mês • Sem comissão</div>
+      </button>
+      <button id="btn3" onclick="setPlano(3)" class="border-2 border-zinc-200 bg-zinc-50 rounded-2xl p-4 text-left transition-all">
+        <div class="font-black text-[13px]">3 GALPÕES</div>
+        <div class="font-black text-[22px] leading-none mt-1">R$99,90</div>
+        <div class="text-[10px] mt-1">R$33,30 cada • Mais vendido</div>
+      </button>
+    </div>
+
+    <div class="mt-4 bg-[#FFFBEB] border border-dashed border-amber-300 rounded-xl p-3.5">
+      <div class="text-[11px] font-black">🔑 PIX CNPJ OFICIAL: 63.329.574/0001-28</div>
+      <div class="text-[10px] text-zinc-600">GALPOES E NEGOCIOS INTERNET LTDA - ME</div>
+      <div id="valorPix" class="text-[12px] font-black mt-1">Valor: R$49,90 - Plano 1 Galpão</div>
+    </div>
+
+    <div class="mt-6 space-y-3">
+      <input placeholder="Título do anúncio ex: Galpão 500m² no Centro" class="w-full p-3.5 rounded-xl border border-zinc-200 bg-zinc-50 text-[13px]">
+      <div class="grid grid-cols-2 gap-3">
+        <input placeholder="Bairro e Cidade" class="w-full p-3.5 rounded-xl border border-zinc-200 bg-zinc-50 text-[13px]">
+        <input placeholder="Área total m²" class="w-full p-3.5 rounded-xl border border-zinc-200 bg-zinc-50 text-[13px]">
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <input placeholder="Valor do aluguel R$" class="w-full p-3.5 rounded-xl border border-zinc-200 bg-zinc-50 text-[13px]">
+        <input placeholder="WhatsApp com DDD" class="w-full p-3.5 rounded-xl border border-zinc-200 bg-zinc-50 text-[13px]">
+      </div>
+      <textarea placeholder="Descrição do galpão, altura pé direito, docas..." rows="3" class="w-full p-3.5 rounded-xl border border-zinc-200 bg-zinc-50 text-[13px]"></textarea>
+      <div class="border-2 border-dashed border-zinc-300 rounded-xl p-4 text-center">
+        <div class="text-[12px] font-bold">📸 Fotos do galpão</div>
+        <div class="text-[11px] text-zinc-500">Arraste até 10 fotos</div>
+        <input type="file" multiple accept="image/*" class="mt-2 text-[11px]">
+      </div>
+    </div>
+
+    <button class="mt-6 w-full bg-black text-[#FFD60A] font-black p-4 rounded-full text-[13px] tracking-wide">SALVAR E PAGAR VIA PIX CNPJ</button>
+    <p class="text-[10px] text-center mt-3 text-zinc-400 leading-relaxed">Ao anunciar você concorda com <a href="/termos.html" class="underline">Termos</a> e <a href="/privacidade.html" class="underline">Privacidade</a><br>CNPJ 63.329.574/0001-28 • Economia de 100% do primeiro aluguel</p>
+  </div>
+</div>
+<script>
+let plano=1;
+function setPlano(p){
+  plano=p;
+  const b1=document.getElementById('btn1'), b3=document.getElementById('btn3'), v=document.getElementById('valorPix');
+  if(p==1){b1.className='border-2 border-black bg-black text-white rounded-2xl p-4 text-left';b3.className='border-2 border-zinc-200 bg-zinc-50 rounded-2xl p-4 text-left';v.innerText='Valor: R$49,90 - Plano 1 Galpão';}
+  else{b1.className='border-2 border-zinc-200 bg-zinc-50 rounded-2xl p-4 text-left';b3.className='border-2 border-black bg-black text-white rounded-2xl p-4 text-left';v.innerText='Valor: R$99,90 - Plano 3 Galpões (R$33,30 cada)';}
+}
+const params=new URLSearchParams(window.location.search);
+if(params.get('plano')=='3') setPlano(3);
+</script>
 </body>
 </html>
