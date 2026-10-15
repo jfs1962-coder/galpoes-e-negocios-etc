@@ -1,25 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Login Proprietário - Galpões e Negócios</title>
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
-<div class="bg-white rounded-[16px] p-6 w-full max-w-[400px] shadow">
-<h1 class="font-black text-lg">Entrar - Proprietário</h1>
-<p class="text-[11px] text-gray-500 mt-1">CNPJ 63.329.574/0001-28 - Cada CPF/CNPJ vê só seus galpões (até 3)</p>
-<input id="cpf" placeholder="Digite seu CPF ou CNPJ" class="mt-5 w-full border rounded-[10px] px-4 py-3 text-sm">
-<button onclick="entrar()" class="mt-4 w-full bg-black text-white font-black py-3 rounded-full text-sm">ENTRAR E VER MEUS GALPÕES</button>
-<p class="mt-4 text-[10px] text-gray-400 text-center">Não compartilhamos seu documento. Usado só para separar seus anúncios dos outros clientes no mesmo PC.</p>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buscar Galpão</title><script src="https://cdn.tailwindcss.com"></script></head>
+<body class="bg-[#f6f6f6]">
+<div class="max-w-[420px] mx-auto bg-white min-h-screen p-6">
+<a href="index.html" class="text-[11px] border px-4 py-2 rounded-full">← Voltar</a>
+<h1 class="font-black text-[20px] mt-6">Buscar Galpão</h1>
+<p class="text-[11px] text-gray-500">CPF ou CNPJ obrigatório • Sigilo garantido</p>
+<input id="nome" placeholder="Seu nome *" class="mt-6 w-full border rounded-[10px] px-4 py-3 text-sm">
+<input id="doc" placeholder="CPF ou CNPJ *" class="mt-3 w-full border rounded-[10px] px-4 py-3 text-sm"><p id="tipoDoc" class="text-[10px] text-blue-600 h-3 mt-1"></p>
+<input id="cel" placeholder="Celular com DDD *" class="mt-3 w-full border rounded-[10px] px-4 py-3 text-sm">
+<select id="ramo" class="mt-3 w-full border rounded-[10px] px-4 py-3 text-sm">
+<option value="">Ramo *</option><option>Logística / Transporte</option><option>Indústria</option><option>E-commerce</option><option>Comércio / Outros</option><option>Sou corretor - buscar para cliente</option>
+</select>
+<label class="flex gap-2 mt-4 text-[10px]"><input type="checkbox" id="sigilo" checked> Manter empresa em sigilo</label>
+<label class="flex gap-2 mt-2 text-[10px]"><input type="checkbox" id="lgpd"> Autorizo verificação e contato intermediado (LGPD) *</label>
+<button onclick="entrar()" class="mt-6 w-full bg-black text-white font-black py-4 rounded-full">ENTRAR PARA BUSCAR</button>
+<div id="bloqueio" class="hidden fixed inset-0 bg-red-600 text-white p-10 text-center"><p class="font-black text-[30px] mt-20">⛔ ACESSO NEGADO</p><p class="mt-4">Este portal não é para corretores.<br>Seu IP e CPF/CNPJ foram registrados.</p><a href="index.html" class="mt-10 inline-block bg-white text-red-600 px-6 py-3 rounded-full font-black">VOLTAR</a></div>
 </div>
 <script>
-function entrar(){
-  let doc = document.getElementById('cpf').value.replace(/\D/g,'');
-  if(doc.length < 11){ alert('Digite CPF com 11 ou CNPJ com 14 dígitos'); return; }
-  localStorage.setItem('gn_dono_atual', doc);
-  // CORREÇÃO DO 404: usa caminho relativo correto
-  window.location.href = './cadastro-proprietario.html';
-}
-</script>
-</body>
-</html>
+const docInput=document.getElementById('doc');const tipoDoc=document.getElementById('tipoDoc');
+docInput.addEventListener('input',()=>{let n=docInput.value.replace(/\D/g,'');if(n.length<=11){n=n.replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');tipoDoc.innerText=n.length==14?'✓ CPF detectado':''}else{n=n.replace(/^(\d{2})(\d)/,'$1.$2').replace(/^(\d{2})\.(\d{3})(\d)/,'$1.$2.$3').replace(/\.(\d{3})(\d)/,'.$1/$2').replace(/(\d{4})(\d)/,'$1-$2');tipoDoc.innerText=n.length>=18?'✓ CNPJ detectado':''}docInput.value=n});
+function entrar(){let doc=docInput.value.replace(/\D/g,'');let nome=document.getElementById('nome').value;let cel=document.getElementById('cel').value;let ramo=document.getElementById('ramo').value;let lgpd=document.getElementById('lgpd').checked;if(!nome||!cel||!ramo){alert('Preencha tudo');return}if(!lgpd){alert('Autorize LGPD');return}if(ramo.includes('corretor')){document.getElementById('bloqueio').classList.remove('hidden');return}if(doc.length!=11&&doc.length!=14){alert('Informe CPF (11) OU CNPJ (14) - Obrigatório');return}localStorage.setItem('gn_buscador_atual',nome);localStorage.setItem('gn_buscador_doc',doc);localStorage.setItem('gn_buscador_tipo',doc.length==11?'CPF':'CNPJ');location.href='buscar.html'}
+</script></body></html>
