@@ -1,16 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Galpões e Negócios</title><script src="https://cdn.tailwindcss.com"></script></head>
-<body class="bg-[#f6f6f6]">
-<div class="max-w-[500px] mx-auto bg-white min-h-screen">
-<div class="bg-[#ff0000] text-white text-center py-2"><p class="font-black text-[12px] tracking-widest">⛔ CORRETORES NÃO SÃO BEM-VINDOS ⛔</p></div>
-<div class="bg-black text-white flex justify-between px-4 py-2"><p class="text-[10px]">🚫 Anti-corretor ativo</p><p class="text-[10px] font-mono"><span id="contador" class="bg-yellow-400 text-black font-black px-2 py-0.5 rounded">147</span> bloqueados este mês</p></div>
-<div class="bg-[#111] text-white p-4"><p class="font-black text-[14px]">ESTE PORTAL É SÓ PROPRIETÁRIO → EMPRESA</p><p class="text-[11px] mt-2 text-gray-300">Sem comissão. Sem intermediário. Corretores serão <b class="text-red-500">BLOQUEADOS</b> e encaminhados ao jurídico LGPD Lei 13.709/18.</p></div>
-<div class="p-6 text-center"><h1 class="font-black text-[28px] leading-[26px] mt-4">GALPÕES E<br>NEGÓCIOS</h1>
-<div class="mt-8 grid gap-3"><a href="login-buscador.html" class="bg-black text-white font-black py-5 rounded-[16px]">🔍 BUSCAR GALPÃO<br><span class="text-[10px] font-normal">CPF ou CNPJ obrigatório</span></a>
-<a href="login.html" class="bg-[#ffcc00] text-black font-black py-5 rounded-[16px]">+ ANUNCIAR GALPÃO<br><span class="text-[10px] font-normal">Sou proprietário</span></a></div>
-<div class="mt-6 bg-red-50 border border-red-200 rounded-[12px] p-3 text-left"><p class="font-black text-[10px] text-red-700">⚖️ AVISO LEGAL</p><p class="text-[9px] text-red-600 mt-1">Coleta de dados por corretores = violação LGPD. Monitoramos IP, CPF/CNPJ e comportamento.</p></div>
-<p class="mt-6 text-[9px] text-gray-400">CNPJ 63.329.574/0001-28 • (11) 96398-3081</p></div></div>
-<script>let b=142+Math.floor(Math.random()*15);document.getElementById('contador').innerText=b;setInterval(()=>{if(Math.random()>0.7){b++;document.getElementById('contador').innerText=b}},8000);</script>
-</body></html>
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galpões e Negócios | Direto do Proprietário</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+<style>body{font-family:Inter}</style>
+</head>
+<body class="bg-[#fbfbfb]">
+<div class="max-w-[520px] mx-auto bg-white min-h-screen">
+
+<!-- TOPO PREMIUM - ANTI-CORRETOR COM CLASSE -->
+<div class="flex items-center justify-between px-5 py-3 border-b">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+<p class="text-[10px] tracking-widest font-bold">PORTAL VERIFICADO</p>
+</div>
+<p class="text-[10px] text-gray-500">CNPJ 63.329.574/0001-28</p>
+</div>
+
+<!-- SELO DE EXCLUSIVIDADE - MATA CORRETOR SEM GRITAR -->
+<div class="mx-5 mt-5 border border-black rounded-[14px] p-[1px]">
+<div class="bg-black rounded-[12px] px-4 py-3 flex justify-between items-center">
+<div>
+<p class="text-white font-black text-[11px] tracking-[0.2em]">EXCLUSIVO • SEM INTERMEDIÁRIOS</p>
+<p class="text-gray-400 text-[10px] mt-1">Proprietário → Empresa usuária final</p>
+</div>
+<div class="text-right">
+<p class="text-yellow-400 font-black text-[18px] leading-none" id="contador">151</p>
+<p class="text-white text-[8px] tracking-widest">CORRETORES<br>BLOQUEADOS</p>
+</div>
+</div>
+</div>
+
+<!-- HERO - VENDE BENEFÍCIO, NÃO AVISO -->
+<div class="px-7 mt-8">
+<h1 class="font-black text-[36px] leading-[32px] tracking-tighter">GALPÕES E<br>NEGÓCIOS</h1>
+<p class="mt-3 text-[14px] leading-[18px] text-gray-600">O único portal do ABC e SP onde <b class="text-black">o dono atende direto</b>. Sem comissão. Sem corretor ligando. Contato sigiloso com LGPD.</p>
+
+<div class="mt-5 flex gap-2">
+<div class="flex items-center gap-1.5 bg-gray-50 border rounded-full px-3 py-1.5">
+<span class="text-[12px]">🔒</span><p class="text-[10px] font-bold">DADOS SIGILOSOS</p>
+</div>
+<div class="flex items-center gap-1.5 bg-gray-50 border rounded-full px-3 py-1.5">
+<span class="text-[12px]">⚡</span><p class="text-[10px] font-bold">CONTATO DIRETO</p>
+</div>
+</div>
+</div>
+
+<!-- BOTÕES - DESIGN DE CONVERSÃO -->
+<div class="px-5 mt-8 grid gap-3">
+<a href="login-buscador.html" class="group bg-black text-white rounded-[18px] p-5 flex justify-between items-center">
+<div>
+<p class="font-black text-[15px]">BUSCAR GALPÃO</p>
+<p class="text-[11px] text-gray-400 mt-1">Para minha empresa • CPF ou CNPJ</p>
+</div>
+<div class="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center group-hover:scale-110 transition">→</div>
+</a>
+
+<a href="login.html" class="group bg-[#FFD60A] text-black rounded-[18px] p-5 flex justify-between items-center">
+<div>
+<p class="font-black text-[15px]">ANUNCIAR MEU GALPÃO</p>
+<p class="text-[11px] text-black/60 mt-1">Sou proprietário • 3 minutos</p>
+</div>
+<div class="w-10 h-10 bg-black text-[#FFD60A] rounded-full flex items-center justify-center group-hover:scale-110 transition">+</div>
+</a>
+</div>
+
+<!-- PROVA SOCIAL E AUTORIDADE - MATA OBJEÇÃO -->
+<div class="px-7 mt-10 grid grid-cols-3 gap-3 text-center border-t pt-6">
+<div><p class="font-black text-[20px]">100%</p><p class="text-[9px] text-gray-500 leading-[10px]">PROPRIETÁRIOS<br>VERIFICADOS</p></div>
+<div><p class="font-black text-[20px]">0%</p><p class="text-[9px] text-gray-500 leading-[10px]">COMISSÃO<br>CORRETOR</p></div>
+<div><p class="font-black text-[20px]">LGPD</p><p class="text-[9px] text-gray-500 leading-[10px]">CONTATO<br>SIGILOSO</p></div>
+</div>
+
+<!-- AVISO LEGAL ELEGANTE -->
+<div class="mx-5 mt-8 bg-[#fafafa] border rounded-[12px] p-3 flex gap-2">
+<p class="text-[14px]">⚖️</p>
+<p class="text-[9px] leading-[11px] text-gray-500"><b class="text-black">Acesso restrito.</b> Este portal monitora CPF/CNPJ, IP e comportamento para garantir exclusividade proprietário-empresa. Intermediários são bloqueados conforme Art. 7º LGPD. Ao continuar você declara ser proprietário ou empresa usuária final.</p>
+</div>
+
+<div class="text-center py-6">
+<p class="text-[9px] text-gray-400 tracking-widest">GALPÕES E NEGÓCIOS • SANTO ANDRÉ • (11) 96398-3081</p>
+</div>
+
+</div>
+<script>
+let b=149+Math.floor(Math.random()*12);document.getElementById('contador').innerText=b;
+setInterval(()=>{if(Math.random()>0.65){b++;document.getElementById('contador').innerText=b}},9000);
+</script>
+</body>
+</html>
