@@ -5,13 +5,34 @@
 <title>Entrar - Galpões e Negócios</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-body{background:#cbd6e2 url('/hero.jpg') no-repeat top center; background-size:120% auto; background-attachment:fixed; background-blend-mode:multiply}
-@media(max-width:768px){body{background-image:url('/hero-mobile.jpg'); background-size:100% auto}}
-.overlay{background:rgba(203,214,226,0.88); min-height:calc(100vh - 62px)}
+body{background-color:#eef2f6;background-image:url('/hero.jpg');background-repeat:no-repeat;background-position:top center;background-size:100% auto;font-family:Arial,sans-serif}
+@media(max-width:768px){body{background-image:url('/hero-mobile.jpg')}}
 </style>
 </head>
-<body>
-<header class="bg-black h-[62px] px-3 md:px-8 flex justify-between items-center sticky top-0 z-50"><a href="/" class="bg-white rounded-xl px-2 py-1"><img src="/logo.jpg" class="h-[40px] w-auto object-contain"></a><nav class="flex items-center gap-3 md:gap-6"><a href="/buscar.html" class="text-white text-[12px] font-bold">BUSCAR</a><a href="/login.html" class="text-[#FFD60A] text-[12px] font-black">ENTRAR</a><a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[11px] font-black px-4 py-2.5 rounded-full">ANUNCIAR GALPÃO</a></nav></header>
-<div class="overlay flex items-center justify-center p-4"><div class="bg-white rounded-[20px] p-8 w-full max-w-[420px] shadow-2xl"><h1 class="font-black text-[22px] text-center">Entrar na sua conta</h1><input type="email" placeholder="E-mail" class="mt-6 w-full p-3 rounded-xl border border-zinc-300 bg-zinc-50 text-[14px]"><input type="password" placeholder="Senha" class="mt-3 w-full p-3 rounded-xl border border-zinc-300 bg-zinc-50 text-[14px]"><button class="mt-5 w-full bg-black text-[#FFD60A] font-black p-3.5 rounded-full text-[13px]">ENTRAR</button><p class="text-[10px] text-zinc-500 text-center mt-6">CNPJ 63.329.574/0001-28</p></div></div>
+<body class="min-h-screen">
+<header class="bg-black h-[62px] px-3 md:px-8 flex justify-between items-center sticky top-0 z-50">
+  <a href="/" class="bg-white rounded-xl px-2 py-1"><img src="/logo.jpg" class="h-[40px] w-auto object-contain"></a>
+  <nav class="flex items-center gap-3 md:gap-6">
+    <a href="/buscar.html" class="text-white text-[12px] font-bold">BUSCAR</a>
+    <a href="/login.html" class="text-[#FFD60A] text-[12px] font-black">ENTRAR</a>
+    <a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[11px] font-black px-4 py-2.5 rounded-full">ANUNCIAR GALPÃO</a>
+  </nav>
+</header>
+<div class="min-h-[calc(100vh-62px)] flex items-center justify-center p-4">
+  <div class="bg-white rounded-[24px] p-8 w-full max-w-[440px] shadow-xl border border-zinc-100">
+    <h1 class="font-black text-[24px] text-center leading-tight">Entrar na sua conta</h1>
+    <p class="text-[11px] text-zinc-500 text-center mt-1">GALPOES E NEGOCIOS INTERNET LTDA - ME • CNPJ 63.329.574/0001-28</p>
+    <div class="mt-7 space-y-3">
+      <input type="email" placeholder="Seu e-mail" class="w-full p-3.5 rounded-xl border border-zinc-200 bg-zinc-50 text-[14px] outline-none focus:border-black">
+      <input type="password" placeholder="Sua senha" class="w-full p-3.5 rounded-xl border border-zinc-200 bg-zinc-50 text-[14px] outline-none focus:border-black">
+    </div>
+    <button class="mt-6 w-full bg-black text-[#FFD60A] font-black p-4 rounded-full text-[13px]">ENTRAR</button>
+    <div class="mt-5 text-center space-y-2">
+      <p class="text-[12px]"><a href="#" class="underline">Esqueci minha senha</a></p>
+      <p class="text-[12px]">Não tem conta? <a href="/cadastrar-galpao.html" class="font-black underline">Anunciar galpão por R$49,90</a></p>
+    </div>
+    <p class="text-[10px] text-zinc-400 text-center mt-8 leading-relaxed">Seus dados protegidos pela LGPD.<br>PIX oficial no CNPJ 63.329.574/0001-28</p>
+  </div>
+</div>
 </body>
 </html>
