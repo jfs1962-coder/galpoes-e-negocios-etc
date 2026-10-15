@@ -5,20 +5,35 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Galpões e Negócios</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<style>
+ .hero-desktop { display: block; }
+ .hero-mobile { display: none; }
+  @media (max-width: 768px) {
+   .hero-desktop { display: none; }
+   .hero-mobile { display: block; }
+  }
+</style>
 </head>
-<body class="bg-black">
-<header class="bg-[#0a0a0a] px-4 md:px-8 py-3 flex justify-between items-center">
-  <a href="/" class="bg-white rounded-[18px] px-4 py-2 flex items-center">
-    <img src="/logo.jpg" class="h-[48px] w-auto" alt="Galpões e Negócios">
+<body class="bg-black m-0 p-0">
+
+<header class="bg-black h-[62px] px-3 md:px-6 flex justify-between items-center sticky top-0 z-50">
+  <!-- LOGO CORRETO - SEM PÍLULA DUPLA -->
+  <a href="/" class="flex items-center bg-white rounded-xl px-2 py-1">
+    <img src="/logo.jpg" class="h-[42px] w-auto object-contain" alt="Galpões e Negócios">
   </a>
-  <nav class="flex items-center gap-5 md:gap-8">
-    <a href="/buscar.html" class="text-[#FFD60A] text-[13px] font-black">BUSCAR</a>
-    <a href="/login.html" class="text-white text-[13px] font-bold">ENTRAR</a>
-    <a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[13px] font-black px-6 py-3 rounded-full">ANUNCIAR GALPÃO</a>
+
+  <nav class="flex items-center gap-3 md:gap-6">
+    <a href="/buscar.html" class="text-[#FFD60A] text-[12px] md:text-[13px] font-black">BUSCAR</a>
+    <a href="/login.html" class="text-white text-[12px] md:text-[13px] font-bold">ENTRAR</a>
+    <a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[11px] md:text-[13px] font-black px-4 md:px-6 py-2.5 md:py-3 rounded-full leading-none text-center">ANUNCIAR<br class="md:hidden"> GALPÃO</a>
   </nav>
 </header>
-<section class="w-full">
-  <img src="/hero.jpg" class="w-full h-auto object-cover">
+
+<!-- HERO QUE OCUPA A TELA TODA - SEM PRETO EMBAIXO -->
+<section class="w-full bg-[#eef2f6] min-h-[calc(100vh-62px)]">
+  <img src="/hero.jpg" class="hero-desktop w-full h-[calc(100vh-62px)] object-cover object-top">
+  <img src="/hero-mobile.jpg" class="hero-mobile w-full h-[calc(100vh-62px)] object-cover object-top">
 </section>
+
 </body>
 </html>
