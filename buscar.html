@@ -1,45 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Buscar Galpões</title><script src="https://cdn.tailwindcss.com"></script></head>
-<body class="bg-[#f6f6f6]">
-<div class="max-w-[700px] mx-auto bg-white min-h-screen p-4">
-<div class="flex justify-between items-center border-b pb-3">
-  <a href="/" class="font-black text-[14px]">← GALPÕES E NEGÓCIOS</a>
-  <b id="quem" class="text-[10px]"></b>
-</div>
-<div id="lista" class="mt-4 grid gap-3"></div>
-</div>
-<script>
-let buscador=localStorage.getItem('gn_buscador_atual');
-let quemEl=document.getElementById('quem');
-if(buscador){
-  quemEl.innerText=buscador+' • '+(localStorage.getItem('gn_buscador_tipo')||'');
-} else {
-  quemEl.innerHTML='<a href="/login.html" class="bg-black text-white px-3 py-1 rounded-full">ENTRAR PARA BUSCAR</a>';
-}
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buscar Galpões - Galpões e Negócios</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+body{background:#eef2f6 url('/hero.jpg') no-repeat top center; background-size:100% auto; background-attachment:fixed}
+@media(max-width:768px){body{background-image:url('/hero-mobile.jpg'); background-size:100% auto}}
+.bg-overlay{background:rgba(238,242,246,0.92); min-height:calc(100vh - 62px)}
+</style>
+</head>
+<body>
+<header class="bg-black h-[62px] px-3 md:px-8 flex justify-between items-center sticky top-0 z-50">
+  <a href="/" class="bg-white rounded-xl px-2 py-1"><img src="/logo.jpg" class="h-[40px] w-auto object-contain" alt="Galpões e Negócios"></a>
+  <nav class="flex items-center gap-3 md:gap-6">
+    <a href="/buscar.html" class="text-[#FFD60A] text-[12px] font-black">BUSCAR</a>
+    <a href="/login.html" class="text-white text-[12px] font-bold">ENTRAR</a>
+    <a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[11px] font-black px-4 py-2.5 rounded-full">ANUNCIAR GALPÃO</a>
+  </nav>
+</header>
 
-let galpoes=JSON.parse(localStorage.getItem('galpoes')||'[]');
-let div=document.getElementById('lista');
-if(galpoes.length==0){
-  div.innerHTML='<p class="text-[12px] text-gray-500 p-4 text-center">Nenhum galpão cadastrado ainda. <br>Se você é proprietário, clique em ANUNCIAR GALPÃO.</p>'
-}
-galpoes.forEach(g=>{
-  div.innerHTML+=`<div class="border rounded-[12px] p-3">
-    <p class="font-black text-sm">${g.titulo||'Galpão'}</p>
-    <p class="text-[11px] text-gray-500">${g.cidade||''} • ${g.metragem||''}m²</p>
-    <button onclick="solicitar('${g.id}')" class="mt-3 bg-black text-white text-[11px] font-bold px-4 py-2 rounded-full">🔒 SOLICITAR CONTATO EM SIGILO</button>
-    <p class="text-[9px] text-gray-400 mt-1">Contato intermediado com autorização LGPD. Empresa em sigilo.</p>
-  </div>`
-});
+<div class="bg-overlay">
+  <div class="max-w-7xl mx-auto px-6 md:px-8 py-4 flex justify-between items-center border-b border-zinc-200">
+    <a href="/" class="font-black text-[14px]">← GALPÕES E NEGÓCIOS</a>
+    <span class="text-[11px] font-bold">jose silva • CPF</span>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 py-20 text-center">
+    <p class="text-[14px] text-zinc-600">Nenhum galpão cadastrado ainda.<br>Se você é proprietário, clique em ANUNCIAR GALPÃO.</p>
+    <a href="/cadastrar-galpao.html" class="mt-6 inline-block bg-black text-white font-black px-6 py-3 rounded-full text-[12px]">ANUNCIAR GALPÃO AGORA</a>
+  </div>
+</div>
 
-function solicitar(id){
-  let cpf=localStorage.getItem('gn_buscador_doc');
-  if(!cpf){ alert('Faça login para solicitar contato.'); location.href='/login.html'; return; }
-  let chave='sol_'+cpf;
-  let lista=JSON.parse(localStorage.getItem(chave)||'[]');
-  if(lista.length>=3){alert('Limite de 3 solicitações por dia atingido por segurança anti-corretor. Tente amanhã.');return}
-  lista.push({id,dt:Date.now()});
-  localStorage.setItem(chave,JSON.stringify(lista));
-  alert('Solicitação enviada! O proprietário foi notificado e decidirá liberar o contato. Você será avisado no WhatsApp.');
-}
-</script></body></html>
+<footer class="bg-[#0a0a0a] text-zinc-400 text-[10px] text-center py-4">© 2026 GALPOES E NEGOCIOS INTERNET LTDA - ME | CNPJ 63.329.574/0001-28</footer>
+</body>
+</html>
