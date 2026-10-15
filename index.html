@@ -1,118 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Galpões e Negócios - CNPJ 63.329.574/0001-28</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
-body{background:#fff;overflow-x:hidden}
-.top{background:#000;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;position:sticky;top:0;z-index:99}
-.logo-box{background:#fff;padding:6px 12px;border-radius:12px;display:flex;align-items:center;flex-shrink:0}
-.logo-box img{height:50px;width:auto;max-width:130px;object-fit:contain;display:block}
-.menu{display:flex;gap:10px;align-items:center;flex-shrink:0}
-.menu a{color:#fff;text-decoration:none;font-size:12px;font-weight:800;white-space:nowrap;padding:6px 4px}
-.btn-amarelo{background:#FFD700;color:#000!important;padding:10px 18px!important;border-radius:20px;font-size:12px!important;font-weight:900!important;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center}
-.btn-amarelo .txt-short{display:none!important}
-.btn-amarelo .txt-long{display:inline!important}
-.hero{min-height:460px;display:flex;align-items:flex-start;padding:28px 14px 24px;background:#eef0f3 url('./hero.jpg?v=20') center/cover no-repeat}
-.hero-content{max-width:1200px;margin:0 auto;width:100%}
-.hero h1{font-size:32px;font-weight:900;line-height:1.1;max-width:560px;color:#111;margin-top:0}
-.hero h1 span{color:#FF7A00}
-.destaque{background:rgba(255,255,255,.97);padding:12px 14px;border-radius:12px;max-width:560px;margin:16px 0 18px;font-size:14px;font-weight:800;line-height:1.4;border-left:4px solid #FF7A00;box-shadow:0 4px 14px rgba(0,0,0,.12)}
-.search{background:#fff;border:1px solid #ddd;border-radius:14px;padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:640px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
-.search select,.search input{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;font-size:13px}
-.btn-buscar{grid-column:1/-1;background:#FFD700;border:0;padding:13px;border-radius:10px;font-weight:900;cursor:pointer;font-size:14px}
-.link-login{text-align:center;font-size:12px;margin-top:12px;color:#444;line-height:1.4;grid-column:1/-1}
-.link-login a{color:#111;font-weight:900;text-decoration:underline}
-footer{background:#0a0a0a;color:#ccc;padding:22px 14px;text-align:center;font-size:11px;line-height:1.7}
-footer b{color:#fff}
-@media(max-width:600px){
-.logo-box img{height:42px;max-width:110px}
-.top{padding:8px 10px;gap:6px}
-.menu{gap:8px}
-.menu a{font-size:11px}
-.btn-amarelo{padding:8px 14px!important;font-size:11px!important}
-.btn-amarelo .txt-long{display:none!important}
-.btn-amarelo .txt-short{display:inline!important}
-.hero{min-height:auto;padding:18px 12px 18px;align-items:flex-start}
-.hero h1{font-size:23px;margin-top:0}
-.destaque{font-size:12.5px;margin:10px 0 14px}
-.search{grid-template-columns:1fr;padding:10px}
-.link-login{font-size:11px}
-}
-</style>
-</head>
-<body>
-<div class="top">
-  <a href="./index.html"><div class="logo-box"><img src="./logo.jpg?v=20" alt="Galpões e Negócios"></div></a>
-  <div class="menu">
-    <a href="./buscar.html">BUSCAR</a>
-    <a id="btnEntrar" href="./login.html">ENTRAR</a>
-    <a href="./cadastro-proprietario.html" class="btn-amarelo"><span class="txt-long">ANUNCIAR GALPÃO</span><span class="txt-short">ANUNCIAR</span></a>
-  </div>
-</div>
-
-<div class="hero"><div class="hero-content">
-<h1>Galpões para alugar <span>direto do proprietário</span> no ABC e SP</h1>
-<div class="destaque">Chega de intermediário. Aqui você negocia direto com o proprietário. Sem corretor, sem comissão. Cadastro grátis.</div>
-<div class="search">
-<select id="cidade">
-<option value="">Todas as cidades</option>
-<option>Santo André</option>
-<option>São Bernardo do Campo</option>
-<option>São Caetano do Sul</option>
-<option>Diadema</option>
-<option>Mauá</option>
-<option>Ribeirão Pires</option>
-<option>Rio Grande da Serra</option>
-<option>São Paulo</option>
-<option>Guarulhos</option>
-<option>Osasco</option>
-<option>Barueri</option>
-<option>Embu das Artes</option>
-<option>Taboão da Serra</option>
-</select>
-<select id="metros"><option value="">Qualquer metragem</option><option value="200">Até 200m²</option><option value="500">200 a 500m²</option><option value="1000">500 a 1000m²</option><option value="1001">Acima 1000m²</option></select>
-<input id="preco" placeholder="Preço até R$">
-<button class="btn-buscar" onclick="fazerBusca()">BUSCAR →</button>
-<div class="link-login">Já tem cadastro? <a href="./login.html">Entrar com email e senha</a></div>
-</div></div></div>
-
-<footer>
-<b>Galpões e Negócios® - Marca Registrada</b><br>
-CNPJ 63.329.574/0001-28 - Plataforma direta proprietário<br>
-© 2026 Todos os direitos reservados.
-</footer>
-
-<script>
-function atualizarBotao(){
-  const u=localStorage.getItem('usuario_logado');
-  const btn=document.getElementById('btnEntrar');
-  if(u){
-    const user=JSON.parse(u);
-    btn.innerText=(user.nome||'SAIR').split(' ')[0].toUpperCase();
-    btn.onclick=function(e){
-      e.preventDefault();
-      if(confirm('Sair da conta?')){
-        localStorage.removeItem('usuario_logado');
-        location.reload();
-      }
-    }
-  }
-}
-function fazerBusca(){
-  const cidade=document.getElementById('cidade').value;
-  const metros=document.getElementById('metros').value;
-  const preco=document.getElementById('preco').value;
-  localStorage.setItem('busca_pendente',JSON.stringify({cidade,metros,preco}));
-  const logado=localStorage.getItem('usuario_logado');
-  if(!logado){
-    location.href='./cadastro-cliente.html?origem=busca';
-  } else {
-    location.href=`./buscar.html?cidade=${encodeURIComponent(cidade)}&metros=${metros}&preco=${preco}`;
-  }
-}
-atualizarBotao();
-</script>
-</body>
-</html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galpões e Negócios</title><script src="https://cdn.tailwindcss.com"></script></head>
+<body class="bg-[#f6f6f6]">
+<div class="max-w-[500px] mx-auto bg-white min-h-screen">
+<div class="bg-[#ff0000] text-white text-center py-2"><p class="font-black text-[12px] tracking-widest">⛔ CORRETORES NÃO SÃO BEM-VINDOS ⛔</p></div>
+<div class="bg-black text-white flex justify-between px-4 py-2"><p class="text-[10px]">🚫 Anti-corretor ativo</p><p class="text-[10px] font-mono"><span id="contador" class="bg-yellow-400 text-black font-black px-2 py-0.5 rounded">147</span> bloqueados este mês</p></div>
+<div class="bg-[#111] text-white p-4"><p class="font-black text-[14px]">ESTE PORTAL É SÓ PROPRIETÁRIO → EMPRESA</p><p class="text-[11px] mt-2 text-gray-300">Sem comissão. Sem intermediário. Corretores serão <b class="text-red-500">BLOQUEADOS</b> e encaminhados ao jurídico LGPD Lei 13.709/18.</p></div>
+<div class="p-6 text-center"><h1 class="font-black text-[28px] leading-[26px] mt-4">GALPÕES E<br>NEGÓCIOS</h1>
+<div class="mt-8 grid gap-3"><a href="login-buscador.html" class="bg-black text-white font-black py-5 rounded-[16px]">🔍 BUSCAR GALPÃO<br><span class="text-[10px] font-normal">CPF ou CNPJ obrigatório</span></a>
+<a href="login.html" class="bg-[#ffcc00] text-black font-black py-5 rounded-[16px]">+ ANUNCIAR GALPÃO<br><span class="text-[10px] font-normal">Sou proprietário</span></a></div>
+<div class="mt-6 bg-red-50 border border-red-200 rounded-[12px] p-3 text-left"><p class="font-black text-[10px] text-red-700">⚖️ AVISO LEGAL</p><p class="text-[9px] text-red-600 mt-1">Coleta de dados por corretores = violação LGPD. Monitoramos IP, CPF/CNPJ e comportamento.</p></div>
+<p class="mt-6 text-[9px] text-gray-400">CNPJ 63.329.574/0001-28 • (11) 96398-3081</p></div></div>
+<script>let b=142+Math.floor(Math.random()*15);document.getElementById('contador').innerText=b;setInterval(()=>{if(Math.random()>0.7){b++;document.getElementById('contador').innerText=b}},8000);</script>
+</body></html>
