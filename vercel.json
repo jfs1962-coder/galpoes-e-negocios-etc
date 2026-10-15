@@ -28,5 +28,9 @@
       ]
     }
   ],
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/buscar", "destination": "/buscar.html" },
+    { "source": "/login", "destination": "/login.html" }
+  ]
 }
