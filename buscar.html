@@ -1,62 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Buscar Galpões - Galpões e Negócios</title>
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-[#f6f6f6] min-h-screen">
-<div class="max-w-[700px] mx-auto bg-white min-h-screen">
-<div class="p-4 sticky top-0 bg-white border-b z-10">
-<div class="flex justify-between items-center">
-<a href="index.html" class="font-bold text-sm border px-4 py-2 rounded-full">← Início</a>
-<a href="login.html" class="font-bold text-sm bg-black text-white px-4 py-2 rounded-full">+ ANUNCIAR</a>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buscar</title><script src="https://cdn.tailwindcss.com"></script></head>
+<body class="bg-[#f6f6f6]">
+<div class="max-w-[700px] mx-auto bg-white min-h-screen p-4">
+<div class="flex justify-between items-center border-b pb-3"><h1 class="font-black">Buscar Galpão</h1><b id="quem" class="text-[10px]"></b></div>
+<div id="lista" class="mt-4 grid gap-3"></div>
 </div>
-<h1 class="font-black text-xl mt-4">Galpões Disponíveis</h1>
-<p class="text-[11px] text-gray-500">CNPJ 63.329.574/0001-28 • Só proprietário • Sem comissão</p>
-<div class="mt-4 grid grid-cols-3 gap-2">
-<select id="fCidade" class="border rounded-full px-3 py-2 text-[11px]"><option>📍 Todas Cidades</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option><option>São Paulo</option></select>
-<select id="fTipo" class="border rounded-full px-3 py-2 text-[11px]"><option>🏠 Todos</option><option>Monousuário</option><option>Cond. Logístico</option></select>
-<input id="fBairro" placeholder="🔍 Bairro..." class="border rounded-full px-3 py-2 text-[11px]">
-</div>
-</div>
-
-<div id="lista" class="p-4 grid grid-cols-1 gap-4"></div>
-
-<div class="p-6 text-center text-[10px] text-gray-400">Galpões e Negócios® • CNPJ 63.329.574/0001-28</div>
-</div>
-
 <script>
-function carregar(){
-  let dados = JSON.parse(localStorage.getItem('gn_galpoes')||'[]');
-  let div = document.getElementById('lista');
-  if(dados.length==0){
-    div.innerHTML = '<div class="text-center p-8 bg-yellow-50 rounded-[12px] text-[12px]">Nenhum galpão anunciado ainda. <br><a href="login.html" class="font-black underline">Seja o primeiro a anunciar</a></div>';
-    return;
-  }
-  div.innerHTML='';
-  dados.slice().reverse().forEach(g=>{
-    div.innerHTML += `
-    <div class="border rounded-[16px] overflow-hidden bg-white shadow-sm">
-      <img src="${g.foto||'./hero.jpg'}" class="w-full h-[180px] object-cover">
-      <div class="p-4">
-        <b class="text-[14px]">${g.titulo||'Galpão'}</b><br>
-        <span class="text-[11px] text-gray-500">${g.bairro||''} - ${g.cidade||''} ${g.rua?'- '+g.rua:''}</span>
-        <div class="mt-2 flex gap-2 text-[11px]">
-          <span class="bg-gray-100 px-2 py-1 rounded-full">${g.metros||'-'} m²</span>
-          <span class="bg-gray-100 px-2 py-1 rounded-full">${g.pedireito?g.pedireito+'m pé-dir':''}</span>
-          <span class="bg-gray-100 px-2 py-1 rounded-full">${g.docas?g.docas+' docas':''}</span>
-        </div>
-        <div class="mt-3 flex justify-between items-center">
-          <b class="text-[16px]">R$ ${g.preco||'-'} /mês</b>
-          <a href="https://wa.me/55${(g.whats||'11963983081').replace(/\D/g,'')}?text=Olá, vi seu galpão ${encodeURIComponent(g.titulo||'')} no Galpões e Negócios" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded-full text-[11px] font-bold">WHATSAPP</a>
-        </div>
-        <p class="mt-2 text-[11px] text-gray-600 leading-tight">${g.descricao||''}</p>
-      </div>
-    </div>`;
-  });
-}
-carregar();
-</script>
-</body>
-</html>
+let buscador=localStorage.getItem('gn_buscador_atual');if(!buscador)location.href='login-buscador.html';document.getElementById('quem').innerText=buscador+' • '+localStorage.getItem('gn_buscador_tipo');
+let galpoes=JSON.parse(localStorage.getItem('galpoes')||'[]');let div=document.getElementById('lista');
+if(galpoes.length==0){div.innerHTML='<p class="text-[12px] text-gray-500">Nenhum galpão cadastrado ainda. Volte em breve.</p>'}
+galpoes.forEach(g=>{div.innerHTML+=`<div class="border rounded-[12px] p-3"><p class="font-black text-sm">${g.titulo||'Galpão'}</p><p class="text-[11px] text-gray-500">${g.cidade||''} • ${g.metragem||''}m²</p><button onclick="solicitar('${g.id}')" class="mt-3 bg-black text-white text-[11px] font-bold px-4 py-2 rounded-full">🔒 SOLICITAR CONTATO EM SIGILO</button><p class="text-[9px] text-gray-400 mt-1">Contato intermediado com autorização LGPD. Empresa em sigilo.</p></div>`});
+function solicitar(id){let cpf=localStorage.getItem('gn_buscador_doc');let chave='sol_'+cpf;let lista=JSON.parse(localStorage.getItem(chave)||'[]');if(lista.length>=3){alert('Limite de 3 solicitações por dia atingido por segurança anti-corretor. Tente amanhã.');return}lista.push({id,dt:Date.now()});localStorage.setItem(chave,JSON.stringify(lista));alert('Solicitação enviada! O proprietário foi notificado e decidirá liberar o contato. Você será avisado no WhatsApp.');}
+</script></body></html>
