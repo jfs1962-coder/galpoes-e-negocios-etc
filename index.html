@@ -5,27 +5,39 @@
 <title>Galpões e Negócios - Aluguel de Galpões Direto do Proprietário</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-body{background-color:#eef2f6;background-image:url('/hero.jpg');background-repeat:no-repeat;background-position:top center;background-size:100% auto;font-family:Arial,sans-serif}
-@media(max-width:768px){body{background-image:url('/hero-mobile.jpg');background-size:100% auto}}
+body{background-color:#eef2f6; font-family:Arial,sans-serif; position:relative; overflow-x:hidden}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:url('/hero.jpg');
+  background-repeat:no-repeat;
+  background-position:top center;
+  background-size:100% auto;
+  opacity:0.12;
+  pointer-events:none;
+  z-index:-1;
+}
+@media(max-width:768px){
+  body::before{background-image:url('/hero-mobile.jpg'); opacity:0.15}
+}
 </style>
 </head>
 <body class="min-h-screen">
-<!-- HEADER PRETO -->
 <header class="bg-black h-[62px] px-3 md:px-8 flex justify-between items-center sticky top-0 z-50">
   <a href="/" class="bg-white rounded-xl px-2 py-1 flex items-center gap-2">
     <img src="/logo.jpg" class="h-[40px] w-auto object-contain" alt="Galpões e Negócios">
     <span class="font-black text-[11px] hidden md:block leading-none">GALPÕES<br>E NEGÓCIOS</span>
   </a>
   <nav class="flex items-center gap-2 md:gap-6">
-    <a href="/buscar.html" class="text-white text-[11px] md:text-[12px] font-bold px-2">BUSCAR</a>
-    <a href="/faq.html" class="text-white text-[11px] md:text-[12px] font-bold px-2">DÚVIDAS</a>
-    <a href="/login.html" class="text-white text-[11px] md:text-[12px] font-bold px-2">ENTRAR</a>
+    <a href="/buscar.html" class="text-white text-[11px] md:text-[12px] font-bold">BUSCAR</a>
+    <a href="/faq.html" class="text-white text-[11px] md:text-[12px] font-bold">DÚVIDAS</a>
+    <a href="/login.html" class="text-white text-[11px] md:text-[12px] font-bold">ENTRAR</a>
     <a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[10px] md:text-[11px] font-black px-4 py-2.5 rounded-full">ANUNCIAR GALPÃO</a>
   </nav>
 </header>
 
-<!-- HERO - FUNDO #eef2f6 OFICIAL -->
-<section class="max-w-7xl mx-auto px-6 md:px-8 py-10 md:py-16 grid md:grid-cols-2 gap-8 items-center">
+<section class="max-w-7xl mx-auto px-6 md:px-8 py-10 md:py-16 grid md:grid-cols-2 gap-8 items-center relative z-10">
   <div>
     <div class="inline-block bg-black text-[#FFD60A] text-[10px] font-black px-3 py-1 rounded-full mb-4">SEM COMISSÃO • DIRETO PROPRIETÁRIO</div>
     <h1 class="font-black text-[28px] md:text-[44px] leading-[0.95]">ALUGUEL DE<br>GALPÕES DIRETO<br>DO <span class="bg-[#FFD60A] px-2">PROPRIETÁRIO</span></h1>
@@ -34,28 +46,28 @@ body{background-color:#eef2f6;background-image:url('/hero.jpg');background-repea
       <a href="/buscar.html" class="bg-black text-white font-black px-6 py-3.5 rounded-full text-[12px]">VER GALPÕES DISPONÍVEIS</a>
       <a href="/faq.html" class="bg-white border border-zinc-300 font-bold px-6 py-3.5 rounded-full text-[12px]">COMO FUNCIONA?</a>
     </div>
-    <p class="mt-4 text-[10px] text-zinc-500">© Galpões e Negócios • Direto com o Proprietário • PIX CNPJ 63.329.574/0001-28</p>
+    <p class="mt-4 text-[10px] text-zinc-500">Direto com o Proprietário • PIX CNPJ 63.329.574/0001-28</p>
   </div>
-  <div class="hidden md:block">
-    <img src="/hero.jpg" class="w-full rounded-[24px] shadow-xl border border-white" alt="Galpão">
+  <div class="hidden md:flex justify-center">
+    <div class="bg-white/80 backdrop-blur rounded-[20px] p-3 shadow-xl border border-white">
+      <img src="/hero.jpg" class="w-full max-w-[420px] rounded-[16px] object-cover" style="max-height:300px" alt="Galpões">
+      <div class="mt-2 flex items-center gap-2 px-2"><img src="/logo.jpg" class="h-8"><span class="font-black text-[11px]">GALPÕES & NEGÓCIOS<br><span class="font-normal text-[9px]">EM TODO O BRASIL</span></span></div>
+    </div>
   </div>
 </section>
 
-<!-- PLANOS -->
-<section class="max-w-5xl mx-auto px-6 md:px-8 pb-10">
+<section class="max-w-5xl mx-auto px-6 md:px-8 pb-10 relative z-10">
   <div class="bg-white rounded-[24px] p-6 md:p-8 shadow-xl border border-zinc-100">
     <h2 class="font-black text-[18px] md:text-[20px] text-center">Planos para Proprietário Anunciar</h2>
     <p class="text-[12px] text-center text-zinc-500 mt-1">Sem comissão • Anúncio ativo 30 dias • Contato direto via WhatsApp</p>
     <div class="grid md:grid-cols-2 gap-4 mt-6">
-      <div class="border-2 border-zinc-200 rounded-2xl p-5">
+      <div class="border-2 border-zinc-200 rounded-2xl p-5 bg-white">
         <div class="font-black text-[13px]">1 GALPÃO</div>
         <div class="font-black text-[32px] leading-none mt-2">R$49,90<span class="text-[14px] font-normal">/mês</span></div>
         <ul class="mt-4 text-[12px] space-y-1 text-zinc-600">
-          <li>✓ 1 anúncio completo</li>
-          <li>✓ Fotos ilimitadas</li>
-          <li>✓ Contato direto</li>
+          <li>✓ 1 anúncio completo</li><li>✓ Fotos ilimitadas</li><li>✓ Contato direto</li>
         </ul>
-        <a href="/cadastrar-galpao.html?plano=1" class="mt-5 block text-center bg-zinc-100 font-black py-3 rounded-full text-[12px]">ANUNCIAR 1 GALPÃO</a>
+        <a href="/cadastrar-galpao.html?plano=1" class="mt-5 block text-center bg-zinc-100 border font-black py-3 rounded-full text-[12px]">ANUNCIAR 1 GALPÃO</a>
       </div>
       <div class="border-2 border-black bg-black text-white rounded-2xl p-5 relative">
         <div class="absolute -top-3 left-4 bg-[#FFD60A] text-black text-[10px] font-black px-3 py-1 rounded-full">MAIS VENDIDO</div>
@@ -63,9 +75,7 @@ body{background-color:#eef2f6;background-image:url('/hero.jpg');background-repea
         <div class="font-black text-[32px] leading-none mt-2 text-[#FFD60A]">R$99,90<span class="text-[14px] text-white font-normal">/mês</span></div>
         <div class="text-[11px] text-zinc-400">R$33,30 cada</div>
         <ul class="mt-4 text-[12px] space-y-1 text-zinc-300">
-          <li>✓ 3 anúncios completos</li>
-          <li>✓ Economia de 33%</li>
-          <li>✓ Destaque na busca</li>
+          <li>✓ 3 anúncios completos</li><li>✓ Economia de 33%</li><li>✓ Destaque na busca</li>
         </ul>
         <a href="/cadastrar-galpao.html?plano=3" class="mt-5 block text-center bg-[#FFD60A] text-black font-black py-3 rounded-full text-[12px]">ANUNCIAR 3 GALPÕES</a>
       </div>
@@ -77,13 +87,9 @@ body{background-color:#eef2f6;background-image:url('/hero.jpg');background-repea
   </div>
 </section>
 
-<!-- FAQ RESUMO -->
-<section class="max-w-5xl mx-auto px-6 md:px-8 pb-12">
+<section class="max-w-5xl mx-auto px-6 md:px-8 pb-12 relative z-10">
   <div class="bg-white rounded-[24px] p-6 md:p-8 shadow-sm border border-zinc-100">
-    <div class="flex justify-between items-center">
-      <h3 class="font-black text-[16px]">Dúvidas Frequentes</h3>
-      <a href="/faq.html" class="text-[11px] font-bold underline">VER TODAS →</a>
-    </div>
+    <div class="flex justify-between items-center"><h3 class="font-black text-[16px]">Dúvidas Frequentes</h3><a href="/faq.html" class="text-[11px] font-bold underline">VER TODAS →</a></div>
     <div class="grid md:grid-cols-2 gap-3 mt-4">
       <a href="/faq.html" class="bg-[#eef2f6] border rounded-xl p-4 text-[12px]"><b>É legal alugar sem corretor?</b><br><span class="text-zinc-500">Sim, a lei permite negociação direta.</span></a>
       <a href="/faq.html" class="bg-[#eef2f6] border rounded-xl p-4 text-[12px]"><b>Qual a vantagem?</b><br><span class="text-zinc-500">Economia de 1 aluguel + negociação rápida.</span></a>
@@ -91,14 +97,11 @@ body{background-color:#eef2f6;background-image:url('/hero.jpg');background-repea
   </div>
 </section>
 
-<!-- RODAPÉ OFICIAL -->
-<footer class="bg-[#0a0a0a] text-zinc-400 py-8 text-center text-[10px] leading-relaxed">
+<footer class="bg-[#0a0a0a] text-zinc-400 py-8 text-center text-[10px] leading-relaxed relative z-10">
   © 2026 GALPOES E NEGOCIOS INTERNET LTDA - ME | CNPJ 63.329.574/0001-28<br>
   contato@galpoesenegocios.com.br • PIX no mesmo CNPJ<br>
   <div class="mt-3 flex justify-center gap-4">
-    <a href="/termos.html" class="underline">Termos</a>
-    <a href="/privacidade.html" class="underline">Privacidade</a>
-    <a href="/faq.html" class="underline text-white font-bold">Dúvidas Frequentes</a>
+    <a href="/termos.html" class="underline">Termos</a><a href="/privacidade.html" class="underline">Privacidade</a><a href="/faq.html" class="underline text-white font-bold">Dúvidas Frequentes</a>
   </div>
 </footer>
 </body>
