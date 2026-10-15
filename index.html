@@ -3,48 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Galpões e Negócios</title>
+<title>Buscar Galpões - Galpões e Negócios</title>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-white">
+<body class="bg-[#f5f5f3]">
 
-<!-- HEADER - INDEX -->
 <header class="bg-black px-4 py-2.5 flex justify-between items-center">
-<div class="bg-white rounded-full px-3 py-2 flex items-center gap-2.5">
-<div class="w-8 h-8 bg-black rounded-[10px] flex items-center justify-center">
-<span class="text-[#FFD60A] font-black text-[20px] leading-none">G</span>
-</div>
-<div class="leading-[11px] pr-1">
-<p class="font-black text-[12px] tracking-tight text-black">GALPÕES E</p>
-<p class="font-black text-[12px] tracking-tight text-black">NEGÓCIOS</p>
-</div>
-</div>
-<div class="flex items-center gap-5">
-<a href="buscar.html" class="text-white text-[11px] font-bold">BUSCAR</a>
+<a href="index.html" class="bg-white rounded-full px-3 py-2 flex items-center gap-2.5">
+<div class="w-8 h-8 bg-black rounded-[10px] flex items-center justify-center"><span class="text-[#FFD60A] font-black text-[20px]">G</span></div>
+<div class="leading-[11px]"><p class="font-black text-[12px]">GALPÕES E</p><p class="font-black text-[12px]">NEGÓCIOS</p></div>
+</a>
+<div class="flex gap-5 items-center">
+<a href="buscar.html" class="text-[#FFD60A] text-[11px] font-black">BUSCAR</a>
 <a href="login.html" class="text-white text-[11px] font-bold">ENTRAR</a>
 <a href="login.html" class="bg-[#FFD60A] text-black text-[11px] font-black px-5 py-2.5 rounded-full">ANUNCIAR GALPÃO</a>
 </div>
 </header>
 
-<div class="bg-black border-t border-white/10 px-4 py-2">
-<p class="text-[#FFD60A] text-[10px] font-bold tracking-widest">🔴 PORTAL EXCLUSIVO • SEM CORRETORES • SEM COMISSÃO</p>
+<div class="max-w-[1200px] mx-auto px-6 py-6 grid md:grid-cols-[320px_1fr] gap-6">
+<!-- QUADRO DE BUSCA QUE TIRAMOS DA HOME - AGORA AQUI -->
+<div class="bg-white rounded-[16px] p-5 shadow h-fit">
+<h2 class="font-black text-[14px] mb-4">FILTRAR GALPÕES</h2>
+<label class="text-[10px] font-bold">CIDADE</label>
+<select class="w-full border rounded-[10px] px-3 py-3 text-[12px] mt-1 mb-3"><option>Todas as cidades</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option><option>São Paulo</option></select>
+<label class="text-[10px] font-bold">METRAGEM</label>
+<select class="w-full border rounded-[10px] px-3 py-3 text-[12px] mt-1 mb-3"><option>Qualquer metragem</option><option>Até 500m²</option><option>500 a 1000m²</option><option>1000 a 3000m²</option></select>
+<label class="text-[10px] font-bold">PREÇO ATÉ</label>
+<input placeholder="Ex: R$ 20.000" class="w-full border rounded-[10px] px-3 py-3 text-[12px] mt-1 mb-4">
+<button class="w-full bg-[#FFD60A] font-black py-3 rounded-[12px] text-[12px]">BUSCAR AGORA →</button>
+<p class="text-[10px] text-center mt-3 text-zinc-500">167 corretores bloqueados • Só dono direto</p>
 </div>
 
-<div class="relative min-h-[620px] bg-cover bg-center" style="background-image:url('hero.jpg');">
-<div class="absolute inset-0 bg-white/80"></div>
-<div class="relative z-10 px-6 py-20 max-w-[600px]">
-<h1 class="font-black text-[38px] leading-[36px] tracking-tight text-black">
-Galpões para alugar <span class="text-[#ff6a00]">direto<br>do proprietário</span> com o<br>Locatário
-</h1>
-<div class="mt-6 bg-white border-l-4 border-[#ff6a00] rounded-[10px] px-5 py-4 shadow-sm max-w-[420px]">
-<p class="text-[13px] font-medium">Chega de intermediário. Aqui você negocia direto. Sem corretor, sem comissão. Cadastro grátis.</p>
+<div>
+<h1 class="font-black text-[22px]">Galpões disponíveis em SP e ABC</h1>
+<p class="text-[12px] text-zinc-500 mb-4">Mostrando galpões de proprietários verificados</p>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-white rounded-[16px] overflow-hidden border"><div class="h-40 bg-zinc-200 flex items-center justify-center text-[11px]">Foto Galpão 1250m²</div><div class="p-4"><p class="font-bold text-[13px]">1250m² - Campestre - Santo André</p><p class="text-[11px] text-zinc-500">8m pé direito • 12 vagas</p><p class="font-black mt-2">R$ 18.000/mês</p></div></div>
+<div class="bg-white rounded-[16px] overflow-hidden border"><div class="h-40 bg-zinc-200 flex items-center justify-center text-[11px]">Foto Galpão 800m²</div><div class="p-4"><p class="font-bold text-[13px]">800m² - São Bernardo</p><p class="text-[11px] text-zinc-500">Docas • Escritório</p><p class="font-black mt-2">R$ 12.500/mês</p></div></div>
 </div>
 </div>
 </div>
-
-<footer class="bg-black text-center py-4">
-<p class="text-white/60 text-[9px]">GALPÕES E NEGÓCIOS • CNPJ 63.329.574/0001-28</p>
-</footer>
 
 </body>
 </html>
