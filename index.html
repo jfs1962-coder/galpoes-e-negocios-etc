@@ -1,90 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Galpões e Negócios - Aluguel direto do proprietário</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galpões e Negócios - Aluguel de Galpões Direto do Proprietário</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-.hero-desktop{display:block}.hero-mobile{display:none}
- @media(max-width:768px){.hero-desktop{display:none}.hero-mobile{display:block}}
+body{background-color:#eef2f6;background-image:url('/hero.jpg');background-repeat:no-repeat;background-position:top center;background-size:100% auto;font-family:Arial,sans-serif}
+@media(max-width:768px){body{background-image:url('/hero-mobile.jpg');background-size:100% auto}}
 </style>
 </head>
-<body class="bg-[#f5f7f9] m-0 p-0">
-
+<body class="min-h-screen">
+<!-- HEADER PRETO -->
 <header class="bg-black h-[62px] px-3 md:px-8 flex justify-between items-center sticky top-0 z-50">
-  <a href="/" class="bg-white rounded-xl px-2 py-1"><img src="/logo.jpg" class="h-[40px] w-auto object-contain" alt="Galpões e Negócios"></a>
-  <nav class="flex items-center gap-3 md:gap-6">
-    <a href="/buscar.html" class="text-[#FFD60A] text-[12px] font-black">BUSCAR</a>
-    <a href="/login.html" class="text-white text-[12px] font-bold">ENTRAR</a>
-    <a href="#planos" class="bg-[#FFD60A] text-black text-[11px] md:text-[12px] font-black px-4 py-2.5 rounded-full leading-none">ANUNCIAR GALPÃO</a>
+  <a href="/" class="bg-white rounded-xl px-2 py-1 flex items-center gap-2">
+    <img src="/logo.jpg" class="h-[40px] w-auto object-contain" alt="Galpões e Negócios">
+    <span class="font-black text-[11px] hidden md:block leading-none">GALPÕES<br>E NEGÓCIOS</span>
+  </a>
+  <nav class="flex items-center gap-2 md:gap-6">
+    <a href="/buscar.html" class="text-white text-[11px] md:text-[12px] font-bold px-2">BUSCAR</a>
+    <a href="/faq.html" class="text-white text-[11px] md:text-[12px] font-bold px-2">DÚVIDAS</a>
+    <a href="/login.html" class="text-white text-[11px] md:text-[12px] font-bold px-2">ENTRAR</a>
+    <a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[10px] md:text-[11px] font-black px-4 py-2.5 rounded-full">ANUNCIAR GALPÃO</a>
   </nav>
 </header>
 
-<section class="w-full bg-[#eef2f6]">
-  <img src="/hero.jpg" class="hero-desktop w-full h-[calc(100vh-62px)] min-h-[500px] object-cover object-top">
-  <img src="/hero-mobile.jpg" class="hero-mobile w-full h-[calc(100vh-62px)] min-h-[700px] object-cover object-top">
+<!-- HERO - FUNDO #eef2f6 OFICIAL -->
+<section class="max-w-7xl mx-auto px-6 md:px-8 py-10 md:py-16 grid md:grid-cols-2 gap-8 items-center">
+  <div>
+    <div class="inline-block bg-black text-[#FFD60A] text-[10px] font-black px-3 py-1 rounded-full mb-4">SEM COMISSÃO • DIRETO PROPRIETÁRIO</div>
+    <h1 class="font-black text-[28px] md:text-[44px] leading-[0.95]">ALUGUEL DE<br>GALPÕES DIRETO<br>DO <span class="bg-[#FFD60A] px-2">PROPRIETÁRIO</span></h1>
+    <p class="mt-4 text-[13px] md:text-[15px] text-zinc-600 leading-relaxed">Conectamos sua empresa ao dono do galpão. Economize 100% do primeiro aluguel que seria da corretagem. Negociação direta sobre pé-direito, docas e AVCB.</p>
+    <div class="mt-6 flex gap-3">
+      <a href="/buscar.html" class="bg-black text-white font-black px-6 py-3.5 rounded-full text-[12px]">VER GALPÕES DISPONÍVEIS</a>
+      <a href="/faq.html" class="bg-white border border-zinc-300 font-bold px-6 py-3.5 rounded-full text-[12px]">COMO FUNCIONA?</a>
+    </div>
+    <p class="mt-4 text-[10px] text-zinc-500">© Galpões e Negócios • Direto com o Proprietário • PIX CNPJ 63.329.574/0001-28</p>
+  </div>
+  <div class="hidden md:block">
+    <img src="/hero.jpg" class="w-full rounded-[24px] shadow-xl border border-white" alt="Galpão">
+  </div>
 </section>
 
-<!-- SEÇÃO DE VALORES QUE ESTAVA FALTANDO -->
-<section id="planos" class="max-w-6xl mx-auto px-6 py-16">
-  <h2 class="font-black text-[28px] md:text-[44px] leading-[0.9]">Quanto custa anunciar?<br><span class="text-[#FF6A00]">Direto, sem comissão</span></h2>
-  <p class="mt-3 text-zinc-600 text-[14px]">Escolha se quer 1 ou 3 galpões. Cancele quando quiser.</p>
-
-  <div class="grid md:grid-cols-2 gap-6 mt-10">
-    <div class="bg-white rounded-[20px] p-8 border border-zinc-200">
-      <h3 class="font-black">1 GALPÃO</h3>
-      <p class="text-[40px] font-black">R$ 49,90<span class="text-[16px] font-normal">/mês</span></p>
-      <ul class="mt-4 text-[14px] space-y-2">
-        <li>✅ 1 galpão ativo no portal</li>
-        <li>✅ Contato direto com o locatário</li>
-        <li>✅ Sem corretor e sem comissão</li>
-      </ul>
-      <a href="/cadastrar-galpao.html?plano=1" class="mt-6 block text-center bg-black text-white font-black py-3 rounded-full">ANUNCIAR 1 GALPÃO</a>
+<!-- PLANOS -->
+<section class="max-w-5xl mx-auto px-6 md:px-8 pb-10">
+  <div class="bg-white rounded-[24px] p-6 md:p-8 shadow-xl border border-zinc-100">
+    <h2 class="font-black text-[18px] md:text-[20px] text-center">Planos para Proprietário Anunciar</h2>
+    <p class="text-[12px] text-center text-zinc-500 mt-1">Sem comissão • Anúncio ativo 30 dias • Contato direto via WhatsApp</p>
+    <div class="grid md:grid-cols-2 gap-4 mt-6">
+      <div class="border-2 border-zinc-200 rounded-2xl p-5">
+        <div class="font-black text-[13px]">1 GALPÃO</div>
+        <div class="font-black text-[32px] leading-none mt-2">R$49,90<span class="text-[14px] font-normal">/mês</span></div>
+        <ul class="mt-4 text-[12px] space-y-1 text-zinc-600">
+          <li>✓ 1 anúncio completo</li>
+          <li>✓ Fotos ilimitadas</li>
+          <li>✓ Contato direto</li>
+        </ul>
+        <a href="/cadastrar-galpao.html?plano=1" class="mt-5 block text-center bg-zinc-100 font-black py-3 rounded-full text-[12px]">ANUNCIAR 1 GALPÃO</a>
+      </div>
+      <div class="border-2 border-black bg-black text-white rounded-2xl p-5 relative">
+        <div class="absolute -top-3 left-4 bg-[#FFD60A] text-black text-[10px] font-black px-3 py-1 rounded-full">MAIS VENDIDO</div>
+        <div class="font-black text-[13px]">3 GALPÕES</div>
+        <div class="font-black text-[32px] leading-none mt-2 text-[#FFD60A]">R$99,90<span class="text-[14px] text-white font-normal">/mês</span></div>
+        <div class="text-[11px] text-zinc-400">R$33,30 cada</div>
+        <ul class="mt-4 text-[12px] space-y-1 text-zinc-300">
+          <li>✓ 3 anúncios completos</li>
+          <li>✓ Economia de 33%</li>
+          <li>✓ Destaque na busca</li>
+        </ul>
+        <a href="/cadastrar-galpao.html?plano=3" class="mt-5 block text-center bg-[#FFD60A] text-black font-black py-3 rounded-full text-[12px]">ANUNCIAR 3 GALPÕES</a>
+      </div>
     </div>
-    <div class="bg-black rounded-[20px] p-8 border-2 border-[#FFD60A] relative">
-      <div class="absolute -top-3 left-6 bg-[#FFD60A] text-black text-[10px] font-black px-3 py-1 rounded-full">MAIS ESCOLHIDO - ECONOMIA DE 50%</div>
-      <h3 class="font-black text-white">3 GALPÕES</h3>
-      <p class="text-[40px] font-black text-white">R$ 99,90<span class="text-[16px] font-normal">/mês</span></p>
-      <p class="text-[#FFD60A] text-[12px] font-bold">Só R$ 33,30 por galpão</p>
-      <ul class="mt-4 text-[14px] space-y-2 text-zinc-300">
-        <li>✅ Até 3 galpões ativos</li>
-        <li>✅ Destaque e Selo Proprietário Verificado</li>
-        <li>✅ Economia de R$ 49,80</li>
-      </ul>
-      <a href="/cadastrar-galpao.html?plano=3" class="mt-6 block text-center bg-[#FFD60A] text-black font-black py-3 rounded-full">ANUNCIAR 3 GALPÕES</a>
+    <div class="mt-5 bg-[#FFFBEB] border border-dashed border-amber-300 rounded-xl p-3 text-center">
+      <div class="text-[11px] font-black">PIX CNPJ: 63.329.574/0001-28</div>
+      <div class="text-[10px] text-zinc-600">GALPOES E NEGOCIOS INTERNET LTDA - ME • Sem comissão • Economia 100% 1º aluguel</div>
     </div>
   </div>
 </section>
 
-<footer class="bg-[#0a0a0a] text-zinc-400 border-t border-zinc-800 mt-10">
-  <div class="max-w-7xl mx-auto px-6 md:px-8 py-10 grid md:grid-cols-3 gap-8">
-    <div>
-      <div class="bg-white rounded-lg inline-block px-3 py-1.5 mb-3"><img src="/logo.jpg" class="h-9 w-auto"></div>
-      <p class="text-[12px] leading-relaxed">
-        <strong class="text-white">GALPOES E NEGOCIOS INTERNET LTDA - ME</strong><br>
-        CNPJ: 63.329.574/0001-28<br>
-        Portal exclusivo de galpões direto do proprietário em todo o Brasil.<br>
-        contato@galpoesenegocios.com.br
-      </p>
+<!-- FAQ RESUMO -->
+<section class="max-w-5xl mx-auto px-6 md:px-8 pb-12">
+  <div class="bg-white rounded-[24px] p-6 md:p-8 shadow-sm border border-zinc-100">
+    <div class="flex justify-between items-center">
+      <h3 class="font-black text-[16px]">Dúvidas Frequentes</h3>
+      <a href="/faq.html" class="text-[11px] font-bold underline">VER TODAS →</a>
     </div>
-    <div>
-      <h4 class="text-white font-black text-[12px] mb-3">LEGAL</h4>
-      <ul class="space-y-2 text-[12px]">
-        <li><a href="/termos.html" class="hover:text-[#FFD60A]">Termos e Condições de Uso</a></li>
-        <li><a href="/privacidade.html" class="hover:text-[#FFD60A]">Política de Privacidade</a></li>
-        <li><a href="/planos.html" class="hover:text-[#FFD60A]">Valores: R$49,90 e R$99,90</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4 class="text-white font-black text-[12px] mb-3">PROPRIETÁRIO</h4>
-      <p class="text-[12px]">Saiba o valor antes de cadastrar. 1 galpão R$49,90/mês. 3 galpões R$99,90/mês. Sem taxa de corretagem.</p>
+    <div class="grid md:grid-cols-2 gap-3 mt-4">
+      <a href="/faq.html" class="bg-[#eef2f6] border rounded-xl p-4 text-[12px]"><b>É legal alugar sem corretor?</b><br><span class="text-zinc-500">Sim, a lei permite negociação direta.</span></a>
+      <a href="/faq.html" class="bg-[#eef2f6] border rounded-xl p-4 text-[12px]"><b>Qual a vantagem?</b><br><span class="text-zinc-500">Economia de 1 aluguel + negociação rápida.</span></a>
     </div>
   </div>
-  <div class="border-t border-zinc-800 text-center py-4 text-[10px]">
-    © 2026 GALPOES E NEGOCIOS INTERNET LTDA - ME | CNPJ 63.329.574/0001-28 | Todos os direitos reservados
+</section>
+
+<!-- RODAPÉ OFICIAL -->
+<footer class="bg-[#0a0a0a] text-zinc-400 py-8 text-center text-[10px] leading-relaxed">
+  © 2026 GALPOES E NEGOCIOS INTERNET LTDA - ME | CNPJ 63.329.574/0001-28<br>
+  contato@galpoesenegocios.com.br • PIX no mesmo CNPJ<br>
+  <div class="mt-3 flex justify-center gap-4">
+    <a href="/termos.html" class="underline">Termos</a>
+    <a href="/privacidade.html" class="underline">Privacidade</a>
+    <a href="/faq.html" class="underline text-white font-bold">Dúvidas Frequentes</a>
   </div>
 </footer>
-
 </body>
 </html>
