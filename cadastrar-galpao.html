@@ -2,64 +2,17 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Anunciar Galpão - Galpões e Negócios</title>
+<title>Anunciar - Galpões e Negócios</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-body{background:#eef2f6 url('/hero.jpg') no-repeat top center; background-size:100% auto; background-attachment:fixed; font-family:Arial, sans-serif}
+body{background:#cbd6e2 url('/hero.jpg') no-repeat top center; background-size:120% auto; background-attachment:fixed; background-blend-mode:multiply}
 @media(max-width:768px){body{background-image:url('/hero-mobile.jpg'); background-size:100% auto}}
-.overlay{background:rgba(238,242,246,0.88); min-height:calc(100vh - 62px)}
+.overlay{background:rgba(203,214,226,0.88); min-height:calc(100vh - 62px)}
 </style>
 </head>
 <body>
-<header class="bg-black h-[62px] px-3 md:px-8 flex justify-between items-center sticky top-0 z-50">
-  <a href="/" class="bg-white rounded-xl px-2 py-1"><img src="/logo.jpg" class="h-[40px] w-auto object-contain"></a>
-  <nav class="flex items-center gap-3 md:gap-6">
-    <a href="/buscar.html" class="text-white text-[12px] font-bold">BUSCAR</a>
-    <a href="/login.html" class="text-white text-[12px] font-bold">ENTRAR</a>
-    <a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[11px] font-black px-4 py-2.5 rounded-full">ANUNCIAR GALPÃO</a>
-  </nav>
-</header>
-
-<div class="overlay flex justify-center p-4">
-  <div class="bg-white/95 backdrop-blur rounded-[20px] p-6 md:p-8 w-full max-w-[560px] shadow-xl border border-zinc-100 mt-4">
-    <h1 class="font-black text-[22px] text-center">Anunciar Galpão</h1>
-    <p class="text-[11px] text-center text-zinc-500">Sem comissão • Direto proprietário • Economia 100% 1º aluguel</p>
-
-    <div class="grid grid-cols-2 gap-3 mt-6">
-      <button id="btn1" onclick="setPlano(1)" class="border-2 border-black bg-black text-white rounded-2xl p-3 text-left">
-        <b class="text-[13px]">1 GALPÃO</b><br><span class="text-[#FFD60A] font-black text-[18px]">R$49,90</span><br><span class="text-[10px]">/mês</span>
-      </button>
-      <button id="btn3" onclick="setPlano(3)" class="border-2 border-zinc-200 bg-white rounded-2xl p-3 text-left">
-        <b class="text-[13px]">3 GALPÕES</b><br><span class="font-black text-[18px]">R$99,90</span><br><span class="text-[10px]">R$33,30 cada</span>
-      </button>
-    </div>
-
-    <div id="pixBox" class="mt-4 bg-[#FFFBEB] border border-dashed border-amber-300 rounded-xl p-3 text-[11px]">
-      <b>🔑 PIX CNPJ: 63.329.574/0001-28</b><br>GALPOES E NEGOCIOS INTERNET LTDA - ME<br>
-      <span id="valorPix" class="font-black">Valor: R$49,90 - 1 Galpão</span>
-    </div>
-
-    <input placeholder="Bairro e Cidade" class="mt-4 w-full p-3 rounded-xl border border-zinc-200 text-[13px]">
-    <input placeholder="Área m²" class="mt-2 w-full p-3 rounded-xl border border-zinc-200 text-[13px]">
-    <input placeholder="Valor do aluguel R$" class="mt-2 w-full p-3 rounded-xl border border-zinc-200 text-[13px]">
-    <input placeholder="WhatsApp" class="mt-2 w-full p-3 rounded-xl border border-zinc-200 text-[13px]">
-    <input type="file" multiple accept="image/*" class="mt-3 w-full text-[12px]">
-
-    <button class="mt-5 w-full bg-black text-[#FFD60A] font-black p-4 rounded-full text-[13px]">SALVAR E PAGAR VIA PIX</button>
-    <p class="text-[10px] text-center mt-3 text-zinc-400">Ao anunciar você concorda com <a href="/termos.html" class="underline">Termos</a> e <a href="/privacidade.html" class="underline">Privacidade</a><br>CNPJ 63.329.574/0001-28</p>
-  </div>
-</div>
-
-<script>
-let plano=1;
-function setPlano(p){
-  plano=p;
-  document.getElementById('btn1').className = p==1? 'border-2 border-black bg-black text-white rounded-2xl p-3 text-left' : 'border-2 border-zinc-200 bg-white rounded-2xl p-3 text-left';
-  document.getElementById('btn3').className = p==3? 'border-2 border-black bg-black text-white rounded-2xl p-3 text-left' : 'border-2 border-zinc-200 bg-white rounded-2xl p-3 text-left';
-  document.getElementById('valorPix').innerText = p==1? 'Valor: R$49,90 - 1 Galpão' : 'Valor: R$99,90 - 3 Galpões';
-}
-const urlParams = new URLSearchParams(window.location.search);
-if(urlParams.get('plano')=='3') setPlano(3);
-</script>
+<header class="bg-black h-[62px] px-3 md:px-8 flex justify-between items-center sticky top-0 z-50"><a href="/" class="bg-white rounded-xl px-2 py-1"><img src="/logo.jpg" class="h-[40px] w-auto object-contain"></a><nav class="flex items-center gap-3 md:gap-6"><a href="/buscar.html" class="text-white text-[12px] font-bold">BUSCAR</a><a href="/login.html" class="text-white text-[12px] font-bold">ENTRAR</a><a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[11px] font-black px-4 py-2.5 rounded-full">ANUNCIAR GALPÃO</a></nav></header>
+<div class="overlay flex justify-center p-4"><div class="bg-white rounded-[20px] p-6 md:p-8 w-full max-w-[560px] shadow-2xl mt-4"><h1 class="font-black text-[22px] text-center">Anunciar Galpão</h1><div class="grid grid-cols-2 gap-3 mt-6"><button id="btn1" onclick="setPlano(1)" class="border-2 border-black bg-black text-white rounded-2xl p-3 text-left"><b class="text-[13px]">1 GALPÃO</b><br><span class="text-[#FFD60A] font-black text-[18px]">R$49,90</span><br><span class="text-[10px]">/mês</span></button><button id="btn3" onclick="setPlano(3)" class="border-2 border-zinc-200 bg-zinc-50 rounded-2xl p-3 text-left"><b class="text-[13px]">3 GALPÕES</b><br><span class="font-black text-[18px]">R$99,90</span><br><span class="text-[10px]">R$33,30 cada</span></button></div><div class="mt-4 bg-[#FFFBEB] border border-amber-300 rounded-xl p-3 text-[11px]"><b>PIX CNPJ: 63.329.574/0001-28</b><br><span id="valorPix" class="font-black">Valor: R$49,90 - 1 Galpão</span></div><input placeholder="Bairro e Cidade" class="mt-4 w-full p-3 rounded-xl border border-zinc-300 bg-zinc-50 text-[13px]"><input placeholder="Área m²" class="mt-2 w-full p-3 rounded-xl border border-zinc-300 bg-zinc-50 text-[13px]"><input placeholder="Valor do aluguel" class="mt-2 w-full p-3 rounded-xl border border-zinc-300 bg-zinc-50 text-[13px]"><input placeholder="WhatsApp" class="mt-2 w-full p-3 rounded-xl border border-zinc-300 bg-zinc-50 text-[13px]"><button class="mt-5 w-full bg-black text-[#FFD60A] font-black p-4 rounded-full text-[13px]">SALVAR E PAGAR VIA PIX</button></div></div>
+<script>let plano=1;function setPlano(p){plano=p;document.getElementById('btn1').className=p==1?'border-2 border-black bg-black text-white rounded-2xl p-3 text-left':'border-2 border-zinc-200 bg-zinc-50 rounded-2xl p-3 text-left';document.getElementById('btn3').className=p==3?'border-2 border-black bg-black text-white rounded-2xl p-3 text-left':'border-2 border-zinc-200 bg-zinc-50 rounded-2xl p-3 text-left';document.getElementById('valorPix').innerText=p==1?'Valor: R$49,90 - 1 Galpão':'Valor: R$99,90 - 3 Galpões';}const u=new URLSearchParams(location.search);if(u.get('plano')=='3')setPlano(3);</script>
 </body>
 </html>
