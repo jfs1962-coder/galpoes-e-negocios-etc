@@ -2,17 +2,39 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Buscar - Galpões e Negócios</title>
+<title>Buscar Galpões - Galpões e Negócios</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-body{background:#cbd6e2 url('/hero.jpg') no-repeat top center; background-size:120% auto; background-attachment:fixed; background-blend-mode:multiply}
-@media(max-width:768px){body{background-image:url('/hero-mobile.jpg'); background-size:100% auto}}
-.overlay{background:rgba(203,214,226,0.88); min-height:calc(100vh - 62px)}
+body{background-color:#eef2f6;background-image:url('/hero.jpg');background-repeat:no-repeat;background-position:top center;background-size:100% auto;font-family:Arial,sans-serif}
+@media(max-width:768px){body{background-image:url('/hero-mobile.jpg')}}
 </style>
 </head>
-<body>
-<header class="bg-black h-[62px] px-3 md:px-8 flex justify-between items-center sticky top-0 z-50"><a href="/" class="bg-white rounded-xl px-2 py-1"><img src="/logo.jpg" class="h-[40px] w-auto object-contain"></a><nav class="flex items-center gap-3 md:gap-6"><a href="/buscar.html" class="text-[#FFD60A] text-[12px] font-black">BUSCAR</a><a href="/login.html" class="text-white text-[12px] font-bold">ENTRAR</a><a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[11px] font-black px-4 py-2.5 rounded-full">ANUNCIAR GALPÃO</a></nav></header>
-<div class="overlay"><div class="max-w-7xl mx-auto px-6 md:px-8 py-4 flex justify-between items-center border-b border-zinc-400/20"><a href="/" class="font-black text-[14px]">← GALPÕES E NEGÓCIOS</a><span class="text-[11px] font-bold">jose silva • CPF</span></div><div class="max-w-7xl mx-auto px-6 py-20 text-center"><p class="text-[14px] text-zinc-700 font-medium">Nenhum galpão cadastrado ainda.<br>Se você é proprietário, clique em ANUNCIAR GALPÃO.</p></div></div>
-<footer class="bg-[#0a0a0a] text-zinc-400 text-[10px] text-center py-4">© GALPOES E NEGOCIOS INTERNET LTDA - ME | CNPJ 63.329.574/0001-28</footer>
+<body class="min-h-screen">
+<header class="bg-black h-[62px] px-3 md:px-8 flex justify-between items-center sticky top-0 z-50">
+  <a href="/" class="bg-white rounded-xl px-2 py-1"><img src="/logo.jpg" class="h-[40px] w-auto object-contain" alt="Galpões e Negócios"></a>
+  <nav class="flex items-center gap-3 md:gap-6">
+    <a href="/buscar.html" class="text-[#FFD60A] text-[12px] font-black">BUSCAR</a>
+    <a href="/login.html" class="text-white text-[12px] font-bold">ENTRAR</a>
+    <a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[11px] font-black px-4 py-2.5 rounded-full">ANUNCIAR GALPÃO</a>
+  </nav>
+</header>
+<div class="max-w-7xl mx-auto px-6 md:px-8 py-3 flex justify-between items-center border-b border-zinc-300/50 bg-[#eef2f6]/80">
+  <a href="/" class="font-black text-[13px]">← GALPÕES E NEGÓCIOS</a>
+  <div class="flex items-center gap-2 text-[11px] font-bold"><span>jose silva</span><span class="bg-black text-white px-2 py-1 rounded-full text-[9px]">CPF</span></div>
+</div>
+<main class="max-w-7xl mx-auto px-6 md:px-8 py-10">
+  <div class="bg-white rounded-[20px] p-4 flex-col md:flex-row gap-4 shadow-sm">
+    <input placeholder="Cidade, bairro" class="flex-1 p-3 rounded-xl border border-zinc-200 text-[13px] bg-zinc-50">
+    <input placeholder="Área mínima m²" class="w-full md:w-[160px] p-3 rounded-xl border border-zinc-200 text-[13px] bg-zinc-50">
+    <input placeholder="Valor máximo" class="w-full md:w-[160px] p-3 rounded-xl border border-zinc-200 text-[13px] bg-zinc-50">
+    <button class="bg-black text-[#FFD60A] font-black px-6 py-3 rounded-full text-[12px]">FILTRAR</button>
+  </div>
+  <div class="bg-white rounded-[20px] mt-6 p-16 text-center shadow-sm">
+    <p class="font-bold text-[14px]">Nenhum galpão cadastrado ainda.</p>
+    <p class="text-[13px] text-zinc-500 mt-1">Se você é proprietário, clique em ANUNCIAR GALPÃO.</p>
+    <a href="/cadastrar-galpao.html" class="mt-6 inline-block bg-black text-white font-black px-6 py-3 rounded-full text-[12px]">ANUNCIAR GALPÃO AGORA</a>
+  </div>
+</main>
+<footer class="bg-[#0a0a0a] text-zinc-400 text-[10px] text-center py-6 mt-10">© 2026 GALPOES E NEGOCIOS INTERNET LTDA - ME | CNPJ 63.329.574/0001-28 | contato@galpoesenegocios.com.br<br><a href="/termos.html" class="underline">Termos</a> • <a href="/privacidade.html" class="underline">Privacidade</a></footer>
 </body>
 </html>
