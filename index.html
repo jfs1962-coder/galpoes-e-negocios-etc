@@ -4,70 +4,60 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Galpões e Negócios | Direto do Proprietário</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
-<style>body{font-family:Inter}</style>
+<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap'); body{font-family:Inter;}</style>
 </head>
-<body class="bg-[#fbfbfb]">
-<div class="max-w-[520px] mx-auto bg-white min-h-screen">
+<body class="bg-white">
 
-<div class="flex items-center justify-between px-5 py-3 border-b">
-<div class="flex items-center gap-2">
-<div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-<p class="text-[10px] tracking-widest font-bold">PORTAL VERIFICADO</p>
+<!-- HEADER PRETO -->
+<header class="bg-black flex justify-between items-center px-4 py-3">
+<div class="bg-white rounded-[10px] px-3 py-1.5 flex items-center gap-2">
+<div class="w-6 h-6 bg-black rounded flex items-center justify-center text-[#FFD60A] font-black text-[12px]">G</div>
+<span class="font-black text-[11px] leading-[10px]">GALPÕES<br>& NEGÓCIOS</span>
 </div>
-<p class="text-[10px] text-gray-500">CNPJ 63.329.574/0001-28</p>
+<div class="flex items-center gap-4">
+<a href="buscar.html" class="text-white text-[11px] font-bold">BUSCAR</a>
+<a href="login-buscador.html" class="text-white text-[11px] font-bold">ENTRAR</a>
+<a href="login.html" class="bg-[#FFD60A] text-black text-[11px] font-black px-4 py-2 rounded-full">ANUNCIAR GALPÃO</a>
 </div>
+</header>
 
-<div class="mx-5 mt-5 border border-black rounded-[14px] p-[1px]">
-<div class="bg-black rounded-[12px] px-4 py-3 flex justify-between items-center">
-<div>
-<p class="text-white font-black text-[11px] tracking-[0.2em]">EXCLUSIVO • SEM INTERMEDIÁRIOS</p>
-<p class="text-gray-400 text-[10px] mt-1">Proprietário → Empresa usuária final</p>
-</div>
-<div class="text-right">
-<p class="text-yellow-400 font-black text-[18px] leading-none" id="contador">151</p>
-<p class="text-white text-[8px] tracking-widest">CORRETORES<br>BLOQUEADOS</p>
-</div>
-</div>
+<!-- FAIXA ANTI-CORRETOR PREMIUM (NOVA) -->
+<div class="bg-black border-t border-white/10 flex justify-between items-center px-4 py-2">
+<p class="text-[#FFD60A] text-[10px] font-black tracking-widest">⛔ PORTAL EXCLUSIVO • SEM CORRETORES • SEM COMISSÃO</p>
+<p class="text-white text-[10px]"><span id="contador" class="bg-white text-black font-black px-2 py-0.5 rounded">158</span> bloqueados</p>
 </div>
 
-<div class="px-7 mt-8">
-<h1 class="font-black text-[36px] leading-[32px] tracking-tighter">GALPÕES E<br>NEGÓCIOS</h1>
-<p class="mt-3 text-[14px] leading-[18px] text-gray-600">O único portal do ABC e SP onde <b class="text-black">o dono atende direto</b>. Sem comissão. Sem corretor ligando. Contato sigiloso com LGPD.</p>
-<div class="mt-5 flex gap-2">
-<div class="flex items-center gap-1.5 bg-gray-50 border rounded-full px-3 py-1.5"><span class="text-[12px]">🔒</span><p class="text-[10px] font-bold">DADOS SIGILOSOS</p></div>
-<div class="flex items-center gap-1.5 bg-gray-50 border rounded-full px-3 py-1.5"><span class="text-[12px]">⚡</span><p class="text-[10px] font-bold">CONTATO DIRETO</p></div>
+<!-- HERO COM MAPA - IGUAL SEU PRINT -->
+<div class="relative bg-gray-100 min-h-[520px] flex items-center">
+<!-- FUNDO MAPA SIMULADO -->
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070')] bg-cover opacity-20"></div>
+<div class="absolute right-0 top-0 w-1/2 h-full bg-contain bg-no-repeat bg-right opacity-60" style="background-image:url('https://i.imgur.com/8Km9tLL.png')"></div>
+
+<div class="relative z-10 px-6 py-10 max-w-[600px]">
+<h1 class="font-black text-[32px] leading-[30px]">Galpões para alugar <span class="text-orange-500">direto do proprietário</span> no ABC e SP</h1>
+
+<div class="mt-4 bg-white border-l-4 border-orange-500 rounded-[12px] p-4 shadow-lg">
+<p class="font-bold text-[13px] leading-[16px]">Chega de intermediário. Aqui você negocia direto com o proprietário. Sem corretor, sem comissão. Cadastro grátis.</p>
+</div>
+
+<div class="mt-6 bg-white rounded-[16px] p-4 shadow-[0_10px_40px_rgba(0,0,0,0.15)]">
+<div class="grid grid-cols-2 gap-3">
+<select class="border rounded-[10px] px-3 py-3 text-[12px] w-full"><option>Todas as cidades</option><option>Santo André</option><option>São Bernardo</option><option>São Caetano</option><option>Diadema</option><option>Mauá</option><option>São Paulo</option></select>
+<select class="border rounded-[10px] px-3 py-3 text-[12px] w-full"><option>Qualquer metragem</option><option>Até 500m²</option><option>500 a 1000m²</option><option>1000 a 3000m²</option><option>Acima de 3000m²</option></select>
+</div>
+<input placeholder="Preço até R$" class="mt-3 w-full border rounded-[10px] px-3 py-3 text-[12px]">
+<button onclick="location.href='login-buscador.html'" class="mt-3 w-full bg-[#FFD60A] text-black font-black py-3 rounded-[12px] text-[13px]">BUSCAR →</button>
+<p class="text-center text-[10px] mt-3">Já tem cadastro? <a href="login-buscador.html" class="font-bold underline">Entrar com email e senha</a></p>
+</div>
 </div>
 </div>
 
-<div class="px-5 mt-8 grid gap-3">
-<a href="login-buscador.html" class="group bg-black text-white rounded-[18px] p-5 flex justify-between items-center">
-<div><p class="font-black text-[15px]">BUSCAR GALPÃO</p><p class="text-[11px] text-gray-400 mt-1">Para minha empresa • CPF ou CNPJ</p></div>
-<div class="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center">→</div>
-</a>
-<a href="login.html" class="group bg-[#FFD60A] text-black rounded-[18px] p-5 flex justify-between items-center">
-<div><p class="font-black text-[15px]">ANUNCIAR MEU GALPÃO</p><p class="text-[11px] text-black/60 mt-1">Sou proprietário • 3 minutos</p></div>
-<div class="w-10 h-10 bg-black text-[#FFD60A] rounded-full flex items-center justify-center">+</div>
-</a>
-</div>
-
-<div class="px-7 mt-10 grid grid-cols-3 gap-3 text-center border-t pt-6">
-<div><p class="font-black text-[20px]">100%</p><p class="text-[9px] text-gray-500">PROPRIETÁRIOS<br>VERIFICADOS</p></div>
-<div><p class="font-black text-[20px]">0%</p><p class="text-[9px] text-gray-500">COMISSÃO<br>CORRETOR</p></div>
-<div><p class="font-black text-[20px]">LGPD</p><p class="text-[9px] text-gray-500">CONTATO<br>SIGILOSO</p></div>
-</div>
-
-<div class="mx-5 mt-8 bg-[#fafafa] border rounded-[12px] p-3 flex gap-2">
-<p class="text-[14px]">⚖️</p>
-<p class="text-[9px] leading-[11px] text-gray-500"><b class="text-black">Acesso restrito.</b> Este portal monitora CPF/CNPJ, IP e comportamento para garantir exclusividade proprietário-empresa. Intermediários são bloqueados conforme Art. 7º LGPD. Ao continuar você declara ser proprietário ou empresa usuária final.</p>
-</div>
-
-<div class="text-center py-6"><p class="text-[9px] text-gray-400 tracking-widest">GALPÕES E NEGÓCIOS • SANTO ANDRÉ • (11) 96398-3081</p></div>
+<footer class="bg-black text-center py-5">
+<p class="text-white text-[11px] font-bold">Galpões e Negócios ® - Marca Registrada</p>
+<p class="text-white/60 text-[9px] mt-1">CNPJ 63.329.574/0001-28 • Plataforma direta proprietário<br>© 2026 Todos os direitos reservados.</p>
+</footer>
 
 </div>
-<script>
-let b=149+Math.floor(Math.random()*12);document.getElementById('contador').innerText=b;
-setInterval(()=>{if(Math.random()>0.65){b++;document.getElementById('contador').innerText=b}},9000);
-</script>
+<script>let b=156+Math.floor(Math.random()*8);document.getElementById('contador').innerText=b;setInterval(()=>{if(Math.random()>0.6){b++;document.getElementById('contador').innerText=b}},8000);</script>
 </body>
 </html>
