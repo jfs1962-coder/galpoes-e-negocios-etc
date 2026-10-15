@@ -1,154 +1,24 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cadastrar Galpão - Galpões e Negócios</title>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}body{background:#f5f5f5;overflow-x:hidden}
-.topo{background:#111;color:#fff;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:nowrap;font-size:10px}
-.topo div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.frases{background:#111;padding:12px 10px;text-align:center}
-.frases .frase{background:#FFD700;color:#000;padding:7px 12px;border-radius:20px;font-weight:900;font-size:10px;display:inline-block;max-width:100%;white-space:normal}
-.frases h1{color:#fff;font-size:13px;margin-top:10px;line-height:1.3}
-.box{background:#fff;margin:10px;border-radius:14px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
-.box h2{font-size:15px;font-weight:900}
-.box h3{font-size:12px;font-weight:900;margin-top:18px;margin-bottom:6px;color:#333;text-transform:uppercase;letter-spacing:.5px;border-left:3px solid #FFD700;padding-left:8px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
-input,select,textarea{width:100%;border:1px solid #ddd;border-radius:10px;padding:11px;font-size:12px;background:#fff;min-width:0}
-textarea{min-height:80px;resize:vertical}
-.full{grid-column:1/3}
-.tipo-box{display:flex;gap:8px;margin-top:8px}
-.tipo{flex:1;border:2px solid #ddd;border-radius:12px;padding:11px;text-align:center;cursor:pointer;background:#fff}
-.tipo.ativo{border-color:#FF7A00;background:#fff4e6}
-.tipo b{font-size:11px}
-.checks{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.checks label{font-size:11px;background:#f9f9f9;border:1px solid #eee;padding:7px 10px;border-radius:20px;display:flex;align-items:center;gap:5px;cursor:pointer;margin:0;white-space:nowrap}
-.checks input{width:auto}
-.fotos{border:2px dashed #FFD700;border-radius:12px;padding:14px;text-align:center;background:#fffbe6;margin-top:16px}
-#preview{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;justify-content:center}
-#preview img{width:68px;height:68px;object-fit:cover;border-radius:8px;border:1px solid #ddd}
-.btn{background:#111;color:#FFD700;border:none;border-radius:24px;padding:14px;width:100%;font-weight:900;margin-top:16px;cursor:pointer;font-size:13px}
-.btn2{background:#f3f3f3;color:#111;border:1px solid #ddd;border-radius:24px;padding:12px;width:100%;font-weight:800;margin-top:8px;cursor:pointer;font-size:12px}
-@media(max-width:480px){
-.grid{grid-template-columns:1fr}.full{grid-column:1}.tipo-box{flex-direction:column}
-.topo{font-size:9px;padding:7px 8px}
-.frases h1{font-size:12px}
-.box{margin:8px;padding:12px}
-}
-</style>
-</head><body>
-<div class="topo"><div>✓ SÓ PROPRIETÁRIO • SEM COMISSÃO</div><div style="color:#FFD700;font-weight:800">CNPJ 63.329.574/0001-28</div></div>
-<div class="frases"><div class="frase">PROPRIETÁRIO DIRETO COM VOCÊ - SEM COMISSÕES</div><h1>Galpões de Todos os Tamanhos - ABC e SP - sem intermediário</h1></div>
-
-<div class="box">
-<h2>Cadastrar Galpão - Completo v16</h2>
-<p style="font-size:11px;color:#666;margin-top:4px">* obrigatórios. Área fabril é o que o cliente logístico mais procura.</p>
-
-<h3>1. Tipo do galpão</h3>
-<div class="tipo-box">
-  <div class="tipo ativo" id="t_mono" onclick="setTipo('monousuario')"><b>MONOUSUÁRIO</b><div style="font-size:10px;margin-top:3px">Galpão isolado, só seu</div></div>
-  <div class="tipo" id="t_cond" onclick="setTipo('condominio')"><b>EM CONDOMÍNIO</b><div style="font-size:10px;margin-top:3px">Condomínio logístico</div></div>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cadastrar - Galpões e Negócios</title><script src="https://cdn.tailwindcss.com"></script></head>
+<body class="bg-[#f5f7f9]">
+<header class="bg-black h-[62px] px-6 flex items-center"><a href="/"><img src="/logo.jpg" class="h-10 bg-white rounded-lg px-2 py-1"></a></header>
+<div class="max-w-3xl mx-auto px-6 py-10">
+  <h1 class="font-black text-[32px]">Cadastrar Galpão</h1>
+  <div id="plano-info" class="mt-4 bg-[#FFD60A] rounded-xl p-4 font-bold text-[14px]"></div>
+  <form class="mt-6 bg-white rounded-2xl p-6 space-y-4">
+    <select id="qtd" class="w-full border p-3 rounded-lg"><option value="1">1 Galpão - R$49,90/mês</option><option value="3">3 Galpões - R$99,90/mês</option></select>
+    <input class="w-full border p-3 rounded-lg" placeholder="Título do galpão">
+    <input class="w-full border p-3 rounded-lg" placeholder="Cidade / Estado">
+    <input class="w-full border p-3 rounded-lg" placeholder="Valor do aluguel">
+    <button class="w-full bg-black text-white font-black py-3 rounded-full">CONTINUAR PARA PAGAMENTO</button>
+  </form>
 </div>
-<div class="grid">
-  <select id="finalidade"><option>Locação</option><option>Venda</option><option>Locação e Venda</option></select>
-  <select id="status"><option>Disponível</option><option>Em reforma</option><option>Locado</option></select>
-</div>
-
-<h3>2. Localização</h3>
-<div class="grid">
-  <input id="cep" placeholder="CEP">
-  <select id="cidade"><option value="">Cidade *</option><option>Santo André</option><option>São Bernardo do Campo</option><option>São Caetano do Sul</option><option>Diadema</option><option>Mauá</option><option>São Paulo</option><option>Guarulhos</option></select>
-  <input id="bairro" placeholder="Bairro *" class="full">
-  <input id="endereco" placeholder="Rua / nº (opcional)" class="full">
-  <input id="referencia" placeholder="Referência / Rodovia - ex: Próx. Anchieta" class="full">
-</div>
-
-<h3>3. Medidas e estrutura - padrão portais</h3>
-<div class="grid">
-  <input id="area_total" type="number" placeholder="Área total terreno m² *">
-  <input id="area" type="number" placeholder="Área construída m² *">
-  <input id="area_fabril" type="number" placeholder="Área fabril / armazenamento m² *">
-  <input id="area_esc" type="number" placeholder="Área escritório m²">
-  <input id="mezanino" type="number" placeholder="Mezanino m²">
-  <input id="area_apoio" type="number" placeholder="Área apoio / refeitório m²">
-  <input id="pe" type="number" step="0.1" placeholder="Pé-direito livre (m) * ex: 7">
-  <input id="cap_piso" type="number" placeholder="Cap. piso ton/m² ex: 5">
-  <input id="docas" type="number" placeholder="Nº Docas *">
-  <input id="vagas" type="number" placeholder="Vagas / Estacionamento">
-  <input id="portao" placeholder="Altura portão ex: 5x6m">
-  <select id="piso" class="full"><option value="">Tipo de piso</option><option>Concreto usinado polido</option><option>Concreto</option><option>Intertravado</option><option>Cimento queimado</option></select>
-</div>
-
-<h3>4. Infraestrutura e valores</h3>
-<div class="grid">
-  <select id="energia"><option>Energia: Trifásico</option><option>Monofásico</option><option>Bifásico</option><option>Alta 100kVA+</option><option>Alta 300kVA+</option></select>
-  <input id="valor" type="number" placeholder="Valor aluguel R$ *">
-  <input id="condominio" type="number" placeholder="Condomínio R$ (0 se monousuário)">
-  <input id="iptu" type="number" placeholder="IPTU R$/mês">
-  <input id="whats" placeholder="WhatsApp com DDD *" class="full">
-</div>
-
-<label style="font-size:11px;font-weight:800;margin-top:14px;display:block">Diferenciais (toque nos que tem)</label>
-<div class="checks">
-  <label><input type="checkbox" value="AVCB"> AVCB</label>
-  <label><input type="checkbox" value="Sprinkler"> Sprinkler</label>
-  <label><input type="checkbox" value="Hidrantes"> Hidrantes</label>
-  <label><input type="checkbox" value="Portaria 24h"> Portaria 24h</label>
-  <label><input type="checkbox" value="CFTV"> CFTV</label>
-  <label><input type="checkbox" value="Refeitório"> Refeitório</label>
-  <label><input type="checkbox" value="Vestiário"> Vestiário</label>
-  <label><input type="checkbox" value="Pátio manobra"> Pátio manobra</label>
-  <label><input type="checkbox" value="Niveladora"> Niveladora doca</label>
-  <label><input type="checkbox" value="Cross docking"> Cross docking</label>
-  <label><input type="checkbox" value="Cabine primária"> Cabine primária</label>
-  <label><input type="checkbox" value="Gerador"> Gerador</label>
-</div>
-
-<h3>5. Título e descrição</h3>
-<div class="grid">
-  <input id="titulo" placeholder="Título - Ex: Galpão 450m² fabril 350m² 2 docas Santo André *" class="full">
-  <textarea id="descricao" placeholder="Descrição: fale sobre área fabril, armazenamento, zoneamento, acesso carreta, altura, docas, escritório..." class="full"></textarea>
-</div>
-
-<div class="fotos"><b style="font-size:12px">FOTOS - Até 10 fotos</b><br><input type="file" id="fotos" multiple accept="image/*" onchange="ver(this)" style="margin-top:8px"><div id="contador" style="font-size:11px;margin-top:6px">0 / 10 fotos</div><div id="preview"></div></div>
-
-<button class="btn" onclick="salvar()">SALVAR E IR PARA PAGAMENTO →</button>
-<button class="btn2" onclick="location.href='./painel.html'">Salvar depois</button>
-<p id="msg" style="text-align:center;font-size:11px;margin-top:10px"></p>
-</div>
-
 <script>
-const supa = supabase.createClient('https://SEU-PROJETO.supabase.co','SUA_ANON_KEY');
-let arquivos=[]; 
-let tipoGalpao='monousuario';
-function setTipo(t){tipoGalpao=t;document.getElementById('t_mono').classList.toggle('ativo',t==='monousuario');document.getElementById('t_cond').classList.toggle('ativo',t==='condominio');}
-function ver(input){let novos=Array.from(input.files); if(arquivos.length+novos.length>10){alert('Máximo 10 fotos'); novos=novos.slice(0,10-arquivos.length);} arquivos=arquivos.concat(novos).slice(0,10); const prev=document.getElementById('preview'); prev.innerHTML=''; arquivos.forEach(f=>{const r=new FileReader(); r.onload=e=>prev.innerHTML+=`<img src="${e.target.result}">`; r.readAsDataURL(f);}); document.getElementById('contador').innerText=arquivos.length+' / 10 fotos';}
-async function salvar(){
-  const cidade=document.getElementById('cidade').value;
-  const bairro=document.getElementById('bairro').value;
-  const area=document.getElementById('area').value;
-  const area_fabril=document.getElementById('area_fabril').value;
-  const valor=document.getElementById('valor').value;
-  const whats=document.getElementById('whats').value;
-  const titulo=document.getElementById('titulo').value;
-  if(!cidade||!bairro||!area||!area_fabril||!valor||!whats||!titulo){document.getElementById('msg').innerText='Preencha os campos com * (inclui área fabril)';document.getElementById('msg').style.color='red';return;}
-  const checks=[...document.querySelectorAll('.checks input:checked')].map(c=>c.value);
-  const galpao={
-    tipo:tipoGalpao, cidade, bairro, 
-    area_total:document.getElementById('area_total').value, 
-    area_construida:area,
-    area_fabril:area_fabril,
-    area_escritorio:document.getElementById('area_esc').value,
-    mezanino:document.getElementById('mezanino').value,
-    area_apoio:document.getElementById('area_apoio').value,
-    pe_direito:document.getElementById('pe').value, 
-    cap_piso:document.getElementById('cap_piso').value,
-    docas:document.getElementById('docas').value, 
-    piso:document.getElementById('piso').value,
-    preco:Number(valor), whats, titulo, 
-    descricao:document.getElementById('descricao').value, 
-    diferenciais:checks, 
-    foto:'./hero.jpg?v=16'
-  };
-  let galpoes=JSON.parse(localStorage.getItem('gn_galpoes')||'[]');galpoes.push(galpao);localStorage.setItem('gn_galpoes',JSON.stringify(galpoes));
-  const urlParams=new URLSearchParams(window.location.search); const plano=urlParams.get('plano')||'3';
-  location.href=`pagar.html?plano=${plano}`;
-}
-</script></body></html>
+ const p=new URLSearchParams(location.search).get('plano');
+ const q=document.getElementById('qtd'); const info=document.getElementById('plano-info');
+ if(p==='3'){q.value='3'; info.innerText='Você selecionou: 3 GALPÕES por R$99,90/mês (R$33,30 cada)';}else{info.innerText='Você selecionou: 1 GALPÃO por R$49,90/mês';}
+ q.addEventListener('change',e=>{info.innerText=e.target.value==='3'?'Você selecionou: 3 GALPÕES por R$99,90/mês':'Você selecionou: 1 GALPÃO por R$49,90/mês'})
+</script>
+</body>
+</html>
