@@ -6,45 +6,19 @@
 <title>Galpões e Negócios</title>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-black min-h-screen flex flex-col">
-
-<header class="bg-black px-4 md:px-8 py-2.5 flex justify-between items-center z-50">
-  <a href="/" class="bg-white rounded-[12px] px-3 py-1.5 flex items-center gap-2">
-    <img src="/logo-header.png" class="h-8 hidden" onerror="this.style.display='none'">
-    <div class="flex items-center gap-2">
-      <div class="w-8 h-8 bg-black rounded-[8px] flex items-center justify-center"><span class="text-[#FFD60A] font-black">G</span></div>
-      <div class="leading-[10px]"><p class="font-black text-[11px] text-black">GALPÕES &</p><p class="font-black text-[11px] text-black">NEGÓCIOS</p></div>
-    </div>
+<body class="bg-black">
+<header class="bg-[#0a0a0a] px-4 md:px-8 py-3 flex justify-between items-center">
+  <a href="/" class="bg-white rounded-[18px] px-4 py-2 flex items-center">
+    <img src="/logo.jpg" class="h-[48px] w-auto" alt="Galpões e Negócios">
   </a>
-  <nav class="flex items-center gap-6">
-    <a href="/buscar.html" class="text-[#FFD60A] text-[11px] font-black">BUSCAR</a>
-    <a href="/login.html" class="text-white text-[11px] font-bold">ENTRAR</a>
-    <a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[11px] font-black px-5 py-2.5 rounded-full">ANUNCIAR GALPÃO</a>
+  <nav class="flex items-center gap-5 md:gap-8">
+    <a href="/buscar.html" class="text-[#FFD60A] text-[13px] font-black">BUSCAR</a>
+    <a href="/login.html" class="text-white text-[13px] font-bold">ENTRAR</a>
+    <a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[13px] font-black px-6 py-3 rounded-full">ANUNCIAR GALPÃO</a>
   </nav>
 </header>
-
-<section class="relative w-full flex-1 min-h-[calc(100vh-48px)] bg-[#d6dde3] overflow-hidden">
-  <img src="/hero.jpg" class="absolute inset-0 w-full h-full object-cover object-top">
-
-  <!-- 1. SELO AMARELO - SÓ NA ESQUERDA, COMO VOCÊ QUER -->
-  <div class="absolute top-3 left-3 md:top-4 md:left-4 z-20">
-    <div class="bg-[#FFD60A] text-black border-2 border-black px-4 py-2 rounded-[12px] shadow-lg max-w-[280px]">
-      <p class="font-black text-[12px] md:text-[13px] leading-[1.1]">
-        🔒 Sem corretor e Sem comissão,<br>
-        Economia de 100% do primeiro Aluguel
-      </p>
-    </div>
-  </div>
-
-  <!-- 2. TÍTULO PRINCIPAL - MENOR, IGUAL SUA PRINT -->
-  <div class="absolute left-4 md:left-8 top-[38%] md:top-[48%] -translate-y-1/2 z-20 max-w-[460px]">
-    <h1 class="font-black text-[28px] md:text-[38px] leading-[0.95] drop-shadow-[0_2px_8px_rgba(255,255,255,0.9)]">
-      <span class="text-white" style="-webkit-text-stroke: 0.5px rgba(0,0,0,0.3);">Galpões para alugar</span><br>
-      <span class="text-[#FF6A00]">direto do proprietário</span><br>
-      <span class="text-white" style="-webkit-text-stroke: 0.5px rgba(0,0,0,0.3);">com o Locatário</span>
-    </h1>
-  </div>
+<section class="w-full">
+  <img src="/hero.jpg" class="w-full h-auto object-cover">
 </section>
-
 </body>
 </html>
