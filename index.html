@@ -9,41 +9,40 @@
 <body class="bg-black min-h-screen flex flex-col">
 
 <header class="bg-black px-4 md:px-8 py-2.5 flex justify-between items-center z-50">
-  <a href="/" class="bg-white rounded-full px-3.5 py-1.5 flex items-center gap-2.5">
-    <div class="w-8 h-8 bg-black rounded-[10px] flex items-center justify-center"><span class="text-[#FFD60A] font-black text-[20px]">G</span></div>
-    <div class="leading-[10px]"><p class="font-black text-[11px] text-black">GALPÕES E</p><p class="font-black text-[11px] text-black">NEGÓCIOS</p></div>
+  <a href="/" class="bg-white rounded-[12px] px-3 py-1.5 flex items-center gap-2">
+    <img src="/logo-header.png" class="h-8 hidden" onerror="this.style.display='none'">
+    <div class="flex items-center gap-2">
+      <div class="w-8 h-8 bg-black rounded-[8px] flex items-center justify-center"><span class="text-[#FFD60A] font-black">G</span></div>
+      <div class="leading-[10px]"><p class="font-black text-[11px] text-black">GALPÕES &</p><p class="font-black text-[11px] text-black">NEGÓCIOS</p></div>
+    </div>
   </a>
   <nav class="flex items-center gap-6">
-    <a href="/buscar.html" class="text-[#FFD60A] text-[11px] font-black tracking-widest">BUSCAR</a>
-    <a href="/login.html" class="text-white text-[11px] font-bold tracking-widest">ENTRAR</a>
+    <a href="/buscar.html" class="text-[#FFD60A] text-[11px] font-black">BUSCAR</a>
+    <a href="/login.html" class="text-white text-[11px] font-bold">ENTRAR</a>
     <a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[11px] font-black px-5 py-2.5 rounded-full">ANUNCIAR GALPÃO</a>
   </nav>
 </header>
 
-<section class="relative flex-1 min-h-[calc(100vh-50px)] bg-[#0f0f0f] overflow-hidden flex flex-col">
-  <!-- Imagem de fundo -->
-  <img src="/hero.jpg" class="absolute inset-0 w-full h-full object-cover object-center opacity-90">
-  <!-- Escurece para esconder o logo duplicado que já existe no hero.jpg e limpar a poluição -->
-  <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30"></div>
-  <div class="absolute inset-0 bg-black/30"></div>
+<section class="relative w-full flex-1 min-h-[calc(100vh-48px)] bg-[#d6dde3] overflow-hidden">
+  <img src="/hero.jpg" class="absolute inset-0 w-full h-full object-cover object-top">
 
-  <div class="relative z-10 px-6 md:px-16 flex-1 flex flex-col justify-center max-w-5xl">
-    <h1 class="font-black text-white text-[46px] md:text-[72px] lg:text-[82px] leading-[0.82] tracking-[-0.05em] drop-shadow-2xl">
-      Galpões para<br>
-      alugar<br>
-      <span class="text-[#FF6A00]">direto do<br>proprietário</span>
-    </h1>
-
-    <!-- Selo limpo, não em cima do mapa -->
-    <div class="mt-8">
-      <div class="inline-flex items-center bg-[#FFD60A] text-black px-6 md:px-8 py-3.5 rounded-full font-black text-[13px] md:text-[15px] leading-tight shadow-[0_8px_30px_rgba(255,214,10,0.3)]">
-        🔒 Sem corretor e Sem comissão • Economia de 100% do 1º Aluguel
-      </div>
+  <!-- 1. SELO AMARELO - SÓ NA ESQUERDA, COMO VOCÊ QUER -->
+  <div class="absolute top-3 left-3 md:top-4 md:left-4 z-20">
+    <div class="bg-[#FFD60A] text-black border-2 border-black px-4 py-2 rounded-[12px] shadow-lg max-w-[280px]">
+      <p class="font-black text-[12px] md:text-[13px] leading-[1.1]">
+        🔒 Sem corretor e Sem comissão,<br>
+        Economia de 100% do primeiro Aluguel
+      </p>
     </div>
   </div>
 
-  <div class="relative z-10 bg-[#FFD60A] text-black text-center py-2.5 text-[10px] font-black tracking-[-0.02em] tracking-widest">
-    PORTAL EXCLUSIVO • SEM CORRETORES • SEM COMISSÃO • SÓ PROPRIETÁRIO DIRETO
+  <!-- 2. TÍTULO PRINCIPAL - MENOR, IGUAL SUA PRINT -->
+  <div class="absolute left-4 md:left-8 top-[38%] md:top-[48%] -translate-y-1/2 z-20 max-w-[460px]">
+    <h1 class="font-black text-[28px] md:text-[38px] leading-[0.95] drop-shadow-[0_2px_8px_rgba(255,255,255,0.9)]">
+      <span class="text-white" style="-webkit-text-stroke: 0.5px rgba(0,0,0,0.3);">Galpões para alugar</span><br>
+      <span class="text-[#FF6A00]">direto do proprietário</span><br>
+      <span class="text-white" style="-webkit-text-stroke: 0.5px rgba(0,0,0,0.3);">com o Locatário</span>
+    </h1>
   </div>
 </section>
 
