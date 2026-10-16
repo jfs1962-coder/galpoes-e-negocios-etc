@@ -5,33 +5,36 @@
 <title>Entrar - Galpões e Negócios</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-body{background-color:#eef2f6;background-image:url('/hero.jpg');background-repeat:no-repeat;background-position:top center;background-size:100% auto;font-family:Arial,sans-serif}
-@media(max-width:768px){body{background-image:url('/hero-mobile.jpg')}}
+body{background-color:#eef2f6; font-family:Arial,sans-serif; position:relative}
+body::before{content:""; position:fixed; inset:0; background-image:url('/hero.jpg'); background-size:100% auto; background-position:top center; background-repeat:no-repeat; opacity:0.12; pointer-events:none; z-index:-1}
+@media(max-width:768px){body::before{background-image:url('/hero-mobile.jpg'); opacity:0.15}}
+.tab-active{border-bottom:3px solid #FFD60A; font-weight:900}
 </style>
 </head>
 <body class="min-h-screen">
 <header class="bg-black h-[62px] px-3 md:px-8 flex justify-between items-center sticky top-0 z-50">
-  <a href="/" class="bg-white rounded-xl px-2 py-1"><img src="/logo.jpg" class="h-[40px] w-auto object-contain"></a>
-  <nav class="flex items-center gap-3 md:gap-6">
-    <a href="/buscar.html" class="text-white text-[12px] font-bold">BUSCAR</a>
-    <a href="/login.html" class="text-[#FFD60A] text-[12px] font-black">ENTRAR</a>
-    <a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[11px] font-black px-4 py-2.5 rounded-full">ANUNCIAR GALPÃO</a>
-  </nav>
+  <a href="/" class="bg-white rounded-xl px-2 py-1"><img src="/logo.jpg" class="h-[40px]"></a>
+  <nav class="flex items-center gap-3"><a href="/buscar.html" class="text-white text-[12px] font-bold">BUSCAR</a><a href="/cadastrar-galpao.html" class="bg-[#FFD60A] text-black text-[11px] font-black px-4 py-2.5 rounded-full">ANUNCIAR GALPÃO</a></nav>
 </header>
+
 <div class="min-h-[calc(100vh-62px)] flex items-center justify-center p-4">
-  <div class="bg-white rounded-[24px] p-8 w-full max-w-[440px] shadow-xl border border-zinc-100">
-    <h1 class="font-black text-[24px] text-center leading-tight">Entrar na sua conta</h1>
-    <p class="text-[11px] text-zinc-500 text-center mt-1">GALPOES E NEGOCIOS INTERNET LTDA - ME • CNPJ 63.329.574/0001-28</p>
-    <div class="mt-7 space-y-3">
-      <input type="email" placeholder="Seu e-mail" class="w-full p-3.5 rounded-xl border border-zinc-200 bg-zinc-50 text-[14px] outline-none focus:border-black">
-      <input type="password" placeholder="Sua senha" class="w-full p-3.5 rounded-xl border border-zinc-200 bg-zinc-50 text-[14px] outline-none focus:border-black">
+  <div class="bg-white rounded-[20px] w-full max-w-[420px] shadow-xl border overflow-hidden">
+    <div class="p-6 pb-0 text-center">
+      <div class="flex justify-center items-center gap-2 mb-6"><img src="/logo.jpg" class="h-9"><span class="font-black text-[13px] text-left leading-none">GALPÕES<br>& NEGÓCIOS</span></div>
+      <div class="flex border-b">
+        <button class="flex-1 py-3 text-[13px] tab-active">Entrar</button>
+        <a href="/criar-conta.html" class="flex-1 py-3 text-[13px] text-zinc-500 font-bold">Criar conta</a>
+      </div>
     </div>
-    <button class="mt-6 w-full bg-black text-[#FFD60A] font-black p-4 rounded-full text-[13px]">ENTRAR</button>
-    <div class="mt-5 text-center space-y-2">
-      <p class="text-[12px]"><a href="#" class="underline">Esqueci minha senha</a></p>
-      <p class="text-[12px]">Não tem conta? <a href="/cadastrar-galpao.html" class="font-black underline">Anunciar galpão por R$49,90</a></p>
+    <div class="p-6">
+      <div class="space-y-3">
+        <div><label class="text-[11px] font-bold">E-mail</label><input type="email" placeholder="Digite seu e-mail" class="mt-1 w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 px-3 text-[13px] outline-none focus:border-black"></div>
+        <div><label class="text-[11px] font-bold">Senha</label><input type="password" placeholder="Digite sua senha" class="mt-1 w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 px-3 text-[13px] outline-none focus:border-black"></div>
+      </div>
+      <button class="mt-5 w-full bg-black text-[#FFD60A] font-black py-3.5 rounded-full text-[13px]">ENTRAR</button>
+      <p class="mt-4 text-[11px] text-center"><a href="/criar-conta.html" class="font-bold underline">Não tem conta? Criar conta agora por R$49,90</a></p>
+      <p class="mt-2 text-[10px] text-center text-zinc-400">PIX CNPJ: 63.329.574/0001-28</p>
     </div>
-    <p class="text-[10px] text-zinc-400 text-center mt-8 leading-relaxed">Seus dados protegidos pela LGPD.<br>PIX oficial no CNPJ 63.329.574/0001-28</p>
   </div>
 </div>
 </body>
